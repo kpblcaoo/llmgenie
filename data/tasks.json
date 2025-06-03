@@ -128,7 +128,10 @@
       "epic": "epic_project_split_2024",
       "status": "draft",
       "tags": ["split", "archive", "review", "llmstruct", "llmgenie", "docs"],
-      "created": "2024-06-11T00:00:00Z"
+      "created": "2024-06-11T00:00:00Z",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmstruct"
     },
     {
       "id": "TSK-2024-06-11-02",
@@ -137,7 +140,10 @@
       "epic": "epic_project_split_2024",
       "status": "draft",
       "tags": ["split", "llmstruct", "cli", "validator"],
-      "created": "2024-06-11T01:00:00Z"
+      "created": "2024-06-11T01:00:00Z",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmstruct"
     },
     {
       "id": "TSK-2024-06-11-03",
@@ -146,7 +152,10 @@
       "epic": "epic_project_split_2024",
       "status": "draft",
       "tags": ["workflow", "ai", "roles", "llmstruct", "developer", "cli", "docs", "task"],
-      "created": "2024-06-11T01:30:00Z"
+      "created": "2024-06-11T01:30:00Z",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmstruct"
     },
     {
       "id": "TSK-2024-06-11-04",
@@ -155,7 +164,10 @@
       "epic": "epic_ai_workflow_rules_2024",
       "status": "draft",
       "tags": ["workflow", "rules", "architecture", "ai", "llmstruct", "cursor"],
-      "created": "2024-06-11T02:00:00Z"
+      "created": "2024-06-11T02:00:00Z",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmstruct"
     },
     {
       "id": "TASK-2024-06-12-ENF-STRUCTURED-RULES",
@@ -163,7 +175,10 @@
       "title": "Структурировать правила enforcement (yaml/json) и интегрировать в workflow",
       "status": "todo",
       "tags": ["enforcement", "rules", "yaml", "json", "workflow"],
-      "date": "2024-06-12"
+      "date": "2024-06-12",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmstruct"
     },
     {
       "id": "TASK-2024-06-12-ENF-DECORATORS",
@@ -171,7 +186,10 @@
       "title": "Внедрить enforcement-декораторы и middleware для CLI/AI actions",
       "status": "todo",
       "tags": ["enforcement", "decorators", "middleware", "cli", "ai"],
-      "date": "2024-06-12"
+      "date": "2024-06-12",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmstruct"
     },
     {
       "id": "TASK-2024-06-12-ENF-LOGGING",
@@ -179,7 +197,10 @@
       "title": "Автоматизировать логирование всех действий и mode switches",
       "status": "todo",
       "tags": ["enforcement", "logging", "workflow", "automation"],
-      "date": "2024-06-12"
+      "date": "2024-06-12",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmstruct"
     },
     {
       "id": "TASK-2024-06-12-ENF-SELFHEALING",
@@ -187,7 +208,10 @@
       "title": "Встроить self-healing: attention_marker, llm_context, meta-log recovery",
       "status": "todo",
       "tags": ["enforcement", "self_healing", "attention_marker", "llm_context", "meta_log"],
-      "date": "2024-06-12"
+      "date": "2024-06-12",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmstruct"
     },
     {
       "id": "TASK-2024-06-12-ENF-IDE-CI",
@@ -195,7 +219,10 @@
       "title": "Интеграция enforcement с IDE и CI/CD (pre-commit, плагины)",
       "status": "todo",
       "tags": ["enforcement", "ide", "ci_cd", "pre_commit", "plugins"],
-      "date": "2024-06-12"
+      "date": "2024-06-12",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmstruct"
     },
     {
       "id": "TASK-2024-06-12-ENF-DOCS",
@@ -203,7 +230,61 @@
       "title": "Документировать enforcement & self-healing для onboarding",
       "status": "todo",
       "tags": ["enforcement", "docs", "onboarding", "best_practices"],
-      "date": "2024-06-12"
+      "date": "2024-06-12",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmstruct"
+    },
+    {
+      "id": "Project Boundaries & Workflow Separation",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "shared",
+      "tasks": [
+        {"title": "Log symlink creation/restoration in event_log/meta-log", "author": "ai_assistant", "assignee": "ai_assistant", "project": "shared"},
+        {"title": "Document symlink usage and rules in .cursor/rules/ and docs/EPIC_PROJECT_BOUNDARIES.md", "author": "ai_assistant", "assignee": "ai_assistant", "project": "shared"},
+        {"title": "Update .gitignore and README/dev_guide with symlink info", "author": "ai_assistant", "assignee": "ai_assistant", "project": "shared"},
+        {"title": "Ensure all inter-project dependencies are via requirements/pyproject", "author": "ai_assistant", "assignee": "ai_assistant", "project": "shared"}
+      ]
+    },
+    {
+      "id": "TSK-2025-06-03-LLMGENIE-STATE",
+      "title": "Анализ и внедрение workspace_state.json для управления сессиями, режимами и правами в llmgenie",
+      "description": "Проанализировать содержимое workspace_state.json, определить, какие элементы нужны для автоматизации и прозрачности работы ассистента. Внедрять поэтапно, с учётом интеграции с tasks.json, event_log и другими workflow-файлами. Зафиксировать назначение файла как части llmgenie.",
+      "epic": "epic_llmgenie_modularity",
+      "status": "idea",
+      "priority": "high",
+      "tags": ["llmgenie", "state", "workflow", "automation", "session", "permissions"],
+      "created": "2025-06-03T10:41:23+03:00",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmgenie"
+    },
+    {
+      "id": "TSK-2025-06-03-LLMGENIE-PLANNING",
+      "title": "Фиксация и развитие идей по мульти-проектности и масштабируемости llmgenie",
+      "description": "Зафиксировать в tasks.json и ideas.json все обсуждения по мульти-проектности, projects.json, разделению задач по project, обновлению дат, и интеграции новых инструментов. Подготовить шаблоны и best practices для новых проектов.",
+      "epic": "epic_llmgenie_modularity",
+      "status": "idea",
+      "priority": "high",
+      "tags": ["llmgenie", "planning", "multi_project", "scalability", "best_practices"],
+      "created": "2025-06-03T10:41:23+03:00",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmgenie"
+    },
+    {
+      "id": "TSK-2025-06-03-PLANNING-BEST-PRACTICES",
+      "title": "Автоматизация дат, ревизия project data и best practices фиксации идей/инсайтов/планов для llmgenie и llmstruct",
+      "description": "Внедрить автоматическую генерацию и обновление дат (created, updated) для всех задач, идей и инсайтов. Регулярно проводить ревизию project data (tasks.json, ideas.json, insights.json) и архивировать старые версии. Зафиксировать best practices по фиксации идей, инсайтов и планов в .cursor/rules/ и docs/. Обеспечить прозрачность и воспроизводимость планирования для обеих платформ.",
+      "epic": "epic_llmgenie_modularity",
+      "status": "idea",
+      "priority": "high",
+      "tags": ["llmgenie", "llmstruct", "planning", "dates", "best_practices", "automation", "archive"],
+      "created": "2025-06-03T10:41:23+03:00",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "shared"
     }
   ]
 }
