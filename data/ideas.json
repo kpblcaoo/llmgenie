@@ -311,6 +311,14 @@
       "status": "draft",
       "tags": ["knowledge_base", "workflow", "roles", "automation", "llmstruct", "llmgenie", "cursor", "vscode", "copilot", "ollama", "api_models"],
       "created": "2024-06-12T00:00:00Z"
+    },
+    {
+      "id": "IDEA-2024-06-05-centralized-mapping-mdc",
+      "title": "Централизовать все mapping-матрицы (теги-ролей, environments, моделей и т.д.) в отдельные .mdc_ файлы",
+      "description": "Вынести все справочные структуры (mapping тегов и ролей, environments, моделей, протоколов и т.д.) в отдельные .mdc_ файлы в .cursor/rules. Ссылаться на них из других правил для масштабируемости, прозрачности и поддержки единой точки правды.",
+      "status": "todo",
+      "tags": ["workflow", "rules", "mapping", "scalability"],
+      "created": "2024-06-05"
     }
   ]
 }
