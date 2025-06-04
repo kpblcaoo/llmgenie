@@ -69,4 +69,30 @@
 
 ---
 
+# Раздел: Project Rules & Automation (Cursor IDE)
+
+## Новая структура .cursor/rules
+- Каталоги: core/, workflows/, roles/, languages/, security/, templates/
+- Все правила оформляются как .md с frontmatter (description, alwaysApply, globs)
+- После ревизии и согласования — переименовывать в .mdc
+
+## Примеры frontmatter
+- alwaysApply (базовые стандарты)
+- globs (файловые паттерны)
+- agent requested (ситуативные/ролевые)
+
+## Workflow ревизии
+- Анализ → преобразование → тестирование → обновление документации → архивация
+- Все изменения фиксируются в event_log/meta-log и decision memos
+- Lessons learned и рекомендации — в knowledge/cursor.md
+
+## Рекомендации
+- Регулярно ревизировать правила на дубли, избыточность, общность описаний
+- Документировать изменения в project_state.json, rules_manifest.json
+- Использовать agent requested для ситуативных сценариев, alwaysApply — для стандартов, globs — для паттернов
+
+## Ссылки
+- decision_memos/* (структура, чеклисты, анализ)
+- knowledge/cursor.md (актуальные best practices)
+
 _Этот документ будет дополняться по мере развития проекта и best practices._ 

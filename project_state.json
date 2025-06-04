@@ -67,5 +67,20 @@
       "coder → librarian → reviewer: код написан, документация оформлена, проведён ревью",
       "devops → engineer: после деплоя автоматически активируется режим доработки кода"
     ]
+  },
+  "cursor_rules": {
+    "structure": ["core/", "workflows/", "roles/", "languages/", "security/", "templates/"],
+    "file_format": ".md (frontmatter: description, alwaysApply, globs)",
+    "rename_policy": "После ревизии и согласования — .md → .mdc",
+    "frontmatter_types": ["alwaysApply", "globs", "agent requested (description, alwaysApply: false)"],
+    "workflow": "Анализ → преобразование → тестирование → обновление документации → архивация",
+    "logging": "Все изменения фиксируются в event_log/meta-log и decision memos",
+    "lessons_learned": "knowledge/cursor.md",
+    "recommendations": [
+      "Регулярно ревизировать правила на дубли, избыточность, общность описаний",
+      "Документировать изменения в rules_manifest.json, onboarding",
+      "Использовать agent requested для ситуативных сценариев, alwaysApply — для стандартов, globs — для паттернов"
+    ],
+    "links": ["docs/ONBOARDING_LLMGENIE.md", "decision_memos/*", "knowledge/cursor.md"]
   }
 } 
