@@ -311,6 +311,15 @@
       "author": "kpblc",
       "assignee": "ai_assistant",
       "project": "llmgenie"
+    },
+    {
+      "id": "TSK-2024-06-knowledge-base-setup",
+      "title": "Реализация структуры knowledge base и роли knowledge-engineer",
+      "description": "Создать папки docs/knowledge и data/knowledge (envs, models). Подготовить шаблоны md и json для основных сред (Cursor, VSCode, Copilot, Ollama, API моделей) и моделей (gpt-4, llama3, mixtral и др.). Описать роль knowledge-engineer и workflow пополнения базы знаний, включая автоматизацию поиска и принятия знаний от пользователя.",
+      "epic": "meta_knowledge_management",
+      "status": "draft",
+      "tags": ["knowledge_base", "roles", "workflow", "automation", "llmstruct", "llmgenie", "cursor", "vscode", "copilot", "ollama", "api_models"],
+      "created": "2024-06-12T00:00:00Z"
     }
   ]
 }

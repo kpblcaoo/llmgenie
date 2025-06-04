@@ -302,6 +302,15 @@
       "status": "backlog",
       "tags": ["knowledge", "integrations", "best practices", "workflow", "roles", "automation", "planning", "ai_assistant"],
       "created": "2025-06-04"
+    },
+    {
+      "id": "IDEA-2024-06-knowledge-base",
+      "title": "База знаний по средам и моделям + роль knowledge-engineer",
+      "description": "Создать структуру docs/knowledge (md для пользователя) и data/knowledge (json для AI) с базой знаний по основным средам (Cursor, VSCode, Copilot, Ollama, API моделей) и моделям (gpt-4, llama3, mixtral и др.). Ввести роль knowledge-engineer для пополнения и ревизии базы знаний, автоматизации поиска и принятия знаний от пользователя. Описать workflow для пополнения базы знаний и интеграции с правилами.",
+      "epic": "meta_knowledge_management",
+      "status": "draft",
+      "tags": ["knowledge_base", "workflow", "roles", "automation", "llmstruct", "llmgenie", "cursor", "vscode", "copilot", "ollama", "api_models"],
+      "created": "2024-06-12T00:00:00Z"
     }
   ]
 }
