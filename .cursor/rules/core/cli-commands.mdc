@@ -1,6 +1,5 @@
 ---
 description: CLI commands reference and workflow
-globs: 
 alwaysApply: false
 ---
 # CLI Commands Reference
@@ -37,4 +36,4 @@ python scripts/log_viewer.py --epic logging_transparency_audit --format table
 ```
 
 ## Ссылки
-- Подробности и новые примеры: docs/ONBOARDING_LLMSTRUCT.md, docs/BEST_PRACTICES_LLMSTRUCT.md
+- Подробности и новые примеры: docs/ONBOARDING_LLMSTRUCT.md, docs/BEST_PRACTICES_LLMSTRUCT.md 

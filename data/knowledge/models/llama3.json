@@ -1,0 +1,17 @@
+{
+  "model": "llama3",
+  "description": "Open-source LLM by Meta, high quality, large context, requires significant resources.",
+  "platforms": ["ollama", "lm studio", "huggingface"],
+  "best_practices": [
+    "Use latest weights and tokenizer.",
+    "Check platform compatibility.",
+    "Test latency and memory usage for production."
+  ],
+  "common_pitfalls": [
+    "Weights/engine version mismatch.",
+    "Insufficient memory for inference."
+  ],
+  "docs_links": [
+    "https://github.com/meta-llama/llama3"
+  ]
+} 

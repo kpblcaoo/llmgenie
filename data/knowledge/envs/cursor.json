@@ -1,0 +1,20 @@
+{
+  "env": "cursor",
+  "symlink_policy": "Symlinks only for local dev, must be in .gitignore, not for production.",
+  "logging": "Separate event_log, tech_log, meta-log per session.",
+  "session_control": "Always work in a dedicated branch/session. Log all key actions.",
+  "agent_rule_support": true,
+  "best_practices": [
+    "Check develop branch before work.",
+    "Log all actions and errors.",
+    "Use only relative symlinks for local dev."
+  ],
+  "common_pitfalls": [
+    "Working with outdated files (no git pull)",
+    "Symlinks not in .gitignore"
+  ],
+  "docs_links": [
+    "docs/knowledge/cursor.md",
+    "docs/ONBOARDING_LLMSTRUCT.md"
+  ]
+} 

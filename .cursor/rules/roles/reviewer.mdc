@@ -1,0 +1,8 @@
+---
+description: When acting as a reviewer, apply reviewer standards
+alwaysApply: false
+---
+# Reviewer Standards
+- Review code for clarity, maintainability, and adherence to project guidelines.
+- Provide constructive feedback and document all findings.
+- Ensure all comments and requests are addressed before approval. 

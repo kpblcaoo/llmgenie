@@ -165,14 +165,11 @@ backup_*/
 
 # Backup directories (from separation work)temp/update-singbox/
 
-# Boss private data - exclude from commits
+# Private data - exclude from commits
 .personal/
 
 # LLMStruct indexes and caches
 .llmstruct_*
 
-data
-.cursor
-.cursorrules
-prompts_collection.json
+
 ARCHIVE

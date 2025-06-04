@@ -1,0 +1,170 @@
+{
+  "logging": "Log all key actions, errors, and mode switches. Use separate event_log, tech_log, meta-log per session. Automate log collection and retrospectives for production.",
+  "best_practices": [
+    "Check data and model/plugin versions for relevance.",
+    "Use only trusted sources and extensions.",
+    "Implement fallback and error handling for production."
+  ],
+  "common_pitfalls": [
+    "Outdated files/models.",
+    "Version compatibility issues.",
+    "Insufficient logging."
+  ],
+  "docs_links": [
+    "docs/ONBOARDING_LLMSTRUCT.md",
+    "docs/knowledge/*"
+  ],
+  "knowledge_base": {
+    "version": "1.0.0",
+    "last_global_review": "2025-06-12",
+    "next_review_due": "2025-09-12",
+    "total_integrations": 8,
+    "coverage": {
+      "envs": 5,
+      "models": 3,
+      "protocols": 6
+    }
+  },
+  "envs": [
+    {
+      "id": "cursor",
+      "name": "Cursor IDE",
+      "provider": "Cursor",
+      "file": "cursor_integration",
+      "last_reviewed": "2025-06-12",
+      "status": "active"
+    },
+    {
+      "id": "vscode",
+      "name": "VSCode",
+      "provider": "Microsoft",
+      "file": "vscode_integration",
+      "last_reviewed": "2025-06-12",
+      "status": "active"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "provider": "Ollama",
+      "file": "ollama_integration",
+      "last_reviewed": "2025-06-12",
+      "status": "active"
+    },
+    {
+      "id": "copilot",
+      "name": "GitHub Copilot",
+      "provider": "GitHub",
+      "file": "copilot_integration",
+      "last_reviewed": "2025-06-12",
+      "status": "active"
+    },
+    {
+      "id": "api_models",
+      "name": "API коммерческих моделей",
+      "provider": "Various",
+      "file": "api_models_integration",
+      "last_reviewed": "2025-06-12",
+      "status": "active"
+    }
+  ],
+  "models": [
+    {
+      "id": "gpt4",
+      "name": "GPT-4",
+      "provider": "OpenAI",
+      "file": "gpt4_integration",
+      "last_reviewed": "2025-06-12",
+      "status": "active"
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "provider": "Anthropic",
+      "file": "claude_integration",
+      "last_reviewed": "2025-06-12",
+      "status": "active"
+    },
+    {
+      "id": "llama3",
+      "name": "Llama3",
+      "provider": "Meta",
+      "file": "llama3_integration",
+      "last_reviewed": "2025-06-12",
+      "status": "active"
+    }
+  ],
+  "protocols": [
+    {
+      "id": "rules",
+      "name": ".cursor/rules",
+      "supported_by": ["cursor"],
+      "status": "cursor_specific"
+    },
+    {
+      "id": "cli",
+      "name": "Command Line Interface",
+      "supported_by": ["ollama", "llama3"],
+      "status": "active"
+    },
+    {
+      "id": "api",
+      "name": "REST API",
+      "supported_by": ["api_models", "gpt4", "claude", "llama3"],
+      "status": "active"
+    },
+    {
+      "id": "mcp",
+      "name": "Model Context Protocol",
+      "supported_by": ["vscode", "copilot", "claude"],
+      "status": "active"
+    },
+    {
+      "id": "lsp",
+      "name": "Language Server Protocol",
+      "supported_by": ["vscode"],
+      "status": "active"
+    },
+    {
+      "id": "toolspec",
+      "name": "Tool Specification",
+      "supported_by": ["vscode"],
+      "status": "active"
+    }
+  ],
+  "templates": {
+    "env_integration": {
+      "md": "docs/knowledge/templates/env_integration_template.md",
+      "json": "data/knowledge/templates/env_integration_template.json"
+    },
+    "model_integration": {
+      "md": "docs/knowledge/templates/model_integration_template.md",
+      "json": "data/knowledge/templates/model_integration_template.json"
+    }
+  },
+  "automation": {
+    "knowledge_engineer_role": ".cursor/rules/roles/knowledge_engineer.mdc",
+    "workflow_document": "docs/knowledge/workflow_knowledge_engineer.md",
+    "user_guide": "docs/knowledge/user_contribution_guide.md",
+    "integration_matrix": "docs/knowledge/integration_matrix.md",
+    "event_log": "data/sessions/event_log_meta_rules_activation.json"
+  },
+  "quality_gates": {
+    "md_json_sync": true,
+    "integration_matrix_updated": true,
+    "history_records": true,
+    "sources_provided": true,
+    "event_log_updated": true
+  },
+  "review_schedule": {
+    "quarterly_review": true,
+    "protocol_monitoring": true,
+    "breaking_changes_tracking": true,
+    "new_integrations_tracking": true
+  },
+  "metadata": {
+    "created": "2025-06-12",
+    "last_updated": "2025-06-12",
+    "maintainer": "knowledge_engineer",
+    "schema_version": "1.0"
+  }
+} 
