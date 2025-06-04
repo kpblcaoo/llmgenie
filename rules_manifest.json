@@ -1,0 +1,111 @@
+[
+  {
+    "id": "branch_policy",
+    "name": "Branch Policy",
+    "type": "hard",
+    "activation": ["always"],
+    "priority": 1,
+    "description": "Правило ветвления и работы с git-ветками.",
+    "roles": ["admin", "llm_engineer"],
+    "examples": ["feature/*", "epic/*", "no direct changes in develop"],
+    "links": [".cursor/rules/branch_policy.mdc"],
+    "owner": "all",
+    "applies_to": ["all"],
+    "enforced": true
+  },
+  {
+    "id": "session_management",
+    "name": "Session Management",
+    "type": "hard",
+    "activation": ["always"],
+    "priority": 2,
+    "description": "Контроль и логирование сессий, шаблоны логов, архивирование.",
+    "roles": ["llm_engineer", "admin"],
+    "links": [".cursor/rules/session-management.mdc"],
+    "owner": "all",
+    "applies_to": ["all"],
+    "enforced": true
+  },
+  {
+    "id": "logging_and_retrospective",
+    "name": "Logging and Retrospective",
+    "type": "hard",
+    "activation": ["always"],
+    "priority": 3,
+    "description": "Стандарты логирования, ретроспективы, lessons learned.",
+    "roles": ["llm_engineer", "reviewer"],
+    "links": [".cursor/rules/logging-and-retrospective.mdc"],
+    "owner": "all"
+  },
+  {
+    "id": "ai_capabilities",
+    "name": "AI Capabilities",
+    "type": "situational",
+    "activation": ["manual", "by_role"],
+    "priority": 10,
+    "description": "Ограничения и возможности AI, enforcement, emergency overrides.",
+    "roles": ["llm_engineer", "admin"],
+    "links": [".cursor/rules/ai-capabilities.mdc"],
+    "owner": "all"
+  },
+  {
+    "id": "discuss_mode",
+    "name": "Discuss Mode",
+    "type": "situational",
+    "activation": ["auto", "manual"],
+    "priority": 5,
+    "description": "Правила для режима обсуждения: фокус на диалоге, уточнении требований, генерации идей.",
+    "roles": ["engineer", "reviewer", "librarian"],
+    "owner": "all",
+    "applies_to": ["discuss"],
+    "links": [".cursor/rules/workflow-modes.mdc"]
+  },
+  {
+    "id": "meta_mode",
+    "name": "Meta Mode",
+    "type": "situational",
+    "activation": ["auto", "manual"],
+    "priority": 6,
+    "description": "Правила для мета-режима: фокус на управлении процессом, логировании, ретроспективе.",
+    "roles": ["engineer", "admin", "reviewer"],
+    "owner": "all",
+    "applies_to": ["meta"],
+    "links": [".cursor/rules/workflow-modes.mdc"]
+  },
+  {
+    "id": "code_mode",
+    "name": "Code Mode",
+    "type": "situational",
+    "activation": ["auto", "manual"],
+    "priority": 7,
+    "description": "Правила для режима кодирования: стандарты кода, автоматизация, тесты.",
+    "roles": ["engineer", "devops"],
+    "owner": "all",
+    "applies_to": ["code"],
+    "links": [".cursor/rules/workflow-modes.mdc"]
+  },
+  {
+    "id": "debug_mode",
+    "name": "Debug Mode",
+    "type": "situational",
+    "activation": ["auto", "manual"],
+    "priority": 8,
+    "description": "Правила для режима отладки: логирование, анализ ошибок, фиксация изменений.",
+    "roles": ["engineer", "devops", "reviewer"],
+    "owner": "all",
+    "applies_to": ["debug"],
+    "links": [".cursor/rules/workflow-modes.mdc"]
+  },
+  {
+    "id": "test_mode",
+    "name": "Test Mode",
+    "type": "situational",
+    "activation": ["auto", "manual"],
+    "priority": 9,
+    "description": "Правила для режима тестирования: автоматизация тестов, критерии приёмки, отчёты.",
+    "roles": ["engineer", "qa", "reviewer"],
+    "owner": "all",
+    "applies_to": ["test"],
+    "links": [".cursor/rules/workflow-modes.mdc"]
+  }
+] 
