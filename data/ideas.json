@@ -294,6 +294,14 @@
       "description": "Реализовать AI/CLI-утилиту для автоматизации генерации, валидации и ревизии правил (.cursor/rules), автоматических отчётов о покрытии, конфликтах, рекомендаций по доработке. Все действия фиксируются в логах.",
       "status": "backlog",
       "tags": ["automation", "cli", "ai", "rules", "validation", "logging"]
+    },
+    {
+      "id": "EPIC-2025-06-knowledge-base-integrations",
+      "title": "Knowledge base & integrations: базы знаний, best practices, интеграции, автоматизация ревизии",
+      "description": "Вести базы знаний по работе с основными моделями (OpenAI, Ollama, Claude и др.), средами (Cursor, VSCode+Continue, Copilot), интеграциями, best practices, внедрённые решения, нюансы agent requested, workflow, ревизии, автоматизации. Для каждой записи — временная метка, источник, примеры, TODO по обновлению, связь с ролями. Интеграция с планированием, ревизией, AI-ассистентом. Использовать для ускорения работы, передачи знаний, автоматизации ревизии и планирования. Всё найденное и обсуждённое ранее — часть этой базы.",
+      "status": "backlog",
+      "tags": ["knowledge", "integrations", "best practices", "workflow", "roles", "automation", "planning", "ai_assistant"],
+      "created": "2025-06-04"
     }
   ]
 }

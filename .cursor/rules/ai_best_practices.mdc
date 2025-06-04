@@ -1,6 +1,6 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
 # AI Best Practices (enforcement & behavior)
@@ -32,3 +32,18 @@ alwaysApply: false
 
 - Prompts for AI/LLM: English only
 - User-facing text: Russian (or user-selected language)
+
+# Best Practice: Анализ решений и trade-off'ов
+
+- При планировании и внедрении новых решений AI обязан:
+  - Анализировать возможные недостатки и ограничения
+  - Предлагать альтернативы и улучшения
+  - Аргументировать выбор
+  - Фиксировать trade-off'ы и lessons learned
+  - Документировать обсуждения в decision memos и логах
+
+## Пример
+- Для мульти-ролевой архитектуры:
+  - Плюсы: гибкость, масштабируемость
+  - Минусы: сложность, риски путаницы, приватность
+  - Улучшения: role manifest, role switch log, ограничения на передачу контекста, UX-подсказки
