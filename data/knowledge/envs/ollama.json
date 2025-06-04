@@ -1,0 +1,17 @@
+{
+  "env": "ollama",
+  "description": "Open-source platform for local LLM inference (Mistral, Llama, etc.), supports custom models and OpenAI-compatible API.",
+  "best_practices": [
+    "Use latest Ollama and model versions.",
+    "Check model compatibility.",
+    "Test load and latency for production."
+  ],
+  "common_pitfalls": [
+    "Model/Ollama version mismatch.",
+    "Docker run errors."
+  ],
+  "docs_links": [
+    "https://ollama.com/",
+    "https://docs.ollama.com/"
+  ]
+} 

@@ -1,0 +1,17 @@
+{
+  "env": "copilot",
+  "description": "Commercial AI code assistant by GitHub, integrates with VSCode, JetBrains, Neovim.",
+  "best_practices": [
+    "Keep Copilot up to date.",
+    "Use with code review.",
+    "Check generated code for security before production."
+  ],
+  "common_pitfalls": [
+    "Incorrect code generation.",
+    "Conflicts with other LLM plugins."
+  ],
+  "docs_links": [
+    "https://github.com/features/copilot",
+    "https://docs.github.com/en/copilot"
+  ]
+} 

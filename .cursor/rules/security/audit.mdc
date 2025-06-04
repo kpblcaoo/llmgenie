@@ -1,0 +1,8 @@
+---
+description: When performing a security audit, apply the security checklist
+alwaysApply: false
+---
+# Security Audit Checklist
+- Check for known vulnerabilities in dependencies.
+- Ensure sensitive data is not exposed in logs or code.
+- Review access controls and permissions. 

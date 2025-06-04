@@ -1,0 +1,20 @@
+{
+  "env": "api_models",
+  "description": "Access to LLM via API (OpenAI, Anthropic, Google, Cohere, etc.), requires API key and security policy.",
+  "best_practices": [
+    "Use official documentation.",
+    "Monitor rate limits and costs.",
+    "Implement error handling and fallback for production."
+  ],
+  "common_pitfalls": [
+    "API rate limit exceeded.",
+    "Improper error handling.",
+    "API key leakage."
+  ],
+  "docs_links": [
+    "https://platform.openai.com/docs",
+    "https://docs.anthropic.com/",
+    "https://cloud.google.com/vertex-ai/docs/generative-ai",
+    "https://docs.cohere.com/"
+  ]
+} 

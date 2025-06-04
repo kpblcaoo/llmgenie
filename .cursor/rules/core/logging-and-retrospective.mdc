@@ -1,17 +1,12 @@
 ---
 description: Logging, retrospective, and lessons learned
-globs: 
 alwaysApply: false
 ---
 # Логирование и ретроспектива в llmstruct
 
----
-
 ## Назначение
 - Прозрачность, воспроизводимость, анализ и улучшение процессов.
 - Логируются все ключевые действия, reasoning, ошибки, решения.
-
----
 
 ## Best practices
 - Записывать каждое действие с timestamp, автором, типом события (event_log).
@@ -22,10 +17,7 @@ alwaysApply: false
 - Логировать каждое взаимодействие: действия пользователя, AI, системные события.
 - AI обязан подмечать и фиксировать возможности улучшения workflow.
 
----
-
 ## Ссылки
 - ai_workflow.json (раздел logging)
 - docs/ONBOARDING_LLMSTRUCT.md
-- docs/BEST_PRACTICES_LLMSTRUCT.md
-
+- docs/BEST_PRACTICES_LLMSTRUCT.md 

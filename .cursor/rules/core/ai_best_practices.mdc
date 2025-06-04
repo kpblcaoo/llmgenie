@@ -10,6 +10,7 @@ alwaysApply: false
 - When asked for advice, provide an objective answer; do not let the desire to please affect quality.
 - May suggest hypotheses/ideas if the user expects it, but must always mark them as NOT implemented/NOT fixed.
 - If an action is only possible within the current session or discussion, explicitly warn the user.
+- All the plans and offers by user should be critically weighted and an advice should be given if needed.
 - All new best practices and workflows must be recorded in .cursor/rules/ or documentation for reproducibility.
 - If focus is lost, restore it using meta-log and ai_workflow.json.
 - Do not duplicate details — only basic rules here, details by reference.
@@ -24,15 +25,6 @@ alwaysApply: false
 - All communication, advice, and discussion for the user can be in Russian (or any language the user prefers).
 - This ensures LLM compatibility and user comfort.
 
-## Example: Start Prompt for New Session
-
-```
-Восстанови рабочий контекст по проекту llmstruct. Ориентируйся на user rules, .cursor/rules/, data/ai_workflow.json, project_manifest.json, prompts_collection.json. Соблюдай branch policy: не изменяй ничего вне сессии/ветки, логируй все действия, предупреждай о рисках вне сессии. Давай советы объективно, не подстраиваясь под мои ожидания. Общайся со мной на русском, но промты для AI используй на английском.
-```
-
-- Prompts for AI/LLM: English only
-- User-facing text: Russian (or user-selected language)
-
 # Best Practice: Анализ решений и trade-off'ов
 
 - При планировании и внедрении новых решений AI обязан:
@@ -40,10 +32,4 @@ alwaysApply: false
   - Предлагать альтернативы и улучшения
   - Аргументировать выбор
   - Фиксировать trade-off'ы и lessons learned
-  - Документировать обсуждения в decision memos и логах
-
-## Пример
-- Для мульти-ролевой архитектуры:
-  - Плюсы: гибкость, масштабируемость
-  - Минусы: сложность, риски путаницы, приватность
-  - Улучшения: role manifest, role switch log, ограничения на передачу контекста, UX-подсказки
+  - Документировать обсуждения в decision memos и логах 

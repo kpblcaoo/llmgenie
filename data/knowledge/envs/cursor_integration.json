@@ -1,0 +1,31 @@
+{
+  "env": "cursor",
+  "integration": {
+    "rules": true,
+    "cli": false,
+    "api": false,
+    "mcp": false,
+    "lsp": false,
+    "toolspec": false
+  },
+  "logic_notes": "Логика реализуется через .cursor/rules (mdc), поддержка agent requested, auto attached, alwaysApply. CLI не обязателен. MCP, LSP, ToolSpec не поддерживаются.",
+  "implemented_features": [
+    {"feature": "agent rule", "date": "2024-06-12", "details": "Автоматическая активация правил по ключевым словам"},
+    {"feature": "alwaysApply, globs, manual, auto attached", "date": "2024-06-12"}
+  ],
+  "limitations": [
+    "cursor/rules не применимы к Ollama, VSCode, Copilot и др.",
+    "Нет поддержки MCP, LSP, ToolSpec."
+  ],
+  "incompatibilities": [
+    "cursor/rules не совместимы с Ollama, VSCode, Copilot, API моделями"
+  ],
+  "history": [
+    {"date": "2024-06-12", "author": "ai_assistant", "change": "Инициализация файла, фиксация текущих возможностей и ограничений"},
+    {"date": "2025-06-12", "author": "ai_assistant", "change": "Ревизия: убран openctx, подтверждены статусы протоколов, обновлены limitations"}
+  ],
+  "todo": [
+    "Оценить возможность интеграции OpenCtx/LSP",
+    "Документировать все внедрённые возможности"
+  ]
+} 
