@@ -1,0 +1,16 @@
+---
+description: USE ALWAYS in [meta], [code], [debug] modes to enforce workflow discipline and session logging
+globs:
+alwaysApply: true
+---
+
+- At session start: check ai_workflow.json
+- Before any work: start session log
+- In [meta], [code], [debug] modes: log all actions in event_log/tech_log/meta-log
+- Never delete files without explicit user permission
+- After rule change: restart chat (Command-N)
+- If session log not started, prompt user to create one
+
+# Tag-to-role mapping: see workflow_roles_matrix.mdc_
+
+# USE WHEN: entering any of these modes or switching between them. 
