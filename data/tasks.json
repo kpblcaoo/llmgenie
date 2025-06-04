@@ -320,6 +320,34 @@
       "status": "draft",
       "tags": ["knowledge_base", "roles", "workflow", "automation", "llmstruct", "llmgenie", "cursor", "vscode", "copilot", "ollama", "api_models"],
       "created": "2024-06-12T00:00:00Z"
+    },
+    {
+      "id": "task_knowledge_base",
+      "title": "Внедрение knowledge base по интеграционным возможностям",
+      "description": "Создать структурированную базу знаний по интеграционным возможностям различных сред и моделей для исключения дублирования и путаницы",
+      "type": "epic",
+      "priority": "high",
+      "status": "completed",
+      "created": "2024-06-12",
+      "completed": "2025-06-12",
+      "epic": "knowledge_base",
+      "branch": "feature/knowledge-base",
+      "components": [
+        "Integration knowledge base (5 сред, 3 модели)",
+        "Knowledge-engineer роль (.cursor/rules/roles/)",
+        "Workflow документация",
+        "Шаблоны для новых интеграций",
+        "Руководство пользователя",
+        "Автоматизация и quality gates",
+        "Integration matrix как single source of truth"
+      ],
+      "outcome": "Knowledge base готова для production использования. 27 файлов реализовано, включая MD/JSON синхронизацию, протоколы документированы, качественный контроль внедрен, пользовательский workflow установлен.",
+      "lessons_learned": [
+        "Интеграционная матрица требует регулярной ревизии",
+        "Поиск в интернете критически важен для актуализации протоколов",
+        "Синхронизация MD/JSON файлов должна быть автоматизирована",
+        "Quality gates предотвращают деградацию knowledge base"
+      ]
     }
   ]
 }
