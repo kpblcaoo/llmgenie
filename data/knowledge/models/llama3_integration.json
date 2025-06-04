@@ -1,0 +1,68 @@
+{
+  "model": "llama3",
+  "provider": "meta",
+  "integration": {
+    "rules": false,
+    "cli": true,
+    "api": true,
+    "mcp": false,
+    "lsp": false,
+    "toolspec": false
+  },
+  "logic_notes": "Логика реализуется через локальный запуск (Ollama, LM Studio, HuggingFace) или API. Поддержка tool use (через внешние обертки), multimodal в новых версиях. MCP, LSP, ToolSpec, cursor/rules не поддерживаются напрямую.",
+  "implemented_features": [
+    {"feature": "Локальный запуск (Ollama, LM Studio, GPT4All)", "date": "2025-06-12"},
+    {"feature": "API через внешние сервисы", "date": "2025-06-12"},
+    {"feature": "Tool use (через обертки)", "date": "2025-06-12"},
+    {"feature": "Fine-tuning возможности", "date": "2025-06-12"},
+    {"feature": "Открытый код и веса", "date": "2025-06-12"}
+  ],
+  "models": [
+    {"name": "Llama 3.2 1B", "params": "1B", "type": "lightweight"},
+    {"name": "Llama 3.2 3B", "params": "3B", "type": "lightweight"},
+    {"name": "Llama 3.2 11B", "params": "11B", "type": "vision"},
+    {"name": "Llama 3.2 90B", "params": "90B", "type": "vision"},
+    {"name": "Llama 3.1 8B", "params": "8B", "type": "current"},
+    {"name": "Llama 3.1 70B", "params": "70B", "type": "current"},
+    {"name": "Llama 3.1 405B", "params": "405B", "type": "large"},
+    {"name": "Llama 3 8B", "params": "8B", "type": "legacy"},
+    {"name": "Llama 3 70B", "params": "70B", "type": "legacy"}
+  ],
+  "quantizations": ["Q4_0", "Q4_1", "Q5_0", "Q5_1", "Q8_0", "FP16"],
+  "limitations": [
+    "Нет поддержки cursor/rules, MCP, LSP, ToolSpec напрямую.",
+    "Требует значительные вычислительные ресурсы для локального запуска.",
+    "Tool use не встроенный, требует дополнительные решения.",
+    "Ограниченная поддержка multimodal (зависит от версии)."
+  ],
+  "incompatibilities": [
+    "cursor/rules не совместимы с Llama3",
+    "MCP/LSP/ToolSpec не поддерживаются"
+  ],
+  "integration_clients": [
+    "Ollama",
+    "LM Studio",
+    "Continue для VSCode",
+    "HuggingFace Transformers",
+    "GPT4All"
+  ],
+  "local_running": {
+    "cpu": true,
+    "gpu": true,
+    "memory_requirements": "8GB+ для 8B, 32GB+ для 70B",
+    "quantization_support": true
+  },
+  "history": [
+    {"date": "2025-06-12", "author": "ai_assistant", "change": "Инициализация файла, фиксация возможностей и моделей Llama3"}
+  ],
+  "todo": [
+    "Документировать все модели и квантизации",
+    "Оценить tool use решения",
+    "Добавить примеры локального запуска"
+  ],
+  "sources": [
+    "https://ollama.ai/",
+    "https://huggingface.co/meta-llama",
+    "https://github.com/meta-llama/llama3"
+  ]
+} 

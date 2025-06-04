@@ -1,0 +1,18 @@
+[
+  {
+    "id": "llmstruct",
+    "name": "LLMStruct",
+    "owner": "kpblc",
+    "type": "core",
+    "license": "proprietary",
+    "description": "Infrastructure library for LLM-based projects"
+  },
+  {
+    "id": "llmgenie",
+    "name": "LLMGenie",
+    "owner": "kpblc",
+    "type": "assistant",
+    "license": "proprietary",
+    "description": "AI assistant and workflow orchestrator"
+  }
+] 

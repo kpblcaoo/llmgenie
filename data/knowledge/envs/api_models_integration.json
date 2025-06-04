@@ -1,0 +1,29 @@
+{
+  "env": "api_models",
+  "integration": {
+    "rules": false,
+    "cli": false,
+    "api": true,
+    "mcp": false,
+    "lsp": false,
+    "toolspec": false
+  },
+  "logic_notes": "Логика реализуется через API (OpenAI, Anthropic, Google, Cohere и др.). MCP, LSP, ToolSpec, cursor/rules не поддерживаются.",
+  "implemented_features": [
+    {"feature": "API (OpenAI, Anthropic, Google, Cohere и др.)", "date": "2024-06-12"}
+  ],
+  "limitations": [
+    "Нет поддержки cursor/rules, MCP, LSP, ToolSpec."
+  ],
+  "incompatibilities": [
+    "cursor/rules не совместимы с API коммерческих моделей"
+  ],
+  "history": [
+    {"date": "2024-06-12", "author": "ai_assistant", "change": "Инициализация файла, фиксация текущих возможностей и ограничений"},
+    {"date": "2025-06-12", "author": "ai_assistant", "change": "Ревизия: убран openctx, подтверждены статусы протоколов, обновлены limitations"}
+  ],
+  "todo": [
+    "Документировать все внедрённые возможности",
+    "Оценить возможность интеграции LSP/OpenCtx"
+  ]
+} 

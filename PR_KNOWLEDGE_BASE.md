@@ -9,7 +9,7 @@
 
 ### 📋 Components Implemented
 - **Integration Knowledge Base**: 5 environments + 3 models with comprehensive documentation
-- **Knowledge Engineer Role**: Automated management via `.cursor/rules/roles/knowledge_engineer.mdc_`
+- **Knowledge Engineer Role**: Automated management via `.cursor/rules/roles/knowledge_engineer.mdc`
 - **Workflow Documentation**: Complete processes for review, population, synchronization
 - **Template System**: Ready-to-use templates for new integrations
 - **User Contribution Guide**: Step-by-step guide for users
@@ -34,7 +34,7 @@
 ### Created Files (27 total):
 ```
 📁 .cursor/rules/roles/
-└── knowledge_engineer.mdc_ (automated management role)
+└── knowledge_engineer.mdc (automated management role)
 
 📁 docs/knowledge/
 ├── integration_matrix.md (single source of truth)
