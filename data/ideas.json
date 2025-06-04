@@ -253,6 +253,55 @@
       "description": "Гарантировать enforce всех ключевых правил (.cursorrules, .cursor/rules, branch policy, best practices) на уровнях AI, CLI, IDE, CI/CD. Автоматизировать логирование всех действий и mode switches. Встроить механизмы самовосстановления контекста (attention_marker, llm_context, meta-log). Минимизировать человеческий фактор и потери истории.",
       "tags": ["enforcement", "self_healing", "workflow", "automation", "ai", "best_practices"],
       "date": "2024-06-12"
+    },
+    {
+      "id": "IDEA-2024-06-13-01",
+      "title": "Автоматизация активации правил из .cursor/rules/ по сценарию/режиму",
+      "description": "Реализовать функцию/CLI-команду для активации нужного набора правил из .cursor/rules/ в зависимости от режима (discuss, meta, code, debug и др.). Разделить правила на 'жёсткие' (branch policy, session management, logging, workflow-modes) и ситуативные (enforcement, ai-capabilities, project_scope). Описать сценарии активации и обновить onboarding.",
+      "epic": "meta_workflow_management",
+      "status": "proposed",
+      "tags": ["rules", "automation", "cli", "workflow", "meta", "onboarding"],
+      "created": "2024-06-13"
+    },
+    {
+      "id": "IDEA-2024-06-13-02",
+      "title": "Интеграция workspace_state.json для восстановления и переключения контекста",
+      "description": "Проанализировать содержимое workspace_state.json, выделить полезные шаблоны/мета-данные, интегрировать в мета-оркестрацию для восстановления и переключения контекста между задачами/режимами.",
+      "epic": "meta_workflow_management",
+      "status": "proposed",
+      "tags": ["workspace_state", "context", "meta", "workflow", "automation"],
+      "created": "2024-06-13"
+    },
+    {
+      "id": "IDEA-2024-06-13-03",
+      "title": "User-onboarding и документация для CLI llmgenie",
+      "description": "Создать отдельный onboarding и краткое руководство для CLI llmgenie: что реально работает, что требует llmstruct, как запускать, как переключать режимы. Обновить документацию и добавить примеры CLI-команд.",
+      "epic": "meta_workflow_management",
+      "status": "proposed",
+      "tags": ["cli", "onboarding", "documentation", "llmgenie", "workflow"],
+      "created": "2024-06-13"
+    },
+    {
+      "id": "IDEA-2025-06-04-ENFORCE-ENGLISH-RULES",
+      "title": "Проверка языка и структуры .cursor/rules после эпика",
+      "description": "После завершения текущего эпика проверить, что все правила в .cursor/rules/ написаны на английском (если предназначены для AI/LLM), структура и ссылки соответствуют best practices, всё работает корректно.",
+      "status": "backlog",
+      "tags": ["enforcement", "best practices", "language", "cursor rules"]
+    },
+    {
+      "id": "IDEA-2025-06-04-AUTO-RULES-CLI",
+      "title": "AI/CLI-утилита для автоматизации и ревизии системы правил",
+      "description": "Реализовать AI/CLI-утилиту для автоматизации генерации, валидации и ревизии правил (.cursor/rules), автоматических отчётов о покрытии, конфликтах, рекомендаций по доработке. Все действия фиксируются в логах.",
+      "status": "backlog",
+      "tags": ["automation", "cli", "ai", "rules", "validation", "logging"]
+    },
+    {
+      "id": "EPIC-2025-06-knowledge-base-integrations",
+      "title": "Knowledge base & integrations: базы знаний, best practices, интеграции, автоматизация ревизии",
+      "description": "Вести базы знаний по работе с основными моделями (OpenAI, Ollama, Claude и др.), средами (Cursor, VSCode+Continue, Copilot), интеграциями, best practices, внедрённые решения, нюансы agent requested, workflow, ревизии, автоматизации. Для каждой записи — временная метка, источник, примеры, TODO по обновлению, связь с ролями. Интеграция с планированием, ревизией, AI-ассистентом. Использовать для ускорения работы, передачи знаний, автоматизации ревизии и планирования. Всё найденное и обсуждённое ранее — часть этой базы.",
+      "status": "backlog",
+      "tags": ["knowledge", "integrations", "best practices", "workflow", "roles", "automation", "planning", "ai_assistant"],
+      "created": "2025-06-04"
     }
   ]
 }

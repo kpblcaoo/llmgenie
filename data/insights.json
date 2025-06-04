@@ -212,6 +212,33 @@
       "description": "Эпик завершён: llmstruct и llmgenie разделены, симлинки настроены, структура и workflow сохранены. Lessons learned и рекомендации зафиксированы в docs/report/split_initial_structure_2024-06-12/summary.md. Ключевые выводы: 1) Симлинки — эффективный способ миграции; 2) Чёткая структура и логирование ускоряют ревью; 3) Важно обновлять .gitignore и документацию своевременно. Рекомендации: Librarian — обновить README и описать работу с симлинками; Developer — протестировать ключевые сценарии; Провести ревью ARCHIVE/to_review и завершить cleanup.",
       "tags": ["epic", "retrospective", "split", "llmstruct", "llmgenie", "lessons_learned", "workflow"],
       "impact": "Проекты готовы к дальнейшему развитию, ревью и автоматизации. Структура стала чище, workflow — прозрачнее."
+    },
+    {
+      "id": "INS-2024-06-13-01",
+      "date": "2024-06-13",
+      "type": "workflow_lesson",
+      "epic": "epic_project_split_2024",
+      "description": "После физического разделения llmstruct и llmgenie осталась сильная зависимость CLI и orchestration llmgenie от импортов llmstruct. Без явной зависимости (pip, submodule, PYTHONPATH) llmgenie не работает. В requirements/toml нет явной зависимости. Документация и CLI-примеры ориентированы на llmstruct. Нет отдельного onboarding для CLI llmgenie. В коде и документации встречаются пути и настройки, связанные с src/llmstruct/. Рекомендация: оформить зависимость, обновить документацию, переписать импорты и пути, провести smoke-тест CLI.",
+      "tags": ["split", "llmstruct", "llmgenie", "cli", "workflow", "lessons_learned", "dependency"],
+      "impact": "Без явной зависимости и обновления документации возможны ошибки при запуске и путаница для пользователя."
+    },
+    {
+      "id": "INS-2024-06-13-02",
+      "date": "2024-06-13",
+      "type": "workflow_lesson",
+      "epic": "meta_workflow_management",
+      "description": "Для эффективной совместной работы и сохранения наработок приоритет — формализация и автоматизация активации правил из .cursor/rules/ (разделить на 'жёсткие' и ситуативные, описать сценарии активации). Все действия и переключения должны логироваться. Важно интегрировать workspace_state.json для восстановления/переключения контекста, если он содержит полезные шаблоны/мета-данные.",
+      "tags": ["workflow", "meta", "rules", "automation", "session_control", "lessons_learned"],
+      "impact": "Правильный workflow и автоматизация активации правил минимизируют потери контекста и ускоряют совместную работу."
+    },
+    {
+      "id": "INS-2025-06-04-01",
+      "date": "2025-06-04",
+      "type": "workflow_lesson",
+      "epic": "meta_workflow_management",
+      "description": "При старте новой сессии/эпика часто отсутствуют шаблоны логов (template_event_log.json, template_tech_log.json, template_meta_log.json), скрипты для инициализации (session_cli.py) и папка для архивов (data/archived_jsons/). Это приводит к ручным ошибкам и потере времени. Рекомендация: добавить шаблоны логов по умолчанию, автоматизировать создание папок и инициализацию сессии через CLI или AI.",
+      "tags": ["workflow", "session_control", "infrastructure", "lessons_learned", "automation"],
+      "impact": "Автоматизация инфраструктуры старта сессии ускорит запуск новых эпиков, снизит количество ошибок и повысит воспроизводимость."
     }
   ]
 }

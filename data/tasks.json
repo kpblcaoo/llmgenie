@@ -285,6 +285,32 @@
       "author": "kpblc",
       "assignee": "ai_assistant",
       "project": "shared"
+    },
+    {
+      "id": "TSK-2024-06-09-01",
+      "title": "Создать базы знаний для ИИ и человека (knowledge/*.md, data/knowledge/*.json)",
+      "description": "Создать и поддерживать синхронизированные базы знаний: knowledge/*.md для человека (cursor, ollama, openai_api, vscode_continue, vscode_copilot, common) и data/knowledge/*.json для ИИ. Обеспечить соответствие структуры, регулярную ревизию и автоматизацию наполнения.",
+      "epic": "epic_ai_workflow_rules_2024",
+      "status": "todo",
+      "priority": "high",
+      "tags": ["knowledge_base", "json", "md", "automation", "workflow", "cursor", "ai"],
+      "created": "2024-06-09T16:10:00Z",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmgenie"
+    },
+    {
+      "id": "TSK-2024-06-09-02",
+      "title": "Ревизия и поддержка системы правил после перехода на новую структуру (.cursor/rules)",
+      "description": "Проводить регулярную ревизию, фиксировать доработки, автоматизацию, интеграцию с CI/CD и внешними платформами отдельными задачами. Все изменения документировать в ONBOARDING_LLMGENIE.md, project_state.json, rules_manifest.json, decision memos.",
+      "epic": "epic_ai_workflow_rules_2024",
+      "status": "todo",
+      "priority": "high",
+      "tags": ["rules", "maintenance", "automation", "ci_cd", "workflow", "cursor"],
+      "created": "2024-06-09T17:20:00Z",
+      "author": "kpblc",
+      "assignee": "ai_assistant",
+      "project": "llmgenie"
     }
   ]
 }
