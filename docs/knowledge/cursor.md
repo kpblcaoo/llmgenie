@@ -101,3 +101,23 @@ _См. decision_memos/* для подробностей и истории обс
 _Этот файл содержит все специфичные для Cursor IDE практики, инсайты, workflow и баги. Универсальные best practices — в knowledge/common.md. Все новые инсайты по Cursor фиксируются здесь и в decision memos с датой и источником._ 
 
 _Актуализировано с учётом decision_memos/cursor_rules_structure_proposal_01.md и decision_memos/cursor_rules_agent_requested_analysis_01.md._ 
+
+# Cursor IDE: особенности, best practices и ограничения
+
+## Особенности среды
+- Поддержка agent rule (автоматическая активация правил по ключевым словам)
+- Симлинки только для локальной разработки, не для production
+- Разделение event_log, tech_log, meta-log по сессиям
+
+## Best practices
+- Всегда работать в отдельной ветке и сессии
+- Логировать все ключевые действия и ошибки
+- Проверять актуальность develop перед началом работы
+
+## Типовые ошибки
+- Работа с устаревшими файлами без git pull
+- Симлинки вне .gitignore
+
+## Ссылки
+- [core/project_scope]
+- [docs/ONBOARDING_LLMSTRUCT.md] 
