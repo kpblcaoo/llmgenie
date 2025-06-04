@@ -1,11 +1,8 @@
 ---
 description: Enforce branch policy for all work
-globs: 
 alwaysApply: true
 ---
-
 # Branch Policy
-
 - Do not make any changes outside of tasks, epics, or ideas unless you are in an active session (a new branch for a task or epic).
 - No substantial changes are allowed directly in develop.
 - All work must be done in a dedicated branch and session.
