@@ -1,0 +1,19 @@
+[2024-06-09 16:00] assistant: Создан knowledge/cursor.md, перенесены все специфичные для Cursor IDE практики, инсайты, workflow и баги согласно эпика и пользовательскому запросу. Универсальные best practices оставлены в knowledge/common.md. Все новые инсайты по Cursor фиксируются здесь и в decision memos с датой и источником. 
+
+[2024-06-09 16:05] assistant: Зафиксирована задача "создать базы знаний для ИИ и человека". Структура: knowledge/*.md (для человека), data/knowledge/*.json (для ИИ) — cursor, ollama, openai_api, vscode_continue, vscode_copilot, common. knowledge/cursor.md и knowledge/common.md уже созданы, остальные .md требуют создания. В data/knowledge/ директория и файлы отсутствуют, требуется создать. 
+
+[2024-06-09 16:12] assistant: Добавлена задача в data/tasks.json — создание базы знаний для ИИ и человека (knowledge/*.md, data/knowledge/*.json), привязка к эпику epic_ai_workflow_rules_2024, статус todo, проект llmgenie. 
+
+[2024-06-09 16:30] assistant: Зафиксированы итоги анализа decision_memos по структуре, автоматизации и agent requested. Краткое резюме и workflow ревизии добавлены в knowledge/cursor.md. Lessons learned и рекомендации для дальнейшей автоматизации актуализированы. 
+
+[2024-06-09 16:40] assistant: Создана структура каталогов для новой схемы правил в .cursor/rules (core, workflows, roles, languages, security, templates). 
+
+[2024-06-09 16:45] assistant: Созданы шаблоны новых правил в .cursor/rules: core/branch_policy.md, core/session_management.md, workflows/code_review.md, roles/reviewer.md, languages/python.md, security/audit.md, templates/template_commit.md. Все с корректным frontmatter и структурой согласно новой схеме. 
+
+[2024-06-09 16:55] assistant: Перенесена логика из старых правил в новые подпапки и файлы с расширением .md: core/ai_best_practices.md, core/project_scope.md, core/logging-and-retrospective.md, core/ai-capabilities.md, core/cli-commands.md, core/workflow_modes.md. Все с frontmatter и структурой согласно новой схеме. 
+
+[2024-06-09 17:00] assistant: Перенесена логика из ai_best_practices.mdc в core/ai_best_practices.md с frontmatter и структурой согласно новой схеме. 
+
+[2024-06-09 17:10] assistant: Обновлены ONBOARDING_LLMGENIE.md, project_state.json, rules_manifest.json: зафиксирована новая структура .cursor/rules, workflow ревизии, рекомендации, ссылки на decision memos и knowledge/cursor.md. 
+
+[2024-06-09 17:20] assistant: Финализация сессии — переход на новую структуру правил завершён, все workflow и рекомендации зафиксированы в документации. Дальнейшие задачи и доработки фиксируются в tasks.json. 

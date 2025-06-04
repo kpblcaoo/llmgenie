@@ -1,0 +1,86 @@
+{
+  "overview": {
+    "project": "llmgenie",
+    "purpose": "Оркестрация, автоматизация и интеграция AI-ассистентов и workflow.",
+    "main_components": [
+      "CLI (интерфейс командной строки)",
+      "API (FastAPI, интеграции)",
+      "Модули: llmgenie, llmstruct и др.",
+      "JSON-структуры: ideas, tasks, sessions, state и др.",
+      "Документация: README, onboarding, best practices"
+    ],
+    "note": "Overview должен быть отдельным для каждого проекта и дополняться по мере развития."
+  },
+  "details": {
+    "CLI": {
+      "purpose": "Управление задачами, сессиями, правилами через командную строку.",
+      "main_functions": ["Запуск задач", "Переключение режимов", "Логирование"],
+      "key_files": ["src/llmgenie/modules/cli/cli.py"],
+      "links": ["docs/CLI.md"]
+    },
+    "API": {
+      "purpose": "REST API для интеграции с внешними сервисами и UI.",
+      "main_functions": ["Обработка запросов", "Интеграция с FastAPI"],
+      "key_files": ["src/llmgenie/api/", "src/llmgenie/modules/api/"]
+    },
+    "llmgenie": {
+      "purpose": "Основной оркестратор AI workflow.",
+      "main_functions": ["Оркестрация", "Интеграция", "Контроль сессий"],
+      "key_files": ["src/llmgenie/"]
+    },
+    "llmstruct": {
+      "purpose": "Парсинг, анализ, структурирование данных и кода.",
+      "main_functions": ["Парсинг", "Анализ", "Генерация структур"],
+      "key_files": ["../llmstruct/"]
+    },
+    "json_structures": {
+      "purpose": "Хранение задач, идей, сессий, состояния.",
+      "main_files": ["data/ideas.json", "data/tasks.json", "data/sessions/", "project_state.json"]
+    }
+  },
+  "rules": {
+    "description": "Система правил для управления поведением AI и workflow.",
+    "groups": [
+      {"type": "hard", "examples": ["branch policy", "session management", "logging", "workflow-modes"]},
+      {"type": "situational", "examples": ["enforcement", "ai-capabilities", "project_scope"]}
+    ],
+    "manifest": "rules_manifest.json",
+    "activation": "Жёсткие правила активируются всегда, ситуативные — по сценарию, роли или вручную.",
+    "roles": ["user", "llm_engineer", "reviewer", "admin", "librarian", "devops"],
+    "note": "Роли используются для фокусировки и гибкости, не как ограничение."
+  },
+  "user_rules": {
+    "description": "Пользовательские правила (user/global rules) настраиваются самим пользователем в Cursor IDE (Settings > Rules). Рекомендуется ознакомиться с best practices и добавить необходимые правила для своего workflow.",
+    "links": ["https://docs.cursor.so/rules", "docs/ONBOARDING_LLMSTRUCT.md"]
+  },
+  "role_guides": {
+    "user": "Работа с CLI/API, базовые сценарии, минимум технических деталей.",
+    "llm_engineer": "Глубокое понимание архитектуры, кода, best practices, интеграция и автоматизация.",
+    "reviewer": "Критерии качества, стандарты ревью, ретроспективы.",
+    "admin": "Контроль инфраструктуры, безопасности, workflow.",
+    "librarian": "Стандарты и структура документации, форматы для людей и LLM.",
+    "devops": "Интеграция, деплой, поддержка инфраструктуры."
+  },
+  "role_switching": {
+    "description": "AI/ассистент может самостоятельно переключаться между ролями (engineer, librarian, reviewer, devops и др.) в процессе workflow, если это логично по сценарию. Пример: после завершения работы coder автоматически активируется librarian для оформления документации. Все переключения ролей и передачи контекста фиксируются в логах (decision log, event_log, meta_log). Контекст и метаданные передаются между ролями через JSON/state-файлы. Пользователь всегда может явно указать нужную роль или запретить автоматическое переключение.",
+    "examples": [
+      "coder → librarian → reviewer: код написан, документация оформлена, проведён ревью",
+      "devops → engineer: после деплоя автоматически активируется режим доработки кода"
+    ]
+  },
+  "cursor_rules": {
+    "structure": ["core/", "workflows/", "roles/", "languages/", "security/", "templates/"],
+    "file_format": ".md (frontmatter: description, alwaysApply, globs)",
+    "rename_policy": "После ревизии и согласования — .md → .mdc",
+    "frontmatter_types": ["alwaysApply", "globs", "agent requested (description, alwaysApply: false)"],
+    "workflow": "Анализ → преобразование → тестирование → обновление документации → архивация",
+    "logging": "Все изменения фиксируются в event_log/meta-log и decision memos",
+    "lessons_learned": "knowledge/cursor.md",
+    "recommendations": [
+      "Регулярно ревизировать правила на дубли, избыточность, общность описаний",
+      "Документировать изменения в rules_manifest.json, onboarding",
+      "Использовать agent requested для ситуативных сценариев, alwaysApply — для стандартов, globs — для паттернов"
+    ],
+    "links": ["docs/ONBOARDING_LLMGENIE.md", "decision_memos/*", "knowledge/cursor.md"]
+  }
+} 
