@@ -1,0 +1,18 @@
+---
+description: Tag-to-role mapping for workflow discipline and context management
+globs:
+alwaysApply: false
+---
+
+# Tag-to-Role Mapping
+
+| Tag     | Role(s)                 | Typical Use                      |
+|---------|-------------------------|----------------------------------|
+| [code]  | developer               | Coding, refactoring              |
+| [meta]  | llm_engineer            | Meta, automation, workflow       |
+| [debug] | developer, llm_engineer | Debugging, analysis              |
+| [docs]  | librarian               | Documentation, best practices    |
+| [test]  | developer, llm_engineer | Testing, QA                      |
+
+- For combined tags (e.g. [code][meta]), activate all relevant roles.
+- Update this matrix if new tags or roles are introduced. 
