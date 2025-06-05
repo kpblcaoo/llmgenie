@@ -1,0 +1,116 @@
+{
+  "rules": [
+    {
+      "id": "001_logging_checkpoints",
+      "file": "core/001_logging_checkpoints.mdc_",
+      "description": "Log all key actions, errors, and mode switches. Use checkpoints for context restoration.",
+      "references": ["@session_log", "@ai_workflow.json"],
+      "fallback": "If session_log unavailable, warn user and log to temp file.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "002_advice_objectivity",
+      "file": "core/002_advice_objectivity.mdc_",
+      "description": "Always provide objective advice, do not let the desire to please affect quality.",
+      "references": [],
+      "fallback": null,
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "003_language_policy",
+      "file": "core/003_language_policy.mdc_",
+      "description": "Language policy for prompts and user communication.",
+      "references": [],
+      "fallback": null,
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "004_hypothesis_suggestion",
+      "file": "core/004_hypothesis_suggestion.mdc_",
+      "description": "May suggest hypotheses/ideas if the user expects it, but must always mark them as NOT implemented/NOT fixed.",
+      "references": [],
+      "fallback": null,
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "005_context_restoration",
+      "file": "core/005_context_restoration.mdc_",
+      "description": "Restore focus using meta-log and ai_workflow.json if lost.",
+      "references": ["@meta-log", "@ai_workflow.json"],
+      "fallback": "If meta-log unavailable, attempt minimal context restoration from ai_workflow.json.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "006_best_practices_recording",
+      "file": "core/006_best_practices_recording.mdc_",
+      "description": "All new best practices and workflows must be recorded in .cursor/rules/ or documentation for reproducibility.",
+      "references": ["@docs/decision_memos/"],
+      "fallback": null,
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "007_decision_analysis",
+      "file": "core/007_decision_analysis.mdc_",
+      "description": "Analyze trade-offs and document decisions in memos and logs.",
+      "references": ["@docs/decision_memos/", "@session_log"],
+      "fallback": null,
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "008_mdc_work_protocol",
+      "file": "core/008_mdc_work_protocol.mdc_",
+      "description": "All rule changes must be made on .mdc_ copies, never on originals. Manual replacement after review.",
+      "references": ["@session_log"],
+      "fallback": null,
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "200_knowledge_engineer",
+      "file": "roles/200_knowledge_engineer.mdc_",
+      "description": "Designs, maintains, and documents the project knowledge base. Ensures best practices and onboarding materials are up to date.",
+      "references": ["@docs/ONBOARDING_LLMSTRUCT.md", "@docs/BEST_PRACTICES_LLMSTRUCT.md", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "210_reviewer",
+      "file": "roles/210_reviewer.mdc_",
+      "description": "Reviews code, documentation, and workflows for quality and compliance. Logs all review actions.",
+      "references": ["@docs/code_review_checklist.md", "@docs/BEST_PRACTICES_LLMSTRUCT.md", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "220_rules_engineer",
+      "file": "roles/220_rules_engineer.mdc_",
+      "description": "Designs, reviews, and maintains modular atomic rules for Cursor/AI workflow. Manages @-references, cross-links, and multi-environment portability. Integrates best practices from deepsearch/web-grok.",
+      "references": ["@rules_manifest.json", "@docs/decision_memos/", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "100_code_review",
+      "file": "workflows/100_code_review.mdc_",
+      "description": "Enforce code review checklist for all pull requests and code changes. Atomic rule with @-references and fallback.",
+      "references": ["@docs/code_review_checklist.md", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "400_audit",
+      "file": "security/400_audit.mdc_",
+      "description": "Enforce security audit checklist for all reviews and audits. Atomic rule with @-references and fallback.",
+      "references": ["@docs/security_audit_checklist.md", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "900_template_commit",
+      "file": "templates/900_template_commit.mdc_",
+      "description": "Enforce commit message template for all code changes. Atomic rule with @-reference and fallback.",
+      "references": ["@docs/commit_message_template.md", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    }
+  ]
+} 

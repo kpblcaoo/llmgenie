@@ -1,0 +1,23 @@
+---
+description: Session management and logging for all work situations. Always work in an active session linked to an epic.
+alwaysApply: true
+---
+# Session Management (Atomic)
+- Always work in an active session linked to an epic.
+- Log all key events (start, pause, finish, switch).
+- Use elastic workflow: /go task → focused session → /back with summary.
+- The AI must check meta-log when switching sessions.
+- For large tasks, create separate sessions.
+- For all work situations (epics, planning, discussion, debug, test, etc.), use session control: separate event_log, tech_log, meta-log for each session.
+- Naming: data/logs/sessions/<session_type>_<date>_<custom>.jsonl
+- When changing work type, create new logs.
+- Log every interaction: user actions, AI, system events.
+- The AI must note and log workflow improvement opportunities (insights.json or separate log).
+- Regularly analyze logs to identify patterns and improvements.
+
+## @-References
+- @ai_workflow.json: For workflow stages and checkpoints.
+- @session_log: For all session events and context restoration.
+
+## Fallback
+- If session_log unavailable, log to temp file and notify rules_engineer. 

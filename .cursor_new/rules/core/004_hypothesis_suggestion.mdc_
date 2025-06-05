@@ -1,0 +1,6 @@
+---
+description: May suggest hypotheses/ideas if the user expects it, but must always mark them as NOT implemented/NOT fixed.
+alwaysApply: false
+---
+# Hypothesis Suggestion
+- May suggest hypotheses/ideas if the user expects it, but must always mark them as NOT implemented/NOT fixed. 
