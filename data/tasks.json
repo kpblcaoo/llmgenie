@@ -498,6 +498,80 @@
       "created": "2025-06-05T03:30:00Z",
       "completed": "2025-06-05T04:00:00Z",
       "related_files": ["docs/mamay_onboarding/"]
+    },
+    {
+      "id": "TSK-CLEANUP-001",
+      "title": "Интеграция Struct-based Cleanup Analyzer в агентскую систему",
+      "description": "Адаптировать найденный struct_based_cleanup_analyzer_complete.py для работы с llmgenie агентами. Создать Cleanup Agent, который будет использовать struct.json как источник истины для умной категоризации файлов и автоматических рекомендаций.",
+      "epic": "intelligent_cleanup_integration_2025",
+      "status": "todo",
+      "priority": "high",
+      "tags": ["cleanup", "agents", "struct", "automation", "categorization"],
+      "created": "2025-06-05T17:05:00Z",
+      "estimated_hours": 8,
+      "related_files": ["docs/archive_analysis/01_architecture_patterns/intelligent_cleanup_system_patterns.md"],
+      "source_analysis": "struct_based_cleanup_analyzer_complete.py"
+    },
+    {
+      "id": "TSK-CLEANUP-002", 
+      "title": "Внедрение Hash-based Duplicate Detection в CLI",
+      "description": "Интегрировать найденный duplicate_detector.py в существующую команду analyze-duplicates. Добавить режим hash-based анализа для поиска истинных дубликатов по содержимому, а не только по структуре AST.",
+      "epic": "intelligent_cleanup_integration_2025",
+      "status": "todo",
+      "priority": "high",
+      "tags": ["duplicates", "hash", "cli", "detection", "integration"],
+      "created": "2025-06-05T17:10:00Z",
+      "estimated_hours": 6,
+      "dependencies": ["TSK-CLEANUP-001"],
+      "source_analysis": "duplicate_detector.py"
+    },
+    {
+      "id": "TSK-CLEANUP-003",
+      "title": "Создание автоматического Workspace Monitor Agent",
+      "description": "Разработать агента для постоянного мониторинга файловой системы workspace с автоматическим выявлением: дубликатов, бэкапов для архивирования, временных файлов для удаления, нарушений структуры проекта.",
+      "epic": "intelligent_cleanup_integration_2025", 
+      "status": "todo",
+      "priority": "medium",
+      "tags": ["monitoring", "agents", "filesystem", "automation", "workspace"],
+      "created": "2025-06-05T17:15:00Z",
+      "estimated_hours": 10,
+      "dependencies": ["TSK-CLEANUP-001", "TSK-CLEANUP-002"]
+    },
+    {
+      "id": "TSK-CLEANUP-004",
+      "title": "Разработка системы безопасных рекомендаций по очистке",
+      "description": "Создать интеллектуальную систему генерации рекомендаций по cleanup с обязательным созданием бэкапов, поэтапным выполнением и возможностью отката. Интегрировать с найденными паттернами preference_order и backup_strategy.",
+      "epic": "intelligent_cleanup_integration_2025",
+      "status": "todo", 
+      "priority": "medium",
+      "tags": ["safety", "recommendations", "backup", "rollback", "intelligence"],
+      "created": "2025-06-05T17:20:00Z",
+      "estimated_hours": 8,
+      "dependencies": ["TSK-CLEANUP-001"]
+    },
+    {
+      "id": "TSK-CLEANUP-005",
+      "title": "Создание веб-интерфейса для управления cleanup операциями",
+      "description": "Разработать веб-дашборд для визуализации результатов анализа дубликатов, управления рекомендациями по очистке, мониторинга состояния workspace и контроля автоматических cleanup процессов.",
+      "epic": "intelligent_cleanup_integration_2025",
+      "status": "todo",
+      "priority": "low", 
+      "tags": ["web", "dashboard", "ui", "management", "visualization"],
+      "created": "2025-06-05T17:25:00Z",
+      "estimated_hours": 12,
+      "dependencies": ["TSK-CLEANUP-001", "TSK-CLEANUP-003", "TSK-CLEANUP-004"]
+    },
+    {
+      "id": "TSK-CLEANUP-006",
+      "title": "Внедрение метрик эффективности и машинного обучения для cleanup",
+      "description": "Создать систему метрик для оценки эффективности cleanup операций (экономия места, время выполнения, точность рекомендаций) и добавить элементы машинного обучения для улучшения рекомендаций на основе истории действий пользователя.",
+      "epic": "intelligent_cleanup_integration_2025",
+      "status": "todo",
+      "priority": "low",
+      "tags": ["metrics", "ml", "optimization", "learning", "analytics"],
+      "created": "2025-06-05T17:30:00Z",
+      "estimated_hours": 10,
+      "dependencies": ["TSK-CLEANUP-003", "TSK-CLEANUP-004"]
     }
   ]
 }
