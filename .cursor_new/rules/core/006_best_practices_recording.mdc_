@@ -1,0 +1,6 @@
+---
+description: All new best practices and workflows must be recorded in .cursor/rules/ or documentation for reproducibility.
+alwaysApply: true
+---
+# Best Practices Recording
+- All new best practices and workflows must be recorded in .cursor/rules/ or documentation for reproducibility. 
