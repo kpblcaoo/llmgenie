@@ -198,6 +198,36 @@
       "created": "2024-06-11T02:00:00Z"
     },
     {
+      "id": "EPIC-2025-06-ARCHIVE-INTEGRATION",
+      "title": "Интеграция революционных архитектурных паттернов из архива",
+      "description": "Масштабная интеграция game-changing архитектурных находок из ../.ARCHIVE/.personal/: Boss CLI hierarchical management, Smart Wrapper patterns, Master Planning Methodology, decision matrices, agent hierarchy system. Цель - придать llmgenie уникальное competitive преимущество.",
+      "epic": "archive_integration_2025",
+      "status": "active",
+      "priority": "critical",
+      "tags": ["archive", "architecture", "boss_cli", "smart_wrapper", "competitive_advantage", "revolutionary"],
+      "created": "2025-06-05T04:00:00Z",
+      "business_impact": "Трансформация от 'Kubernetes for LLM-agents' к 'Enterprise Management Platform for AI Agents'",
+      "key_components": [
+        "Boss CLI hierarchical access control",
+        "Smart Wrapper context analysis patterns", 
+        "Master Planning structured methodology",
+        "Decision matrices и structured decision making",
+        "Interactive CLI для real-time agent management"
+      ]
+    },
+    {
+      "id": "EPIC-2025-06-MAMAY-ONBOARDING", 
+      "title": "Strategic onboarding package для DevOps partner (Мамай)",
+      "description": "Comprehensive onboarding package для привлечения Мамая как Senior DevOps Engineer. Включает project briefing, technical roadmap, personal task plan, anti-investor arguments. Цель - honest partnership с clear expectations.",
+      "epic": "mamay_onboarding_2025",
+      "status": "completed",
+      "priority": "high",
+      "tags": ["onboarding", "partnership", "devops", "mamay", "strategic", "documentation"],
+      "created": "2025-06-05T03:30:00Z",
+      "completed": "2025-06-05T04:00:00Z",
+      "outcome": "5 comprehensive документов созданы в docs/mamay_onboarding/, ready для transmission"
+    },
+    {
       "id": "IDEA-2024-06-12-001",
       "epic": "epic_ai_planning_mode_2024",
       "title": "AI Planning Mode & Context Aggregation",
