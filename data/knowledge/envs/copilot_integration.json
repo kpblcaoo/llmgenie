@@ -3,15 +3,19 @@
   "integration": {
     "rules": false,
     "cli": false,
-    "api": false,
+    "api": true,
     "mcp": true,
     "lsp": false,
-    "toolspec": false
+    "toolspec": false,
+    "agent_mode": "preview"
   },
   "logic_notes": "Логика реализуется через плагины для VSCode, JetBrains, Neovim. MCP поддерживается только через VSCode agent mode. LSP, ToolSpec, cursor/rules не поддерживаются.",
   "implemented_features": [
     {"feature": "Интеграция с VSCode, JetBrains, Neovim", "date": "2024-06-12"},
-    {"feature": "MCP (через VSCode agent mode)", "date": "2025-06-12"}
+    {"feature": "MCP (через VSCode agent mode)", "date": "2025-06-12"},
+    {"feature": "agent_mode_preview", "date": "2025-06-12", "details": "Агентский режим в предварительной версии"},
+    {"feature": "smart_actions", "date": "2025-06-12", "details": "Умные действия в терминале, VCS, отладке"},
+    {"feature": "external_api_extensions", "date": "2025-06-12", "details": "Интеграция с внешними API через кастомные расширения"}
   ],
   "limitations": [
     "Нет поддержки cursor/rules, MCP вне VSCode agent mode, LSP, ToolSpec."
@@ -26,5 +30,9 @@
   "todo": [
     "Документировать все внедрённые возможности",
     "Оценить возможность интеграции LSP/OpenCtx"
+  ],
+  "sources": [
+    "GitHub Copilot: Meet the new coding agent",
+    ".ARCHIVE/compatibility_discussion_dump.txt"
   ]
 } 

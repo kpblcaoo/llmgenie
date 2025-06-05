@@ -1,0 +1,65 @@
+{
+  "env": "vscode_continue",
+  "integration": {
+    "rules": true,
+    "cli": true,
+    "api": true,
+    "mcp": false,
+    "lsp": true,
+    "toolspec": false,
+    "rag": true,
+    "langchain": true
+  },
+  "logic_notes": "Continue поддерживает проект-специфичные инструкции (~/.continue), агентский режим, интеграцию с внешними API, RAG через Sourcegraph Cody, LangChain для сложных агентов.",
+  "implemented_features": [
+    {"feature": "project_specific_rules", "date": "2025-06-12", "details": "Аналог .cursor/rules через конфигурации ~/.continue"},
+    {"feature": "agent_mode", "date": "2025-06-12", "details": "Многофайловое редактирование и сложные задачи"},
+    {"feature": "external_api", "date": "2025-06-12", "details": "Вызовы внешних API через конфигурации Continue"},
+    {"feature": "rag_integration", "date": "2025-06-12", "details": "RAG через Sourcegraph Cody расширение"},
+    {"feature": "langchain_support", "date": "2025-06-12", "details": "Создание агентов с базами данных и API"}
+  ],
+  "ai_functions": [
+    "code_completion",
+    "chat",
+    "editing", 
+    "agent_mode",
+    "refactoring"
+  ],
+  "tool_integration": [
+    "terminal",
+    "file_access",
+    "external_apis",
+    "version_control",
+    "git_commit_generation"
+  ],
+  "customization": {
+    "level": "high",
+    "methods": ["config_files", "rules", "prompts"],
+    "config_location": "~/.continue"
+  },
+  "additional_tools": [
+    {"name": "Sourcegraph Cody", "purpose": "RAG для внешних данных"},
+    {"name": "LangChain", "purpose": "Создание сложных агентов"}
+  ],
+  "models_supported": {
+    "cloud": ["OpenAI", "Anthropic", "Google", "Azure"],
+    "local": ["через Ollama"]
+  },
+  "limitations": [
+    "Требуется настройка для локальных моделей",
+    "RAG только через дополнительные расширения"
+  ],
+  "incompatibilities": [],
+  "history": [
+    {"date": "2025-06-12", "author": "knowledge_engineer", "change": "Создание файла на основе compatibility analysis"}
+  ],
+  "todo": [
+    "Проверить актуальные версии Continue",
+    "Документировать примеры конфигураций"
+  ],
+  "sources": [
+    "Continue Documentation",
+    ".ARCHIVE/compatibility_discussion_dump.txt",
+    "Continue GitHub issue #1077 - systemMessage limitations"
+  ]
+} 

@@ -181,6 +181,72 @@
       "project": "llmstruct"
     },
     {
+      "id": "TSK-DATE-001",
+      "title": "Fix remaining session log timestamps (2024 → 2025)",
+      "description": "Исправить все внутренние timestamps в session logs, которые остались с 2024 датами. Особенно в knowledge_session_compatibility_analysis_2025-06-05.json",
+      "epic": "date_consistency_management",
+      "status": "todo",
+      "priority": "medium",
+      "tags": ["date_fix", "session_logs", "consistency"],
+      "created": "2025-06-05T03:35:00Z",
+      "related_docs": ["docs/DATE_AUDIT_RECOMMENDATIONS.md", "docs/CRITICAL_DATE_UPDATE_2025.md"]
+    },
+    {
+      "id": "TSK-DATE-002", 
+      "title": "Implement date validation script",
+      "description": "Создать scripts/validate_dates.sh для автоматической проверки дат в документах. Скрипт должен находить подозрительные даты и предупреждать о несоответствиях.",
+      "epic": "date_consistency_management",
+      "status": "todo",
+      "priority": "high",
+      "tags": ["automation", "validation", "scripts", "date_fix"],
+      "created": "2025-06-05T03:35:00Z",
+      "estimated_hours": 2
+    },
+    {
+      "id": "TSK-DATE-003",
+      "title": "Add date validation to ai_workflow.json",
+      "description": "Обновить ai_workflow.json добавлением обязательных проверок дат при создании документов. Включить pre_document_creation checks с verify_current_date.",
+      "epic": "date_consistency_management", 
+      "status": "todo",
+      "priority": "high",
+      "tags": ["workflow", "validation", "ai_process", "date_fix"],
+      "created": "2025-06-05T03:35:00Z",
+      "estimated_hours": 1
+    },
+    {
+      "id": "TSK-DATE-004",
+      "title": "Create document templates with auto-dates",
+      "description": "Создать шаблоны документов в templates/ с автоматической подстановкой текущих дат. Стандартизировать формат дат для всех типов документов.",
+      "epic": "date_consistency_management",
+      "status": "todo", 
+      "priority": "medium",
+      "tags": ["templates", "automation", "standardization", "date_fix"],
+      "created": "2025-06-05T03:35:00Z",
+      "estimated_hours": 3
+    },
+    {
+      "id": "TSK-DATE-005",
+      "title": "Implement pre-commit date validation hooks",
+      "description": "Настроить pre-commit hooks для автоматической валидации дат перед коммитом. Проверка на несоответствие current year и подозрительные timeline spans.",
+      "epic": "date_consistency_management",
+      "status": "planned",
+      "priority": "low", 
+      "tags": ["git", "hooks", "automation", "validation", "date_fix"],
+      "created": "2025-06-05T03:35:00Z",
+      "estimated_hours": 4
+    },
+    {
+      "id": "TSK-DATE-006",
+      "title": "Quarterly date audit process",
+      "description": "Установить процесс ежеквартального аудита дат в проекте. Создать checklist и автоматизированные отчеты для мониторинга date consistency.",
+      "epic": "date_consistency_management",
+      "status": "planned",
+      "priority": "low",
+      "tags": ["process", "audit", "monitoring", "quarterly", "date_fix"],
+      "created": "2025-06-05T03:35:00Z",
+      "estimated_hours": 2
+    },
+    {
       "id": "TASK-2024-06-12-ENF-DECORATORS",
       "epic": "epic_workflow_enforcement_2024",
       "title": "Внедрить enforcement-декораторы и middleware для CLI/AI actions",
@@ -348,6 +414,90 @@
         "Синхронизация MD/JSON файлов должна быть автоматизирована",
         "Quality gates предотвращают деградацию knowledge base"
       ]
+    },
+    {
+      "id": "TSK-ARCH-001",
+      "title": "Полный анализ архивных паттернов из ../.ARCHIVE/.personal/",
+      "description": "Провести comprehensive анализ всех найденных архитектурных паттернов из архива: Boss CLI, masterplan methodology, Smart Wrapper patterns, decision matrices, agent hierarchy system. Документировать все findings.",
+      "epic": "archive_integration_2025",
+      "status": "todo",
+      "priority": "high",
+      "tags": ["archive", "architecture", "patterns", "analysis", "boss_cli", "smart_wrapper"],
+      "created": "2025-06-05T04:00:00Z",
+      "estimated_hours": 8,
+      "related_files": ["docs/ARCHIVE_ANALYSIS_REPORT.md"]
+    },
+    {
+      "id": "TSK-ARCH-002", 
+      "title": "Интеграция Boss CLI patterns в llmgenie архитектуру",
+      "description": "Интегрировать найденные паттерны Boss CLI (hierarchical access, interactive interface, agent management) в архитектуру llmgenie. Создать прототип команд и access control system.",
+      "epic": "archive_integration_2025",
+      "status": "todo",
+      "priority": "high",
+      "tags": ["boss_cli", "integration", "hierarchy", "access_control", "prototype"],
+      "created": "2025-06-05T04:00:00Z",
+      "estimated_hours": 12,
+      "dependencies": ["TSK-ARCH-001"]
+    },
+    {
+      "id": "TSK-ARCH-003",
+      "title": "Реализация Smart Wrapper architecture для multi-agent system",
+      "description": "Реализовать Smart Wrapper паттерны из архива: context analysis, permission check, environment setup, execute with fallback. Адаптировать для llmgenie orchestration.",
+      "epic": "archive_integration_2025", 
+      "status": "todo",
+      "priority": "high",
+      "tags": ["smart_wrapper", "multi_agent", "context_analysis", "fallback", "orchestration"],
+      "created": "2025-06-05T04:00:00Z",
+      "estimated_hours": 10,
+      "dependencies": ["TSK-ARCH-001"]
+    },
+    {
+      "id": "TSK-ARCH-004",
+      "title": "Внедрение Master Planning Methodology в project workflow",
+      "description": "Адаптировать Master Planning Methodology (ИДЕЯ → СТРУКТУРИРОВАНИЕ → ЗАПИСКИ → ОБСУЖДЕНИЕ → ПЛАН → ВЫПОЛНЕНИЕ) для llmgenie development workflow и project management.",
+      "epic": "archive_integration_2025",
+      "status": "todo", 
+      "priority": "medium",
+      "tags": ["planning", "methodology", "workflow", "project_management", "structured_approach"],
+      "created": "2025-06-05T04:00:00Z",
+      "estimated_hours": 6,
+      "dependencies": ["TSK-ARCH-001"]
+    },
+    {
+      "id": "TSK-ARCH-005",
+      "title": "Создание архитектурных компонентов на основе архивных находок",
+      "description": "Создать новые архитектурные компоненты: access_control/, cli_interface/, smart_wrapper/, decision_log/ на основе паттернов из архива. Подготовить базовую структуру и interfaces.",
+      "epic": "archive_integration_2025",
+      "status": "todo",
+      "priority": "medium", 
+      "tags": ["architecture", "components", "access_control", "cli_interface", "smart_wrapper", "decision_log"],
+      "created": "2025-06-05T04:00:00Z",
+      "estimated_hours": 8,
+      "dependencies": ["TSK-ARCH-002", "TSK-ARCH-003"]
+    },
+    {
+      "id": "TSK-ARCH-006",
+      "title": "Обновление competitive positioning на основе уникальных находок",
+      "description": "Обновить market positioning и competitive analysis учитывая уникальные архитектурные паттерны из архива. Пересмотреть value proposition и enterprise messaging.",
+      "epic": "archive_integration_2025",
+      "status": "todo",
+      "priority": "low",
+      "tags": ["positioning", "competitive_analysis", "value_proposition", "enterprise", "messaging"],
+      "created": "2025-06-05T04:00:00Z", 
+      "estimated_hours": 4,
+      "dependencies": ["TSK-ARCH-001"]
+    },
+    {
+      "id": "TSK-MAMAY-001",
+      "title": "Завершение onboarding package для Мамая",
+      "description": "Финализировать все onboarding документы для Мамая: докладная записка, roadmap, личный план, техническая база, аргументы против инвесторов. Проверить consistency и готовность к передаче.",
+      "epic": "mamay_onboarding_2025",
+      "status": "done", 
+      "priority": "high",
+      "tags": ["onboarding", "mamay", "documentation", "partnership", "roadmap"],
+      "created": "2025-06-05T03:30:00Z",
+      "completed": "2025-06-05T04:00:00Z",
+      "related_files": ["docs/mamay_onboarding/"]
     }
   ]
 }
