@@ -1,6 +1,0 @@
----
-description: Restore focus using meta-log and ai_workflow.json if lost.
-alwaysApply: true
----
-# Context Restoration
-- If focus is lost, restore it using meta-log and ai_workflow.json. 

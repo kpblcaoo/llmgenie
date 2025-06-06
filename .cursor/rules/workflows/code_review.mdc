@@ -1,8 +1,0 @@
----
-description: When reviewing code, enforce our code review checklist
-alwaysApply: false
----
-# Code Review Checklist
-- Follow the code review checklist for all pull requests and code changes.
-- Ensure code style, documentation, and tests are up to date.
-- Check for security issues and best practices. 

@@ -1,0 +1,22 @@
+---
+description: Rules must be designed for multi-environment portability (Cursor, VSCode, CLI, API). Use configuration files to map generic references to environment-specific implementations.
+globs: .cursor/rules/**/*.mdc_
+alwaysApply: false
+---
+
+## Critical Rule
+- Ensure all rules are portable across supported environments.
+- Use configuration files for environment-specific mapping.
+- Document environment compatibility in @rules_manifest.json.
+
+## Example
+<example>
+A rule that works in both Cursor and CLI, with config mapping for file paths.
+</example>
+<example type="invalid">
+A rule that only works in Cursor and fails in VSCode or CLI.
+</example>
+
+## @-References
+- @rules_manifest.json: For environment compatibility tracking.
+- @docs/environment_setup.md: For environment-specific configuration guidance. 

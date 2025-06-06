@@ -1,0 +1,9 @@
+---
+description: All new best practices, workflows, and insights that arise during work must be recorded in .cursor/rules/, documentation, or data files for reproducibility.
+globs: .cursor/rules/**/*.mdc_, data/**/*.md, data/**/*.json, docs/**/*.md, docs/**/*.json
+alwaysApply: false
+---
+
+## Meta
+# Best Practices Recording
+- All new best practices and workflows must be recorded in .cursor/rules/ or documentation for reproducibility. 
