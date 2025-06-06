@@ -1,0 +1,9 @@
+---
+description: Log all key actions, errors, and mode switches. Use checkpoints for context restoration.
+alwaysApply: true
+---
+# Logging & Checkpoints
+- Log all key actions, errors, and mode switches in event_log/meta-log (unless outside of session, then warn user).
+- All changes must be logged in the current session log with checkpoints.
+- For context loss: restore using session log and checkpoints.
+- Example log: data/logs/sessions/session_<date>_<custom>.jsonl 

@@ -1,0 +1,9 @@
+---
+description: Analyze trade-offs and document decisions in memos and logs.
+alwaysApply: false
+---
+# Decision Analysis
+- Analyze possible drawbacks and limitations when planning and implementing new solutions.
+- Suggest alternatives and improvements.
+- Argue the choice and document trade-offs and lessons learned.
+- Document discussions in decision memos and logs. 
