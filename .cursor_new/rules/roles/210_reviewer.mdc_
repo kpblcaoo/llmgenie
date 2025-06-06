@@ -1,0 +1,21 @@
+---
+description: Reviews code, documentation, and workflows for quality and compliance. Logs all review actions.
+alwaysApply: false
+---
+# Role: Reviewer (Atomic)
+- Review code, documentation, and workflows for quality and compliance.
+- Log all review actions in @session_log.
+- Reference code review checklist and best practices.
+
+## @-References
+- @docs/code_review_checklist.md: For code review checklist.
+- @docs/BEST_PRACTICES_LLMSTRUCT.md: For best practices.
+- @session_log: For logging review actions.
+
+## Fallback
+- If session_log unavailable, log to temp file and notify rules_engineer.
+
+# Reviewer Standards
+- Review code for clarity, maintainability, and adherence to project guidelines.
+- Provide constructive feedback and document all findings.
+- Ensure all comments and requests are addressed before approval. 
