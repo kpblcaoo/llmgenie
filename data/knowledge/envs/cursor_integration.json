@@ -2,37 +2,27 @@
   "env": "cursor",
   "integration": {
     "rules": true,
-    "cli": true,
-    "api": true,
+    "cli": false,
+    "api": false,
     "mcp": false,
     "lsp": false,
-    "toolspec": false,
-    "rag": true,
-    "vscode_extensions": true
+    "toolspec": false
   },
-  "logic_notes": "Cursor - форк VSCode с продвинутыми AI функциями. Поддерживает .cursor/rules, команды терминала, внешние API, RAG через кастомные конфигурации, расширения VSCode.",
+  "logic_notes": "Логика реализуется через .cursor/rules (mdc), поддержка agent requested, auto attached, alwaysApply. CLI не обязателен. MCP, LSP, ToolSpec не поддерживаются.",
   "implemented_features": [
     {"feature": "agent rule", "date": "2024-06-12", "details": "Автоматическая активация правил по ключевым словам"},
-    {"feature": "alwaysApply, globs, manual, auto attached", "date": "2024-06-12"},
-    {"feature": "terminal_commands", "date": "2025-06-12", "details": "Поддержка выполнения команд терминала"},
-    {"feature": "external_api_calls", "date": "2025-06-12", "details": "Возможность настройки для вызовов API"},
-    {"feature": "rag_support", "date": "2025-06-12", "details": "RAG через кастомные конфигурации"},
-    {"feature": "local_models", "date": "2025-06-12", "details": "Интеграция с локальными моделями через настройку API"},
-    {"feature": "rules_mechanisms_detailed", "date": "2025-06-12", "details": "Always (alwaysApply: true), Auto Attached (globs), Agent Requested (description), Manual (@ruleName)"},
-    {"feature": "v1_improvements", "date": "2025-06-12", "details": "Cursor 1.0 улучшил работу с правилами (тестируется пользователем)"}
+    {"feature": "alwaysApply, globs, manual, auto attached", "date": "2024-06-12"}
   ],
   "limitations": [
     "cursor/rules не применимы к Ollama, VSCode, Copilot и др.",
-    "Нет поддержки MCP, LSP, ToolSpec.",
-    "УСТАРЕЛО: Предыдущие проблемы с игнорированием директив могут быть исправлены в Cursor 1.0 (тестируется пользователем)"
+    "Нет поддержки MCP, LSP, ToolSpec."
   ],
   "incompatibilities": [
     "cursor/rules не совместимы с Ollama, VSCode, Copilot, API моделями"
   ],
   "history": [
     {"date": "2024-06-12", "author": "ai_assistant", "change": "Инициализация файла, фиксация текущих возможностей и ограничений"},
-    {"date": "2025-06-12", "author": "ai_assistant", "change": "Ревизия: убран openctx, подтверждены статусы протоколов, обновлены limitations"},
-    {"date": "2025-06-12", "author": "knowledge_engineer", "change": "Интеграция данных из compatibility analysis: добавлены CLI, API, RAG функции"}
+    {"date": "2025-06-12", "author": "ai_assistant", "change": "Ревизия: убран openctx, подтверждены статусы протоколов, обновлены limitations"}
   ],
   "todo": [
     "Оценить возможность интеграции OpenCtx/LSP",

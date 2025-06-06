@@ -15,17 +15,15 @@
     "docs/knowledge/*"
   ],
   "knowledge_base": {
-    "version": "1.1.0",
+    "version": "1.0.0",
     "last_global_review": "2025-06-12",
     "next_review_due": "2025-09-12",
-    "total_integrations": 10,
+    "total_integrations": 8,
     "coverage": {
-      "envs": 6,
-      "models": 8,
+      "envs": 5,
+      "models": 3,
       "protocols": 6
-    },
-    "compatibility_analysis_integrated": "2025-06-12",
-    "source_compatibility_dump": ".ARCHIVE/compatibility_discussion_dump.txt"
+    }
   },
   "envs": [
     {
@@ -67,14 +65,6 @@
       "file": "api_models_integration",
       "last_reviewed": "2025-06-12",
       "status": "active"
-    },
-    {
-      "id": "vscode_continue",
-      "name": "VSCode + Continue",
-      "provider": "Continue",
-      "file": "vscode_continue_integration",
-      "last_reviewed": "2025-06-12",
-      "status": "active"
     }
   ],
   "models": [
@@ -101,46 +91,6 @@
       "file": "llama3_integration",
       "last_reviewed": "2025-06-12",
       "status": "active"
-    },
-    {
-      "id": "deepseek_r1",
-      "name": "DeepSeek-R1",
-      "provider": "DeepSeek",
-      "file": "deepseek_integration",
-      "last_reviewed": "2025-06-12",
-      "status": "active"
-    },
-    {
-      "id": "phi4",
-      "name": "Phi-4", 
-      "provider": "Microsoft",
-      "file": "phi4_integration",
-      "last_reviewed": "2025-06-12",
-      "status": "active"
-    },
-    {
-      "id": "gemma3",
-      "name": "Gemma 3",
-      "provider": "Google",
-      "file": "gemma3_integration", 
-      "last_reviewed": "2025-06-12",
-      "status": "active"
-    },
-    {
-      "id": "mistral",
-      "name": "Mistral Small 3.1",
-      "provider": "Mistral",
-      "file": "mistral_integration",
-      "last_reviewed": "2025-06-12", 
-      "status": "active"
-    },
-    {
-      "id": "grok",
-      "name": "xAI Grok",
-      "provider": "xAI",
-      "file": "grok_integration",
-      "last_reviewed": "2025-06-12",
-      "status": "active"
     }
   ],
   "protocols": [
@@ -148,20 +98,7 @@
       "id": "rules",
       "name": ".cursor/rules",
       "supported_by": ["cursor"],
-      "status": "cursor_specific",
-      "types": ["always", "auto_attached", "agent_requested", "manual"]
-    },
-    {
-      "id": "function_calling",
-      "name": "Function Calling",
-      "supported_by": ["api_models", "gpt4", "claude", "grok", "ollama"],
-      "status": "active"
-    },
-    {
-      "id": "multimodal",
-      "name": "Multimodal Processing",
-      "supported_by": ["gpt4", "claude", "grok", "ollama"],
-      "status": "active"
+      "status": "cursor_specific"
     },
     {
       "id": "cli",
@@ -191,18 +128,6 @@
       "id": "toolspec",
       "name": "Tool Specification",
       "supported_by": ["vscode"],
-      "status": "active"
-    },
-    {
-      "id": "streaming",
-      "name": "Streaming Responses",
-      "supported_by": ["api_models", "gpt4", "claude", "grok", "ollama"],
-      "status": "active"
-    },
-    {
-      "id": "rag",
-      "name": "Retrieval-Augmented Generation",
-      "supported_by": ["ollama", "vscode_continue", "langchain"],
       "status": "active"
     }
   ],
