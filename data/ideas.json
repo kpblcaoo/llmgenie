@@ -198,6 +198,88 @@
       "created": "2024-06-11T02:00:00Z"
     },
     {
+      "id": "EPIC-2025-06-intelligent-cleanup",
+      "title": "Интеграция систем автоочистки в llmgenie: самоочищающийся workspace",
+      "description": "Внедрение найденных в архиве систем автоочистки для создания интеллектуального самоочищающегося workspace: struct-based анализатор, hash-based детектор дубликатов, автоматические рекомендации по cleanup, интеграция с агентской системой.",
+      "epic": "intelligent_cleanup_integration_2025",
+      "status": "planned",
+      "priority": "high",
+      "tags": ["cleanup", "automation", "workspace", "duplicates", "agents", "intelligence"],
+      "created": "2025-06-05T17:00:00Z",
+      "related_docs": ["docs/archive_analysis/01_architecture_patterns/intelligent_cleanup_system_patterns.md"],
+      "source_analysis": "archive_mining_session_2025_06_05"
+    },
+    {
+      "id": "IDEA-CLEANUP-001",
+      "title": "Адаптивная система категоризации файлов на основе машинного обучения",
+      "description": "Развить найденную систему категоризации в интеллектуальную ML-систему, которая изучает предпочтения пользователя и адаптирует рекомендации по cleanup. Включить анализ частоты использования, контекстные метки, сезонность доступа к файлам.",
+      "epic": "intelligent_cleanup_integration_2025",
+      "status": "proposed",
+      "priority": "medium",
+      "tags": ["ml", "categorization", "adaptive", "user_preferences", "context_analysis"],
+      "created": "2025-06-05T17:35:00Z"
+    },
+    {
+      "id": "IDEA-CLEANUP-002", 
+      "title": "Интеграция cleanup системы с version control и backup стратегиями",
+      "description": "Создать интеллектуальную интеграцию с git для определения безопасности удаления файлов: анализ истории коммитов, проверка ссылок в других файлах, автоматическое создание веток для экспериментальной очистки.",
+      "epic": "intelligent_cleanup_integration_2025",
+      "status": "proposed",
+      "priority": "medium", 
+      "tags": ["git", "version_control", "safety", "backup", "experimental_cleanup"],
+      "created": "2025-06-05T17:40:00Z"
+    },
+    {
+      "id": "IDEA-CLEANUP-003",
+      "title": "Социальная система рекомендаций для команд разработчиков",
+      "description": "Расширить cleanup систему для командной работы: общие паттерны очистки, коллективные решения по архивированию, система peer review для cleanup операций, обмен best practices между проектами.",
+      "epic": "intelligent_cleanup_integration_2025",
+      "status": "future",
+      "priority": "low",
+      "tags": ["social", "teams", "peer_review", "best_practices", "collaboration"],
+      "created": "2025-06-05T17:45:00Z"
+    },
+    {
+      "id": "IDEA-CLEANUP-004",
+      "title": "Предиктивная система предотвращения 'мусорных' файлов",
+      "description": "Создать проактивную систему, которая предотвращает создание 'мусорных' файлов: анализ паттернов создания временных файлов, предупреждения о потенциальных дубликатах при сохранении, автоматические правила именования.",
+      "epic": "intelligent_cleanup_integration_2025",
+      "status": "future",
+      "priority": "low",
+      "tags": ["predictive", "prevention", "proactive", "naming_conventions", "patterns"],
+      "created": "2025-06-05T17:50:00Z"
+    },
+    {
+      "id": "EPIC-2025-06-ARCHIVE-INTEGRATION",
+      "title": "Интеграция революционных архитектурных паттернов из архива",
+      "description": "Масштабная интеграция game-changing архитектурных находок из ../.ARCHIVE/.personal/: Boss CLI hierarchical management, Smart Wrapper patterns, Master Planning Methodology, decision matrices, agent hierarchy system. Цель - придать llmgenie уникальное competitive преимущество.",
+      "epic": "archive_integration_2025",
+      "status": "active",
+      "priority": "critical",
+      "tags": ["archive", "architecture", "boss_cli", "smart_wrapper", "competitive_advantage", "revolutionary"],
+      "created": "2025-06-05T04:00:00Z",
+      "business_impact": "Трансформация от 'Kubernetes for LLM-agents' к 'Enterprise Management Platform for AI Agents'",
+      "key_components": [
+        "Boss CLI hierarchical access control",
+        "Smart Wrapper context analysis patterns", 
+        "Master Planning structured methodology",
+        "Decision matrices и structured decision making",
+        "Interactive CLI для real-time agent management"
+      ]
+    },
+    {
+      "id": "EPIC-2025-06-MAMAY-ONBOARDING", 
+      "title": "Strategic onboarding package для DevOps partner (Мамай)",
+      "description": "Comprehensive onboarding package для привлечения Мамая как Senior DevOps Engineer. Включает project briefing, technical roadmap, personal task plan, anti-investor arguments. Цель - honest partnership с clear expectations.",
+      "epic": "mamay_onboarding_2025",
+      "status": "completed",
+      "priority": "high",
+      "tags": ["onboarding", "partnership", "devops", "mamay", "strategic", "documentation"],
+      "created": "2025-06-05T03:30:00Z",
+      "completed": "2025-06-05T04:00:00Z",
+      "outcome": "5 comprehensive документов созданы в docs/mamay_onboarding/, ready для transmission"
+    },
+    {
       "id": "IDEA-2024-06-12-001",
       "epic": "epic_ai_planning_mode_2024",
       "title": "AI Planning Mode & Context Aggregation",
