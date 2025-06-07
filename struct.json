@@ -1,0 +1,2254 @@
+{
+  "metadata": {
+    "project_name": "llmstruct",
+    "description": "Utility for generating structured JSON for codebases",
+    "version": "2025-06-06T21:42:17.737625Z",
+    "authors": [
+      {
+        "name": "Mikhail Stepanov",
+        "github": "kpblcaoo",
+        "email": "kpblcaoo@gmail.com"
+      }
+    ],
+    "instructions": [
+      "Follow best practices, warn if instructions conflict with them",
+      "Preserve functionality, ensure idempotency",
+      "Use attached struct.json for context and navigation",
+      "Request missing modules or functions if needed",
+      "Regenerate JSON for significant changes, track via Git and artifacts",
+      "Use internal comments for descriptions, append brief summary"
+    ],
+    "goals": [],
+    "stats": {
+      "modules_count": 20,
+      "functions_count": 50,
+      "classes_count": 1,
+      "call_edges_count": 286
+    },
+    "artifact_id": "68b8501d-d7da-4590-a7ba-dd08331aa32c",
+    "summary": "Structured JSON for llmstruct codebase",
+    "tags": [
+      "codebase",
+      "automation"
+    ],
+    "folder_structure": [
+      {
+        "path": ".",
+        "type": "directory",
+        "artifact_id": "b9c56578-7f7f-41f2-98f4-ff396dabfe82",
+        "metadata": {}
+      },
+      {
+        "path": ".cursor",
+        "type": "directory",
+        "artifact_id": "fb29859b-f461-4409-965b-6038941fc02a",
+        "metadata": {}
+      },
+      {
+        "path": ".cursor/rules",
+        "type": "directory",
+        "artifact_id": "e7b4fa12-d1d5-47c9-a77c-02163c53f764",
+        "metadata": {}
+      },
+      {
+        "path": ".cursor/rules/core",
+        "type": "directory",
+        "artifact_id": "e8cc3dbc-422e-4153-8e1b-81e65f58c01e",
+        "metadata": {}
+      },
+      {
+        "path": ".cursor/rules/roles",
+        "type": "directory",
+        "artifact_id": "f547c7a4-fd67-40e9-948b-89d107c360c3",
+        "metadata": {}
+      },
+      {
+        "path": ".cursor/rules/roles/220_rules_engineer",
+        "type": "directory",
+        "artifact_id": "ffabd425-ae06-405a-a776-5fee4c7ea1b7",
+        "metadata": {}
+      },
+      {
+        "path": ".cursor/rules/security",
+        "type": "directory",
+        "artifact_id": "6349e4aa-3d19-476f-83ca-e2c09fe85432",
+        "metadata": {}
+      },
+      {
+        "path": ".cursor/rules/templates",
+        "type": "directory",
+        "artifact_id": "8a1a603d-6e5c-4c7e-a6a9-8c38393c9140",
+        "metadata": {}
+      },
+      {
+        "path": ".cursor/rules/workflows",
+        "type": "directory",
+        "artifact_id": "d3b4355c-a716-43ac-bd8d-26bcfa8e1422",
+        "metadata": {}
+      },
+      {
+        "path": "data",
+        "type": "directory",
+        "artifact_id": "7cbcb4d3-0541-495b-af24-1d141c4f13bb",
+        "metadata": {}
+      },
+      {
+        "path": "data/epic_logs",
+        "type": "directory",
+        "artifact_id": "e2f30a55-adee-4547-aee7-4bec0eb33f81",
+        "metadata": {}
+      },
+      {
+        "path": "data/epic_logs/epic_ai_workflow_rules_2024",
+        "type": "directory",
+        "artifact_id": "ae7a4a25-c9da-4915-b5a4-1aa83266baf2",
+        "metadata": {}
+      },
+      {
+        "path": "data/epic_logs/epic_session_control_2024",
+        "type": "directory",
+        "artifact_id": "83f50367-12e3-477e-993c-e822399c3cee",
+        "metadata": {}
+      },
+      {
+        "path": "data/knowledge",
+        "type": "directory",
+        "artifact_id": "1c2b1a83-fc85-4c48-aaa1-02d72e8bebbb",
+        "metadata": {}
+      },
+      {
+        "path": "data/knowledge/envs",
+        "type": "directory",
+        "artifact_id": "51391746-ee81-4c4e-be43-fb3c9734ee10",
+        "metadata": {}
+      },
+      {
+        "path": "data/knowledge/models",
+        "type": "directory",
+        "artifact_id": "090cdf96-1b90-43dd-9dac-7b3319fc3694",
+        "metadata": {}
+      },
+      {
+        "path": "data/knowledge/templates",
+        "type": "directory",
+        "artifact_id": "ce6ae419-1213-4588-abfb-e6c74bcb54cb",
+        "metadata": {}
+      },
+      {
+        "path": "data/logs",
+        "type": "directory",
+        "artifact_id": "8883a2df-ac26-4254-883a-087318b1039e",
+        "metadata": {}
+      },
+      {
+        "path": "data/logs/sessions",
+        "type": "directory",
+        "artifact_id": "0bcb540b-c876-48e2-b33c-bdd08c89e623",
+        "metadata": {}
+      },
+      {
+        "path": "data/sessions",
+        "type": "directory",
+        "artifact_id": "fa5d3939-f53e-497e-8376-1b9517890110",
+        "metadata": {}
+      },
+      {
+        "path": "decision_memos",
+        "type": "directory",
+        "artifact_id": "3aa61c05-abdd-44f0-9e31-513b16bf5808",
+        "metadata": {}
+      },
+      {
+        "path": "docs",
+        "type": "directory",
+        "artifact_id": "438f3218-c02d-4924-85ab-14790263a15c",
+        "metadata": {}
+      },
+      {
+        "path": "docs/archive_analysis",
+        "type": "directory",
+        "artifact_id": "a2ca1d98-6ad2-4c9e-a29a-cc35c3575547",
+        "metadata": {}
+      },
+      {
+        "path": "docs/archive_analysis/01_architecture_patterns",
+        "type": "directory",
+        "artifact_id": "586fd6e9-d2f8-4135-bf99-6b9f2d7e4774",
+        "metadata": {}
+      },
+      {
+        "path": "docs/decision_memos",
+        "type": "directory",
+        "artifact_id": "583d0c69-cde2-44e2-8f1f-38837689e997",
+        "metadata": {}
+      },
+      {
+        "path": "docs/epics",
+        "type": "directory",
+        "artifact_id": "77b2ddcb-22b6-47e5-8925-2028a5229496",
+        "metadata": {}
+      },
+      {
+        "path": "docs/examples",
+        "type": "directory",
+        "artifact_id": "7c78a9ee-30f6-4c9b-be36-a1b41d864cd5",
+        "metadata": {}
+      },
+      {
+        "path": "docs/knowledge",
+        "type": "directory",
+        "artifact_id": "3402f39c-0487-4817-a8bb-d6e2f3d2706f",
+        "metadata": {}
+      },
+      {
+        "path": "docs/knowledge/models",
+        "type": "directory",
+        "artifact_id": "07f9b88a-2193-4060-ad54-887280ebd2f3",
+        "metadata": {}
+      },
+      {
+        "path": "docs/knowledge/templates",
+        "type": "directory",
+        "artifact_id": "78a63d39-59bd-4cad-9fc2-1dba8b7949e9",
+        "metadata": {}
+      },
+      {
+        "path": "docs/mamay_onboarding",
+        "type": "directory",
+        "artifact_id": "f3d78317-2b39-4797-84b2-9201a8cae853",
+        "metadata": {}
+      },
+      {
+        "path": "docs/notes",
+        "type": "directory",
+        "artifact_id": "b09ee02b-93d7-4aa0-acab-73ee9762f77f",
+        "metadata": {}
+      },
+      {
+        "path": "docs/to_sort",
+        "type": "directory",
+        "artifact_id": "90151b52-3df5-4b6e-9cc1-2cf85905f68d",
+        "metadata": {}
+      },
+      {
+        "path": "docs/to_sort/examples",
+        "type": "directory",
+        "artifact_id": "225451ac-ccd3-472f-b464-20fed5acc594",
+        "metadata": {}
+      },
+      {
+        "path": "docs/to_sort/internal",
+        "type": "directory",
+        "artifact_id": "f317d1cc-0f49-41aa-a938-7857e0243a0f",
+        "metadata": {}
+      },
+      {
+        "path": "docs/to_sort/internal/memos",
+        "type": "directory",
+        "artifact_id": "ee5c2af4-8157-4f9c-8354-f9929f93ad7a",
+        "metadata": {}
+      },
+      {
+        "path": "event_log",
+        "type": "directory",
+        "artifact_id": "4b235a47-d6ca-4ba8-ab9f-843fb03a10cb",
+        "metadata": {}
+      },
+      {
+        "path": "scripts",
+        "type": "directory",
+        "artifact_id": "17e9ac64-cb4b-4540-8d4c-aadd44954ccb",
+        "metadata": {}
+      },
+      {
+        "path": "src",
+        "type": "directory",
+        "artifact_id": "204daaf8-a2bc-4915-8a9e-c5ba2a3bc4e3",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie",
+        "type": "directory",
+        "artifact_id": "fbaba49f-5a90-496d-baa1-7f72f3bd874a",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/cli.py",
+        "type": "file",
+        "artifact_id": "70846b1b-4bea-4837-9694-2adfe4cd99cf",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/llm_client.py",
+        "type": "file",
+        "artifact_id": "de949edc-bd76-43c0-89f0-aabdb0cf9de0",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules",
+        "type": "directory",
+        "artifact_id": "be6bfc9d-6ba6-4276-90a9-0f4b3d6591ce",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli",
+        "type": "directory",
+        "artifact_id": "2f240191-3edd-40f9-bb5d-81df61feedbf",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/__init__.py",
+        "type": "file",
+        "artifact_id": "ba45aa92-8751-4728-8882-69987c6046b0",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/analyze_duplicates.py",
+        "type": "file",
+        "artifact_id": "589cb351-f56b-4380-aa0f-24569ca97065",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/audit.py",
+        "type": "file",
+        "artifact_id": "4da3a79b-20ae-44e3-930c-bd9f5495f2cf",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/context.py",
+        "type": "file",
+        "artifact_id": "0d75ce6c-ca8b-4f83-8126-56fbac987e13",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/copilot.py",
+        "type": "file",
+        "artifact_id": "040b2f39-95a4-422d-a4b5-a9e1aaf62c09",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/dogfood.py",
+        "type": "file",
+        "artifact_id": "f4ac557f-a3cf-477d-8f3e-a571c57dbf5b",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/epic.py",
+        "type": "file",
+        "artifact_id": "ed7f14d4-a90b-4b95-9bb8-e6d6c24aa367",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/handlers.py",
+        "type": "file",
+        "artifact_id": "9636dd1c-8e1b-4d22-a15f-f7f06b55b2f5",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/handlers_legacy.py",
+        "type": "file",
+        "artifact_id": "e70041a5-8e37-4382-9184-d14eb5e5bd8f",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/parse.py",
+        "type": "file",
+        "artifact_id": "a6247b17-f777-46cb-a256-f2dff4a52bbd",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/query.py",
+        "type": "file",
+        "artifact_id": "b53a3884-4e81-4df7-913f-e428522aa0ac",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/review.py",
+        "type": "file",
+        "artifact_id": "49431a8b-df1c-40a6-ad01-3f775745173e",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/cli/utils.py",
+        "type": "file",
+        "artifact_id": "f5e1b6ab-7842-4560-b57c-8a70e2e6f2f5",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/commands",
+        "type": "directory",
+        "artifact_id": "3342cadb-367e-4856-8f50-f28a3f7a32d4",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/commands/__init__.py",
+        "type": "file",
+        "artifact_id": "ee54e718-a067-47e3-ba94-717230fd4312",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/commands/metrics.py",
+        "type": "file",
+        "artifact_id": "0e0556e7-2ceb-47bd-980d-c5f2ca21cd44",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/commands/queue.py",
+        "type": "file",
+        "artifact_id": "a833ebc1-1eee-4d1e-af2d-c6da84311e2e",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/modules/commands/services.py",
+        "type": "file",
+        "artifact_id": "c50995c4-887a-45ae-9fdd-05b1f1863b49",
+        "metadata": {}
+      },
+      {
+        "path": "tools",
+        "type": "directory",
+        "artifact_id": "d06a7f2e-f3bb-4cd8-86e2-64ebdd3051e5",
+        "metadata": {}
+      },
+      {
+        "path": "tools/atomic_rules_linter.py",
+        "type": "file",
+        "artifact_id": "bbed7897-5061-47e4-95e6-0f32ea5cc9ef",
+        "metadata": {}
+      }
+    ]
+  },
+  "toc": [
+    {
+      "module_id": "tools.atomic_rules_linter",
+      "path": "tools/atomic_rules_linter.py",
+      "category": "core",
+      "functions": 0,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "0c8e19e2-316b-43f3-9f5f-8d5d5c99141d"
+    },
+    {
+      "module_id": "src.llmgenie.llm_client",
+      "path": "src/llmgenie/llm_client.py",
+      "category": "core",
+      "functions": 6,
+      "classes": 1,
+      "summary": "",
+      "artifact_id": "b05cfab2-d49d-4882-9969-2a9024b7a53d"
+    },
+    {
+      "module_id": "src.llmgenie.cli",
+      "path": "src/llmgenie/cli.py",
+      "category": "core",
+      "functions": 2,
+      "classes": 0,
+      "summary": "LLMStruct CLI - Main entry point for the command-line interface.",
+      "artifact_id": "69731ef5-6f24-4bba-aa17-c9dfae542349"
+    },
+    {
+      "module_id": "src.llmgenie.modules.commands.__init__",
+      "path": "src/llmgenie/modules/commands/__init__.py",
+      "category": "cli",
+      "functions": 0,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "800f14cd-35b8-4a58-a4e5-35e987f7b284"
+    },
+    {
+      "module_id": "src.llmgenie.modules.commands.metrics",
+      "path": "src/llmgenie/modules/commands/metrics.py",
+      "category": "core",
+      "functions": 7,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "bc666a66-470a-4943-9a69-8815552f8b7f"
+    },
+    {
+      "module_id": "src.llmgenie.modules.commands.queue",
+      "path": "src/llmgenie/modules/commands/queue.py",
+      "category": "core",
+      "functions": 1,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "eb8f779b-1c38-40e4-a187-f915525c37e9"
+    },
+    {
+      "module_id": "src.llmgenie.modules.commands.services",
+      "path": "src/llmgenie/modules/commands/services.py",
+      "category": "core",
+      "functions": 4,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "88820bd1-5e71-4fa5-a584-de0e9d72103f"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.dogfood",
+      "path": "src/llmgenie/modules/cli/dogfood.py",
+      "category": "cli",
+      "functions": 1,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "c381cad0-2d8c-4fc5-bdcb-b800d9ce5fe8"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.parse",
+      "path": "src/llmgenie/modules/cli/parse.py",
+      "category": "cli",
+      "functions": 1,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "9a0e91e7-e1fd-49ac-8e67-bb7aa475ce8e"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.audit",
+      "path": "src/llmgenie/modules/cli/audit.py",
+      "category": "cli",
+      "functions": 1,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "124f8e04-7f5b-4e05-bdc2-1a5045343319"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.utils",
+      "path": "src/llmgenie/modules/cli/utils.py",
+      "category": "cli",
+      "functions": 16,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "921410b6-0bcd-4c5f-bae3-959d17db1853"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.context",
+      "path": "src/llmgenie/modules/cli/context.py",
+      "category": "cli",
+      "functions": 1,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "0f7ddf99-e3e3-4f56-b58a-e2ff792fc3ba"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.copilot",
+      "path": "src/llmgenie/modules/cli/copilot.py",
+      "category": "cli",
+      "functions": 1,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "dd5d8ff4-d3ba-4314-90bc-b0a60f588ed5"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.review",
+      "path": "src/llmgenie/modules/cli/review.py",
+      "category": "cli",
+      "functions": 1,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "041d8c4d-6b5d-4e58-bed6-95e1f58f74f7"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.__init__",
+      "path": "src/llmgenie/modules/cli/__init__.py",
+      "category": "cli",
+      "functions": 0,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "5716029a-2485-4d83-b36e-a0d7cf077224"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.handlers",
+      "path": "src/llmgenie/modules/cli/handlers.py",
+      "category": "cli",
+      "functions": 2,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "0e244889-01e3-4e31-ade0-5436ccb48722"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.handlers_legacy",
+      "path": "src/llmgenie/modules/cli/handlers_legacy.py",
+      "category": "cli",
+      "functions": 1,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "765de2a6-655f-4c77-aad8-7b8c3fa35a0f"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.analyze_duplicates",
+      "path": "src/llmgenie/modules/cli/analyze_duplicates.py",
+      "category": "cli",
+      "functions": 1,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "efa6582d-8b2a-4ecd-a563-8923a8b593fa"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.query",
+      "path": "src/llmgenie/modules/cli/query.py",
+      "category": "cli",
+      "functions": 1,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "69a5b2d7-ca66-4337-b4ce-b3c21b4cdb71"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.epic",
+      "path": "src/llmgenie/modules/cli/epic.py",
+      "category": "cli",
+      "functions": 3,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "7d693085-d118-440f-9988-59c059f869f1"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "tools.atomic_rules_linter",
+      "path": "tools/atomic_rules_linter.py",
+      "category": "core",
+      "module_doc": "",
+      "functions": [],
+      "classes": [],
+      "callgraph": {},
+      "dependencies": [
+        "glob",
+        "os",
+        "re"
+      ],
+      "hash": "470eb6e10bf21aaa6984e864abd16bbd7c22ff4536290f65c548e44c3b5512b8",
+      "artifact_id": "0c8e19e2-316b-43f3-9f5f-8d5d5c99141d"
+    },
+    {
+      "module_id": "src.llmgenie.llm_client",
+      "path": "src/llmgenie/llm_client.py",
+      "category": "core",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize LLMClient with optional Ollama host.",
+          "line_range": [
+            28,
+            36
+          ],
+          "parameters": [
+            "self",
+            "ollama_host"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "query",
+          "docstring": "Query LLMs with prompt, context, and optional model.",
+          "line_range": [
+            38,
+            86
+          ],
+          "parameters": [
+            "self",
+            "prompt",
+            "context_path",
+            "mode",
+            "model",
+            "artifact_ids"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "_query_grok",
+          "docstring": "Query Grok API.",
+          "line_range": [
+            88,
+            115
+          ],
+          "parameters": [
+            "self",
+            "prompt"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "_query_anthropic",
+          "docstring": "Query Anthropic API.",
+          "line_range": [
+            117,
+            141
+          ],
+          "parameters": [
+            "self",
+            "prompt"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "_query_ollama",
+          "docstring": "Query Ollama API with specified model.",
+          "line_range": [
+            143,
+            156
+          ],
+          "parameters": [
+            "self",
+            "prompt",
+            "model"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "_query_hybrid",
+          "docstring": "Query multiple LLMs and combine results.",
+          "line_range": [
+            158,
+            172
+          ],
+          "parameters": [
+            "self",
+            "prompt",
+            "model"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "LLMClient",
+          "docstring": "",
+          "line_range": [
+            27,
+            172
+          ],
+          "methods": [
+            {
+              "name": "__init__",
+              "docstring": "Initialize LLMClient with optional Ollama host.",
+              "line_range": [
+                28,
+                36
+              ],
+              "parameters": [
+                "self",
+                "ollama_host"
+              ]
+            },
+            {
+              "name": "query",
+              "docstring": "Query LLMs with prompt, context, and optional model.",
+              "line_range": [
+                38,
+                86
+              ],
+              "parameters": [
+                "self",
+                "prompt",
+                "context_path",
+                "mode",
+                "model",
+                "artifact_ids"
+              ]
+            },
+            {
+              "name": "_query_grok",
+              "docstring": "Query Grok API.",
+              "line_range": [
+                88,
+                115
+              ],
+              "parameters": [
+                "self",
+                "prompt"
+              ]
+            },
+            {
+              "name": "_query_anthropic",
+              "docstring": "Query Anthropic API.",
+              "line_range": [
+                117,
+                141
+              ],
+              "parameters": [
+                "self",
+                "prompt"
+              ]
+            },
+            {
+              "name": "_query_ollama",
+              "docstring": "Query Ollama API with specified model.",
+              "line_range": [
+                143,
+                156
+              ],
+              "parameters": [
+                "self",
+                "prompt",
+                "model"
+              ]
+            },
+            {
+              "name": "_query_hybrid",
+              "docstring": "Query multiple LLMs and combine results.",
+              "line_range": [
+                158,
+                172
+              ],
+              "parameters": [
+                "self",
+                "prompt",
+                "model"
+              ]
+            }
+          ],
+          "bases": []
+        }
+      ],
+      "callgraph": {
+        "__init__": [
+          "int",
+          "os.getenv",
+          "logging.info"
+        ],
+        "query": [
+          "json.dumps",
+          "asyncio.sleep",
+          "logging.error",
+          "Path",
+          "range",
+          "logging.info",
+          "self._query_ollama",
+          "self._query_anthropic",
+          "self._query_grok",
+          "self._query_hybrid",
+          "json.load",
+          "logging.warning"
+        ],
+        "_query_grok": [
+          "result.get",
+          "logging.error",
+          "aiohttp.ClientSession",
+          "logging.info",
+          "session.post",
+          "response.json"
+        ],
+        "_query_anthropic": [
+          "result.get",
+          "logging.error",
+          "aiohttp.ClientSession",
+          "logging.info",
+          "session.post",
+          "response.json"
+        ],
+        "_query_ollama": [
+          "result.get",
+          "logging.error",
+          "aiohttp.ClientSession",
+          "logging.info",
+          "session.post",
+          "logging.debug",
+          "response.json"
+        ],
+        "_query_hybrid": [
+          "len",
+          "asyncio.gather",
+          "isinstance",
+          "logging.info",
+          "self._query_ollama",
+          "self._query_anthropic",
+          "self._query_grok"
+        ]
+      },
+      "dependencies": [
+        "List",
+        "Optional",
+        "Path",
+        "aiohttp",
+        "asyncio",
+        "dotenv",
+        "json",
+        "load_dotenv",
+        "logging",
+        "os",
+        "pathlib",
+        "typing"
+      ],
+      "hash": "c477d5e96f165fa96546ff8e2673db785cee146f6fffd0f424d21072431133ba",
+      "artifact_id": "b05cfab2-d49d-4882-9969-2a9024b7a53d"
+    },
+    {
+      "module_id": "src.llmgenie.cli",
+      "path": "src/llmgenie/cli.py",
+      "category": "core",
+      "module_doc": "LLMStruct CLI - Main entry point for the command-line interface.",
+      "functions": [
+        {
+          "name": "main",
+          "docstring": "Command-line interface for LLMstruct.",
+          "line_range": [
+            55,
+            318
+          ],
+          "parameters": [],
+          "decorators": []
+        },
+        {
+          "name": "normalize_patterns",
+          "docstring": "",
+          "line_range": [
+            281,
+            292
+          ],
+          "parameters": [
+            "arglist"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "main": [
+          "dogfood_parser.add_argument",
+          "parser.parse_args",
+          "epic.add_epic_cli_subparser",
+          "copilot_parser.add_argument",
+          "review_parser.add_argument",
+          "parse_parser.add_argument",
+          "query_parser.add_argument",
+          "argparse.ArgumentParser",
+          "subparsers.add_parser",
+          "audit_parser.add_argument",
+          "parser.add_subparsers",
+          "context_parser.add_argument",
+          "duplicates_parser.add_argument"
+        ],
+        "normalize_patterns": [
+          "result.extend",
+          "result.append",
+          "p.strip",
+          "item.split",
+          "item.strip"
+        ]
+      },
+      "dependencies": [
+        "JSONCache",
+        "LLMClient",
+        "List",
+        "Optional",
+        "Path",
+        "analyze_duplicates",
+        "argparse",
+        "asyncio",
+        "attach_to_llm_request",
+        "audit",
+        "cli_core",
+        "context",
+        "copilot",
+        "create_cli_core",
+        "dogfood",
+        "epic",
+        "generate_json",
+        "get_folder_structure",
+        "initialize_copilot",
+        "interactive",
+        "interactive_legacy",
+        "interactive_modular",
+        "json",
+        "llmstruct",
+        "llmstruct.cache",
+        "llmstruct.generators.json_generator",
+        "llmstruct.modules.cli",
+        "llmstruct.modules.cli.analyze_duplicates",
+        "llmstruct.modules.cli.audit",
+        "llmstruct.modules.cli.context",
+        "llmstruct.modules.cli.copilot",
+        "llmstruct.modules.cli.dogfood",
+        "llmstruct.modules.cli.handlers",
+        "llmstruct.modules.cli.parse",
+        "llmstruct.modules.cli.query",
+        "llmstruct.modules.cli.review",
+        "llmstruct.modules.cli.utils",
+        "llmstruct.modules.commands.queue",
+        "llmstruct.self_run",
+        "load_config",
+        "load_gitignore",
+        "logging",
+        "os",
+        "parse",
+        "parse_files_from_response",
+        "pathlib",
+        "process_cli_queue_enhanced",
+        "query",
+        "re",
+        "read_file_content",
+        "review",
+        "shutil",
+        "sys",
+        "time",
+        "toml",
+        "typing",
+        "write_to_file"
+      ],
+      "hash": "0f1504317e34987adbd393567aa9bdaf5c356d1d6b9caa26781ccdb83ca3d0a3",
+      "artifact_id": "69731ef5-6f24-4bba-aa17-c9dfae542349"
+    },
+    {
+      "module_id": "src.llmgenie.modules.commands.__init__",
+      "path": "src/llmgenie/modules/commands/__init__.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [],
+      "classes": [],
+      "callgraph": {},
+      "dependencies": [],
+      "hash": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
+      "artifact_id": "800f14cd-35b8-4a58-a4e5-35e987f7b284"
+    },
+    {
+      "module_id": "src.llmgenie.modules.commands.metrics",
+      "path": "src/llmgenie/modules/commands/metrics.py",
+      "category": "core",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "metrics_status",
+          "docstring": "\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0442\u0435\u043a\u0443\u0449\u0438\u0439 \u0441\u0442\u0430\u0442\u0443\u0441 \u043c\u0435\u0442\u0440\u0438\u043a",
+          "line_range": [
+            1,
+            20
+          ],
+          "parameters": [],
+          "decorators": []
+        },
+        {
+          "name": "metrics_summary",
+          "docstring": "\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0434\u0435\u0442\u0430\u043b\u044c\u043d\u0443\u044e \u0441\u0432\u043e\u0434\u043a\u0443 \u043c\u0435\u0442\u0440\u0438\u043a",
+          "line_range": [
+            22,
+            66
+          ],
+          "parameters": [],
+          "decorators": []
+        },
+        {
+          "name": "metrics_analytics",
+          "docstring": "\u0421\u0433\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0430\u043d\u0430\u043b\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0434\u0430\u043d\u043d\u044b\u0435",
+          "line_range": [
+            68,
+            104
+          ],
+          "parameters": [
+            "output_file",
+            "format"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "metrics_report",
+          "docstring": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0432\u0441\u0435\u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0438\u0439 \u043e\u0442\u0447\u0435\u0442",
+          "line_range": [
+            106,
+            134
+          ],
+          "parameters": [
+            "sessions",
+            "output_file"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "metrics_track",
+          "docstring": "\u0420\u0443\u0447\u043d\u043e\u0435 \u043e\u0442\u0441\u043b\u0435\u0436\u0438\u0432\u0430\u043d\u0438\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u0439",
+          "line_range": [
+            136,
+            145
+          ],
+          "parameters": [
+            "event_type",
+            "details"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "metrics_tokens",
+          "docstring": "\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0434\u0435\u0442\u0430\u043b\u044c\u043d\u0443\u044e \u0441\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u043a\u0443 \u0442\u043e\u043a\u0435\u043d\u043e\u0432",
+          "line_range": [
+            147,
+            185
+          ],
+          "parameters": [],
+          "decorators": []
+        },
+        {
+          "name": "cmd_metrics",
+          "docstring": "\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u043c\u0435\u0442\u0440\u0438\u043a\u0430\u043c\u0438 \u043f\u0440\u043e\u0435\u043a\u0442\u0430",
+          "line_range": [
+            187,
+            205
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "metrics_status": [
+          "tracker.get_session_summary",
+          "print",
+          "get_metrics_tracker"
+        ],
+        "metrics_summary": [
+          "max",
+          "tracker.get_session_summary",
+          "print",
+          "get_metrics_tracker"
+        ],
+        "metrics_analytics": [
+          "tracker.get_session_summary",
+          "open",
+          "json.dump",
+          "enumerate",
+          "json.dumps",
+          "get_metrics_tracker",
+          "tracker.get_analytics_data",
+          "time.strftime",
+          "writer.writerow",
+          "csv.writer",
+          "print"
+        ],
+        "metrics_report": [
+          "len",
+          "open",
+          "sum",
+          "min",
+          "f.write",
+          "get_metrics_tracker",
+          "analytics.get",
+          "tracker.get_analytics_data",
+          "time.strftime",
+          "print"
+        ],
+        "metrics_track": [
+          "print",
+          "track_workflow_event"
+        ],
+        "metrics_tokens": [
+          "summary.get",
+          "enumerate",
+          "get_metrics_tracker",
+          "interaction.get",
+          "print",
+          "get_token_summary"
+        ],
+        "cmd_metrics": [
+          "metrics_analytics",
+          "metrics_status",
+          "metrics_summary",
+          "metrics_report",
+          "metrics_track",
+          "metrics_tokens",
+          "print"
+        ]
+      },
+      "dependencies": [
+        "csv",
+        "get_metrics_tracker",
+        "get_token_summary",
+        "json",
+        "llmstruct.metrics_tracker",
+        "time",
+        "track_workflow_event"
+      ],
+      "hash": "f3cdbecb744fbdb29ca949fe874d201a44bc014625127b14d500e5828dc11e54",
+      "artifact_id": "bc666a66-470a-4943-9a69-8815552f8b7f"
+    },
+    {
+      "module_id": "src.llmgenie.modules.commands.queue",
+      "path": "src/llmgenie/modules/commands/queue.py",
+      "category": "core",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "process_cli_queue_enhanced",
+          "docstring": "Enhanced queue processing with workflow support, performance tracking, and safety validation.",
+          "line_range": [
+            9,
+            208
+          ],
+          "parameters": [
+            "root_dir",
+            "context_path",
+            "args",
+            "cache",
+            "client"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "process_cli_queue_enhanced": [
+          "len",
+          "load_gitignore",
+          "read_file_content",
+          "open",
+          "item.get",
+          "enumerate",
+          "logging.error",
+          "isinstance",
+          "client.query",
+          "logging.info",
+          "get_folder_structure",
+          "attach_to_llm_request",
+          "options.get",
+          "write_to_file",
+          "json.load",
+          "time.time",
+          "workflow.get",
+          "print"
+        ]
+      },
+      "dependencies": [
+        "attach_to_llm_request",
+        "get_folder_structure",
+        "json",
+        "llmstruct.generators.json_generator",
+        "llmstruct.modules.cli.utils",
+        "llmstruct.self_run",
+        "load_gitignore",
+        "logging",
+        "os",
+        "read_file_content",
+        "time",
+        "write_to_file"
+      ],
+      "hash": "93ea2acd1be91706282b474b0d3d20881d6894688201c8b0acd0ee1f7266b285",
+      "artifact_id": "eb8f779b-1c38-40e4-a187-f915525c37e9"
+    },
+    {
+      "module_id": "src.llmgenie.modules.commands.services",
+      "path": "src/llmgenie/modules/commands/services.py",
+      "category": "core",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "add_api_bot_commands",
+          "docstring": "\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0434\u043b\u044f \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f API \u0438 Bot \u0441\u0435\u0440\u0432\u0438\u0441\u0430\u043c\u0438",
+          "line_range": [
+            10,
+            47
+          ],
+          "parameters": [
+            "subparsers"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "cmd_api_management",
+          "docstring": "\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 API \u0441\u0435\u0440\u0432\u0435\u0440\u043e\u043c",
+          "line_range": [
+            49,
+            111
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "cmd_bot_management",
+          "docstring": "\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 Telegram \u0431\u043e\u0442\u0430\u043c\u0438",
+          "line_range": [
+            113,
+            190
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "cmd_services",
+          "docstring": "\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u043c\u0438 \u0441\u0435\u0440\u0432\u0438\u0441\u0430\u043c\u0438 (API + Bots)",
+          "line_range": [
+            192,
+            233
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "add_api_bot_commands": [
+          "metrics_subparsers.add_parser",
+          "services_parser.add_subparsers",
+          "metrics_analytics.add_argument",
+          "bot_subparsers.add_parser",
+          "metrics_report.add_argument",
+          "bot_start.add_argument",
+          "api_start.add_argument",
+          "services_subparsers.add_parser",
+          "subparsers.add_parser",
+          "metrics_parser.add_subparsers",
+          "api_parser.add_subparsers",
+          "metrics_track.add_argument",
+          "api_subparsers.add_parser",
+          "bot_parser.add_subparsers"
+        ],
+        "cmd_api_management": [
+          "requests.get",
+          "int",
+          "pid_file.unlink",
+          "process.wait",
+          "open",
+          "requests.post",
+          "data.get",
+          "Path",
+          "subprocess.Popen",
+          "f.write",
+          "str",
+          "f.read",
+          "pid_file.exists",
+          "process.terminate",
+          "venv_path.exists",
+          "response.json",
+          "print",
+          "psutil.Process"
+        ],
+        "cmd_bot_management": [
+          "active_bots.append",
+          "int",
+          "pid_file.unlink",
+          "process.wait",
+          "open",
+          "bot_scripts.get",
+          "Path",
+          "os.getenv",
+          "subprocess.Popen",
+          "f.write",
+          "str",
+          "f.read",
+          "pid_file.exists",
+          "process.is_running",
+          "process.terminate",
+          "print",
+          "psutil.Process"
+        ],
+        "cmd_services": [
+          "cmd_api_management",
+          "time.sleep",
+          "type",
+          "print",
+          "cmd_bot_management"
+        ]
+      },
+      "dependencies": [
+        "Path",
+        "os",
+        "pathlib",
+        "psutil",
+        "requests",
+        "signal",
+        "subprocess",
+        "time"
+      ],
+      "hash": "96ca731ade5a7043ea0459124cc364e27740657bccffde74544182d938e57d98",
+      "artifact_id": "88820bd1-5e71-4fa5-a584-de0e9d72103f"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.dogfood",
+      "path": "src/llmgenie/modules/cli/dogfood.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "dogfood",
+          "docstring": "Run dogfooding analysis.",
+          "line_range": [
+            3,
+            5
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "dogfood": [
+          "logging.warning"
+        ]
+      },
+      "dependencies": [
+        "logging"
+      ],
+      "hash": "18989e9381a3f9872468dfd93602c7b12cbe7cb740a402dda2711c7c98bb3a98",
+      "artifact_id": "c381cad0-2d8c-4fc5-bdcb-b800d9ce5fe8"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.parse",
+      "path": "src/llmgenie/modules/cli/parse.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "parse",
+          "docstring": "Parse codebase and generate struct.json.",
+          "line_range": [
+            9,
+            93
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "parse": [
+          "json.dump",
+          "struct_path.open",
+          "cache.close",
+          "parsing_config.get",
+          "cache.cache_json",
+          "logging.warning",
+          "JSONCache",
+          "generate_json",
+          "getattr",
+          "load_config",
+          "func.get",
+          "ast_path.open",
+          "logging.error",
+          "struct_data.get",
+          "config.get",
+          "cli_config.get",
+          "mod_dir.mkdir",
+          "Path",
+          "logging.info",
+          "module.get"
+        ]
+      },
+      "dependencies": [
+        "JSONCache",
+        "Path",
+        "generate_json",
+        "json",
+        "llmstruct.cache",
+        "llmstruct.generators.json_generator",
+        "llmstruct.modules.cli.utils",
+        "load_config",
+        "logging",
+        "os",
+        "pathlib"
+      ],
+      "hash": "966276e0c717ac3bf78502224305e23e2ac9b49547bbbf13bb37c83cb85d8b9c",
+      "artifact_id": "9a0e91e7-e1fd-49ac-8e67-bb7aa475ce8e"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.audit",
+      "path": "src/llmgenie/modules/cli/audit.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "audit",
+          "docstring": "Audit project structure and generate reports.",
+          "line_range": [
+            4,
+            17
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "audit": [
+          "file_path.exists",
+          "analyze_duplicates",
+          "hasattr",
+          "Path",
+          "print"
+        ]
+      },
+      "dependencies": [
+        "Path",
+        "analyze_duplicates",
+        "llmstruct.cli",
+        "os",
+        "pathlib"
+      ],
+      "hash": "2db7989b347f40218b0105a07e15164e4fa869ecf87fe977e929a36ad7b90179",
+      "artifact_id": "124f8e04-7f5b-4e05-bdc2-1a5045343319"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.utils",
+      "path": "src/llmgenie/modules/cli/utils.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "load_gitignore",
+          "docstring": "Load and normalize patterns from .gitignore.",
+          "line_range": [
+            6,
+            20
+          ],
+          "parameters": [
+            "root_dir"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "load_config",
+          "docstring": "Load settings from llmstruct.toml or return empty dict.",
+          "line_range": [
+            22,
+            32
+          ],
+          "parameters": [
+            "root_dir"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "read_file_content",
+          "docstring": "Read content of a file if it exists and is a text file.",
+          "line_range": [
+            34,
+            43
+          ],
+          "parameters": [
+            "file_path"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "write_to_file",
+          "docstring": "Write content to a file in base_dir (default ./tmp) and return the path.",
+          "line_range": [
+            45,
+            63
+          ],
+          "parameters": [
+            "content",
+            "filename",
+            "base_dir"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "parse_files_from_response",
+          "docstring": "Extract filenames and content from LLM response (e.g., ```filename\ncontent```).",
+          "line_range": [
+            65,
+            72
+          ],
+          "parameters": [
+            "response"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "get_cache_config",
+          "docstring": "",
+          "line_range": [
+            74,
+            75
+          ],
+          "parameters": [
+            "config"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "get_copilot_config",
+          "docstring": "",
+          "line_range": [
+            77,
+            78
+          ],
+          "parameters": [
+            "config"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "get_queue_config",
+          "docstring": "",
+          "line_range": [
+            80,
+            81
+          ],
+          "parameters": [
+            "config"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "get_context_config",
+          "docstring": "",
+          "line_range": [
+            83,
+            84
+          ],
+          "parameters": [
+            "config"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "get_exclude_dirs",
+          "docstring": "",
+          "line_range": [
+            86,
+            93
+          ],
+          "parameters": [
+            "config"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "get_include_patterns",
+          "docstring": "",
+          "line_range": [
+            95,
+            98
+          ],
+          "parameters": [
+            "config"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "get_exclude_patterns",
+          "docstring": "",
+          "line_range": [
+            100,
+            103
+          ],
+          "parameters": [
+            "config"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "get_max_file_size",
+          "docstring": "",
+          "line_range": [
+            105,
+            106
+          ],
+          "parameters": [
+            "config"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "get_struct_file_path",
+          "docstring": "",
+          "line_range": [
+            108,
+            109
+          ],
+          "parameters": [
+            "config"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "get_context_file_path",
+          "docstring": "",
+          "line_range": [
+            111,
+            112
+          ],
+          "parameters": [
+            "config"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "save_config",
+          "docstring": "",
+          "line_range": [
+            114,
+            121
+          ],
+          "parameters": [
+            "config",
+            "root_dir"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "load_gitignore": [
+          "line.strip",
+          "gitignore_path.exists",
+          "logging.error",
+          "Path",
+          "gitignore_path.open",
+          "line.startswith"
+        ],
+        "load_config": [
+          "config_path.open",
+          "logging.error",
+          "Path",
+          "toml.load",
+          "config_path.exists"
+        ],
+        "read_file_content": [
+          "path.is_file",
+          "logging.error",
+          "Path",
+          "path.open",
+          "f.read"
+        ],
+        "write_to_file": [
+          "file_path.exists",
+          "file_path.open",
+          "logging.error",
+          "Path",
+          "f.write",
+          "logging.warning",
+          "str",
+          "logging.info",
+          "base_path.mkdir",
+          "re.sub"
+        ],
+        "parse_files_from_response": [
+          "files.append",
+          "content.strip",
+          "filename.strip",
+          "re.findall"
+        ],
+        "get_cache_config": [
+          "config.get"
+        ],
+        "get_copilot_config": [
+          "config.get"
+        ],
+        "get_queue_config": [
+          "config.get"
+        ],
+        "get_context_config": [
+          "config.get"
+        ],
+        "get_exclude_dirs": [
+          "set",
+          "parsing_config.get",
+          "cli_config.get",
+          "config.get",
+          "list"
+        ],
+        "get_include_patterns": [
+          "parsing_config.get",
+          "cli_config.get",
+          "config.get"
+        ],
+        "get_exclude_patterns": [
+          "parsing_config.get",
+          "cli_config.get",
+          "config.get"
+        ],
+        "get_max_file_size": [
+          "config.get"
+        ],
+        "get_struct_file_path": [
+          "config.get"
+        ],
+        "get_context_file_path": [
+          "config.get"
+        ],
+        "save_config": [
+          "toml.dump",
+          "Path",
+          "logging.error",
+          "config_path.open"
+        ]
+      },
+      "dependencies": [
+        "List",
+        "Optional",
+        "Path",
+        "logging",
+        "pathlib",
+        "re",
+        "toml",
+        "typing"
+      ],
+      "hash": "3f9f61b289dbdcbe85ccc89e60dd4e6a5a9a2cc31194ab9d0d8fe613fac51924",
+      "artifact_id": "921410b6-0bcd-4c5f-bae3-959d17db1853"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.context",
+      "path": "src/llmgenie/modules/cli/context.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "context",
+          "docstring": "Generate context.json from input JSON.",
+          "line_range": [
+            3,
+            5
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "context": [
+          "logging.warning"
+        ]
+      },
+      "dependencies": [
+        "logging"
+      ],
+      "hash": "2eaa01d2531e7fab1705f319c2b166013a6c19186010ee7b126e5e8396dd4699",
+      "artifact_id": "0f7ddf99-e3e3-4f56-b58a-e2ff792fc3ba"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.copilot",
+      "path": "src/llmgenie/modules/cli/copilot.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "copilot",
+          "docstring": "Copilot integration and context management.",
+          "line_range": [
+            5,
+            113
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "copilot": [
+          "manager.get_context_status",
+          "shutil.copy",
+          "manager.refresh_all_contexts",
+          "hasattr",
+          "manager.close",
+          "manager.validate_change",
+          "initialize_copilot",
+          "template_path.exists",
+          "smart_suggest",
+          "getattr",
+          "open",
+          "manager.unload_context_layer",
+          "manager.export_context",
+          "logging.error",
+          "f.write",
+          "config_path.exists",
+          "enumerate",
+          "manager.load_context_layer",
+          "layers.split",
+          "Path",
+          "logging.info",
+          "print"
+        ]
+      },
+      "dependencies": [
+        "Path",
+        "initialize_copilot",
+        "llmstruct.copilot",
+        "logging",
+        "pathlib",
+        "shutil",
+        "smart_suggest"
+      ],
+      "hash": "7bc44c139d0fb9c7f3ae37544ef763d68cc55e4220c2e89d73d766801541f947",
+      "artifact_id": "dd5d8ff4-d3ba-4314-90bc-b0a60f588ed5"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.review",
+      "path": "src/llmgenie/modules/cli/review.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "review",
+          "docstring": "Review codebase with LLM.",
+          "line_range": [
+            3,
+            5
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "review": [
+          "logging.warning"
+        ]
+      },
+      "dependencies": [
+        "logging"
+      ],
+      "hash": "1065196bb1074e1f669c0973da53285a04a2ab62d7462e97dfed418488d4a451",
+      "artifact_id": "041d8c4d-6b5d-4e58-bed6-95e1f58f74f7"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.__init__",
+      "path": "src/llmgenie/modules/cli/__init__.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [],
+      "classes": [],
+      "callgraph": {},
+      "dependencies": [],
+      "hash": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
+      "artifact_id": "5716029a-2485-4d83-b36e-a0d7cf077224"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.handlers",
+      "path": "src/llmgenie/modules/cli/handlers.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "interactive",
+          "docstring": "Run interactive CLI with modular structure if available, fallback to legacy.",
+          "line_range": [
+            14,
+            21
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "interactive_modular",
+          "docstring": "Run interactive CLI with modular structure.",
+          "line_range": [
+            23,
+            32
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "interactive": [
+          "interactive_legacy",
+          "interactive_modular",
+          "logging.warning"
+        ],
+        "interactive_modular": [
+          "hasattr",
+          "cli_core.run_interactive_mode",
+          "create_cli_core",
+          "logging.info"
+        ]
+      },
+      "dependencies": [
+        "JSONCache",
+        "LLMClient",
+        "Path",
+        "attach_to_llm_request",
+        "create_cli_core",
+        "get_folder_structure",
+        "interactive_legacy",
+        "json",
+        "llmstruct",
+        "llmstruct.cache",
+        "llmstruct.cli_core",
+        "llmstruct.generators.json_generator",
+        "llmstruct.modules.cli.handlers_legacy",
+        "llmstruct.modules.cli.utils",
+        "llmstruct.self_run",
+        "load_gitignore",
+        "logging",
+        "os",
+        "pathlib",
+        "re",
+        "read_file_content",
+        "time",
+        "write_to_file"
+      ],
+      "hash": "51450e4006a43d948e918bd87e43874e584f08c569cdbe9f89aff58c9d6293a2",
+      "artifact_id": "0e244889-01e3-4e31-ade0-5436ccb48722"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.handlers_legacy",
+      "path": "src/llmgenie/modules/cli/handlers_legacy.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "interactive_legacy",
+          "docstring": "Run interactive CLI with LLM, supporting file/folder viewing and writing.",
+          "line_range": [
+            14,
+            149
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "interactive_legacy": [
+          "input",
+          "args_str.strip",
+          "cache.close",
+          "write_to_file",
+          "attach_to_llm_request",
+          "logging.warning",
+          "m.group",
+          "JSONCache",
+          "read_file_content",
+          "re.match",
+          "client.query",
+          "os.listdir",
+          "user_input.startswith",
+          "parse",
+          "LLMClient",
+          "json.dumps",
+          "sorted",
+          "logging.error",
+          "get_folder_structure",
+          "load_gitignore",
+          "user_input.lower",
+          "Path",
+          "print"
+        ]
+      },
+      "dependencies": [
+        "JSONCache",
+        "LLMClient",
+        "Path",
+        "attach_to_llm_request",
+        "get_folder_structure",
+        "json",
+        "llmstruct",
+        "llmstruct.cache",
+        "llmstruct.cli",
+        "llmstruct.generators.json_generator",
+        "llmstruct.modules.cli.utils",
+        "llmstruct.self_run",
+        "load_gitignore",
+        "logging",
+        "os",
+        "parse",
+        "pathlib",
+        "re",
+        "read_file_content",
+        "time",
+        "write_to_file"
+      ],
+      "hash": "3676e871a4d165bc1a661bc3791663f9127c614086610286e69f1ddb1674c68e",
+      "artifact_id": "765de2a6-655f-4c77-aad8-7b8c3fa35a0f"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.analyze_duplicates",
+      "path": "src/llmgenie/modules/cli/analyze_duplicates.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "analyze_duplicates",
+          "docstring": "Analyze function duplication using struct.json deep analysis.",
+          "line_range": [
+            1,
+            81
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "analyze_duplicates": [
+          "getattr",
+          "WorkflowOrchestrator",
+          "analysis.get",
+          "len",
+          "json.dumps",
+          "open",
+          "sorted",
+          "hasattr",
+          "json.dump",
+          "enumerate",
+          "filtered_duplicates.items",
+          "duplicates.items",
+          "traceback.print_exc",
+          "duplication_data.get",
+          "r.get",
+          "rec.get",
+          "print",
+          "orchestrator.analyze_codebase_for_duplicates"
+        ]
+      },
+      "dependencies": [
+        "WorkflowOrchestrator",
+        "json",
+        "llmstruct.workflow_orchestrator",
+        "traceback"
+      ],
+      "hash": "d9c98a76c4920b3bfe62a812811aa9edf7158fa6d307eecd1235c4a2d93f146c",
+      "artifact_id": "efa6582d-8b2a-4ecd-a563-8923a8b593fa"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.query",
+      "path": "src/llmgenie/modules/cli/query.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "query",
+          "docstring": "Query LLMs with prompt and context.",
+          "line_range": [
+            8,
+            64
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "query": [
+          "JSONCache",
+          "create_context_orchestrator",
+          "LLMClient",
+          "json.dump",
+          "logging.error",
+          "hasattr",
+          "Path",
+          "client.query",
+          "cache.close",
+          "logging.info",
+          "orchestrator.get_context_for_scenario",
+          "client.query_with_context",
+          "logging.warning"
+        ]
+      },
+      "dependencies": [
+        "JSONCache",
+        "LLMClient",
+        "Path",
+        "create_context_orchestrator",
+        "json",
+        "llmstruct",
+        "llmstruct.cache",
+        "llmstruct.context_orchestrator",
+        "logging",
+        "os",
+        "pathlib"
+      ],
+      "hash": "aebf4b74c71a6845676877cbd60f5530d3afab38fa6ccec41c114e158cb0f614",
+      "artifact_id": "69a5b2d7-ca66-4337-b4ce-b3c21b4cdb71"
+    },
+    {
+      "module_id": "src.llmgenie.modules.cli.epic",
+      "path": "src/llmgenie/modules/cli/epic.py",
+      "category": "cli",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "load_json",
+          "docstring": "",
+          "line_range": [
+            5,
+            7
+          ],
+          "parameters": [
+            "path"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "show_links",
+          "docstring": "",
+          "line_range": [
+            9,
+            57
+          ],
+          "parameters": [
+            "args"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "add_epic_cli_subparser",
+          "docstring": "",
+          "line_range": [
+            59,
+            67
+          ],
+          "parameters": [
+            "subparsers"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "load_json": [
+          "json.load",
+          "open"
+        ],
+        "show_links": [
+          "link_map.items",
+          "results.items",
+          "item.get",
+          "json.dumps",
+          "data.get",
+          "Path",
+          "load_json",
+          "str",
+          "status_filter.lower",
+          "t.upper",
+          "epic.get",
+          "epic_path.exists",
+          "print"
+        ],
+        "add_epic_cli_subparser": [
+          "epic_parser.add_subparsers",
+          "subparsers.add_parser",
+          "show_links_parser.set_defaults",
+          "show_links_parser.add_argument",
+          "epic_sub.add_parser"
+        ]
+      },
+      "dependencies": [
+        "Path",
+        "argparse",
+        "json",
+        "pathlib"
+      ],
+      "hash": "7a96cb38d4cc07f413b5da974e0eb6c461a8ce1c76f96f808c8a4414a7eb1b30",
+      "artifact_id": "7d693085-d118-440f-9988-59c059f869f1"
+    }
+  ]
+}

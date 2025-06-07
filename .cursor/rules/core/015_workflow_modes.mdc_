@@ -1,6 +1,7 @@
 ---
-description: Workflow modes and context tags. Always specify mode at start, log switches, update context.
-alwaysApply: true
+description: When workflow modes and context tags e.g. [code] is mentioned
+globs: 
+alwaysApply: false
 ---
 
 ## Meta
