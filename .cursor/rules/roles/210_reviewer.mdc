@@ -1,6 +1,6 @@
 ---
-description: Reviews code, documentation, and workflows for quality and compliance. Logs all review actions.
-globs: src_/**/*, docs/**/*, test/**/*, data/**/*.md, data/**/*.json
+description: When reviewing code or in [review] mode
+globs: 
 alwaysApply: false
 ---
 
