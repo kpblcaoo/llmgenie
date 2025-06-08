@@ -121,6 +121,14 @@
       "last_updated": "2025-01-05"
     },
     {
+      "id": "016_context_transfer_protocol",
+      "file": "core/016_context_transfer_protocol.mdc_",
+      "description": "Universal context transfer protocol for handoff between sessions, chats, roles, and team members. Ensures zero information loss and quality maintenance.",
+      "references": ["@data/knowledge/handoff_best_practices_synthesis_2025-01-05.md", "@data/audit/context_transfer_guide.md", "@session_log", "@ai_workflow.json"],
+      "fallback": "If structured transfer unavailable, provide minimum viable context: status, key blockers, immediate next steps, and explicit warning about reduced context quality.",
+      "last_updated": "2025-01-05"
+    },
+    {
       "id": "200_knowledge_engineer",
       "file": "roles/200_knowledge_engineer.mdc_",
       "description": "Designs, maintains, and documents the project knowledge base. Ensures best practices and onboarding materials are up to date.",
