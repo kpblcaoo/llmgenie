@@ -69,6 +69,24 @@
         "Фиксировать паузы и восстановление в meta-log",
         "Восстанавливать контекст по meta-log при возврате"
       ]
+    },
+    "handoff_validation": {
+      "description": "Валидация handoff пакета перед передачей контекста",
+      "checklist": [
+        "Создать handoff конфигурацию (JSON) с минимум 5 файлами",
+        "Включить файлы типов: summary, lessons, checklist, audit, metadata",
+        "Составить startup prompt с статусом, инфраструктурой, уроками, ограничениями",
+        "Подготовить контрольные вопросы (минимум 3) по статусу, технике, scope",
+        "Запустить валидацию: python src/llmgenie/cli/handoff_cli.py validate config.json",
+        "Обеспечить completeness score >= 80%",
+        "Исправить предупреждения и рекомендации валидатора"
+      ],
+      "automation": {
+        "api_endpoint": "POST /handoff/validate",
+        "cli_tool": "src/llmgenie/cli/handoff_cli.py",
+        "template_endpoint": "GET /handoff/template",
+        "ci_integration": "handoff_cli.py check --fail-on-warnings"
+      }
     }
   },
   "logging": {
