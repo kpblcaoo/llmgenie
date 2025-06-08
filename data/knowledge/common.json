@@ -178,8 +178,11 @@
     {
       "id": "mcp",
       "name": "Model Context Protocol",
-      "supported_by": ["vscode", "copilot", "claude"],
-      "status": "active"
+      "supported_by": ["vscode", "copilot", "claude", "ollama"],
+      "status": "active",
+      "description": "Tool integration protocol for AI assistants",
+      "technical_doc": "data/knowledge/techs/mcp_model_context_protocol.md",
+      "user_doc": "docs/knowledge/techs/mcp_model_context_protocol.md"
     },
     {
       "id": "lsp",

@@ -80,19 +80,36 @@
 - [x] Документирование всех решений, проблем, lessons learned
 - [x] Чеклисты, шаблоны, инструкции для команды
 
-### Epic 5: MCP-Ollama Integration для Task Offloading (НОВЫЙ)
+### Epic 5: MCP-Ollama Integration для Task Offloading (ОБНОВЛЕН)
 
 **Цели:**
-- Интеграция MCP с локальной Ollama для offloading рутинных задач
-- Автоматический routing: сложное → Claude, рутинное → Ollama
-- Quality control и validation pipeline для результатов Ollama
-- Экономия API calls и повышение скорости выполнения
+- Production-ready интеграция MCP с локальной Ollama для intelligent task routing
+- Smart classification: complex reasoning → Claude, routine tasks → Ollama  
+- Context preservation system с quality validation pipeline
+- Performance analytics, cost optimization, multi-agent orchestration
 
-**Статус:** [ ] Планируется (план готов в docs/memos/epic5_ollama_integration_plan.md)
+**Статус:** [ ] ПЛАНИРОВАНИЕ ЗАВЕРШЕНО (план v2.0 готов в docs/memos/epic5/)
+
+#### Planning completed (ready for implementation):
+- [x] Deep research MCP + Ollama integration (production examples found)
+- [x] Architecture v2.0: Smart Task Router + Context Preservation + Performance Analytics  
+- [x] Technical implementation plan: 3-tier approach (Foundation → Smart Routing → Production)
+- [x] Success metrics, risk mitigation, timeline корректировка
+- [x] Integration с Epic 4 infrastructure, documentation v2.0
+
+#### Implementation tasks (Epic 5 scope):
+- [ ] Ollama function calling setup + models download
+- [ ] Smart Task Classification Engine implementation
+- [ ] Quality Validation Pipeline с fallback mechanisms  
+- [ ] Task Router с intelligent routing logic
+- [ ] Context Preservation System для model switching
+- [ ] Performance Monitoring & Analytics dashboard
+- [ ] Multi-Agent Orchestration layer
+- [ ] Production deployment + documentation
 
 ---
 
-### Epic 5: Always-on policy enforcement
+### Epic 6: Always-on policy enforcement
 
 **Цели:**
 - Автоматизация enforcement для branch policy, logging, security (atomic rules 009, 001, 400)
@@ -100,7 +117,7 @@
 
 **Статус:** [ ] Не начато
 
-#### Чеклист (вести все файлы и отчёты в docs/memos/epic4/):
+#### Чеклист (вести все файлы и отчёты в docs/memos/epic6/):
 - [ ] Проектирование и реализация enforcement для branch policy, logging, security
 - [ ] Интеграция с MCP и workflow engine
 - [ ] Документирование всех решений, проблем, lessons learned
@@ -108,7 +125,7 @@
 
 ---
 
-### Epic 6: Knowledge base & lessons learned automation
+### Epic 7: Knowledge base & lessons learned automation
 
 **Цели:**
 - Автоматизация сбора, хранения и поиска best practices, lessons learned, решений (core/006, 011)
@@ -116,7 +133,7 @@
 
 **Статус:** [ ] Не начато
 
-#### Чеклист (вести все файлы и отчёты в docs/memos/epic4/):
+#### Чеклист (вести все файлы и отчёты в docs/memos/epic7/):
 - [ ] Проектирование и реализация автоматизации knowledge base
 - [ ] API для lessons и best practices
 - [ ] Документирование всех решений, проблем, lessons learned
@@ -124,7 +141,7 @@
 
 ---
 
-### Epic 7: Multi-agent handoff & orchestration
+### Epic 8: Multi-agent handoff & orchestration
 
 **Цели:**
 - Production-реализация multi-agent handoff (coder → librarian → reviewer), автоматизация передачи метаданных, логов, decision log
@@ -132,7 +149,7 @@
 
 **Статус:** [ ] Не начато
 
-#### Чеклист (вести все файлы и отчёты в docs/memos/epic4/):
+#### Чеклист (вести все файлы и отчёты в docs/memos/epic8/):
 - [ ] Production-реализация multi-agent handoff
 - [ ] Прототип message bus/оркестратора
 - [ ] Документирование всех решений, проблем, lessons learned
