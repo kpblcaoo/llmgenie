@@ -15,9 +15,9 @@
 - [ ] Проверить, что все правила имеют fallback и инструкции для логирования.
 
 ### 2. Интеграция lessons learned и best practices
-- [ ] Извлечь lessons learned по handoff и передаче контекста из docs/memos/2024-06-epic-mcp-integration-masterplan-v2.md и context_transfer_guide.md.
-- [ ] Зафиксировать новые best practices в .cursor/rules/ и knowledge base.
-- [ ] Обновить/создать atomic rule для передачи контекста между сессиями (ссылаясь на context_transfer_guide.md).
+- [x] Извлечь lessons learned по handoff и передаче контекста из docs/memos/2024-06-epic-mcp-integration-masterplan-v2.md и context_transfer_guide.md.
+- [x] Зафиксировать новые best practices в .cursor/rules/ и knowledge base.
+- [x] Обновить/создать atomic rule для передачи контекста между сессиями (ссылаясь на context_transfer_guide.md).
 
 ### 3. Автоматизация handoff и передачи контекста
 - [ ] Спроектировать и реализовать MCP/CLI endpoint для автоматической проверки completeness пакета передачи (минимум 5 файлов, prompt, контрольные вопросы).
