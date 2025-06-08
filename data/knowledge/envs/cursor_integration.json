@@ -4,7 +4,7 @@
     "rules": true,
     "cli": true,
     "api": true,
-    "mcp": false,
+    "mcp": true,
     "lsp": false,
     "toolspec": false,
     "rag": true,
@@ -30,14 +30,16 @@
     {"feature": "История чатов, экспорт и дублирование", "date": "2025-06-13", "details": "Встроенная история чатов, экспорт в markdown, дублирование веток обсуждений. Рекомендация: использовать для отслеживания reasoning и передачи знаний."},
     {"feature": "Мульти-рутовые рабочие пространства", "date": "2025-06-13", "details": "Работа с несколькими проектами одновременно, все индексируются. Рекомендация: использовать для монореп и связанных проектов."},
     {"feature": "Глобальные ignore-файлы", "date": "2025-06-13", "details": "Глобальные паттерны для игнорирования файлов (например, секретов). Рекомендация: использовать для защиты приватных данных."},
-    {"feature": "Автоматическая генерация правил из чата", "date": "2025-06-13", "details": "Команда /Generate Cursor Rules для пополнения .cursor/rules из чата."}
+    {"feature": "Автоматическая генерация правил из чата", "date": "2025-06-13", "details": "Команда /Generate Cursor Rules для пополнения .cursor/rules из чата."},
+    {"feature": "MCP полная поддержка", "date": "2025-01-05", "details": "Три типа transport (stdio, SSE, HTTP), one-click installation, OAuth, project+global конфигурация (.cursor/mcp.json), auto-tool usage, лимит 40 tools"}
   ],
   "limitations": [
     "cursor/rules не применимы к Ollama, VSCode, Copilot и др.",
     "Нет поддержки LSP, ToolSpec.",
     "Memories — beta, хранится только локально, не рекомендуется для чувствительных данных.",
     "BugBot требует интеграции с GitHub, для приватных проектов — убедиться в настройках доступа.",
-    "Custom modes — beta, возможны баги при сложных сценариях."
+    "Custom modes — beta, возможны баги при сложных сценариях.",
+    "MCP: максимум 40 tools одновременно, нет поддержки resources (только tools), проблемы с remote development"
   ],
   "incompatibilities": [
     "cursor/rules не совместимы с Ollama, VSCode, Copilot, API моделями"
@@ -46,7 +48,8 @@
     {"date": "2024-06-12", "author": "ai_assistant", "change": "Инициализация файла, фиксация текущих возможностей и ограничений"},
     {"date": "2025-06-12", "author": "ai_assistant", "change": "Ревизия: убран openctx, подтверждены статусы протоколов, обновлены limitations"},
     {"date": "2025-06-12", "author": "knowledge_engineer", "change": "Интеграция данных из compatibility analysis: добавлены CLI, API, RAG функции"},
-    {"date": "2025-06-13", "author": "ai_assistant", "change": "Добавлены возможности Cursor 1.0, учтён приватный статус проекта, обновлены limitations и todo."}
+    {"date": "2025-06-13", "author": "ai_assistant", "change": "Добавлены возможности Cursor 1.0, учтён приватный статус проекта, обновлены limitations и todo."},
+    {"date": "2025-01-05", "author": "knowledge_engineer", "change": "Обновлена MCP поддержка: mcp: false -> true, добавлены transport types, limitations, возможности"}
   ],
   "todo": [
     "Проанализировать changelog предыдущих релизов Cursor и дополнить knowledge-базу всеми важными изменениями.",

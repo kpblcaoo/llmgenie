@@ -11,6 +11,9 @@ import json
 import os
 from datetime import datetime
 
+# Import MCP integration
+from fastapi_mcp import FastApiMCP
+
 # Import handoff validator
 try:
     from .handoff_validator import HandoffPackage, ValidationResult, HandoffValidator
@@ -140,9 +143,9 @@ async def get_workflow_modes():
     }
 
 # Handoff validation endpoints
-@app.post("/handoff/validate", response_model=ValidationResult)
+@app.post("/handoff/validate", response_model=ValidationResult, operation_id="validate_handoff_package")
 async def validate_handoff_package(package: HandoffPackage):
-    """Validate handoff package completeness"""
+    """Validate handoff package completeness for context transfer between AI sessions"""
     try:
         validator = HandoffValidator()
         result = validator.validate_package(package)
@@ -150,9 +153,9 @@ async def validate_handoff_package(package: HandoffPackage):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Validation error: {str(e)}")
 
-@app.get("/handoff/template")
+@app.get("/handoff/template", operation_id="get_handoff_template")
 async def get_handoff_template():
-    """Get handoff package template"""
+    """Get handoff package template with required files and validation criteria"""
     return {
         "template": {
             "from_role": "string",
@@ -186,16 +189,15 @@ async def get_handoff_template():
         }
     }
 
-# MCP integration placeholder  
-@app.post("/mcp/tools/execute")
-async def execute_mcp_tool(tool_name: str, parameters: Dict):
-    """Execute MCP tool (placeholder)"""
-    # TODO: Implement actual MCP integration
-    return {
-        "tool": tool_name,
-        "status": "not_implemented",
-        "message": "MCP integration coming in Phase 2"
-    }
+# Initialize MCP integration
+mcp = FastApiMCP(
+    app, 
+    name="llmgenie MCP Server",
+    description="llmgenie handoff validation and workflow management tools for AI assistants"
+)
+
+# Mount MCP server endpoint
+mcp.mount()
 
 if __name__ == "__main__":
     import uvicorn
