@@ -11,6 +11,9 @@ import json
 import os
 from datetime import datetime
 
+# Import handoff validator
+from .handoff_validator import HandoffPackage, ValidationResult, HandoffValidator
+
 # Initialize FastAPI app
 app = FastAPI(
     title="llmgenie API",
@@ -129,7 +132,54 @@ async def get_workflow_modes():
         "description": "Available workflow modes for context switching"
     }
 
-# MCP integration placeholder
+# Handoff validation endpoints
+@app.post("/handoff/validate", response_model=ValidationResult)
+async def validate_handoff_package(package: HandoffPackage):
+    """Validate handoff package completeness"""
+    try:
+        validator = HandoffValidator()
+        result = validator.validate_package(package)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Validation error: {str(e)}")
+
+@app.get("/handoff/template")
+async def get_handoff_template():
+    """Get handoff package template"""
+    return {
+        "template": {
+            "from_role": "string",
+            "to_role": "string", 
+            "epic_id": "string",
+            "files": [
+                {"path": "conversation_summary.md", "type": "summary", "priority": 1},
+                {"path": "lessons_learned.md", "type": "lessons", "priority": 2},
+                {"path": "epic_checklist.md", "type": "checklist", "priority": 3},
+                {"path": "technical_audit.md", "type": "audit", "priority": 4},
+                {"path": "project_state.json", "type": "metadata", "priority": 5}
+            ],
+            "startup_prompt": "Template: [role] Resuming work on [epic]. Status: [status]. Infrastructure: [details]. Lessons: [key points]. Next: [actions]",
+            "control_questions": [
+                "What is current status and progress?",
+                "What technical components are ready for testing?", 
+                "What scope constraints must be maintained?"
+            ],
+            "success_criteria": [
+                "Handoff package validates with 80%+ completeness",
+                "All required files present and non-empty",
+                "Startup prompt includes status, infrastructure, lessons, constraints",
+                "Control questions cover status, technical, and scope aspects"
+            ]
+        },
+        "validation_requirements": {
+            "min_files": 5,
+            "required_file_types": ["summary", "lessons", "checklist", "audit", "metadata"],
+            "min_control_questions": 3,
+            "min_completeness_score": 0.8
+        }
+    }
+
+# MCP integration placeholder  
 @app.post("/mcp/tools/execute")
 async def execute_mcp_tool(tool_name: str, parameters: Dict):
     """Execute MCP tool (placeholder)"""

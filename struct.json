@@ -2,7 +2,7 @@
   "metadata": {
     "project_name": "llmstruct",
     "description": "Utility for generating structured JSON for codebases",
-    "version": "2025-06-06T21:42:17.737625Z",
+    "version": "2025-06-08T04:58:10.057453Z",
     "authors": [
       {
         "name": "Mikhail Stepanov",
@@ -20,12 +20,12 @@
     ],
     "goals": [],
     "stats": {
-      "modules_count": 20,
-      "functions_count": 50,
-      "classes_count": 1,
-      "call_edges_count": 286
+      "modules_count": 27,
+      "functions_count": 76,
+      "classes_count": 11,
+      "call_edges_count": 334
     },
-    "artifact_id": "68b8501d-d7da-4590-a7ba-dd08331aa32c",
+    "artifact_id": "f46938c6-fbc8-43f8-b693-eb3d32602978",
     "summary": "Structured JSON for llmstruct codebase",
     "tags": [
       "codebase",
@@ -35,385 +35,517 @@
       {
         "path": ".",
         "type": "directory",
-        "artifact_id": "b9c56578-7f7f-41f2-98f4-ff396dabfe82",
+        "artifact_id": "9bfa8cba-42e3-4a64-ab79-1e5a135fc275",
         "metadata": {}
       },
       {
         "path": ".cursor",
         "type": "directory",
-        "artifact_id": "fb29859b-f461-4409-965b-6038941fc02a",
+        "artifact_id": "cfc4e301-6237-4e67-8599-bd03d81527ce",
         "metadata": {}
       },
       {
         "path": ".cursor/rules",
         "type": "directory",
-        "artifact_id": "e7b4fa12-d1d5-47c9-a77c-02163c53f764",
+        "artifact_id": "b9025bb3-17b2-4a58-8c99-a490ae0894b3",
         "metadata": {}
       },
       {
         "path": ".cursor/rules/core",
         "type": "directory",
-        "artifact_id": "e8cc3dbc-422e-4153-8e1b-81e65f58c01e",
+        "artifact_id": "7f2691d0-67d1-4736-be61-ce8aaefcc41b",
         "metadata": {}
       },
       {
         "path": ".cursor/rules/roles",
         "type": "directory",
-        "artifact_id": "f547c7a4-fd67-40e9-948b-89d107c360c3",
+        "artifact_id": "a54fc977-06c3-4737-9280-0071eaa7c373",
         "metadata": {}
       },
       {
         "path": ".cursor/rules/roles/220_rules_engineer",
         "type": "directory",
-        "artifact_id": "ffabd425-ae06-405a-a776-5fee4c7ea1b7",
+        "artifact_id": "a1451234-41d3-456e-95a9-789f58164893",
         "metadata": {}
       },
       {
         "path": ".cursor/rules/security",
         "type": "directory",
-        "artifact_id": "6349e4aa-3d19-476f-83ca-e2c09fe85432",
+        "artifact_id": "348e455e-3a14-41a9-830c-989b2ecc5ae3",
         "metadata": {}
       },
       {
         "path": ".cursor/rules/templates",
         "type": "directory",
-        "artifact_id": "8a1a603d-6e5c-4c7e-a6a9-8c38393c9140",
+        "artifact_id": "4f372723-1a6b-4859-a963-6090f9a37b4b",
         "metadata": {}
       },
       {
         "path": ".cursor/rules/workflows",
         "type": "directory",
-        "artifact_id": "d3b4355c-a716-43ac-bd8d-26bcfa8e1422",
+        "artifact_id": "4a50f3f6-b4ec-48b5-9506-623acab134a9",
+        "metadata": {}
+      },
+      {
+        "path": ".github",
+        "type": "directory",
+        "artifact_id": "93520574-50db-4665-9c35-c0141e35afc8",
+        "metadata": {}
+      },
+      {
+        "path": ".github/workflows",
+        "type": "directory",
+        "artifact_id": "cd4f5253-9126-4ad1-901a-d3697fe44dc0",
+        "metadata": {}
+      },
+      {
+        "path": ".llmstruct_index",
+        "type": "directory",
+        "artifact_id": "470d3178-5bcf-4b28-baeb-53ba5ef9eba3",
+        "metadata": {}
+      },
+      {
+        "path": ".llmstruct_index/src",
+        "type": "directory",
+        "artifact_id": "6c4873fd-9509-487e-818c-bbf7689ea434",
+        "metadata": {}
+      },
+      {
+        "path": ".llmstruct_index/src/llmgenie",
+        "type": "directory",
+        "artifact_id": "1279b7b8-3a65-4ba5-8c50-c120df5c7a0e",
+        "metadata": {}
+      },
+      {
+        "path": ".llmstruct_index/src/llmgenie/modules",
+        "type": "directory",
+        "artifact_id": "8fef73ef-29a3-43a2-866b-747f3273c71e",
+        "metadata": {}
+      },
+      {
+        "path": ".llmstruct_index/src/llmgenie/modules/cli",
+        "type": "directory",
+        "artifact_id": "e0e3e7a5-0345-4b0a-8a6f-ccbb10d9abb1",
+        "metadata": {}
+      },
+      {
+        "path": ".llmstruct_index/src/llmgenie/modules/commands",
+        "type": "directory",
+        "artifact_id": "87e51178-6c3b-4bfa-945d-f224c6780a19",
+        "metadata": {}
+      },
+      {
+        "path": ".llmstruct_index/tools",
+        "type": "directory",
+        "artifact_id": "72e10e75-12ab-4e7f-94c0-6429717c8fff",
         "metadata": {}
       },
       {
         "path": "data",
         "type": "directory",
-        "artifact_id": "7cbcb4d3-0541-495b-af24-1d141c4f13bb",
+        "artifact_id": "e72498fb-ff80-4b50-ad62-bd6497882f00",
+        "metadata": {}
+      },
+      {
+        "path": "data/audit",
+        "type": "directory",
+        "artifact_id": "edead1f6-68d8-4015-9536-8bb71b6401a3",
         "metadata": {}
       },
       {
         "path": "data/epic_logs",
         "type": "directory",
-        "artifact_id": "e2f30a55-adee-4547-aee7-4bec0eb33f81",
+        "artifact_id": "db93de2d-c65d-40ae-bcb5-1a77a8990bc0",
         "metadata": {}
       },
       {
         "path": "data/epic_logs/epic_ai_workflow_rules_2024",
         "type": "directory",
-        "artifact_id": "ae7a4a25-c9da-4915-b5a4-1aa83266baf2",
+        "artifact_id": "315adf8a-edbd-4909-804c-487c5c37b111",
         "metadata": {}
       },
       {
         "path": "data/epic_logs/epic_session_control_2024",
         "type": "directory",
-        "artifact_id": "83f50367-12e3-477e-993c-e822399c3cee",
+        "artifact_id": "530be832-c285-4184-9478-91092a511347",
         "metadata": {}
       },
       {
         "path": "data/knowledge",
         "type": "directory",
-        "artifact_id": "1c2b1a83-fc85-4c48-aaa1-02d72e8bebbb",
+        "artifact_id": "819fd6af-4d9e-42a0-bd3d-6c33f56ca388",
         "metadata": {}
       },
       {
         "path": "data/knowledge/envs",
         "type": "directory",
-        "artifact_id": "51391746-ee81-4c4e-be43-fb3c9734ee10",
+        "artifact_id": "9ccbd95d-3af6-43cf-b14e-685b1b181fde",
         "metadata": {}
       },
       {
         "path": "data/knowledge/models",
         "type": "directory",
-        "artifact_id": "090cdf96-1b90-43dd-9dac-7b3319fc3694",
+        "artifact_id": "3992be7e-d8e0-4eca-8bde-819036f2ad12",
         "metadata": {}
       },
       {
         "path": "data/knowledge/templates",
         "type": "directory",
-        "artifact_id": "ce6ae419-1213-4588-abfb-e6c74bcb54cb",
+        "artifact_id": "272467a4-c12d-419c-ad92-eaab8856161d",
         "metadata": {}
       },
       {
         "path": "data/logs",
         "type": "directory",
-        "artifact_id": "8883a2df-ac26-4254-883a-087318b1039e",
+        "artifact_id": "db25147b-5893-48b4-bf24-a1e8cfa7d640",
         "metadata": {}
       },
       {
         "path": "data/logs/sessions",
         "type": "directory",
-        "artifact_id": "0bcb540b-c876-48e2-b33c-bdd08c89e623",
+        "artifact_id": "6207d3ac-c9f2-412e-8504-b05255a9c53f",
         "metadata": {}
       },
       {
         "path": "data/sessions",
         "type": "directory",
-        "artifact_id": "fa5d3939-f53e-497e-8376-1b9517890110",
+        "artifact_id": "14834a80-ba14-41b1-9276-7be068c1cabb",
         "metadata": {}
       },
       {
         "path": "decision_memos",
         "type": "directory",
-        "artifact_id": "3aa61c05-abdd-44f0-9e31-513b16bf5808",
+        "artifact_id": "68812903-2edc-4be5-a39a-c55e9af149a8",
         "metadata": {}
       },
       {
         "path": "docs",
         "type": "directory",
-        "artifact_id": "438f3218-c02d-4924-85ab-14790263a15c",
+        "artifact_id": "551ba82b-4604-4981-97fb-d2c73d1f1690",
         "metadata": {}
       },
       {
         "path": "docs/archive_analysis",
         "type": "directory",
-        "artifact_id": "a2ca1d98-6ad2-4c9e-a29a-cc35c3575547",
+        "artifact_id": "9a3fc44e-75f4-400e-89a8-04a2ab64c504",
         "metadata": {}
       },
       {
         "path": "docs/archive_analysis/01_architecture_patterns",
         "type": "directory",
-        "artifact_id": "586fd6e9-d2f8-4135-bf99-6b9f2d7e4774",
+        "artifact_id": "a7bb9ccd-55b0-45c8-a52f-9523a2f1bdeb",
         "metadata": {}
       },
       {
         "path": "docs/decision_memos",
         "type": "directory",
-        "artifact_id": "583d0c69-cde2-44e2-8f1f-38837689e997",
+        "artifact_id": "e45a788a-7be4-4bec-a1b5-6e7f7ba6e9fb",
         "metadata": {}
       },
       {
         "path": "docs/epics",
         "type": "directory",
-        "artifact_id": "77b2ddcb-22b6-47e5-8925-2028a5229496",
+        "artifact_id": "236bb888-895e-4ba5-8a10-44661e98a130",
         "metadata": {}
       },
       {
         "path": "docs/examples",
         "type": "directory",
-        "artifact_id": "7c78a9ee-30f6-4c9b-be36-a1b41d864cd5",
+        "artifact_id": "71a0d59f-7d91-4c57-b6e7-aa6f7c526b01",
         "metadata": {}
       },
       {
         "path": "docs/knowledge",
         "type": "directory",
-        "artifact_id": "3402f39c-0487-4817-a8bb-d6e2f3d2706f",
+        "artifact_id": "f340bc18-1ee1-45fd-90fa-081124e742fa",
         "metadata": {}
       },
       {
         "path": "docs/knowledge/models",
         "type": "directory",
-        "artifact_id": "07f9b88a-2193-4060-ad54-887280ebd2f3",
+        "artifact_id": "607eb43d-4a60-43fb-9b25-2f73708d0514",
         "metadata": {}
       },
       {
         "path": "docs/knowledge/templates",
         "type": "directory",
-        "artifact_id": "78a63d39-59bd-4cad-9fc2-1dba8b7949e9",
+        "artifact_id": "54bbdd81-a963-449d-9752-aacfcbba8f15",
         "metadata": {}
       },
       {
         "path": "docs/mamay_onboarding",
         "type": "directory",
-        "artifact_id": "f3d78317-2b39-4797-84b2-9201a8cae853",
+        "artifact_id": "db6737d1-02b5-4715-b0d8-92214737e66c",
+        "metadata": {}
+      },
+      {
+        "path": "docs/memos",
+        "type": "directory",
+        "artifact_id": "e8e68777-23ac-4624-bdaf-2a06820d073b",
         "metadata": {}
       },
       {
         "path": "docs/notes",
         "type": "directory",
-        "artifact_id": "b09ee02b-93d7-4aa0-acab-73ee9762f77f",
+        "artifact_id": "6fb59d01-0d25-4127-9135-19438b77f55a",
         "metadata": {}
       },
       {
         "path": "docs/to_sort",
         "type": "directory",
-        "artifact_id": "90151b52-3df5-4b6e-9cc1-2cf85905f68d",
+        "artifact_id": "9f621469-0a55-482b-bfe9-3e9150c0677b",
         "metadata": {}
       },
       {
         "path": "docs/to_sort/examples",
         "type": "directory",
-        "artifact_id": "225451ac-ccd3-472f-b464-20fed5acc594",
+        "artifact_id": "6a657d11-1c6a-4814-b5b6-89491e113e66",
         "metadata": {}
       },
       {
         "path": "docs/to_sort/internal",
         "type": "directory",
-        "artifact_id": "f317d1cc-0f49-41aa-a938-7857e0243a0f",
+        "artifact_id": "daa0b1b5-ec1a-4fa4-b025-b71568201756",
         "metadata": {}
       },
       {
         "path": "docs/to_sort/internal/memos",
         "type": "directory",
-        "artifact_id": "ee5c2af4-8157-4f9c-8354-f9929f93ad7a",
+        "artifact_id": "6b5a8112-a3c8-48b7-96b6-3df7cb593654",
         "metadata": {}
       },
       {
         "path": "event_log",
         "type": "directory",
-        "artifact_id": "4b235a47-d6ca-4ba8-ab9f-843fb03a10cb",
+        "artifact_id": "027aa299-759c-49bd-81f2-13313f4a7374",
+        "metadata": {}
+      },
+      {
+        "path": "results",
+        "type": "directory",
+        "artifact_id": "b2992eea-8298-4d82-a47f-4e2135d73d87",
         "metadata": {}
       },
       {
         "path": "scripts",
         "type": "directory",
-        "artifact_id": "17e9ac64-cb4b-4540-8d4c-aadd44954ccb",
+        "artifact_id": "cebbc08a-2b34-4747-9fd4-b29d5c46bdd6",
+        "metadata": {}
+      },
+      {
+        "path": "scripts/tools",
+        "type": "directory",
+        "artifact_id": "d6558923-082f-4772-ba0a-f907c60b457d",
+        "metadata": {}
+      },
+      {
+        "path": "scripts/tools/ollama_queue.py",
+        "type": "file",
+        "artifact_id": "d205005e-1dd4-4f79-9b00-28a25c2284c2",
         "metadata": {}
       },
       {
         "path": "src",
         "type": "directory",
-        "artifact_id": "204daaf8-a2bc-4915-8a9e-c5ba2a3bc4e3",
+        "artifact_id": "f4a919e8-6ffd-4e8d-b201-4c98c64531b0",
         "metadata": {}
       },
       {
         "path": "src/llmgenie",
         "type": "directory",
-        "artifact_id": "fbaba49f-5a90-496d-baa1-7f72f3bd874a",
+        "artifact_id": "82fef0d4-4972-428e-be1a-fd4b010addbe",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/api",
+        "type": "directory",
+        "artifact_id": "1c2c78bf-7df8-43bc-9a0e-1f2557579bc3",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/api/__init__.py",
+        "type": "file",
+        "artifact_id": "ffafb98b-256a-4eb0-8b52-8a03fe2d69b8",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/api/handoff_validator.py",
+        "type": "file",
+        "artifact_id": "f80fa749-6075-433d-a4df-c22781d74f16",
+        "metadata": {}
+      },
+      {
+        "path": "src/llmgenie/api/main.py",
+        "type": "file",
+        "artifact_id": "570ba4dc-e9c6-41c5-a608-3c8d9d203dcc",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/cli.py",
         "type": "file",
-        "artifact_id": "70846b1b-4bea-4837-9694-2adfe4cd99cf",
+        "artifact_id": "73b09bf5-0e99-42b7-9bd1-a7bb4adcba2e",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/llm_client.py",
         "type": "file",
-        "artifact_id": "de949edc-bd76-43c0-89f0-aabdb0cf9de0",
+        "artifact_id": "16826e39-7b08-4318-bbb4-5169bd87bc8f",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules",
         "type": "directory",
-        "artifact_id": "be6bfc9d-6ba6-4276-90a9-0f4b3d6591ce",
+        "artifact_id": "5dd2c31e-7eec-420f-b9bd-294a46218c1a",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli",
         "type": "directory",
-        "artifact_id": "2f240191-3edd-40f9-bb5d-81df61feedbf",
+        "artifact_id": "0310e283-d45e-45fb-aaf8-cad98747dc52",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/__init__.py",
         "type": "file",
-        "artifact_id": "ba45aa92-8751-4728-8882-69987c6046b0",
+        "artifact_id": "d1e544ab-1fce-47f1-a0f9-860a2905e9bd",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/analyze_duplicates.py",
         "type": "file",
-        "artifact_id": "589cb351-f56b-4380-aa0f-24569ca97065",
+        "artifact_id": "bbf88dbc-a64f-4177-b632-525820604a5d",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/audit.py",
         "type": "file",
-        "artifact_id": "4da3a79b-20ae-44e3-930c-bd9f5495f2cf",
+        "artifact_id": "55d1b412-7a22-408e-89be-9a99a81d8bda",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/context.py",
         "type": "file",
-        "artifact_id": "0d75ce6c-ca8b-4f83-8126-56fbac987e13",
+        "artifact_id": "aea098ad-ff56-4538-9d47-ebeffbd9508d",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/copilot.py",
         "type": "file",
-        "artifact_id": "040b2f39-95a4-422d-a4b5-a9e1aaf62c09",
+        "artifact_id": "20a81a70-dfa3-4638-81f7-9f5e25e23ca0",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/dogfood.py",
         "type": "file",
-        "artifact_id": "f4ac557f-a3cf-477d-8f3e-a571c57dbf5b",
+        "artifact_id": "aedfd138-bdb5-4c74-a2c8-7b6366d63c0e",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/epic.py",
         "type": "file",
-        "artifact_id": "ed7f14d4-a90b-4b95-9bb8-e6d6c24aa367",
+        "artifact_id": "7977f86a-d76a-4def-bd86-f7fc49dceeda",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/handlers.py",
         "type": "file",
-        "artifact_id": "9636dd1c-8e1b-4d22-a15f-f7f06b55b2f5",
+        "artifact_id": "fbed50ee-588e-4d13-b4ef-94a65b798d77",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/handlers_legacy.py",
         "type": "file",
-        "artifact_id": "e70041a5-8e37-4382-9184-d14eb5e5bd8f",
+        "artifact_id": "bfbf8e59-bf85-4a11-b00a-75630a5abb65",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/parse.py",
         "type": "file",
-        "artifact_id": "a6247b17-f777-46cb-a256-f2dff4a52bbd",
+        "artifact_id": "d6f5cc0d-d34e-4d35-b822-f4184fe25bfc",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/query.py",
         "type": "file",
-        "artifact_id": "b53a3884-4e81-4df7-913f-e428522aa0ac",
+        "artifact_id": "e5fa1001-6201-466e-ae39-4a256b86fba5",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/review.py",
         "type": "file",
-        "artifact_id": "49431a8b-df1c-40a6-ad01-3f775745173e",
+        "artifact_id": "43c8c9a2-065c-4a26-9a27-a0591f0e4855",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/cli/utils.py",
         "type": "file",
-        "artifact_id": "f5e1b6ab-7842-4560-b57c-8a70e2e6f2f5",
+        "artifact_id": "59c01fb9-f79f-4e25-8a37-f585e3279174",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/commands",
         "type": "directory",
-        "artifact_id": "3342cadb-367e-4856-8f50-f28a3f7a32d4",
+        "artifact_id": "afcb7dd9-a1e9-4d3c-86bd-965eb42e1f46",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/commands/__init__.py",
         "type": "file",
-        "artifact_id": "ee54e718-a067-47e3-ba94-717230fd4312",
+        "artifact_id": "b18b1cee-ed20-423c-84ab-d7e36c87eca9",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/commands/metrics.py",
         "type": "file",
-        "artifact_id": "0e0556e7-2ceb-47bd-980d-c5f2ca21cd44",
+        "artifact_id": "859a01e6-4dc2-44bf-8569-c15ccadcac39",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/commands/queue.py",
         "type": "file",
-        "artifact_id": "a833ebc1-1eee-4d1e-af2d-c6da84311e2e",
+        "artifact_id": "fabd4040-5f63-4d30-b0a7-552db463c24a",
         "metadata": {}
       },
       {
         "path": "src/llmgenie/modules/commands/services.py",
         "type": "file",
-        "artifact_id": "c50995c4-887a-45ae-9fdd-05b1f1863b49",
+        "artifact_id": "23df7986-03d5-426a-8e59-3a3041ae8d2d",
+        "metadata": {}
+      },
+      {
+        "path": "tests",
+        "type": "directory",
+        "artifact_id": "d1fbaf68-f948-4e08-b40b-ae62ec164fa5",
+        "metadata": {}
+      },
+      {
+        "path": "tests/test_api.py",
+        "type": "file",
+        "artifact_id": "4922de53-c2b9-4f42-8ee1-8e1a16d97d55",
+        "metadata": {}
+      },
+      {
+        "path": "tests/test_cli.py",
+        "type": "file",
+        "artifact_id": "f9db6326-73c0-4618-8b50-0cfc1b9bb522",
+        "metadata": {}
+      },
+      {
+        "path": "tests/test_smoke.py",
+        "type": "file",
+        "artifact_id": "6b8f3fdc-d3a7-42c9-9e0d-ada81e805a70",
         "metadata": {}
       },
       {
         "path": "tools",
         "type": "directory",
-        "artifact_id": "d06a7f2e-f3bb-4cd8-86e2-64ebdd3051e5",
+        "artifact_id": "8d746046-b530-4d05-8fac-5709bbb5ca52",
         "metadata": {}
       },
       {
         "path": "tools/atomic_rules_linter.py",
         "type": "file",
-        "artifact_id": "bbed7897-5061-47e4-95e6-0f32ea5cc9ef",
+        "artifact_id": "881370cd-5699-4ce7-a5f9-aa4420121262",
         "metadata": {}
       }
     ]
@@ -426,7 +558,34 @@
       "functions": 0,
       "classes": 0,
       "summary": "",
-      "artifact_id": "0c8e19e2-316b-43f3-9f5f-8d5d5c99141d"
+      "artifact_id": "831e91c4-87eb-41e0-a6a0-5763da609a06"
+    },
+    {
+      "module_id": "tests.test_smoke",
+      "path": "tests/test_smoke.py",
+      "category": "test",
+      "functions": 1,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "0d53a1e0-2d4a-41ee-9255-3f48edd736ec"
+    },
+    {
+      "module_id": "tests.test_cli",
+      "path": "tests/test_cli.py",
+      "category": "test",
+      "functions": 2,
+      "classes": 0,
+      "summary": "Tests for llmgenie CLI module",
+      "artifact_id": "428a47cf-d677-4282-af8e-0e73abc9c265"
+    },
+    {
+      "module_id": "tests.test_api",
+      "path": "tests/test_api.py",
+      "category": "test",
+      "functions": 4,
+      "classes": 0,
+      "summary": "Tests for llmgenie FastAPI application",
+      "artifact_id": "af2d4ff9-a8ba-40cc-b04d-0ab8f5cbe191"
     },
     {
       "module_id": "src.llmgenie.llm_client",
@@ -435,7 +594,7 @@
       "functions": 6,
       "classes": 1,
       "summary": "",
-      "artifact_id": "b05cfab2-d49d-4882-9969-2a9024b7a53d"
+      "artifact_id": "cd04a10d-0b53-4a44-9644-0638a7ab70a5"
     },
     {
       "module_id": "src.llmgenie.cli",
@@ -444,7 +603,34 @@
       "functions": 2,
       "classes": 0,
       "summary": "LLMStruct CLI - Main entry point for the command-line interface.",
-      "artifact_id": "69731ef5-6f24-4bba-aa17-c9dfae542349"
+      "artifact_id": "7c838434-ca5f-4520-ba58-a7d602a53c72"
+    },
+    {
+      "module_id": "src.llmgenie.api.main",
+      "path": "src/llmgenie/api/main.py",
+      "category": "core",
+      "functions": 7,
+      "classes": 4,
+      "summary": "FastAPI main application for llmgenie",
+      "artifact_id": "135785e8-a589-4cce-80a7-3ea6dc9905ce"
+    },
+    {
+      "module_id": "src.llmgenie.api.__init__",
+      "path": "src/llmgenie/api/__init__.py",
+      "category": "cli",
+      "functions": 0,
+      "classes": 0,
+      "summary": "llmgenie API module",
+      "artifact_id": "36e96401-5ef6-4dd5-90bb-bb6c5d71c324"
+    },
+    {
+      "module_id": "src.llmgenie.api.handoff_validator",
+      "path": "src/llmgenie/api/handoff_validator.py",
+      "category": "core",
+      "functions": 9,
+      "classes": 6,
+      "summary": "Handoff validation module for llmgenie",
+      "artifact_id": "ddc867cb-44f5-4c4d-99a4-3cb4764efc78"
     },
     {
       "module_id": "src.llmgenie.modules.commands.__init__",
@@ -453,7 +639,7 @@
       "functions": 0,
       "classes": 0,
       "summary": "",
-      "artifact_id": "800f14cd-35b8-4a58-a4e5-35e987f7b284"
+      "artifact_id": "ee7e6cc0-770e-4e12-b451-84fa983b60b0"
     },
     {
       "module_id": "src.llmgenie.modules.commands.metrics",
@@ -462,7 +648,7 @@
       "functions": 7,
       "classes": 0,
       "summary": "",
-      "artifact_id": "bc666a66-470a-4943-9a69-8815552f8b7f"
+      "artifact_id": "310e70c1-9723-4760-b9c7-82e0f72b3d2e"
     },
     {
       "module_id": "src.llmgenie.modules.commands.queue",
@@ -471,7 +657,7 @@
       "functions": 1,
       "classes": 0,
       "summary": "",
-      "artifact_id": "eb8f779b-1c38-40e4-a187-f915525c37e9"
+      "artifact_id": "9938f7d8-abfd-43cf-8ebe-809db3ebd636"
     },
     {
       "module_id": "src.llmgenie.modules.commands.services",
@@ -480,7 +666,7 @@
       "functions": 4,
       "classes": 0,
       "summary": "",
-      "artifact_id": "88820bd1-5e71-4fa5-a584-de0e9d72103f"
+      "artifact_id": "32f842e6-6f32-4079-b301-5f2ab2feaa77"
     },
     {
       "module_id": "src.llmgenie.modules.cli.dogfood",
@@ -489,7 +675,7 @@
       "functions": 1,
       "classes": 0,
       "summary": "",
-      "artifact_id": "c381cad0-2d8c-4fc5-bdcb-b800d9ce5fe8"
+      "artifact_id": "28459c20-0073-44b8-96d0-16711feef22e"
     },
     {
       "module_id": "src.llmgenie.modules.cli.parse",
@@ -498,7 +684,7 @@
       "functions": 1,
       "classes": 0,
       "summary": "",
-      "artifact_id": "9a0e91e7-e1fd-49ac-8e67-bb7aa475ce8e"
+      "artifact_id": "18e7cd48-1f73-4086-8ffb-e9df486b5014"
     },
     {
       "module_id": "src.llmgenie.modules.cli.audit",
@@ -507,7 +693,7 @@
       "functions": 1,
       "classes": 0,
       "summary": "",
-      "artifact_id": "124f8e04-7f5b-4e05-bdc2-1a5045343319"
+      "artifact_id": "b438496f-7b23-4892-b9e0-3d8f500da715"
     },
     {
       "module_id": "src.llmgenie.modules.cli.utils",
@@ -516,7 +702,7 @@
       "functions": 16,
       "classes": 0,
       "summary": "",
-      "artifact_id": "921410b6-0bcd-4c5f-bae3-959d17db1853"
+      "artifact_id": "5bc6901d-e896-47e6-9d25-6448dac45de8"
     },
     {
       "module_id": "src.llmgenie.modules.cli.context",
@@ -525,7 +711,7 @@
       "functions": 1,
       "classes": 0,
       "summary": "",
-      "artifact_id": "0f7ddf99-e3e3-4f56-b58a-e2ff792fc3ba"
+      "artifact_id": "f7abf76f-af01-4785-a0c5-573d5527d2d1"
     },
     {
       "module_id": "src.llmgenie.modules.cli.copilot",
@@ -534,7 +720,7 @@
       "functions": 1,
       "classes": 0,
       "summary": "",
-      "artifact_id": "dd5d8ff4-d3ba-4314-90bc-b0a60f588ed5"
+      "artifact_id": "b74bc04c-4f4f-4329-9734-16bb41934e59"
     },
     {
       "module_id": "src.llmgenie.modules.cli.review",
@@ -543,7 +729,7 @@
       "functions": 1,
       "classes": 0,
       "summary": "",
-      "artifact_id": "041d8c4d-6b5d-4e58-bed6-95e1f58f74f7"
+      "artifact_id": "902e759c-217f-4010-86cf-c5eef324208a"
     },
     {
       "module_id": "src.llmgenie.modules.cli.__init__",
@@ -552,7 +738,7 @@
       "functions": 0,
       "classes": 0,
       "summary": "",
-      "artifact_id": "5716029a-2485-4d83-b36e-a0d7cf077224"
+      "artifact_id": "88e99b50-ec31-46ea-99a7-64ef77907ef1"
     },
     {
       "module_id": "src.llmgenie.modules.cli.handlers",
@@ -561,7 +747,7 @@
       "functions": 2,
       "classes": 0,
       "summary": "",
-      "artifact_id": "0e244889-01e3-4e31-ade0-5436ccb48722"
+      "artifact_id": "093aa9e1-7c72-4fb1-946c-966617561977"
     },
     {
       "module_id": "src.llmgenie.modules.cli.handlers_legacy",
@@ -570,7 +756,7 @@
       "functions": 1,
       "classes": 0,
       "summary": "",
-      "artifact_id": "765de2a6-655f-4c77-aad8-7b8c3fa35a0f"
+      "artifact_id": "b0f75cb4-919a-49ba-8639-ff7262a1ea30"
     },
     {
       "module_id": "src.llmgenie.modules.cli.analyze_duplicates",
@@ -579,7 +765,7 @@
       "functions": 1,
       "classes": 0,
       "summary": "",
-      "artifact_id": "efa6582d-8b2a-4ecd-a563-8923a8b593fa"
+      "artifact_id": "fb180c0c-e170-450e-8ab2-ba28960083ca"
     },
     {
       "module_id": "src.llmgenie.modules.cli.query",
@@ -588,7 +774,7 @@
       "functions": 1,
       "classes": 0,
       "summary": "",
-      "artifact_id": "69a5b2d7-ca66-4337-b4ce-b3c21b4cdb71"
+      "artifact_id": "05848bcb-500b-4ebb-beac-10ed479ad050"
     },
     {
       "module_id": "src.llmgenie.modules.cli.epic",
@@ -597,7 +783,16 @@
       "functions": 3,
       "classes": 0,
       "summary": "",
-      "artifact_id": "7d693085-d118-440f-9988-59c059f869f1"
+      "artifact_id": "b1abb599-d7d3-45b4-931e-0cff16506f04"
+    },
+    {
+      "module_id": "scripts.tools.ollama_queue",
+      "path": "scripts/tools/ollama_queue.py",
+      "category": "core",
+      "functions": 3,
+      "classes": 0,
+      "summary": "",
+      "artifact_id": "e89086fc-abf8-40d8-8a66-e91fc6e3735e"
     }
   ],
   "modules": [
@@ -615,7 +810,157 @@
         "re"
       ],
       "hash": "470eb6e10bf21aaa6984e864abd16bbd7c22ff4536290f65c548e44c3b5512b8",
-      "artifact_id": "0c8e19e2-316b-43f3-9f5f-8d5d5c99141d"
+      "artifact_id": "831e91c4-87eb-41e0-a6a0-5763da609a06"
+    },
+    {
+      "module_id": "tests.test_smoke",
+      "path": "tests/test_smoke.py",
+      "category": "test",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "test_smoke",
+          "docstring": "",
+          "line_range": [
+            1,
+            2
+          ],
+          "parameters": [],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "test_smoke": []
+      },
+      "dependencies": [],
+      "hash": "a6845264444e66537bcf4ff95e3560a9deb6764c4ad8fda31f59580707d69a97",
+      "artifact_id": "0d53a1e0-2d4a-41ee-9255-3f48edd736ec"
+    },
+    {
+      "module_id": "tests.test_cli",
+      "path": "tests/test_cli.py",
+      "category": "test",
+      "module_doc": "Tests for llmgenie CLI module",
+      "functions": [
+        {
+          "name": "test_cli_import",
+          "docstring": "Test that CLI module can be imported",
+          "line_range": [
+            12,
+            18
+          ],
+          "parameters": [],
+          "decorators": []
+        },
+        {
+          "name": "test_llm_client_import",
+          "docstring": "Test that LLM client can be imported",
+          "line_range": [
+            20,
+            26
+          ],
+          "parameters": [],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "test_cli_import": [
+          "pytest.fail"
+        ],
+        "test_llm_client_import": [
+          "pytest.fail"
+        ]
+      },
+      "dependencies": [
+        "cli",
+        "llm_client",
+        "llmgenie",
+        "os",
+        "pytest",
+        "sys"
+      ],
+      "hash": "892f36ff6a9ab5c3fdb8215906c8d9ca50a2fd5fbe714e8475dfd92bafef5fef",
+      "artifact_id": "428a47cf-d677-4282-af8e-0e73abc9c265"
+    },
+    {
+      "module_id": "tests.test_api",
+      "path": "tests/test_api.py",
+      "category": "test",
+      "module_doc": "Tests for llmgenie FastAPI application",
+      "functions": [
+        {
+          "name": "test_health_check",
+          "docstring": "Test health check endpoint",
+          "line_range": [
+            17,
+            24
+          ],
+          "parameters": [],
+          "decorators": []
+        },
+        {
+          "name": "test_workflow_modes",
+          "docstring": "Test workflow modes endpoint",
+          "line_range": [
+            26,
+            34
+          ],
+          "parameters": [],
+          "decorators": []
+        },
+        {
+          "name": "test_agent_execute",
+          "docstring": "Test agent execution endpoint",
+          "line_range": [
+            36,
+            48
+          ],
+          "parameters": [],
+          "decorators": []
+        },
+        {
+          "name": "test_mcp_tools_placeholder",
+          "docstring": "Test MCP tools placeholder endpoint",
+          "line_range": [
+            50,
+            56
+          ],
+          "parameters": [],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "test_health_check": [
+          "client.get",
+          "response.json"
+        ],
+        "test_workflow_modes": [
+          "client.get",
+          "response.json"
+        ],
+        "test_agent_execute": [
+          "client.post",
+          "response.json"
+        ],
+        "test_mcp_tools_placeholder": [
+          "client.post",
+          "response.json"
+        ]
+      },
+      "dependencies": [
+        "TestClient",
+        "app",
+        "fastapi.testclient",
+        "llmgenie.api.main",
+        "os",
+        "pytest",
+        "sys"
+      ],
+      "hash": "1a2b1fd51aa2161c4ce2e92b7ab2b226923863ee708de205c59d35e5fbd83131",
+      "artifact_id": "af2d4ff9-a8ba-40cc-b04d-0ab8f5cbe191"
     },
     {
       "module_id": "src.llmgenie.llm_client",
@@ -806,52 +1151,52 @@
           "logging.info"
         ],
         "query": [
-          "json.dumps",
-          "asyncio.sleep",
           "logging.error",
-          "Path",
-          "range",
-          "logging.info",
-          "self._query_ollama",
-          "self._query_anthropic",
-          "self._query_grok",
-          "self._query_hybrid",
           "json.load",
-          "logging.warning"
+          "self._query_anthropic",
+          "logging.warning",
+          "json.dumps",
+          "self._query_ollama",
+          "range",
+          "Path",
+          "self._query_hybrid",
+          "asyncio.sleep",
+          "self._query_grok",
+          "logging.info"
         ],
         "_query_grok": [
-          "result.get",
           "logging.error",
+          "response.json",
+          "result.get",
           "aiohttp.ClientSession",
-          "logging.info",
           "session.post",
-          "response.json"
+          "logging.info"
         ],
         "_query_anthropic": [
-          "result.get",
           "logging.error",
+          "response.json",
+          "result.get",
           "aiohttp.ClientSession",
-          "logging.info",
           "session.post",
-          "response.json"
+          "logging.info"
         ],
         "_query_ollama": [
-          "result.get",
-          "logging.error",
-          "aiohttp.ClientSession",
-          "logging.info",
-          "session.post",
           "logging.debug",
-          "response.json"
+          "logging.error",
+          "response.json",
+          "result.get",
+          "aiohttp.ClientSession",
+          "session.post",
+          "logging.info"
         ],
         "_query_hybrid": [
           "len",
           "asyncio.gather",
-          "isinstance",
-          "logging.info",
-          "self._query_ollama",
           "self._query_anthropic",
-          "self._query_grok"
+          "isinstance",
+          "self._query_ollama",
+          "self._query_grok",
+          "logging.info"
         ]
       },
       "dependencies": [
@@ -869,7 +1214,7 @@
         "typing"
       ],
       "hash": "c477d5e96f165fa96546ff8e2673db785cee146f6fffd0f424d21072431133ba",
-      "artifact_id": "b05cfab2-d49d-4882-9969-2a9024b7a53d"
+      "artifact_id": "cd04a10d-0b53-4a44-9644-0638a7ab70a5"
     },
     {
       "module_id": "src.llmgenie.cli",
@@ -903,25 +1248,25 @@
       "classes": [],
       "callgraph": {
         "main": [
-          "dogfood_parser.add_argument",
-          "parser.parse_args",
+          "subparsers.add_parser",
+          "argparse.ArgumentParser",
           "epic.add_epic_cli_subparser",
-          "copilot_parser.add_argument",
-          "review_parser.add_argument",
+          "audit_parser.add_argument",
+          "duplicates_parser.add_argument",
           "parse_parser.add_argument",
           "query_parser.add_argument",
-          "argparse.ArgumentParser",
-          "subparsers.add_parser",
-          "audit_parser.add_argument",
+          "dogfood_parser.add_argument",
+          "parser.parse_args",
           "parser.add_subparsers",
+          "copilot_parser.add_argument",
           "context_parser.add_argument",
-          "duplicates_parser.add_argument"
+          "review_parser.add_argument"
         ],
         "normalize_patterns": [
           "result.extend",
-          "result.append",
-          "p.strip",
           "item.split",
+          "p.strip",
+          "result.append",
           "item.strip"
         ]
       },
@@ -985,7 +1330,615 @@
         "write_to_file"
       ],
       "hash": "0f1504317e34987adbd393567aa9bdaf5c356d1d6b9caa26781ccdb83ca3d0a3",
-      "artifact_id": "69731ef5-6f24-4bba-aa17-c9dfae542349"
+      "artifact_id": "7c838434-ca5f-4520-ba58-a7d602a53c72"
+    },
+    {
+      "module_id": "src.llmgenie.api.main",
+      "path": "src/llmgenie/api/main.py",
+      "category": "core",
+      "module_doc": "FastAPI main application for llmgenie\nProvides REST API for multi-agent orchestration and workflow management",
+      "functions": [
+        {
+          "name": "health_check",
+          "docstring": "Health check endpoint",
+          "line_range": [
+            59,
+            65
+          ],
+          "parameters": [],
+          "decorators": [
+            "app.get('/health', response_model=HealthResponse)"
+          ]
+        },
+        {
+          "name": "get_project_state",
+          "docstring": "Get current project state",
+          "line_range": [
+            69,
+            84
+          ],
+          "parameters": [],
+          "decorators": [
+            "app.get('/project/state', response_model=ProjectStateResponse)"
+          ]
+        },
+        {
+          "name": "execute_agent_task",
+          "docstring": "Execute a task with specified agent",
+          "line_range": [
+            88,
+            102
+          ],
+          "parameters": [
+            "request"
+          ],
+          "decorators": [
+            "app.post('/agents/execute', response_model=AgentResponse)"
+          ]
+        },
+        {
+          "name": "get_agent_status",
+          "docstring": "Get status of specific agent",
+          "line_range": [
+            105,
+            112
+          ],
+          "parameters": [
+            "agent_id"
+          ],
+          "decorators": [
+            "app.get('/agents/status/{agent_id}')"
+          ]
+        },
+        {
+          "name": "get_rules_manifest",
+          "docstring": "Get rules manifest",
+          "line_range": [
+            116,
+            123
+          ],
+          "parameters": [],
+          "decorators": [
+            "app.get('/rules/manifest')"
+          ]
+        },
+        {
+          "name": "get_workflow_modes",
+          "docstring": "Get available workflow modes",
+          "line_range": [
+            126,
+            133
+          ],
+          "parameters": [],
+          "decorators": [
+            "app.get('/workflow/modes')"
+          ]
+        },
+        {
+          "name": "execute_mcp_tool",
+          "docstring": "Execute MCP tool (placeholder)",
+          "line_range": [
+            137,
+            144
+          ],
+          "parameters": [
+            "tool_name",
+            "parameters"
+          ],
+          "decorators": [
+            "app.post('/mcp/tools/execute')"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "HealthResponse",
+          "docstring": "",
+          "line_range": [
+            36,
+            39
+          ],
+          "methods": [],
+          "bases": [
+            "BaseModel"
+          ]
+        },
+        {
+          "name": "ProjectStateResponse",
+          "docstring": "",
+          "line_range": [
+            41,
+            44
+          ],
+          "methods": [],
+          "bases": [
+            "BaseModel"
+          ]
+        },
+        {
+          "name": "AgentRequest",
+          "docstring": "",
+          "line_range": [
+            46,
+            49
+          ],
+          "methods": [],
+          "bases": [
+            "BaseModel"
+          ]
+        },
+        {
+          "name": "AgentResponse",
+          "docstring": "",
+          "line_range": [
+            51,
+            55
+          ],
+          "methods": [],
+          "bases": [
+            "BaseModel"
+          ]
+        }
+      ],
+      "callgraph": {
+        "health_check": [
+          "HealthResponse",
+          "datetime.now",
+          "app.get"
+        ],
+        "get_project_state": [
+          "app.get",
+          "json.load",
+          "ProjectStateResponse",
+          "open",
+          "state.get",
+          "str",
+          "HTTPException"
+        ],
+        "execute_agent_task": [
+          "AgentResponse",
+          "app.post",
+          "datetime.now"
+        ],
+        "get_agent_status": [
+          "app.get"
+        ],
+        "get_rules_manifest": [
+          "open",
+          "json.load",
+          "app.get",
+          "HTTPException"
+        ],
+        "get_workflow_modes": [
+          "app.get"
+        ],
+        "execute_mcp_tool": [
+          "app.post"
+        ]
+      },
+      "dependencies": [
+        "BaseModel",
+        "CORSMiddleware",
+        "Dict",
+        "FastAPI",
+        "HTTPException",
+        "HandoffPackage",
+        "HandoffValidator",
+        "List",
+        "Optional",
+        "ValidationResult",
+        "datetime",
+        "fastapi",
+        "fastapi.middleware.cors",
+        "handoff_validator",
+        "json",
+        "os",
+        "pydantic",
+        "typing",
+        "uvicorn"
+      ],
+      "hash": "3d81c20bffb1e4d568451ce3d5853a7d75ab4dd87b013b864130224a77e27f60",
+      "artifact_id": "135785e8-a589-4cce-80a7-3ea6dc9905ce"
+    },
+    {
+      "module_id": "src.llmgenie.api.__init__",
+      "path": "src/llmgenie/api/__init__.py",
+      "category": "cli",
+      "module_doc": "llmgenie API module\nFastAPI-based REST API for llmgenie orchestration",
+      "functions": [],
+      "classes": [],
+      "callgraph": {},
+      "dependencies": [],
+      "hash": "113730aac8ee128f272f72d14db21b5639e86fbd7697a11dc62547f8f826d153",
+      "artifact_id": "36e96401-5ef6-4dd5-90bb-bb6c5d71c324"
+    },
+    {
+      "module_id": "src.llmgenie.api.handoff_validator",
+      "path": "src/llmgenie/api/handoff_validator.py",
+      "category": "core",
+      "module_doc": "Handoff validation module for llmgenie\nImplements automated completeness validation for context transfer packages\nBased on 016_context_transfer_protocol atomic rule",
+      "functions": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            83,
+            84
+          ],
+          "parameters": [
+            "self",
+            "project_root"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "validate_package",
+          "docstring": "Validate complete handoff package",
+          "line_range": [
+            86,
+            125
+          ],
+          "parameters": [
+            "self",
+            "package"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "_validate_files",
+          "docstring": "Validate individual files in package",
+          "line_range": [
+            127,
+            143
+          ],
+          "parameters": [
+            "self",
+            "files"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "_find_missing_files",
+          "docstring": "Find missing required file types",
+          "line_range": [
+            145,
+            149
+          ],
+          "parameters": [
+            "self",
+            "files"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "_validate_startup_prompt",
+          "docstring": "Validate startup prompt content",
+          "line_range": [
+            151,
+            161
+          ],
+          "parameters": [
+            "self",
+            "prompt"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "_validate_control_questions",
+          "docstring": "Validate control questions",
+          "line_range": [
+            163,
+            173
+          ],
+          "parameters": [
+            "self",
+            "questions"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "_calculate_completeness_score",
+          "docstring": "Calculate overall completeness score",
+          "line_range": [
+            175,
+            206
+          ],
+          "parameters": [
+            "self",
+            "file_validation",
+            "prompt_validation",
+            "questions_validation"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "_generate_warnings",
+          "docstring": "Generate validation warnings",
+          "line_range": [
+            208,
+            231
+          ],
+          "parameters": [
+            "self",
+            "package",
+            "file_validation",
+            "prompt_validation",
+            "questions_validation"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "_generate_recommendations",
+          "docstring": "Generate improvement recommendations",
+          "line_range": [
+            233,
+            251
+          ],
+          "parameters": [
+            "self",
+            "package",
+            "missing_files",
+            "warnings"
+          ],
+          "decorators": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "HandoffFile",
+          "docstring": "Single file in handoff package",
+          "line_range": [
+            15,
+            21
+          ],
+          "methods": [],
+          "bases": [
+            "BaseModel"
+          ]
+        },
+        {
+          "name": "StartupPrompt",
+          "docstring": "Startup prompt validation",
+          "line_range": [
+            23,
+            29
+          ],
+          "methods": [],
+          "bases": [
+            "BaseModel"
+          ]
+        },
+        {
+          "name": "ControlQuestions",
+          "docstring": "Control questions validation",
+          "line_range": [
+            31,
+            37
+          ],
+          "methods": [],
+          "bases": [
+            "BaseModel"
+          ]
+        },
+        {
+          "name": "HandoffPackage",
+          "docstring": "Complete handoff package for validation",
+          "line_range": [
+            39,
+            48
+          ],
+          "methods": [],
+          "bases": [
+            "BaseModel"
+          ]
+        },
+        {
+          "name": "ValidationResult",
+          "docstring": "Handoff validation result",
+          "line_range": [
+            50,
+            67
+          ],
+          "methods": [],
+          "bases": [
+            "BaseModel"
+          ]
+        },
+        {
+          "name": "HandoffValidator",
+          "docstring": "Core handoff validation logic",
+          "line_range": [
+            69,
+            251
+          ],
+          "methods": [
+            {
+              "name": "__init__",
+              "docstring": "",
+              "line_range": [
+                83,
+                84
+              ],
+              "parameters": [
+                "self",
+                "project_root"
+              ]
+            },
+            {
+              "name": "validate_package",
+              "docstring": "Validate complete handoff package",
+              "line_range": [
+                86,
+                125
+              ],
+              "parameters": [
+                "self",
+                "package"
+              ]
+            },
+            {
+              "name": "_validate_files",
+              "docstring": "Validate individual files in package",
+              "line_range": [
+                127,
+                143
+              ],
+              "parameters": [
+                "self",
+                "files"
+              ]
+            },
+            {
+              "name": "_find_missing_files",
+              "docstring": "Find missing required file types",
+              "line_range": [
+                145,
+                149
+              ],
+              "parameters": [
+                "self",
+                "files"
+              ]
+            },
+            {
+              "name": "_validate_startup_prompt",
+              "docstring": "Validate startup prompt content",
+              "line_range": [
+                151,
+                161
+              ],
+              "parameters": [
+                "self",
+                "prompt"
+              ]
+            },
+            {
+              "name": "_validate_control_questions",
+              "docstring": "Validate control questions",
+              "line_range": [
+                163,
+                173
+              ],
+              "parameters": [
+                "self",
+                "questions"
+              ]
+            },
+            {
+              "name": "_calculate_completeness_score",
+              "docstring": "Calculate overall completeness score",
+              "line_range": [
+                175,
+                206
+              ],
+              "parameters": [
+                "self",
+                "file_validation",
+                "prompt_validation",
+                "questions_validation"
+              ]
+            },
+            {
+              "name": "_generate_warnings",
+              "docstring": "Generate validation warnings",
+              "line_range": [
+                208,
+                231
+              ],
+              "parameters": [
+                "self",
+                "package",
+                "file_validation",
+                "prompt_validation",
+                "questions_validation"
+              ]
+            },
+            {
+              "name": "_generate_recommendations",
+              "docstring": "Generate improvement recommendations",
+              "line_range": [
+                233,
+                251
+              ],
+              "parameters": [
+                "self",
+                "package",
+                "missing_files",
+                "warnings"
+              ]
+            }
+          ],
+          "bases": []
+        }
+      ],
+      "callgraph": {
+        "__init__": [
+          "Path"
+        ],
+        "validate_package": [
+          "len",
+          "all",
+          "self._find_missing_files",
+          "self._calculate_completeness_score",
+          "file_validation.values",
+          "self._validate_startup_prompt",
+          "ValidationResult",
+          "self._validate_control_questions",
+          "self._validate_files",
+          "self._generate_warnings",
+          "self._generate_recommendations"
+        ],
+        "_validate_files": [
+          "file_path.exists",
+          "file_path.stat"
+        ],
+        "_find_missing_files": [
+          "set",
+          "list"
+        ],
+        "_validate_startup_prompt": [
+          "prompt.lower",
+          "StartupPrompt"
+        ],
+        "_validate_control_questions": [
+          "ControlQuestions",
+          "len"
+        ],
+        "_calculate_completeness_score": [
+          "len",
+          "max",
+          "sum",
+          "file_validation.values"
+        ],
+        "_generate_warnings": [
+          "len",
+          "file_validation.items",
+          "all",
+          "file_validation.values",
+          "warnings.append"
+        ],
+        "_generate_recommendations": [
+          "len",
+          "recommendations.append"
+        ]
+      },
+      "dependencies": [
+        "BaseModel",
+        "Dict",
+        "Field",
+        "List",
+        "Optional",
+        "Path",
+        "Union",
+        "datetime",
+        "json",
+        "os",
+        "pathlib",
+        "pydantic",
+        "typing"
+      ],
+      "hash": "95e1fca4753701656be3b38544e6201c6077ce68a7837cc24ecc6ae98625cbc3",
+      "artifact_id": "ddc867cb-44f5-4c4d-99a4-3cb4764efc78"
     },
     {
       "module_id": "src.llmgenie.modules.commands.__init__",
@@ -997,7 +1950,7 @@
       "callgraph": {},
       "dependencies": [],
       "hash": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
-      "artifact_id": "800f14cd-35b8-4a58-a4e5-35e987f7b284"
+      "artifact_id": "ee7e6cc0-770e-4e12-b451-84fa983b60b0"
     },
     {
       "module_id": "src.llmgenie.modules.commands.metrics",
@@ -1095,56 +2048,56 @@
           "get_metrics_tracker"
         ],
         "metrics_summary": [
-          "max",
           "tracker.get_session_summary",
           "print",
+          "max",
           "get_metrics_tracker"
         ],
         "metrics_analytics": [
+          "print",
+          "get_metrics_tracker",
+          "json.dump",
+          "json.dumps",
           "tracker.get_session_summary",
           "open",
-          "json.dump",
+          "csv.writer",
           "enumerate",
-          "json.dumps",
-          "get_metrics_tracker",
-          "tracker.get_analytics_data",
           "time.strftime",
           "writer.writerow",
-          "csv.writer",
-          "print"
+          "tracker.get_analytics_data"
         ],
         "metrics_report": [
           "len",
+          "print",
+          "get_metrics_tracker",
           "open",
           "sum",
-          "min",
           "f.write",
-          "get_metrics_tracker",
-          "analytics.get",
-          "tracker.get_analytics_data",
           "time.strftime",
-          "print"
+          "min",
+          "analytics.get",
+          "tracker.get_analytics_data"
         ],
         "metrics_track": [
           "print",
           "track_workflow_event"
         ],
         "metrics_tokens": [
-          "summary.get",
-          "enumerate",
-          "get_metrics_tracker",
-          "interaction.get",
           "print",
-          "get_token_summary"
+          "get_metrics_tracker",
+          "summary.get",
+          "get_token_summary",
+          "enumerate",
+          "interaction.get"
         ],
         "cmd_metrics": [
+          "print",
+          "metrics_track",
           "metrics_analytics",
+          "metrics_tokens",
           "metrics_status",
           "metrics_summary",
-          "metrics_report",
-          "metrics_track",
-          "metrics_tokens",
-          "print"
+          "metrics_report"
         ]
       },
       "dependencies": [
@@ -1157,7 +2110,7 @@
         "track_workflow_event"
       ],
       "hash": "f3cdbecb744fbdb29ca949fe874d201a44bc014625127b14d500e5828dc11e54",
-      "artifact_id": "bc666a66-470a-4943-9a69-8815552f8b7f"
+      "artifact_id": "310e70c1-9723-4760-b9c7-82e0f72b3d2e"
     },
     {
       "module_id": "src.llmgenie.modules.commands.queue",
@@ -1185,24 +2138,24 @@
       "classes": [],
       "callgraph": {
         "process_cli_queue_enhanced": [
-          "len",
-          "load_gitignore",
-          "read_file_content",
-          "open",
-          "item.get",
-          "enumerate",
           "logging.error",
-          "isinstance",
-          "client.query",
-          "logging.info",
           "get_folder_structure",
+          "len",
+          "json.load",
+          "print",
+          "client.query",
+          "read_file_content",
+          "isinstance",
+          "item.get",
+          "time.time",
+          "open",
+          "enumerate",
+          "workflow.get",
           "attach_to_llm_request",
           "options.get",
+          "logging.info",
           "write_to_file",
-          "json.load",
-          "time.time",
-          "workflow.get",
-          "print"
+          "load_gitignore"
         ]
       },
       "dependencies": [
@@ -1220,7 +2173,7 @@
         "write_to_file"
       ],
       "hash": "93ea2acd1be91706282b474b0d3d20881d6894688201c8b0acd0ee1f7266b285",
-      "artifact_id": "eb8f779b-1c38-40e4-a187-f915525c37e9"
+      "artifact_id": "9938f7d8-abfd-43cf-8ebe-809db3ebd636"
     },
     {
       "module_id": "src.llmgenie.modules.commands.services",
@@ -1280,65 +2233,65 @@
       "classes": [],
       "callgraph": {
         "add_api_bot_commands": [
-          "metrics_subparsers.add_parser",
-          "services_parser.add_subparsers",
-          "metrics_analytics.add_argument",
           "bot_subparsers.add_parser",
-          "metrics_report.add_argument",
-          "bot_start.add_argument",
+          "metrics_analytics.add_argument",
+          "metrics_track.add_argument",
+          "subparsers.add_parser",
           "api_start.add_argument",
           "services_subparsers.add_parser",
-          "subparsers.add_parser",
-          "metrics_parser.add_subparsers",
           "api_parser.add_subparsers",
-          "metrics_track.add_argument",
-          "api_subparsers.add_parser",
-          "bot_parser.add_subparsers"
+          "metrics_subparsers.add_parser",
+          "metrics_report.add_argument",
+          "bot_parser.add_subparsers",
+          "services_parser.add_subparsers",
+          "metrics_parser.add_subparsers",
+          "bot_start.add_argument",
+          "api_subparsers.add_parser"
         ],
         "cmd_api_management": [
-          "requests.get",
-          "int",
-          "pid_file.unlink",
-          "process.wait",
-          "open",
-          "requests.post",
-          "data.get",
-          "Path",
-          "subprocess.Popen",
-          "f.write",
-          "str",
-          "f.read",
-          "pid_file.exists",
-          "process.terminate",
-          "venv_path.exists",
-          "response.json",
           "print",
-          "psutil.Process"
+          "requests.post",
+          "pid_file.exists",
+          "venv_path.exists",
+          "process.terminate",
+          "f.read",
+          "response.json",
+          "psutil.Process",
+          "pid_file.unlink",
+          "open",
+          "requests.get",
+          "Path",
+          "process.wait",
+          "str",
+          "data.get",
+          "int",
+          "f.write",
+          "subprocess.Popen"
         ],
         "cmd_bot_management": [
-          "active_bots.append",
-          "int",
-          "pid_file.unlink",
-          "process.wait",
-          "open",
-          "bot_scripts.get",
-          "Path",
-          "os.getenv",
-          "subprocess.Popen",
-          "f.write",
-          "str",
-          "f.read",
-          "pid_file.exists",
-          "process.is_running",
-          "process.terminate",
           "print",
-          "psutil.Process"
+          "pid_file.exists",
+          "process.terminate",
+          "f.read",
+          "os.getenv",
+          "psutil.Process",
+          "process.is_running",
+          "pid_file.unlink",
+          "open",
+          "active_bots.append",
+          "Path",
+          "process.wait",
+          "str",
+          "int",
+          "f.write",
+          "subprocess.Popen",
+          "bot_scripts.get"
         ],
         "cmd_services": [
-          "cmd_api_management",
-          "time.sleep",
-          "type",
           "print",
+          "type",
+          "time.sleep",
+          "cmd_api_management",
           "cmd_bot_management"
         ]
       },
@@ -1353,7 +2306,7 @@
         "time"
       ],
       "hash": "96ca731ade5a7043ea0459124cc364e27740657bccffde74544182d938e57d98",
-      "artifact_id": "88820bd1-5e71-4fa5-a584-de0e9d72103f"
+      "artifact_id": "32f842e6-6f32-4079-b301-5f2ab2feaa77"
     },
     {
       "module_id": "src.llmgenie.modules.cli.dogfood",
@@ -1384,7 +2337,7 @@
         "logging"
       ],
       "hash": "18989e9381a3f9872468dfd93602c7b12cbe7cb740a402dda2711c7c98bb3a98",
-      "artifact_id": "c381cad0-2d8c-4fc5-bdcb-b800d9ce5fe8"
+      "artifact_id": "28459c20-0073-44b8-96d0-16711feef22e"
     },
     {
       "module_id": "src.llmgenie.modules.cli.parse",
@@ -1408,26 +2361,26 @@
       "classes": [],
       "callgraph": {
         "parse": [
-          "json.dump",
-          "struct_path.open",
-          "cache.close",
-          "parsing_config.get",
-          "cache.cache_json",
-          "logging.warning",
-          "JSONCache",
-          "generate_json",
-          "getattr",
-          "load_config",
-          "func.get",
-          "ast_path.open",
           "logging.error",
-          "struct_data.get",
-          "config.get",
+          "generate_json",
+          "ast_path.open",
+          "struct_path.open",
+          "JSONCache",
+          "logging.warning",
+          "load_config",
+          "json.dump",
+          "func.get",
+          "Path",
+          "cache.cache_json",
+          "getattr",
+          "parsing_config.get",
           "cli_config.get",
           "mod_dir.mkdir",
-          "Path",
+          "cache.close",
           "logging.info",
-          "module.get"
+          "struct_data.get",
+          "module.get",
+          "config.get"
         ]
       },
       "dependencies": [
@@ -1444,7 +2397,7 @@
         "pathlib"
       ],
       "hash": "966276e0c717ac3bf78502224305e23e2ac9b49547bbbf13bb37c83cb85d8b9c",
-      "artifact_id": "9a0e91e7-e1fd-49ac-8e67-bb7aa475ce8e"
+      "artifact_id": "18e7cd48-1f73-4086-8ffb-e9df486b5014"
     },
     {
       "module_id": "src.llmgenie.modules.cli.audit",
@@ -1468,11 +2421,11 @@
       "classes": [],
       "callgraph": {
         "audit": [
-          "file_path.exists",
+          "print",
           "analyze_duplicates",
-          "hasattr",
           "Path",
-          "print"
+          "hasattr",
+          "file_path.exists"
         ]
       },
       "dependencies": [
@@ -1483,7 +2436,7 @@
         "pathlib"
       ],
       "hash": "2db7989b347f40218b0105a07e15164e4fa869ecf87fe977e929a36ad7b90179",
-      "artifact_id": "124f8e04-7f5b-4e05-bdc2-1a5045343319"
+      "artifact_id": "b438496f-7b23-4892-b9e0-3d8f500da715"
     },
     {
       "module_id": "src.llmgenie.modules.cli.utils",
@@ -1690,43 +2643,43 @@
       "classes": [],
       "callgraph": {
         "load_gitignore": [
-          "line.strip",
-          "gitignore_path.exists",
           "logging.error",
-          "Path",
           "gitignore_path.open",
-          "line.startswith"
+          "line.strip",
+          "line.startswith",
+          "Path",
+          "gitignore_path.exists"
         ],
         "load_config": [
-          "config_path.open",
           "logging.error",
+          "config_path.exists",
           "Path",
           "toml.load",
-          "config_path.exists"
+          "config_path.open"
         ],
         "read_file_content": [
-          "path.is_file",
           "logging.error",
+          "path.is_file",
           "Path",
           "path.open",
           "f.read"
         ],
         "write_to_file": [
-          "file_path.exists",
-          "file_path.open",
           "logging.error",
-          "Path",
-          "f.write",
-          "logging.warning",
-          "str",
-          "logging.info",
           "base_path.mkdir",
-          "re.sub"
+          "logging.warning",
+          "logging.info",
+          "Path",
+          "str",
+          "re.sub",
+          "file_path.exists",
+          "f.write",
+          "file_path.open"
         ],
         "parse_files_from_response": [
-          "files.append",
           "content.strip",
           "filename.strip",
+          "files.append",
           "re.findall"
         ],
         "get_cache_config": [
@@ -1743,20 +2696,20 @@
         ],
         "get_exclude_dirs": [
           "set",
-          "parsing_config.get",
-          "cli_config.get",
+          "list",
           "config.get",
-          "list"
+          "parsing_config.get",
+          "cli_config.get"
         ],
         "get_include_patterns": [
           "parsing_config.get",
-          "cli_config.get",
-          "config.get"
+          "config.get",
+          "cli_config.get"
         ],
         "get_exclude_patterns": [
           "parsing_config.get",
-          "cli_config.get",
-          "config.get"
+          "config.get",
+          "cli_config.get"
         ],
         "get_max_file_size": [
           "config.get"
@@ -1768,9 +2721,9 @@
           "config.get"
         ],
         "save_config": [
+          "logging.error",
           "toml.dump",
           "Path",
-          "logging.error",
           "config_path.open"
         ]
       },
@@ -1785,7 +2738,7 @@
         "typing"
       ],
       "hash": "3f9f61b289dbdcbe85ccc89e60dd4e6a5a9a2cc31194ab9d0d8fe613fac51924",
-      "artifact_id": "921410b6-0bcd-4c5f-bae3-959d17db1853"
+      "artifact_id": "5bc6901d-e896-47e6-9d25-6448dac45de8"
     },
     {
       "module_id": "src.llmgenie.modules.cli.context",
@@ -1816,7 +2769,7 @@
         "logging"
       ],
       "hash": "2eaa01d2531e7fab1705f319c2b166013a6c19186010ee7b126e5e8396dd4699",
-      "artifact_id": "0f7ddf99-e3e3-4f56-b58a-e2ff792fc3ba"
+      "artifact_id": "f7abf76f-af01-4785-a0c5-573d5527d2d1"
     },
     {
       "module_id": "src.llmgenie.modules.cli.copilot",
@@ -1840,28 +2793,28 @@
       "classes": [],
       "callgraph": {
         "copilot": [
-          "manager.get_context_status",
-          "shutil.copy",
-          "manager.refresh_all_contexts",
-          "hasattr",
-          "manager.close",
-          "manager.validate_change",
-          "initialize_copilot",
-          "template_path.exists",
-          "smart_suggest",
-          "getattr",
-          "open",
-          "manager.unload_context_layer",
-          "manager.export_context",
           "logging.error",
-          "f.write",
-          "config_path.exists",
-          "enumerate",
-          "manager.load_context_layer",
-          "layers.split",
+          "manager.unload_context_layer",
+          "print",
+          "open",
           "Path",
+          "manager.get_context_status",
+          "enumerate",
+          "getattr",
+          "manager.export_context",
+          "hasattr",
+          "manager.validate_change",
+          "template_path.exists",
+          "manager.load_context_layer",
+          "manager.refresh_all_contexts",
+          "shutil.copy",
           "logging.info",
-          "print"
+          "layers.split",
+          "initialize_copilot",
+          "config_path.exists",
+          "smart_suggest",
+          "manager.close",
+          "f.write"
         ]
       },
       "dependencies": [
@@ -1874,7 +2827,7 @@
         "smart_suggest"
       ],
       "hash": "7bc44c139d0fb9c7f3ae37544ef763d68cc55e4220c2e89d73d766801541f947",
-      "artifact_id": "dd5d8ff4-d3ba-4314-90bc-b0a60f588ed5"
+      "artifact_id": "b74bc04c-4f4f-4329-9734-16bb41934e59"
     },
     {
       "module_id": "src.llmgenie.modules.cli.review",
@@ -1905,7 +2858,7 @@
         "logging"
       ],
       "hash": "1065196bb1074e1f669c0973da53285a04a2ab62d7462e97dfed418488d4a451",
-      "artifact_id": "041d8c4d-6b5d-4e58-bed6-95e1f58f74f7"
+      "artifact_id": "902e759c-217f-4010-86cf-c5eef324208a"
     },
     {
       "module_id": "src.llmgenie.modules.cli.__init__",
@@ -1917,7 +2870,7 @@
       "callgraph": {},
       "dependencies": [],
       "hash": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
-      "artifact_id": "5716029a-2485-4d83-b36e-a0d7cf077224"
+      "artifact_id": "88e99b50-ec31-46ea-99a7-64ef77907ef1"
     },
     {
       "module_id": "src.llmgenie.modules.cli.handlers",
@@ -1958,9 +2911,9 @@
           "logging.warning"
         ],
         "interactive_modular": [
-          "hasattr",
-          "cli_core.run_interactive_mode",
           "create_cli_core",
+          "cli_core.run_interactive_mode",
+          "hasattr",
           "logging.info"
         ]
       },
@@ -1990,7 +2943,7 @@
         "write_to_file"
       ],
       "hash": "51450e4006a43d948e918bd87e43874e584f08c569cdbe9f89aff58c9d6293a2",
-      "artifact_id": "0e244889-01e3-4e31-ade0-5436ccb48722"
+      "artifact_id": "093aa9e1-7c72-4fb1-946c-966617561977"
     },
     {
       "module_id": "src.llmgenie.modules.cli.handlers_legacy",
@@ -2014,29 +2967,29 @@
       "classes": [],
       "callgraph": {
         "interactive_legacy": [
-          "input",
-          "args_str.strip",
-          "cache.close",
-          "write_to_file",
-          "attach_to_llm_request",
-          "logging.warning",
-          "m.group",
-          "JSONCache",
-          "read_file_content",
-          "re.match",
-          "client.query",
-          "os.listdir",
-          "user_input.startswith",
-          "parse",
-          "LLMClient",
-          "json.dumps",
-          "sorted",
           "logging.error",
           "get_folder_structure",
-          "load_gitignore",
-          "user_input.lower",
+          "input",
+          "os.listdir",
+          "json.dumps",
+          "args_str.strip",
+          "re.match",
+          "parse",
+          "print",
+          "JSONCache",
+          "logging.warning",
+          "user_input.startswith",
+          "m.group",
           "Path",
-          "print"
+          "attach_to_llm_request",
+          "client.query",
+          "cache.close",
+          "read_file_content",
+          "LLMClient",
+          "user_input.lower",
+          "sorted",
+          "write_to_file",
+          "load_gitignore"
         ]
       },
       "dependencies": [
@@ -2063,7 +3016,7 @@
         "write_to_file"
       ],
       "hash": "3676e871a4d165bc1a661bc3791663f9127c614086610286e69f1ddb1674c68e",
-      "artifact_id": "765de2a6-655f-4c77-aad8-7b8c3fa35a0f"
+      "artifact_id": "b0f75cb4-919a-49ba-8639-ff7262a1ea30"
     },
     {
       "module_id": "src.llmgenie.modules.cli.analyze_duplicates",
@@ -2087,24 +3040,24 @@
       "classes": [],
       "callgraph": {
         "analyze_duplicates": [
-          "getattr",
-          "WorkflowOrchestrator",
-          "analysis.get",
           "len",
-          "json.dumps",
-          "open",
-          "sorted",
-          "hasattr",
-          "json.dump",
-          "enumerate",
-          "filtered_duplicates.items",
-          "duplicates.items",
-          "traceback.print_exc",
-          "duplication_data.get",
-          "r.get",
-          "rec.get",
           "print",
-          "orchestrator.analyze_codebase_for_duplicates"
+          "filtered_duplicates.items",
+          "WorkflowOrchestrator",
+          "traceback.print_exc",
+          "rec.get",
+          "duplication_data.get",
+          "duplicates.items",
+          "json.dumps",
+          "json.dump",
+          "analysis.get",
+          "open",
+          "r.get",
+          "orchestrator.analyze_codebase_for_duplicates",
+          "enumerate",
+          "sorted",
+          "getattr",
+          "hasattr"
         ]
       },
       "dependencies": [
@@ -2114,7 +3067,7 @@
         "traceback"
       ],
       "hash": "d9c98a76c4920b3bfe62a812811aa9edf7158fa6d307eecd1235c4a2d93f146c",
-      "artifact_id": "efa6582d-8b2a-4ecd-a563-8923a8b593fa"
+      "artifact_id": "fb180c0c-e170-450e-8ab2-ba28960083ca"
     },
     {
       "module_id": "src.llmgenie.modules.cli.query",
@@ -2138,19 +3091,19 @@
       "classes": [],
       "callgraph": {
         "query": [
+          "logging.error",
+          "client.query",
           "JSONCache",
-          "create_context_orchestrator",
+          "cache.close",
+          "logging.warning",
+          "orchestrator.get_context_for_scenario",
           "LLMClient",
           "json.dump",
-          "logging.error",
-          "hasattr",
           "Path",
-          "client.query",
-          "cache.close",
-          "logging.info",
-          "orchestrator.get_context_for_scenario",
           "client.query_with_context",
-          "logging.warning"
+          "create_context_orchestrator",
+          "hasattr",
+          "logging.info"
         ]
       },
       "dependencies": [
@@ -2167,7 +3120,7 @@
         "pathlib"
       ],
       "hash": "aebf4b74c71a6845676877cbd60f5530d3afab38fa6ccec41c114e158cb0f614",
-      "artifact_id": "69a5b2d7-ca66-4337-b4ce-b3c21b4cdb71"
+      "artifact_id": "05848bcb-500b-4ebb-beac-10ed479ad050"
     },
     {
       "module_id": "src.llmgenie.modules.cli.epic",
@@ -2215,30 +3168,30 @@
       "classes": [],
       "callgraph": {
         "load_json": [
-          "json.load",
-          "open"
+          "open",
+          "json.load"
         ],
         "show_links": [
-          "link_map.items",
-          "results.items",
+          "print",
+          "load_json",
           "item.get",
           "json.dumps",
-          "data.get",
+          "link_map.items",
           "Path",
-          "load_json",
+          "data.get",
           "str",
-          "status_filter.lower",
-          "t.upper",
-          "epic.get",
+          "results.items",
           "epic_path.exists",
-          "print"
+          "t.upper",
+          "status_filter.lower",
+          "epic.get"
         ],
         "add_epic_cli_subparser": [
-          "epic_parser.add_subparsers",
           "subparsers.add_parser",
+          "epic_sub.add_parser",
           "show_links_parser.set_defaults",
           "show_links_parser.add_argument",
-          "epic_sub.add_parser"
+          "epic_parser.add_subparsers"
         ]
       },
       "dependencies": [
@@ -2248,7 +3201,78 @@
         "pathlib"
       ],
       "hash": "7a96cb38d4cc07f413b5da974e0eb6c461a8ce1c76f96f808c8a4414a7eb1b30",
-      "artifact_id": "7d693085-d118-440f-9988-59c059f869f1"
+      "artifact_id": "b1abb599-d7d3-45b4-931e-0cff16506f04"
+    },
+    {
+      "module_id": "scripts.tools.ollama_queue",
+      "path": "scripts/tools/ollama_queue.py",
+      "category": "core",
+      "module_doc": "",
+      "functions": [
+        {
+          "name": "log_event",
+          "docstring": "",
+          "line_range": [
+            25,
+            27
+          ],
+          "parameters": [
+            "event"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "send_to_ollama",
+          "docstring": "",
+          "line_range": [
+            29,
+            37
+          ],
+          "parameters": [
+            "prompt",
+            "model"
+          ],
+          "decorators": []
+        },
+        {
+          "name": "main",
+          "docstring": "",
+          "line_range": [
+            39,
+            49
+          ],
+          "parameters": [],
+          "decorators": []
+        }
+      ],
+      "classes": [],
+      "callgraph": {
+        "log_event": [
+          "LOG_FILE.open",
+          "datetime.now",
+          "f.write"
+        ],
+        "send_to_ollama": [
+          "response.raise_for_status",
+          "requests.post",
+          "response.json"
+        ],
+        "main": [
+          "result_file.open",
+          "send_to_ollama",
+          "f.write",
+          "log_event"
+        ]
+      },
+      "dependencies": [
+        "Path",
+        "datetime",
+        "json",
+        "pathlib",
+        "requests"
+      ],
+      "hash": "e84ed70980f42a0902e13c5b88eea995bdb78cf6dc8e5e66ccb7b85a68dc58a6",
+      "artifact_id": "e89086fc-abf8-40d8-8a66-e91fc6e3735e"
     }
   ]
 }
