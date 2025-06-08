@@ -14,14 +14,25 @@
   "details": {
     "CLI": {
       "purpose": "Управление задачами, сессиями, правилами через командную строку.",
-      "main_functions": ["Запуск задач", "Переключение режимов", "Логирование"],
-      "key_files": ["src/llmgenie/modules/cli/cli.py"],
+      "main_functions": ["Запуск задач", "Переключение режимов", "Логирование", "Handoff validation"],
+      "key_files": ["src/llmgenie/modules/cli/cli.py", "src/llmgenie/cli/handoff_cli.py"],
+      "handoff_commands": {
+        "validate": "python src/llmgenie/cli/handoff_cli.py validate config.json --verbose",
+        "template": "python src/llmgenie/cli/handoff_cli.py template output.json",
+        "check": "python src/llmgenie/cli/handoff_cli.py check config.json --fail-on-warnings"
+      },
       "links": ["docs/CLI.md"]
     },
     "API": {
       "purpose": "REST API для интеграции с внешними сервисами и UI.",
-      "main_functions": ["Обработка запросов", "Интеграция с FastAPI"],
-      "key_files": ["src/llmgenie/api/", "src/llmgenie/modules/api/"]
+      "main_functions": ["Обработка запросов", "Интеграция с FastAPI", "Handoff validation", "Template generation"],
+      "key_files": ["src/llmgenie/api/main.py", "src/llmgenie/api/handoff_validator.py"],
+      "endpoints": {
+        "POST /handoff/validate": "Валидация handoff пакета (completeness score, file validation, prompt analysis)",
+        "GET /handoff/template": "Получение шаблона handoff пакета",
+        "GET /health": "Health check",
+        "GET /project/state": "Состояние проекта"
+      }
     },
     "llmgenie": {
       "purpose": "Основной оркестратор AI workflow.",
@@ -35,7 +46,26 @@
     },
     "json_structures": {
       "purpose": "Хранение задач, идей, сессий, состояния.",
-      "main_files": ["data/ideas.json", "data/tasks.json", "data/sessions/", "project_state.json"]
+      "main_files": ["data/ideas.json", "data/tasks.json", "data/sessions/", "project_state.json"],
+      "handoff_structures": ["data/handoff/*.json", "data/knowledge/handoff_*.md", "data/audit/rules_audit_*.md"]
+    },
+    "handoff_validation": {
+      "purpose": "Автоматизированная валидация handoff пакетов для передачи контекста между ролями/сессиями.",
+      "main_functions": ["Валидация completeness", "Проверка файлов", "Анализ startup prompt", "Контрольные вопросы"],
+      "key_files": [
+        "src/llmgenie/api/handoff_validator.py",
+        "src/llmgenie/cli/handoff_cli.py", 
+        "data/ai_workflow.json (handoff_validation stage)"
+      ],
+      "validation_criteria": {
+        "min_files": 5,
+        "required_types": ["summary", "lessons", "checklist", "audit", "metadata"],
+        "min_questions": 3,
+        "min_completeness_score": "80%"
+      },
+      "tested_score": "88% with real Epic 3 files",
+      "atomic_rules": [".cursor/rules/core/016_context_transfer_protocol.mdc_"],
+      "links": ["data/knowledge/handoff_best_practices_synthesis_2025-01-05.md"]
     }
   },
   "rules": {

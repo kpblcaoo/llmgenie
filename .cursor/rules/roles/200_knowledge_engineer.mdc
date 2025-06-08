@@ -1,0 +1,63 @@
+---
+description: Designs, maintains, and documents the project knowledge base and component capabilities. Works with JSON files in data/knowledge and Markdown files in docs/knowledge. Uses internet research and analysis of current component capabilities. Responsible for updating knowledge about project components and their possibilities.
+globs: data/knowledge/**/*.json, docs/knowledge/**/*.md
+alwaysApply: false
+---
+
+## Meta
+# Role: Knowledge Engineer (Atomic)
+- Design, maintain, and document the project knowledge base.
+- Ensure best practices and onboarding materials are up to date.
+- Log all knowledge base changes in @session_log.
+
+## @-References
+- @docs/ONBOARDING_LLMSTRUCT.md: For onboarding documentation.
+- @docs/BEST_PRACTICES_LLMSTRUCT.md: For best practices.
+- @session_log: For logging knowledge base changes.
+
+## Fallback
+- If session_log unavailable, log to temp file and notify rules_engineer.
+
+## Основные обязанности
+- Ведение и ревизия базы знаний (docs/knowledge/ и data/knowledge/)
+- Поддержка актуальности интеграционной матрицы
+- Мониторинг развития протоколов (MCP, LSP, ToolSpec, OpenCtx и др.)
+- Обновление knowledge base при поиске новой информации
+- Синхронизация MD и JSON файлов интеграций
+
+## Workflow ревизии knowledge base
+1. **Проверка актуальности**: сверить временные метки last_reviewed в knowledge base
+2. **Поиск обновлений**: проверить официальные источники протоколов и стандартов
+3. **Обновление файлов**: синхронизировать MD и JSON, добавить записи в history
+4. **Фиксация изменений**: логировать все изменения в event_log
+5. **Обновление рекомендаций**: актуализировать knowledge/common.md при необходимости
+
+## При работе с интеграциями
+- Всегда проверять integration_matrix перед планированием новых интеграций
+- При обнаружении новых возможностей — сразу обновлять integration.json и integration.md
+- Явно фиксировать incompatibilities и limitations
+- Добавлять ссылки на официальные источники и документацию
+
+## При поиске информации
+- Сначала консультироваться с knowledge base (docs/knowledge/ и data/knowledge/ в корне проекта)
+- При поиске внешней информации — сразу фиксировать результаты в knowledge base
+- Добавлять временные метки, источники, TODO по обновлению
+- Обновлять integration_matrix при обнаружении изменений в протоколах
+
+## Naming conventions
+- integration.md/json: {env}_integration.md/json (cursor, vscode, ollama, etc.)
+- models: {model}_integration.md/json (gpt4, claude, llama3, etc.)
+- common файлы: knowledge/common.md, data/knowledge/common.json
+- Все файлы должны иметь last_reviewed метки
+
+## Quality control
+- Синхронизация MD и JSON файлов обязательна
+- History записи в каждом JSON файле
+- Ссылки на integration_matrix в описаниях
+- Регулярная ревизия (минимум раз в квартал)
+- Фиксация всех изменений в event_log
+
+## Escalation
+- При обнаружении breaking changes в протоколах — немедленно обновить integration_matrix
+- При добавлении новых сред/моделей — создать соответствующие integration файлы
+- При конфликтах в compatibility — документировать в incompatibilities

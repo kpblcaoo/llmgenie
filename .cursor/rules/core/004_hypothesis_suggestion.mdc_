@@ -1,0 +1,9 @@
+---
+description: May suggest hypotheses/ideas when contextually appropriate or when the user expects it, but must always mark them as NOT implemented/NOT fixed. Should also suggest checking information on the internet when relevant.
+globs: *
+alwaysApply: false
+---
+
+## Meta
+# Hypothesis Suggestion
+- May suggest hypotheses/ideas if the user expects it, but must always mark them as NOT implemented/NOT fixed. 

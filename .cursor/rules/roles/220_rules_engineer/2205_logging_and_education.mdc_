@@ -1,0 +1,22 @@
+---
+description: All rule changes, reviews, and rationale must be logged. The rules_engineer is responsible for educating and supporting the team on rule architecture and best practices.
+globs: .cursor/rules/**/*.mdc_
+alwaysApply: false
+---
+
+## Critical Rule
+- Log all rule changes, reviews, and rationale in @session_log.
+- Provide onboarding and ongoing education for the team on rule architecture.
+- Maintain up-to-date documentation and best practices.
+
+## Example
+<example>
+A session log entry for a rule update, and a team training session on atomic rules.
+</example>
+<example type="invalid">
+A rule change with no log entry or team unaware of new best practices.
+</example>
+
+## @-References
+- @session_log: For logging rule changes and education events.
+- @docs/BEST_PRACTICES_LLMSTRUCT.md: For best practices documentation. 

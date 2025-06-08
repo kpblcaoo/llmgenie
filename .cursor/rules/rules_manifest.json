@@ -1,0 +1,228 @@
+{
+  "rules": [
+    {
+      "id": "001_logging_checkpoints",
+      "file": "core/001_logging_checkpoints.mdc_",
+      "description": "Log all key actions, errors, and mode switches. Use checkpoints for context restoration.",
+      "references": ["@session_log", "@ai_workflow.json"],
+      "fallback": "If session_log unavailable, warn user and log to temp file.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "002_advice_objectivity",
+      "file": "core/002_advice_objectivity.mdc_",
+      "description": "Always provide objective advice, do not let the desire to please affect quality.",
+      "references": [],
+      "fallback": "Continue with basic objectivity principles if rules unavailable.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "003_language_policy",
+      "file": "core/003_language_policy.mdc_",
+      "description": "Language policy for prompts and user communication.",
+      "references": [],
+      "fallback": "Use English for AI prompts, user-preferred language for communication.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "004_hypothesis_suggestion",
+      "file": "core/004_hypothesis_suggestion.mdc_",
+      "description": "May suggest hypotheses/ideas if the user expects it, but must always mark them as NOT implemented/NOT fixed.",
+      "references": [],
+      "fallback": "Always mark suggestions as hypothetical and unimplemented.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "005_context_restoration",
+      "file": "core/005_context_restoration.mdc_",
+      "description": "Restore focus using meta-log and ai_workflow.json if lost.",
+      "references": ["@meta-log", "@ai_workflow.json"],
+      "fallback": "If meta-log unavailable, attempt minimal context restoration from ai_workflow.json.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "006_best_practices_recording",
+      "file": "core/006_best_practices_recording.mdc_",
+      "description": "All new best practices and workflows must be recorded in .cursor/rules/ or documentation for reproducibility.",
+      "references": ["@docs/decision_memos/"],
+      "fallback": "Record best practices in session log if formal documentation unavailable.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "007_decision_analysis",
+      "file": "core/007_decision_analysis.mdc_",
+      "description": "Analyze trade-offs and document decisions in memos and logs.",
+      "references": ["@docs/decision_memos/", "@session_log"],
+      "fallback": "Analyze trade-offs in session context if decision memos unavailable.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "008_mdc_work_protocol",
+      "file": "core/008_mdc_work_protocol.mdc_",
+      "description": "All rule changes must be made on .mdc_ copies, never on originals. Manual replacement after review.",
+      "references": ["@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "009_branch_policy",
+      "file": "core/009_branch_policy.mdc_",
+      "description": "Branch policy for all work in project. No changes outside tasks/epics/ideas unless in active session.",
+      "references": ["@session_log", "@workflow_enforcement"],
+      "fallback": "If session_log unavailable, log to local file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "010_session_management",
+      "file": "core/010_session_management.mdc_",
+      "description": "Session management with active session linking to epics. Log all key events and use elastic workflow.",
+      "references": ["@ai_workflow.json", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "011_logging_and_retrospective",
+      "file": "core/011_logging_and_retrospective.mdc_",
+      "description": "Logging, retrospective, and lessons learned. Log every interaction and analyze logs for improvements.",
+      "references": ["@session_log", "@insights.json"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "012_cli_commands",
+      "file": "core/012_cli_commands.mdc_",
+      "description": "CLI commands reference and workflow. Use only approved commands and log all executions.",
+      "references": ["@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "013_ai_capabilities",
+      "file": "core/013_ai_capabilities.mdc_",
+      "description": "AI capabilities and automation. Use only documented and approved AI features in workflow.",
+      "references": ["@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "014_project_scope",
+      "file": "core/014_project_scope.mdc_",
+      "description": "Project data, symlink policy, and data requirements. Define project scope and data policies.",
+      "references": ["@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "015_workflow_modes",
+      "file": "core/015_workflow_modes.mdc_",
+      "description": "When workflow modes and context tags e.g. [code] is mentioned",
+      "references": ["@ai_workflow.json"],
+      "fallback": "If ai_workflow.json unavailable, use basic mode switching.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "016_context_transfer_protocol",
+      "file": "core/016_context_transfer_protocol.mdc",
+      "description": "Universal context transfer protocol for handoff between sessions, chats, roles, and team members. Ensures zero information loss and quality maintenance.",
+      "references": ["@data/knowledge/handoff_best_practices_synthesis_2025-01-05.md", "@data/audit/context_transfer_guide.md", "@session_log", "@ai_workflow.json"],
+      "fallback": "If structured transfer unavailable, provide minimum viable context: status, key blockers, immediate next steps, and explicit warning about reduced context quality.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "200_knowledge_engineer",
+      "file": "roles/200_knowledge_engineer.mdc_",
+      "description": "Designs, maintains, and documents the project knowledge base. Ensures best practices and onboarding materials are up to date.",
+      "references": ["@docs/ONBOARDING_LLMSTRUCT.md", "@docs/BEST_PRACTICES_LLMSTRUCT.md", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "210_reviewer",
+      "file": "roles/210_reviewer.mdc_",
+      "description": "Reviews code, documentation, and workflows for quality and compliance. Logs all review actions.",
+      "references": ["@docs/code_review_checklist.md", "@docs/BEST_PRACTICES_LLMSTRUCT.md", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "220_rules_engineer",
+      "file": "roles/220_rules_engineer.mdc_",
+      "description": "Designs, reviews, and maintains modular atomic rules for Cursor/AI workflow. Manages @-references, cross-links, and multi-environment portability. Integrates best practices from deepsearch/web-grok.",
+      "references": ["@rules_manifest.json", "@docs/decision_memos/", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "2201_atomic_rule_structure",
+      "file": "roles/220_rules_engineer/2201_atomic_rule_structure.mdc_",
+      "description": "Each rule must be atomic: cover a single responsibility, be testable, and have no side effects. This ensures clarity, maintainability, and safe automation in the Cursor/AI workflow.",
+      "references": ["@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "2202_references_and_crosslinks",
+      "file": "roles/220_rules_engineer/2202_references_and_crosslinks.mdc_",
+      "description": "All rules must document their @-references and cross-links to other rules, files, or documentation. This ensures traceability, discoverability, and maintainability.",
+      "references": ["@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "2203_static_analysis_and_validation",
+      "file": "roles/220_rules_engineer/2203_static_analysis_and_validation.mdc_",
+      "description": "All rules must be validated with static analysis for cycles, redundancy, and invalid references before adoption. This ensures rule integrity and maintainability.",
+      "references": ["@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "2204_environment_portability",
+      "file": "roles/220_rules_engineer/2204_environment_portability.mdc_",
+      "description": "Rules must be designed for multi-environment portability (Cursor, VSCode, CLI, API). Use configuration files to map generic references to environment-specific implementations.",
+      "references": ["@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "2205_logging_and_education",
+      "file": "roles/220_rules_engineer/2205_logging_and_education.mdc_",
+      "description": "All rule changes, reviews, and rationale must be logged. The rules_engineer is responsible for educating and supporting the team on rule architecture and best practices.",
+      "references": ["@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "230_project_auditor",
+      "file": "roles/230_project_auditor.mdc",
+      "description": "when the task is to analize project state or [audit] is called",
+      "references": ["@session_log", "@docs/decision_memos/"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "100_code_review",
+      "file": "workflows/100_code_review.mdc_",
+      "description": "Enforce code review checklist for all pull requests and code changes. Atomic rule with @-references and fallback.",
+      "references": ["@docs/code_review_checklist.md", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "400_audit",
+      "file": "security/400_audit.mdc_",
+      "description": "Enforce security audit checklist for all reviews and audits. Atomic rule with @-references and fallback.",
+      "references": ["@docs/security_audit_checklist.md", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "900_template_commit",
+      "file": "templates/900_template_commit.mdc_",
+      "description": "Enforce commit message template for all code changes. Atomic rule with @-reference and fallback.",
+      "references": ["@docs/commit_message_template.md", "@session_log"],
+      "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
+      "last_updated": "2025-01-05"
+    }
+  ]
+} 
