@@ -122,7 +122,7 @@
     },
     {
       "id": "016_context_transfer_protocol",
-      "file": "core/016_context_transfer_protocol.mdc_",
+      "file": "core/016_context_transfer_protocol.mdc",
       "description": "Universal context transfer protocol for handoff between sessions, chats, roles, and team members. Ensures zero information loss and quality maintenance.",
       "references": ["@data/knowledge/handoff_best_practices_synthesis_2025-01-05.md", "@data/audit/context_transfer_guide.md", "@session_log", "@ai_workflow.json"],
       "fallback": "If structured transfer unavailable, provide minimum viable context: status, key blockers, immediate next steps, and explicit warning about reduced context quality.",
@@ -194,7 +194,7 @@
     },
     {
       "id": "230_project_auditor",
-      "file": "roles/230_project_auditor.mdc_",
+      "file": "roles/230_project_auditor.mdc",
       "description": "when the task is to analize project state or [audit] is called",
       "references": ["@session_log", "@docs/decision_memos/"],
       "fallback": "If session_log unavailable, log to temp file and notify rules_engineer.",
