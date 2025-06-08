@@ -12,7 +12,14 @@ import os
 from datetime import datetime
 
 # Import handoff validator
-from .handoff_validator import HandoffPackage, ValidationResult, HandoffValidator
+try:
+    from .handoff_validator import HandoffPackage, ValidationResult, HandoffValidator
+except ImportError:
+    # Fallback for direct execution
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).parent))
+    from handoff_validator import HandoffPackage, ValidationResult, HandoffValidator
 
 # Initialize FastAPI app
 app = FastAPI(
