@@ -167,7 +167,7 @@ backup_*/
 
 # Private data - exclude from commits
 .personal/
-
+struct.json
 # LLMStruct indexes and caches
 .llmstruct_*
 
