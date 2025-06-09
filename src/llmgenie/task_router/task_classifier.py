@@ -150,17 +150,22 @@ class TaskClassifier:
         
         complexity_score = 0
         
-        # Keyword-based scoring
+        # Keyword-based scoring - count matches for better accuracy
         for level, keywords in self.complexity_indicators.items():
-            if any(keyword in query for keyword in keywords):
+            matches = sum(1 for keyword in keywords if keyword in query)
+            if matches > 0:
                 if level == 'simple':
-                    complexity_score += 1
+                    complexity_score += matches * 1
                 elif level == 'moderate': 
-                    complexity_score += 2
+                    complexity_score += matches * 2
                 elif level == 'complex':
-                    complexity_score += 3
+                    complexity_score += matches * 3
                 elif level == 'critical':
-                    complexity_score += 4
+                    complexity_score += matches * 4
+                    
+        # Architecture-specific boost (these are inherently complex)
+        if any(pattern in query for pattern in ['architecture', 'microservice', 'system', 'distributed']):
+            complexity_score += 2
                     
         # Length-based scoring (longer queries often more complex)
         if len(query.split()) > 50:
@@ -175,12 +180,12 @@ class TaskClassifier:
             if context.get('dependencies', []):
                 complexity_score += 1
                 
-        # Map score to complexity level
+        # Map score to complexity level with adjusted thresholds
         if complexity_score <= 2:
             return ComplexityLevel.SIMPLE
         elif complexity_score <= 4:
             return ComplexityLevel.MODERATE
-        elif complexity_score <= 6:
+        elif complexity_score <= 7:  # Increased threshold
             return ComplexityLevel.COMPLEX
         else:
             return ComplexityLevel.CRITICAL
