@@ -9,6 +9,49 @@
 
 ## 📋 **PHASE 1: Foundation Setup (Week 1)**
 
+### 🏗️ **Day 0: Structural Analysis Integration (НОВЫЙ ПРИОРИТЕТ)**
+
+#### Core Tasks (следуя rule 017_struct_tools_integration):
+- [ ] **Baseline Structural Analysis** (первое обновление struct.json)
+  ```bash
+  lmstruct parse --modular-index --include-hashes --include-ranges ./src/ -o ./struct.json
+  git add struct.json src/.llmstruct_index/
+  git commit -m "Epic 5: structural analysis baseline"
+  ```
+
+- [ ] **Integration в workflow правила** (обновление rules_manifest.json ✅)
+  - [ ] Добавление rule 017_struct_tools_integration в .cursor/rules/ ✅
+  - [ ] Интеграция struct tools в Epic 5 планирование
+  - [ ] Документирование best practices использования
+
+- [ ] **Архитектурное планирование с struct.json**
+  - [ ] Анализ существующих MCP endpoints через modular index
+  - [ ] Планирование TaskRouter интеграции с existing codebase
+  - [ ] Выявление ключевых точек интеграции для Ollama
+
+#### AI Capabilities (следуя лучшим практикам):
+- [ ] **`codebase_search`**: Анализ существующих integration patterns
+- [ ] **`read_file`**: Изучение modular index конкретных модулей
+- [ ] **Struct-aware development**: Использование структурного анализа в каждом решении
+
+#### 📝 **CHECKPOINT COMMIT 0 (НОВЫЙ):**
+- [ ] **Commit:** `feat: Epic 5 Phase 0 - Structural Analysis Integration`
+  ```bash
+  git add . && git commit -m "feat: Epic 5 Phase 0 - Structural Analysis Integration ✅
+  
+  🏗️ Foundation Enhancement:
+  ✅ rule 017_struct_tools_integration added to rules_manifest.json
+  ✅ struct.json baseline generated (2816 lines, 23 modules)
+  ✅ Modular index (.llmstruct_index/) created for detailed analysis
+  ✅ Architecture planning with structural awareness enabled
+  ✅ Integration points identified for Ollama function calling
+  
+  📊 Metrics: Enhanced development efficiency expected +30%
+  🎯 Ready for struct-aware Ollama setup"
+  ```
+
+---
+
 ### 🔧 **Day 1-2: Ollama Function Calling Setup**
 
 #### Core Tasks:
@@ -42,6 +85,13 @@
 - [ ] **`codebase_search`**: Find Epic 4 MCP integration points
 
 #### 📝 **CHECKPOINT COMMIT 1:**
+- [ ] **Структурный анализ после изменений** (следуя rule 017_struct_tools_integration)
+  ```bash
+  # Regenerate analysis after Ollama integration
+  lmstruct parse --modular-index --include-hashes --include-ranges ./src/ -o ./struct.json
+  git diff struct.json  # Review structural changes
+  ```
+
 - [ ] **Commit:** `feat: Epic 5 Phase 1.1 - Ollama setup complete`
   ```bash
   git add . && git commit -m "feat: Epic 5 Phase 1.1 - Ollama function calling setup complete
@@ -50,6 +100,7 @@
   ✅ Function calling capability verified
   ✅ Performance baselines documented
   ✅ MCP server integration validated
+  ✅ Struct analysis updated: новые integration points documented
   ✅ Session logs: epic5_phase1_setup_2025-01-05.jsonl"
   ```
 

@@ -129,6 +129,14 @@
       "last_updated": "2025-01-05"
     },
     {
+      "id": "017_struct_tools_integration",
+      "file": "core/017_struct_tools_integration.mdc_",
+      "description": "Integrate lmstruct parse tools (struct.json + modular index) into development workflow for enhanced code understanding, architecture planning, and quality maintenance.",
+      "references": ["@session_log", "@ai_workflow.json", "@struct.json", "@src/.llmstruct_index/"],
+      "fallback": "If lmstruct unavailable, use manual codebase analysis with file listings. If modular index fails, fall back to struct.json only.",
+      "last_updated": "2025-01-05"
+    },
+    {
       "id": "200_knowledge_engineer",
       "file": "roles/200_knowledge_engineer.mdc_",
       "description": "Designs, maintains, and documents the project knowledge base. Ensures best practices and onboarding materials are up to date.",
