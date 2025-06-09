@@ -93,23 +93,75 @@ async def get_project_state():
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error loading project state: {str(e)}")
 
-# Agent orchestration endpoints
+# Agent orchestration endpoints with Epic 5 TaskRouter integration
 @app.post("/agents/execute", response_model=AgentResponse)
 async def execute_agent_task(request: AgentRequest):
-    """Execute a task with specified agent"""
-    # TODO: Implement actual agent orchestration
-    # For now, return a mock response
+    """Execute a task with specified agent - Enhanced with Ollama/Claude routing"""
+    from ..task_router import TaskClassifier, ModelRouter, ModelChoice
     
     agent_id = f"{request.agent_type}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     
-    return AgentResponse(
-        agent_id=agent_id,
-        status="completed",
-        result={
-            "message": f"Task '{request.task}' executed by {request.agent_type}",
-            "context": request.context
-        }
-    )
+    try:
+        # Initialize TaskRouter components
+        classifier = TaskClassifier()
+        router = ModelRouter(classifier)
+        
+        # Route task intelligently if agent_type is 'auto' or 'smart'
+        if request.agent_type in ['auto', 'smart', 'ollama', 'claude']:
+            
+            # Map agent_type to model preference
+            model_preference = ModelChoice.AUTO
+            if request.agent_type == 'ollama':
+                model_preference = ModelChoice.OLLAMA_MISTRAL
+            elif request.agent_type == 'claude':
+                model_preference = ModelChoice.CLAUDE_SONNET
+            
+            # Get routing decision
+            routing_decision = await router.route_task(
+                query=request.task,
+                context=request.context,
+                model_preference=model_preference
+            )
+            
+            # Execute with selected model
+            execution_result = await router.execute_with_model(
+                query=request.task,
+                model_choice=routing_decision.selected_model,
+                context=request.context
+            )
+            
+            return AgentResponse(
+                agent_id=agent_id,
+                status=execution_result.get("status", "completed"),
+                result={
+                    "message": execution_result.get("result", "Task completed"),
+                    "model": execution_result.get("model", "unknown"),
+                    "execution_time": execution_result.get("execution_time", 0),
+                    "routing_reasoning": routing_decision.reasoning,
+                    "confidence_score": routing_decision.confidence_score,
+                    "context": request.context
+                },
+                error=execution_result.get("error")
+            )
+        
+        else:
+            # Legacy agent execution for backward compatibility
+            return AgentResponse(
+                agent_id=agent_id,
+                status="completed",
+                result={
+                    "message": f"Task '{request.task}' executed by {request.agent_type}",
+                    "context": request.context
+                }
+            )
+            
+    except Exception as e:
+        return AgentResponse(
+            agent_id=agent_id,
+            status="error",
+            result=None,
+            error=f"Task execution failed: {str(e)}"
+        )
 
 @app.get("/agents/status/{agent_id}")
 async def get_agent_status(agent_id: str):
