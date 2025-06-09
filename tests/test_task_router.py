@@ -9,7 +9,8 @@ import asyncio
 from unittest.mock import Mock, patch, AsyncMock
 from src.llmgenie.task_router import (
     TaskClassifier, TaskType, ComplexityLevel,
-    ModelRouter, ModelChoice, RoutingDecision
+    ModelRouter, ModelChoice, RoutingDecision,
+    QualityValidator, QualityScore, QualityResult
 )
 
 
@@ -276,6 +277,274 @@ class TestIntegrationWithFastAPI:
         assert isinstance(decision_dict["reasoning"], str)
         assert isinstance(decision_dict["confidence_score"], float)
         assert isinstance(decision_dict["estimated_latency"], float)
+
+
+class TestQualityValidator:
+    """Test enhanced Quality Validator with real validation logic"""
+    
+    def setup_method(self):
+        """Setup for quality validator tests"""
+        self.validator = QualityValidator()
+    
+    def test_python_code_validation_success(self):
+        """Test successful Python code validation"""
+        good_code = '''
+def fibonacci(n):
+    """Calculate fibonacci number"""
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Example usage
+result = fibonacci(10)
+print(f"Result: {result}")
+        '''
+        
+        result = self.validator.validate_code_output(good_code, "python")
+        
+        assert result.score.value >= 3  # At least ACCEPTABLE
+        assert result.confidence > 0.7
+        assert not result.needs_fallback
+        assert "syntax valid" in result.reasoning
+        assert result.metrics["has_docstrings"] == True
+        assert result.metrics["has_comments"] == True
+        assert result.metrics["function_count"] == 1
+        
+    def test_python_code_validation_syntax_error(self):
+        """Test Python code with syntax errors"""
+        bad_code = '''
+def broken_function(
+    # Missing closing parenthesis
+    return "this will fail"
+        '''
+        
+        result = self.validator.validate_code_output(bad_code, "python")
+        
+        assert result.score == QualityScore.FAILED
+        assert result.needs_fallback == True
+        assert result.confidence > 0.9  # High confidence in syntax error detection
+        assert any("syntax error" in issue.lower() for issue in result.issues)
+        
+    def test_javascript_code_validation(self):
+        """Test JavaScript code validation"""
+        js_code = '''
+function calculateTotal(items) {
+    // Calculate total price
+    let total = 0;
+    for (let item of items) {
+        total += item.price;
+    }
+    return total;
+}
+
+const items = [{price: 10}, {price: 20}];
+console.log(calculateTotal(items));
+        '''
+        
+        result = self.validator.validate_code_output(js_code, "javascript")
+        
+        assert result.score.value >= 3
+        assert result.metrics["has_functions"] == True
+        assert result.metrics["has_comments"] == True
+        assert result.confidence == 0.7  # Expected confidence for JS
+        
+    def test_text_validation_high_quality(self):
+        """Test high-quality text validation"""
+        good_text = '''
+This is a comprehensive explanation of the task router system. 
+
+First, the system analyzes the incoming query to determine its complexity and type. 
+Therefore, it can make intelligent routing decisions between different AI models.
+
+For example, simple code generation tasks are routed to Ollama because it provides 
+faster execution and lower costs. However, complex architectural decisions require 
+Claude's superior reasoning capabilities.
+
+In conclusion, this approach optimizes both performance and cost while maintaining 
+high quality standards across all task types.
+        '''
+        
+        result = self.validator.validate_text_output(good_text, "explanation")
+        
+        assert result.score.value >= 4  # GOOD or EXCELLENT
+        assert result.confidence > 0.8
+        assert not result.needs_fallback
+        assert result.metrics["word_count"] > 50
+        assert result.metrics["coherence_score"] > 0.5
+        assert result.metrics["completeness_score"] > 0.5
+        
+    def test_text_validation_poor_quality(self):
+        """Test poor quality text validation"""
+        poor_text = "yes"
+        
+        result = self.validator.validate_text_output(poor_text)
+        
+        assert result.score.value <= 2  # POOR or FAILED
+        assert result.needs_fallback == True
+        assert "very short" in result.issues[0].lower()
+        assert result.metrics["word_count"] < 10
+        
+    def test_documentation_specific_validation(self):
+        """Test documentation-specific validation"""
+        doc_text = '''
+API Usage Guide
+
+This function accepts the following parameters:
+- query: string (required) - The input query to process
+- context: dict (optional) - Additional context information
+
+Returns:
+- result: dict - The processed result with status and data
+
+Example:
+```python
+result = process_query("hello world", {"user": "test"})
+```
+        '''
+        
+        result = self.validator.validate_text_output(doc_text, "documentation")
+        
+        assert result.score.value >= 4
+        assert result.metrics["has_structure"] == True
+        # Should not have missing documentation elements issue
+        doc_issues = [issue for issue in result.issues if "documentation elements" in issue]
+        assert len(doc_issues) == 0
+        
+    def test_fallback_decision_making(self):
+        """Test fallback decision based on task type and quality"""
+        from src.llmgenie.task_router.task_classifier import TaskType
+        
+        # Low quality result for critical task
+        poor_result = QualityResult(
+            score=QualityScore.POOR,
+            confidence=0.3,
+            issues=["Multiple issues"],
+            reasoning="Poor quality",
+            metrics={},
+            needs_fallback=False  # Test threshold-based fallback
+        )
+        
+        # Should fallback for architecture planning (high threshold)
+        assert self.validator.should_fallback(poor_result, TaskType.ARCHITECTURE_PLANNING) == True
+        
+        # Might not fallback for code review (lower threshold)
+        assert self.validator.should_fallback(poor_result, TaskType.CODE_REVIEW) == True  # Still poor quality
+        
+        # Excellent quality result should not fallback for high threshold tasks
+        excellent_result = QualityResult(
+            score=QualityScore.EXCELLENT,
+            confidence=0.95,
+            issues=[],
+            reasoning="Excellent quality",
+            metrics={},
+            needs_fallback=False
+        )
+        
+        assert self.validator.should_fallback(excellent_result, TaskType.ARCHITECTURE_PLANNING) == False
+        
+        # Good quality should not fallback for medium threshold tasks
+        good_result = QualityResult(
+            score=QualityScore.GOOD,
+            confidence=0.8,
+            issues=[],
+            reasoning="Good quality",
+            metrics={},
+            needs_fallback=False
+        )
+        
+        assert self.validator.should_fallback(good_result, TaskType.CODE_REVIEW) == False
+        
+    def test_quality_thresholds_by_task_type(self):
+        """Test different quality thresholds for different task types"""
+        # Architecture planning should have high threshold (0.9)
+        assert self.validator.quality_thresholds[TaskType.ARCHITECTURE_PLANNING] == 0.9
+        
+        # Code generation should have high threshold (0.8)
+        assert self.validator.quality_thresholds[TaskType.CODE_GENERATION] == 0.8
+        
+        # Code review should have medium threshold (0.7)
+        assert self.validator.quality_thresholds[TaskType.CODE_REVIEW] == 0.7
+        
+    def test_coherence_score_calculation(self):
+        """Test text coherence scoring"""
+        coherent_text = "first we analyze the problem. therefore, we can find a solution. however, there are challenges."
+        
+        score = self.validator._calculate_coherence_score(coherent_text)
+        
+        # Should have high coherence due to transition words
+        assert score > 0.5
+        
+        incoherent_text = "word word word word word word word word"
+        score_low = self.validator._calculate_coherence_score(incoherent_text)
+        
+        # Should have lower coherence due to repetition
+        assert score_low < score
+        
+    def test_completeness_score_calculation(self):
+        """Test text completeness scoring"""
+        complete_text = '''
+        Here is the implementation approach:
+        
+        1. First step
+        2. Second step
+        
+        For example, we can use this method.
+        
+        In conclusion, this solution is effective.
+        '''
+        
+        score = self.validator._calculate_completeness_score(complete_text.lower())
+        
+        # Should have high completeness due to structure and keywords
+        assert score > 0.6
+        
+    def test_empty_input_handling(self):
+        """Test handling of empty inputs"""
+        # Empty code
+        code_result = self.validator.validate_code_output("")
+        assert code_result.score == QualityScore.FAILED
+        assert code_result.needs_fallback == True
+        assert "empty code" in code_result.issues[0].lower()
+        
+        # Empty text
+        text_result = self.validator.validate_text_output("")
+        assert text_result.score == QualityScore.FAILED
+        assert text_result.needs_fallback == True
+        assert "empty text" in text_result.issues[0].lower()
+        
+    def test_quality_metrics_extraction(self):
+        """Test quality metrics extraction for monitoring"""
+        result = QualityResult(
+            score=QualityScore.GOOD,
+            confidence=0.85,
+            issues=["minor issue"],
+            reasoning="test reasoning",
+            metrics={"word_count": 100},
+            needs_fallback=False
+        )
+        
+        metrics = self.validator.get_quality_metrics(result)
+        
+        assert metrics["quality_score"] == 4  # GOOD = 4
+        assert metrics["confidence"] == 0.85
+        assert metrics["issue_count"] == 1
+        assert metrics["needs_fallback"] == False
+        assert metrics["metrics"]["word_count"] == 100
+        
+    def test_generic_code_validation(self):
+        """Test generic code validation for unknown languages"""
+        generic_code = '''
+        function main() {
+            var result = calculate(10, 20);
+            return result;
+        }
+        '''
+        
+        result = self.validator.validate_code_output(generic_code, "unknown")
+        
+        assert result.score.value >= 2  # At least POOR due to structure
+        assert result.confidence == 0.5  # Low confidence for generic
+        assert result.metrics["has_structure"] == True
 
 
 if __name__ == "__main__":

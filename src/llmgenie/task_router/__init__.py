@@ -12,7 +12,7 @@ Integrates with existing FastAPI agent infrastructure.
 
 from .task_classifier import TaskClassifier, TaskType, ComplexityLevel
 from .model_router import ModelRouter, ModelChoice, RoutingDecision
-from .quality_validator import QualityValidator, QualityScore
+from .quality_validator import QualityValidator, QualityScore, QualityResult
 
 __all__ = [
     "TaskClassifier",
@@ -22,5 +22,6 @@ __all__ = [
     "ModelChoice",
     "RoutingDecision", 
     "QualityValidator",
-    "QualityScore"
+    "QualityScore",
+    "QualityResult"
 ] 
