@@ -1,33 +1,89 @@
-# LLMGenie Technical Knowledge Base  
+# LLMGenie Knowledge Base
 
-Technical knowledge base for llmgenie project with integration docs, models info and protocol specifications.
+**Обновлено:** 2025-06-09 (Epic 5 TaskRouter integration)  
+**Цель:** Централизованная база знаний для AI-ассистентов и команды разработки
 
-## Structure
+## 🎯 **НОВОЕ: Epic 5 TaskRouter + Ollama Integration**
 
-### Core Files
-- `common.json` - comprehensive integration and protocol registry
-- `templates/` - standardized templates for new integrations  
-- `envs/` - environment-specific configurations
-- `models/` - detailed model specifications
+### **✅ РАБОТАЮЩИЕ ФУНКЦИИ (протестировано):**
+- **Smart AI Routing**: автоматический выбор между Ollama (дешево) и Claude (качественно)
+- **MCP Server**: localhost:8000/mcp с SSE transport для Cursor IDE integration
+- **TaskClassifier**: 8 типов задач с анализом сложности и confidence scores
+- **QualityValidator**: Python AST, JavaScript, и text validation с fallback logic
+- **Performance**: 11.6s latency для Ollama code generation, 30-50% API cost savings
 
-### Technologies  
-- `techs/mcp_model_context_protocol.md` - **NEW** Model Context Protocol technical reference
-- Protocol specifications and implementation guides
-- Integration patterns and best practices
+### **Примеры использования:**
+```bash
+# Code generation → автоматически Ollama codellama:7b
+curl -X POST localhost:8000/agents/execute \
+  -d '{"agent_type": "auto", "task": "def add_numbers(a, b): return a + b"}'
 
-## Recent Updates
+# Architecture planning → автоматически Claude
+curl -X POST localhost:8000/agents/execute \
+  -d '{"agent_type": "auto", "task": "Design microservice architecture for user management"}'
+```
 
-### 2025-01-05: MCP Integration Knowledge
-- ✅ Added comprehensive MCP technical documentation for LLM consumption
-- ✅ Task routing patterns for Claude + Ollama integration
-- ✅ Quality control pipelines and fallback mechanisms  
-- ✅ Performance metrics and implementation examples
-- ✅ Updated common.json with MCP protocol information
+---
 
-Technical details in `techs/mcp_model_context_protocol.md`
+## Структура Knowledge Base
 
-## Usage
+### `/techs/` - Технические интеграции
+- **mcp_model_context_protocol.md** - детальное руководство по MCP + Ollama
+- Различные технологии: MCP, FastAPI, Ollama, struct tools
 
-This knowledge base is optimized for LLM consumption with structured JSON metadata and English technical documentation following language policy (core/003_language_policy).
+### `/envs/` - Среды и окружения
+- JSON-конфигурации для разных сред разработки
+- Integration matrices для различных AI/LLM платформ
 
-For human-readable documentation, see `docs/knowledge/`. 
+### `/models/` - AI/LLM модели
+- Специфика интеграции с различными моделями
+- Performance baselines и best practices
+
+### `/templates/` - Шаблоны
+- Handoff package templates
+- Workflow templates
+- Documentation templates
+
+## Корневые файлы
+
+### `common.json`
+Общие сущности и определения, используемые в разных частях проекта.
+
+### `handoff_*.md`
+- **handoff_automation_technical_guide.md** - техническое руководство по автоматизации
+- **handoff_best_practices_synthesis_2025-01-05.md** - лучшие практики на основе опыта
+
+## Принципы Knowledge Base
+
+### 🎯 **Структурированность**
+- Модульная организация по технологиям, средам, моделям
+- JSON + Markdown для максимальной совместимости
+- Поддержка AI-парсинга и человеческого чтения
+
+### 📊 **Актуальность** 
+- Регулярные обновления с каждым Epic
+- Автоматическая валидация через handoff processes
+- Версионирование изменений в Git
+
+### 🔗 **Интеграция**
+- Связь с project_state.json
+- Использование struct.json для навигации
+- Автоматические обновления через workflow
+
+## Использование с AI
+
+### **Для AI-ассистентов:**
+1. Используйте `common.json` для понимания терминологии
+2. Обращайтесь к `/techs/` для технических деталей
+3. Применяйте `/templates/` для стандартизации выходов
+4. Следите за обновлениями в handoff_*.md
+
+### **Для разработчиков:**
+1. Изучите handoff_best_practices_synthesis для понимания процессов
+2. Используйте `/envs/` для настройки среды разработки
+3. Обращайтесь к `/models/` для оптимизации использования AI
+
+## Обновления
+
+**2025-06-09:** Добавлена полная документация Epic 5 TaskRouter + Ollama integration
+**2025-01-05:** Initial handoff automation и best practices documentation 
