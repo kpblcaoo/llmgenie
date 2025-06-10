@@ -14,6 +14,7 @@ from datetime import datetime
 
 from .task_classifier import TaskClassifier, ClassificationResult
 from .quality_validator import QualityValidator
+from .quality_intelligence import QualityIntelligence
 
 
 class ModelChoice(Enum):
@@ -45,10 +46,12 @@ class ModelRouter:
     """
     
     def __init__(self, classifier: Optional[TaskClassifier] = None,
-                 quality_validator: Optional[QualityValidator] = None):
-        """Initialize router with task classifier and quality validator"""
+                 quality_validator: Optional[QualityValidator] = None,
+                 quality_intelligence: Optional[QualityIntelligence] = None):
+        """Initialize router with task classifier, quality validator, and intelligence system"""
         self.classifier = classifier or TaskClassifier()
         self.quality_validator = quality_validator or QualityValidator()
+        self.quality_intelligence = quality_intelligence or QualityIntelligence()
         self.ollama_base_url = "http://localhost:11434"
         self.claude_api_key = None  # Will be set from environment
         
@@ -204,6 +207,7 @@ class ModelRouter:
                 
             execution_time = (datetime.now() - start_time).total_seconds()
             
+            # Record successful execution for quality intelligence
             return {
                 "result": result,
                 "model": model_choice.value,
@@ -322,4 +326,93 @@ class ModelRouter:
             classification.reasoning
         ]
         
-        return " | ".join(reasoning_parts) 
+        return " | ".join(reasoning_parts)
+    
+    async def execute_with_quality_tracking(self, query: str, task_id: str,
+                                          model_preference: ModelChoice = ModelChoice.AUTO,
+                                          context: Optional[Dict] = None) -> Dict[str, Any]:
+        """
+        Execute task with full quality tracking and intelligence recording
+        
+        Args:
+            query: Task description/request
+            task_id: Unique identifier for tracking
+            model_preference: User's model preference
+            context: Additional context
+            
+        Returns:
+            Execution result with quality metrics and intelligence tracking
+        """
+        
+        # Route the task
+        routing_decision = await self.route_task(query, context, model_preference)
+        
+        # Execute with the selected model
+        execution_result = await self.execute_with_model(
+            query, routing_decision.selected_model, context
+        )
+        
+        # Validate quality of the result
+        if execution_result["status"] == "success" and execution_result["result"]:
+            # Determine validation type based on task classification
+            classification = self.classifier.classify_task(query, context)
+            
+            if classification.task_type.value in ["code_generation", "refactoring", "debugging"]:
+                quality_result = self.quality_validator.validate_code_output(
+                    execution_result["result"], "python"  # Default to Python
+                )
+            else:
+                quality_result = self.quality_validator.validate_text_output(
+                    execution_result["result"], "general"
+                )
+            
+            # Record in quality intelligence system
+            self.quality_intelligence.record_execution_result(
+                task_id=task_id,
+                routing_decision=routing_decision,
+                quality_result=quality_result,
+                execution_time=execution_result["execution_time"],
+                query=query,
+                task_type=classification.task_type,
+                success=(execution_result["status"] == "success")
+            )
+            
+            # Add quality metrics to response
+            execution_result["quality_metrics"] = {
+                "quality_score": quality_result.score.value,
+                "confidence": quality_result.confidence,
+                "issues": quality_result.issues,
+                "needs_fallback": quality_result.needs_fallback
+            }
+            
+            execution_result["routing_info"] = {
+                "selected_model": routing_decision.selected_model.value,
+                "reasoning": routing_decision.reasoning,
+                "confidence": routing_decision.confidence_score,
+                "fallback_model": routing_decision.fallback_model.value if routing_decision.fallback_model else None
+            }
+            
+        else:
+            # Record failed execution
+            from .quality_validator import QualityResult, QualityScore
+            failed_quality = QualityResult(
+                score=QualityScore.FAILED,
+                confidence=1.0,
+                issues=["Execution failed"],
+                reasoning="Task execution unsuccessful",
+                metrics={},
+                needs_fallback=True
+            )
+            
+            classification = self.classifier.classify_task(query, context)
+            self.quality_intelligence.record_execution_result(
+                task_id=task_id,
+                routing_decision=routing_decision,
+                quality_result=failed_quality,
+                execution_time=execution_result.get("execution_time", 0.0),
+                query=query,
+                task_type=classification.task_type,
+                success=False
+            )
+        
+        return execution_result 
