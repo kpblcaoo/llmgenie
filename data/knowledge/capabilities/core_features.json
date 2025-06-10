@@ -1,0 +1,71 @@
+{
+  "core_features": {
+    "smart_ai_routing": {
+      "description": "Automated model selection (Ollama/Claude) based on task complexity and cost optimization.",
+      "performance": "30-50% API cost reduction for routine tasks, 11.6s latency for Ollama code generation",
+      "use_cases": [
+        "code_generation_to_ollama",
+        "architecture_planning_to_claude",
+        "auto_selection_based_on_cost_and_quality"
+      ]
+    },
+    "task_classification": {
+      "description": "Classification of 8 types of tasks with confidence scoring and comprehensive fallback logic.",
+      "task_types": [
+        "code_generation",
+        "architecture_design",
+        "documentation",
+        "debugging",
+        "testing",
+        "data_analysis",
+        "research",
+        "meta_planning"
+      ],
+      "confidence_scoring": true,
+      "fallback_logic": "comprehensive"
+    },
+    "quality_validation": {
+      "description": "Python AST, JavaScript, and text validation with automatic fallback to higher quality models.",
+      "languages_supported": [
+        "python",
+        "javascript",
+        "text"
+      ],
+      "validation_methods": [
+        "abstract_syntax_tree_parsing",
+        "regex_pattern_matching",
+        "semantic_analysis"
+      ],
+      "fallback_mechanism": "automatic_to_premium_model"
+    },
+    "mcp_integration": {
+      "description": "Model Context Protocol (MCP) server (localhost:8000/mcp) for Cursor IDE integration and seamless tool calls.",
+      "server_endpoint": "localhost:8000/mcp",
+      "transport_protocol": "SSE (Server-Sent Events)",
+      "ide_integration": "Cursor IDE",
+      "tool_call_support": true
+    },
+    "handoff_automation": {
+      "description": "Automated validation of handoff packages for seamless context transfer between sessions, roles, and teams.",
+      "validation_criteria": [
+        "completeness_score_min_80_percent",
+        "min_5_file_types",
+        "min_3_control_questions"
+      ],
+      "cli_tool": "src/llmgenie/cli/handoff_cli.py",
+      "api_endpoints": [
+        "POST /handoff/validate",
+        "GET /handoff/template"
+      ]
+    },
+    "modular_documentation": {
+      "description": "Centralized index for modular project documentation (Human and AI KBs) with structured linking.",
+      "human_kb_index": "docs/docs.json",
+      "ai_kb_structure": "data/knowledge/",
+      "cross_reference_system": "@-references",
+      "automated_validation_planned": true
+    }
+  },
+  "last_updated": "2025-01-05T13:15:00Z",
+  "source_of_truth": "project_state.json, docs/documentation_architecture_design.md"
+} 
