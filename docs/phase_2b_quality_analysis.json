@@ -1,0 +1,304 @@
+{
+  "timestamp": "2025-06-10T22:25:00.480673",
+  "phase": "2B_quality_validator_analysis",
+  "summary": {
+    "total_cases": 7,
+    "correct_predictions": 3,
+    "accuracy_rate": 42.857142857142854,
+    "task_type_breakdown": {
+      "simple_query": {
+        "correct": 0,
+        "total": 3
+      },
+      "code_generation": {
+        "correct": 1,
+        "total": 2
+      },
+      "complex_reasoning": {
+        "correct": 2,
+        "total": 2
+      }
+    }
+  },
+  "detailed_results": [
+    {
+      "test_id": 1,
+      "task": "What is 2+2?",
+      "response": "2+2=4",
+      "task_type": "simple_query",
+      "expected_quality": "high",
+      "actual_quality": "low",
+      "quality_score": 3,
+      "is_correct": false,
+      "details": {
+        "confidence": 0.9,
+        "reasoning": "Text validation: 1 words, coherence=0.50, completeness=0.20, Issues: Very short text output",
+        "metrics": {
+          "word_count": 1,
+          "sentence_count": 1,
+          "paragraph_count": 1,
+          "has_structure": true,
+          "coherence_score": 0.5,
+          "completeness_score": 0.2
+        },
+        "needs_fallback": false,
+        "issues": [
+          "Very short text output"
+        ]
+      }
+    },
+    {
+      "test_id": 2,
+      "task": "What is 2+2?",
+      "response": "The answer to your mathematical question is four.",
+      "task_type": "simple_query",
+      "expected_quality": "high",
+      "actual_quality": "low",
+      "quality_score": 3,
+      "is_correct": false,
+      "details": {
+        "confidence": 0.9,
+        "reasoning": "Text validation: 8 words, coherence=0.50, completeness=0.40, Issues: Very short text output",
+        "metrics": {
+          "word_count": 8,
+          "sentence_count": 1,
+          "paragraph_count": 1,
+          "has_structure": true,
+          "coherence_score": 0.5,
+          "completeness_score": 0.4
+        },
+        "needs_fallback": false,
+        "issues": [
+          "Very short text output"
+        ]
+      }
+    },
+    {
+      "test_id": 3,
+      "task": "What is 2+2?",
+      "response": "I think maybe it might be 5 or possibly 3.",
+      "task_type": "simple_query",
+      "expected_quality": "low",
+      "actual_quality": "high",
+      "quality_score": 4,
+      "is_correct": false,
+      "details": {
+        "confidence": 0.9,
+        "reasoning": "Text validation: 10 words, coherence=0.50, completeness=0.40",
+        "metrics": {
+          "word_count": 10,
+          "sentence_count": 1,
+          "paragraph_count": 1,
+          "has_structure": true,
+          "coherence_score": 0.5,
+          "completeness_score": 0.4
+        },
+        "needs_fallback": false,
+        "issues": []
+      }
+    },
+    {
+      "test_id": 4,
+      "task": "Generate a Python function to sort a list",
+      "response": "def sort_list(lst):\n    return sorted(lst)",
+      "task_type": "code_generation",
+      "expected_quality": "high",
+      "actual_quality": "low",
+      "quality_score": 3,
+      "is_correct": false,
+      "details": {
+        "confidence": 0.8,
+        "reasoning": "Python code validation: syntax valid, 2 LOC, Issues: Very short code output",
+        "metrics": {
+          "lines_of_code": 2,
+          "has_docstrings": false,
+          "has_comments": false,
+          "function_count": 1,
+          "class_count": 0
+        },
+        "needs_fallback": false,
+        "issues": [
+          "Very short code output"
+        ]
+      }
+    },
+    {
+      "test_id": 5,
+      "task": "Generate a Python function to sort a list",
+      "response": "Here is some code that might work: print(\"hello\")",
+      "task_type": "code_generation",
+      "expected_quality": "low",
+      "actual_quality": "low",
+      "quality_score": 1,
+      "is_correct": true,
+      "details": {
+        "confidence": 0.95,
+        "reasoning": "Python code validation: syntax invalid, 1 LOC, Issues: Syntax error: invalid syntax (<unknown>, line 1)",
+        "metrics": {
+          "lines_of_code": 1,
+          "has_docstrings": false,
+          "has_comments": false,
+          "function_count": 0,
+          "class_count": 0
+        },
+        "needs_fallback": true,
+        "issues": [
+          "Syntax error: invalid syntax (<unknown>, line 1)"
+        ]
+      }
+    },
+    {
+      "test_id": 6,
+      "task": "Explain quantum computing principles",
+      "response": "Quantum computing leverages quantum mechanical phenomena like superposition and entanglement. \n            Qubits can exist in multiple states simultaneously, allowing parallel computation. \n            Quantum gates manipulate qubits to perform calculations exponentially faster than classical computers for certain problems.",
+      "task_type": "complex_reasoning",
+      "expected_quality": "high",
+      "actual_quality": "high",
+      "quality_score": 4,
+      "is_correct": true,
+      "details": {
+        "confidence": 0.9,
+        "reasoning": "Text validation: 35 words, coherence=0.50, completeness=0.40",
+        "metrics": {
+          "word_count": 35,
+          "sentence_count": 3,
+          "paragraph_count": 1,
+          "has_structure": true,
+          "coherence_score": 0.5,
+          "completeness_score": 0.4
+        },
+        "needs_fallback": false,
+        "issues": []
+      }
+    },
+    {
+      "test_id": 7,
+      "task": "Explain quantum computing principles",
+      "response": "Quantum computing is about computers that are fast.",
+      "task_type": "complex_reasoning",
+      "expected_quality": "low",
+      "actual_quality": "low",
+      "quality_score": 3,
+      "is_correct": true,
+      "details": {
+        "confidence": 0.9,
+        "reasoning": "Text validation: 8 words, coherence=0.50, completeness=0.40, Issues: Very short text output",
+        "metrics": {
+          "word_count": 8,
+          "sentence_count": 1,
+          "paragraph_count": 1,
+          "has_structure": true,
+          "coherence_score": 0.5,
+          "completeness_score": 0.4
+        },
+        "needs_fallback": false,
+        "issues": [
+          "Very short text output"
+        ]
+      }
+    }
+  ],
+  "problematic_cases": [
+    {
+      "test_id": 1,
+      "task": "What is 2+2?",
+      "response": "2+2=4",
+      "task_type": "simple_query",
+      "expected_quality": "high",
+      "actual_quality": "low",
+      "quality_score": 3,
+      "is_correct": false,
+      "details": {
+        "confidence": 0.9,
+        "reasoning": "Text validation: 1 words, coherence=0.50, completeness=0.20, Issues: Very short text output",
+        "metrics": {
+          "word_count": 1,
+          "sentence_count": 1,
+          "paragraph_count": 1,
+          "has_structure": true,
+          "coherence_score": 0.5,
+          "completeness_score": 0.2
+        },
+        "needs_fallback": false,
+        "issues": [
+          "Very short text output"
+        ]
+      }
+    },
+    {
+      "test_id": 2,
+      "task": "What is 2+2?",
+      "response": "The answer to your mathematical question is four.",
+      "task_type": "simple_query",
+      "expected_quality": "high",
+      "actual_quality": "low",
+      "quality_score": 3,
+      "is_correct": false,
+      "details": {
+        "confidence": 0.9,
+        "reasoning": "Text validation: 8 words, coherence=0.50, completeness=0.40, Issues: Very short text output",
+        "metrics": {
+          "word_count": 8,
+          "sentence_count": 1,
+          "paragraph_count": 1,
+          "has_structure": true,
+          "coherence_score": 0.5,
+          "completeness_score": 0.4
+        },
+        "needs_fallback": false,
+        "issues": [
+          "Very short text output"
+        ]
+      }
+    },
+    {
+      "test_id": 3,
+      "task": "What is 2+2?",
+      "response": "I think maybe it might be 5 or possibly 3.",
+      "task_type": "simple_query",
+      "expected_quality": "low",
+      "actual_quality": "high",
+      "quality_score": 4,
+      "is_correct": false,
+      "details": {
+        "confidence": 0.9,
+        "reasoning": "Text validation: 10 words, coherence=0.50, completeness=0.40",
+        "metrics": {
+          "word_count": 10,
+          "sentence_count": 1,
+          "paragraph_count": 1,
+          "has_structure": true,
+          "coherence_score": 0.5,
+          "completeness_score": 0.4
+        },
+        "needs_fallback": false,
+        "issues": []
+      }
+    },
+    {
+      "test_id": 4,
+      "task": "Generate a Python function to sort a list",
+      "response": "def sort_list(lst):\n    return sorted(lst)",
+      "task_type": "code_generation",
+      "expected_quality": "high",
+      "actual_quality": "low",
+      "quality_score": 3,
+      "is_correct": false,
+      "details": {
+        "confidence": 0.8,
+        "reasoning": "Python code validation: syntax valid, 2 LOC, Issues: Very short code output",
+        "metrics": {
+          "lines_of_code": 2,
+          "has_docstrings": false,
+          "has_comments": false,
+          "function_count": 1,
+          "class_count": 0
+        },
+        "needs_fallback": false,
+        "issues": [
+          "Very short code output"
+        ]
+      }
+    }
+  ]
+}

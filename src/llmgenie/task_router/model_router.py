@@ -6,13 +6,14 @@ Extends AgentRequest/AgentResponse pattern with Ollama backend
 """
 
 from enum import Enum
-from typing import Dict, Optional, Any, Union
+from typing import Dict, Optional, Any, Union, List
 from dataclasses import dataclass
 import asyncio
 import httpx
 from datetime import datetime
 
 from .task_classifier import TaskClassifier, ClassificationResult
+from .quality_validator import QualityValidator
 
 
 class ModelChoice(Enum):
@@ -43,9 +44,11 @@ class ModelRouter:
     Integrates with AgentRequest/AgentResponse models
     """
     
-    def __init__(self, classifier: Optional[TaskClassifier] = None):
-        """Initialize router with task classifier"""
+    def __init__(self, classifier: Optional[TaskClassifier] = None,
+                 quality_validator: Optional[QualityValidator] = None):
+        """Initialize router with task classifier and quality validator"""
         self.classifier = classifier or TaskClassifier()
+        self.quality_validator = quality_validator or QualityValidator()
         self.ollama_base_url = "http://localhost:11434"
         self.claude_api_key = None  # Will be set from environment
         
@@ -78,11 +81,18 @@ class ModelRouter:
         # Classify task using Epic 5 research patterns
         classification = self.classifier.classify_task(query, context)
         
-        # Select optimal model based on classification
-        selected_model = await self._select_optimal_model(classification)
+        # Predict quality requirements using enhanced QualityValidator
+        quality_requirements = self.quality_validator.predict_quality_requirements(
+            query, classification.task_type
+        )
         
-        # Determine fallback model
-        fallback_model = self._get_fallback_model(selected_model)
+        # Select optimal model based on classification AND quality requirements
+        selected_model = await self._select_quality_aware_model(
+            classification, quality_requirements
+        )
+        
+        # Determine adaptive fallback model based on quality requirements
+        fallback_model = self._get_adaptive_fallback(selected_model, quality_requirements)
         
         # Estimate performance
         estimated_latency = self.model_performance[selected_model]["latency"]
@@ -100,8 +110,64 @@ class ModelRouter:
             quality_threshold=quality_threshold
         )
 
-    async def _select_optimal_model(self, classification: ClassificationResult) -> ModelChoice:
-        """Select optimal model based on task classification"""
+    async def _select_quality_aware_model(self, classification: ClassificationResult,
+                                        quality_requirements: Dict[str, Any]) -> ModelChoice:
+        """Select optimal model based on task classification AND quality requirements"""
+        
+        # Get all viable models for this task type
+        candidate_models = self._get_candidate_models(classification)
+        
+        # Assess each model's capability against quality requirements
+        model_scores = {}
+        for model in candidate_models:
+            capability_score = self.quality_validator.assess_model_capability(
+                model, quality_requirements
+            )
+            model_scores[model] = capability_score
+        
+        # Select model with highest capability score
+        if model_scores:
+            best_model = max(model_scores.items(), key=lambda x: x[1])[0]
+            
+            # Fallback to legacy logic if capability scores are too close
+            max_score = max(model_scores.values())
+            if max_score < 0.3:  # All models score poorly - use legacy logic
+                return await self._select_optimal_model_legacy(classification)
+            
+            return best_model
+        
+        # Fallback to legacy routing if no candidates
+        return await self._select_optimal_model_legacy(classification)
+    
+    def _get_candidate_models(self, classification: ClassificationResult) -> List[ModelChoice]:
+        """Get candidate models based on task classification preferences"""
+        candidates = []
+        
+        # Epic 5 research-based candidate selection
+        if classification.ollama_preference:
+            if classification.task_type.value in ["code_generation", "refactoring"]:
+                candidates.extend([ModelChoice.OLLAMA_CODELLAMA, ModelChoice.OLLAMA_MISTRAL])
+            elif classification.task_type.value == "documentation":
+                candidates.extend([ModelChoice.OLLAMA_MISTRAL, ModelChoice.OLLAMA_CODELLAMA])
+            else:
+                candidates.append(ModelChoice.OLLAMA_MISTRAL)
+                
+        if classification.claude_preference:
+            candidates.append(ModelChoice.CLAUDE_SONNET)
+            
+        # For mixed or high complexity, consider all options
+        if classification.complexity_level.value >= 3:
+            candidates.extend([ModelChoice.CLAUDE_SONNET, ModelChoice.OLLAMA_LLAMA31])
+        
+        # Remove duplicates and ensure at least one candidate
+        candidates = list(set(candidates))
+        if not candidates:
+            candidates = [ModelChoice.OLLAMA_MISTRAL, ModelChoice.CLAUDE_SONNET]
+            
+        return candidates
+
+    async def _select_optimal_model_legacy(self, classification: ClassificationResult) -> ModelChoice:
+        """Legacy model selection logic (fallback)"""
         
         # Epic 5 research-based routing decisions
         if classification.ollama_preference:
@@ -187,8 +253,27 @@ class ModelRouter:
         """Execute task using Claude API - placeholder for integration"""
         return f"Claude would handle: {query[:100]}..."
 
-    def _get_fallback_model(self, primary_model: ModelChoice) -> ModelChoice:
-        """Determine fallback model for reliability"""
+    def _get_adaptive_fallback(self, primary_model: ModelChoice, 
+                              quality_requirements: Dict[str, Any]) -> ModelChoice:
+        """Determine adaptive fallback model based on quality requirements"""
+        
+        min_score = quality_requirements.get("min_score", 0.7)
+        
+        # For high-quality requirements, prefer Claude as fallback
+        if min_score >= 0.85:
+            high_quality_fallback = {
+                ModelChoice.OLLAMA_MISTRAL: ModelChoice.CLAUDE_SONNET,
+                ModelChoice.OLLAMA_CODELLAMA: ModelChoice.CLAUDE_SONNET,
+                ModelChoice.OLLAMA_LLAMA31: ModelChoice.CLAUDE_SONNET,
+                ModelChoice.CLAUDE_SONNET: ModelChoice.OLLAMA_LLAMA31  # Best Ollama option
+            }
+            return high_quality_fallback.get(primary_model, ModelChoice.CLAUDE_SONNET)
+        
+        # Standard fallback for normal quality requirements
+        return self._get_fallback_model_legacy(primary_model)
+    
+    def _get_fallback_model_legacy(self, primary_model: ModelChoice) -> ModelChoice:
+        """Legacy fallback model mapping"""
         
         fallback_map = {
             ModelChoice.OLLAMA_MISTRAL: ModelChoice.CLAUDE_SONNET,
@@ -221,7 +306,7 @@ class ModelRouter:
             selected_model=model_preference,
             reasoning=f"User preference: {model_preference.value}",
             confidence_score=1.0,
-            fallback_model=self._get_fallback_model(model_preference),
+            fallback_model=self._get_fallback_model_legacy(model_preference),
             estimated_latency=estimated_latency,
             quality_threshold=0.7
         )

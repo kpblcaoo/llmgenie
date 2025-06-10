@@ -380,4 +380,151 @@ class QualityValidator:
             "issue_count": len(result.issues),
             "needs_fallback": result.needs_fallback,
             "metrics": result.metrics
-        } 
+        }
+    
+    def predict_quality_requirements(self, task_description: str, 
+                                   task_type: TaskType) -> Dict[str, Any]:
+        """
+        Predicts the quality requirements for a given task description and type.
+        This is a placeholder for a more sophisticated ML-based prediction.
+        
+        Args:
+            task_description: The description of the task.
+            task_type: The type of the task (e.g., CODE_GENERATION, DOCUMENTATION).
+            
+        Returns:
+            A dictionary with predicted quality requirements (e.g., "min_score", "max_latency").
+        """
+        requirements = {
+            "min_score": self.quality_thresholds.get(task_type, 0.7), # Use existing thresholds as base
+            "max_latency": 0.0, # Placeholder
+            "relevancy_priority": 0.0, # Placeholder
+            "coherence_priority": 0.0, # Placeholder
+        }
+        
+        # Simple heuristic for now: higher requirements for complex tasks
+        if task_type in [TaskType.ARCHITECTURE_PLANNING, TaskType.COMPLEX_REASONING]:
+            requirements["min_score"] = max(requirements["min_score"], 0.9)
+            requirements["relevancy_priority"] = 0.9
+            requirements["coherence_priority"] = 0.9
+        elif task_type in [TaskType.CODE_GENERATION, TaskType.DEBUGGING, TaskType.REFACTORING]:
+            requirements["min_score"] = max(requirements["min_score"], 0.8)
+            requirements["relevancy_priority"] = 0.7
+            requirements["coherence_priority"] = 0.6
+        
+        return requirements
+        
+    def assess_model_capability(self, model_choice: Any,
+                              quality_requirements: Dict[str, Any]) -> float:
+        """
+        Assesses a model's capability against predicted quality requirements.
+        This will be integrated with ModelRouter's performance baselines.
+        
+        Args:
+            model_choice: The model being assessed (e.g., ModelChoice.CLAUDE_SONNET).
+            quality_requirements: Predicted quality requirements.
+            
+        Returns:
+            A capability score (0-1) indicating how well the model meets requirements.
+        """
+        # Placeholder logic, will be refined with actual model performance data
+        # from ModelRouter's self.model_performance
+        
+        model_performance_data = {
+            "claude-3-5-sonnet-20241022": {"quality": 0.95, "latency": 8.94},
+            "mistral:7b-instruct": {"quality": 0.75, "latency": 24.97},
+            "codellama:7b": {"quality": 0.80, "latency": 30.0},
+            "llama3.1:70b-instruct": {"quality": 0.85, "latency": 45.0}
+        }
+
+        model_quality = model_performance_data.get(model_choice.value, {}).get("quality", 0.0)
+        min_required_score = quality_requirements.get("min_score", 0.0)
+        
+        # Simple score: how much model quality exceeds required minimum
+        capability_score = (model_quality - min_required_score) * 2 # Scale to 0-1
+        
+        return max(0.0, min(1.0, capability_score))
+
+    def integrate_deepeval_metrics(self, result: QualityResult) -> Dict[str, Any]:
+        """
+        Integrates DeepEval metrics with the QualityResult.
+        Requires 'deepeval' library to be installed.
+        """
+        try:
+            from deepeval.metrics import CoherenceMetric, RelevancyMetric
+            from deepeval.test_case import LLMTestCase
+
+            # Create a mock LLMTestCase from QualityResult for DeepEval
+            # This is a simplification; actual integration might need more context
+            test_case = LLMTestCase(
+                input="",  # Not directly available from QualityResult
+                actual_output=result.reasoning, # Using reasoning as output placeholder
+                expected_output="", # Not directly available
+                retrieval_context=[] # Not directly available
+            )
+
+            coherence_metric = CoherenceMetric(threshold=0.7)
+            relevancy_metric = RelevancyMetric(threshold=0.8)
+            
+            coherence_score = coherence_metric.measure(test_case).score
+            relevancy_score = relevancy_metric.measure(test_case).score
+
+            return {
+                "deepeval_coherence_score": coherence_score,
+                "deepeval_relevancy_score": relevancy_score,
+                "original_metrics": result.metrics
+            }
+        except ImportError:
+            print("DeepEval not installed. Skipping integration.")
+            return {"deepeval_integration_status": "skipped - library not found", "original_metrics": result.metrics}
+        except Exception as e:
+            print(f"Error during DeepEval integration: {e}")
+            return {"deepeval_integration_status": f"error: {e}", "original_metrics": result.metrics}
+
+    def integrate_trulens_monitoring(self, task_id: str, result: QualityResult) -> None:
+        """
+        Sends quality metrics to TruLens for monitoring.
+        Requires 'trulens-eval' library to be installed.
+        """
+        try:
+            from trulens_eval import TruLlama
+            from trulens_eval import Feedback
+            from trulens_eval.app import App
+
+            # This is a simplified example; actual TruLens integration
+            # requires setting up an App and instrumenting the LLM calls.
+            # Here, we're just recording metrics directly.
+            
+            # Define feedback functions based on QualityResult
+            f_quality_score = Feedback(
+                result.score.value,
+                name="Quality Score"
+            ).on_input_output()
+            
+            f_confidence = Feedback(
+                result.confidence,
+                name="Confidence Score"
+            ).on_input_output()
+            
+            f_fallback = Feedback(
+                1.0 if result.needs_fallback else 0.0, # Convert bool to float
+                name="Needs Fallback"
+            ).on_input_output()
+
+            # Create a dummy app for recording if no actual app is instrumented
+            # In a real scenario, you'd integrate this with your actual LLM call logic.
+            # For now, we'll just log to demonstrate.
+            tru_recorder = TruLlama(app_id=f"llmgenie_task_{task_id}",
+                                    feedbacks=[f_quality_score, f_confidence, f_fallback])
+            
+            # Record the metrics (simplified)
+            with tru_recorder as recording:
+                print(f"TruLens: Recording quality metrics for task {task_id}")
+                # In a real app, you'd put your LLM call here
+                # For this example, we're just showing the recording mechanism
+                recording.record_metrics(result.metrics) 
+
+        except ImportError:
+            print("TruLens not installed. Skipping monitoring.")
+        except Exception as e:
+            print(f"Error during TruLens integration: {e}") 
