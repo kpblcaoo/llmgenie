@@ -1,0 +1,20 @@
+{
+  "title": "Templates (data/knowledge/templates/)",
+  "description": "Analysis of templates for standardizing documentation and workflows.",
+  "docs": [
+    {
+      "path": "data/knowledge/templates/env_integration_template.json",
+      "title": "Environment Integration Template",
+      "description": "Standardized template for documenting environment integrations.",
+      "status": "Analyzed",
+      "summary_ai": "Provides a template for consistent documentation of environment integrations, covering fields like env, provider, integration capabilities (rules, cli, api, mcp, lsp, toolspec), logic notes, implemented features, versions, limitations, incompatibilities, integration clients, history, todo, and sources. Includes clear instructions for filling out the template, ensuring uniformity and completeness for modular documentation."
+    },
+    {
+      "path": "data/knowledge/templates/model_integration_template.json",
+      "title": "Model Integration Template",
+      "description": "Standardized template for documenting model integrations.",
+      "status": "Analyzed",
+      "summary_ai": "Provides a template for consistent documentation of LLM model integrations, covering fields like model, provider, integration capabilities (rules, cli, api, mcp, lsp, toolspec), logic notes, implemented features, model versions (name, context, type), technical specifications (context window, pricing, performance, local running, API-only status), limitations, incompatibilities, integration clients, history, todo, and sources. Includes clear instructions for filling out the template."
+    }
+  ]
+} 

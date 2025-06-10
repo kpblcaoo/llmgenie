@@ -1,0 +1,50 @@
+{
+  "title": "LLMGenie Project Documentation Index",
+  "description": "This document serves as the central index for the modular LLMGenie project documentation. It provides structured links to various aspects of the project, including its overview, knowledge base, environment and model integrations, templates, insights, core data files, and logs.",
+  "sections": [
+    {
+      "title": "Project Overview and Key Systems",
+      "path": "docs/index/project_overview.json"
+    },
+    {
+      "title": "Knowledge Base Analysis (data/knowledge/)",
+      "path": "docs/index/knowledge_base_analysis.json"
+    },
+    {
+      "title": "Environment Integrations (data/knowledge/envs/)",
+      "path": "docs/index/environment_integrations.json"
+    },
+    {
+      "title": "Model Integrations (data/knowledge/models/)",
+      "path": "docs/index/model_integrations.json"
+    },
+    {
+      "title": "Templates (data/knowledge/templates/)",
+      "path": "docs/index/templates.json"
+    },
+    {
+      "title": "Project Insights and Lessons Learned (data/insights.json)",
+      "path": "docs/index/insights.json"
+    },
+    {
+      "title": "Core Project Data Files (data/)",
+      "path": "docs/index/core_data_files.json"
+    },
+    {
+      "title": "Quality Intelligence Data",
+      "path": "docs/index/quality_intelligence_data.json"
+    },
+    {
+      "title": "Audit Data",
+      "path": "docs/index/audit_data.json"
+    },
+    {
+      "title": "Handoff Data",
+      "path": "docs/index/handoff_data.json"
+    },
+    {
+      "title": "Log Data",
+      "path": "docs/index/log_data.json"
+    }
+  ]
+} 

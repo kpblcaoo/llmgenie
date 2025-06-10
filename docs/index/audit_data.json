@@ -1,0 +1,15 @@
+{
+  "title": "Audit Data",
+  "files": [
+    {
+      "file": "data/audit/audit_log.json",
+      "summary_status": "not_found",
+      "content": "File not found."
+    },
+    {
+      "file": "data/audit/security_audit_checklist.json",
+      "summary_status": "not_found",
+      "content": "File not found."
+    }
+  ]
+} 

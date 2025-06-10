@@ -1,0 +1,25 @@
+{
+  "title": "Handoff Data",
+  "files": [
+    {
+      "file": "data/handoff/handoff_configurations.json",
+      "summary_status": "not_found",
+      "content": "File not found."
+    },
+    {
+      "file": "data/handoff/handoff_templates.json",
+      "summary_status": "not_found",
+      "content": "File not found."
+    },
+    {
+      "file": "data/handoff/epic3_handoff_package.json",
+      "summary_status": "pending",
+      "content": ""
+    },
+    {
+      "file": "data/handoff/epic3_REAL_handoff_package.json",
+      "summary_status": "pending",
+      "content": ""
+    }
+  ]
+} 

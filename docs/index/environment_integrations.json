@@ -1,0 +1,83 @@
+{
+  "title": "Environment Integrations (data/knowledge/envs/)",
+  "description": "Analysis of how different development environments and IDEs integrate with project AI systems.",
+  "docs": [
+    {
+      "path": "data/knowledge/envs/cursor_integration.json",
+      "title": "Cursor IDE Integration",
+      "description": "Capabilities and limitations of Cursor IDE integration.",
+      "status": "Analyzed",
+      "summary_ai": "Details Cursor IDE's capabilities like rules support, terminal commands, external API calls, RAG, local model integration, and full MCP support. Highlights limitations: no direct LSP/ToolSpec, beta status for Memories/Custom modes, and MCP limitations (40 tools, no resources). Provides practical recommendations for secure and effective use."
+    },
+    {
+      "path": "data/knowledge/envs/ollama_integration.json",
+      "title": "Ollama Integration",
+      "description": "Capabilities and limitations of Ollama integration.",
+      "status": "Analyzed",
+      "summary_ai": "Describes Ollama integration via OpenAI-compatible API and CLI. Confirms lack of support for cursor/rules, MCP, LSP, ToolSpec, indicating its use as a 'black box' for cost-effective local inference. Includes history and TODOs for potential future integrations."
+    },
+    {
+      "path": "data/knowledge/envs/copilot_integration.json",
+      "title": "Copilot Integration",
+      "description": "Capabilities and limitations of GitHub Copilot integration.",
+      "status": "Analyzed",
+      "summary_ai": "Details GitHub Copilot integration through API and MCP (only in VSCode agent mode, which is in preview). Supports integration with various IDEs, smart actions, and external API extensions. Lacks direct support for cursor/rules, LSP, ToolSpec. Emphasizes the need for flexible integration strategies."
+    },
+    {
+      "path": "data/knowledge/envs/vscode_continue_integration.json",
+      "title": "VSCode Continue Integration",
+      "description": "Capabilities and limitations of VSCode Continue integration.",
+      "status": "Analyzed",
+      "summary_ai": "Explores VSCode Continue's integration, highlighting project-specific instructions (similar to .cursor/rules), agent mode for multi-file editing, external API calls, RAG via Sourcegraph Cody, and LangChain support. Supports LSP and ToolSpec (via plugins), distinguishing it from other environments. Covers AI functions, tool integrations, and high customization."
+    },
+    {
+      "path": "data/knowledge/envs/api_models_integration.json",
+      "title": "API Models Integration",
+      "description": "General settings and capabilities for integrating with commercial API models.",
+      "status": "Analyzed",
+      "summary_ai": "Focuses on the integration of commercial LLM APIs (OpenAI, Anthropic, Google, Cohere) exclusively via their respective APIs. Notes the absence of support for cursor/rules, MCP, LSP, ToolSpec, positioning these models as independent entities. Includes history and TODOs for documentation and potential future integrations."
+    },
+    {
+      "path": "data/knowledge/envs/api_models.json",
+      "title": "API Models Overview",
+      "description": "General information, best practices, and common pitfalls for working with LLM APIs.",
+      "status": "Analyzed",
+      "summary_ai": "Provides general information, best practices (use official docs, monitor rates/costs, error handling), and common pitfalls (rate limits, improper error handling, API key leakage) for commercial LLM APIs. Includes links to official documentation for major providers."
+    },
+    {
+      "path": "data/knowledge/envs/copilot.json",
+      "title": "Copilot Overview",
+      "description": "General information, best practices, and common pitfalls for GitHub Copilot.",
+      "status": "Analyzed",
+      "summary_ai": "Offers a general overview of GitHub Copilot, covering its integration with various IDEs, best practices (keeping updated, code review, security checks), and common pitfalls (incorrect code, plugin conflicts). Links to official Copilot documentation."
+    },
+    {
+      "path": "data/knowledge/envs/cursor.json",
+      "title": "Cursor IDE Overview",
+      "description": "General information, symlink policy, logging, and session control for Cursor IDE.",
+      "status": "Analyzed",
+      "summary_ai": "Summarizes Cursor IDE's operational principles, including symlink policy (local dev only, in .gitignore), per-session logging (event_log, tech_log, meta_log), and strict session control (dedicated branch/session, log all actions). Highlights agent rule support, best practices (check develop, log all actions, relative symlinks), and common pitfalls (outdated files, missing symlinks in .gitignore)."
+    },
+    {
+      "path": "data/knowledge/envs/ollama.json",
+      "title": "Ollama Overview",
+      "description": "General information, best practices, and common pitfalls for Ollama.",
+      "status": "Analyzed",
+      "summary_ai": "Presents a general overview of Ollama as an open-source platform for local LLM inference. Includes best practices (latest versions, compatibility, load testing) and common pitfalls (version mismatches, Docker errors). Provides links to official Ollama documentation."
+    },
+    {
+      "path": "data/knowledge/envs/vscode.json",
+      "title": "VSCode Overview",
+      "description": "General information, best practices, and common pitfalls for Visual Studio Code.",
+      "status": "Analyzed",
+      "summary_ai": "Provides a general overview of VSCode as a popular code editor supporting LLM plugins. Covers best practices (trusted extensions, updates, test integrations) and common pitfalls (extension conflicts, update errors). Includes a link to the official VSCode website."
+    },
+    {
+      "path": "data/knowledge/envs/vscode_integration.json",
+      "title": "VSCode Integration",
+      "description": "Details on how VSCode integrates with project LLM systems via plugins and protocols.",
+      "status": "Analyzed",
+      "summary_ai": "Details VSCode integration with project LLM systems through plugins, supporting LSP and ToolSpec (via plugins), and MCP (in agent mode only). Notes the absence of support for cursor/rules and MCP outside agent mode, highlighting the need for flexible integration strategies."
+    }
+  ]
+} 

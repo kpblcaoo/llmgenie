@@ -1,0 +1,48 @@
+{
+  "title": "Model Integrations (data/knowledge/models/)",
+  "description": "Analysis of how different LLM models integrate with project AI systems.",
+  "docs": [
+    {
+      "path": "data/knowledge/models/claude_integration.json",
+      "title": "Claude Integration",
+      "description": "Capabilities and limitations of Claude models integration.",
+      "status": "Analyzed",
+      "summary_ai": "Provides comprehensive details on Claude model integration via Anthropic API, supporting tool use, vision, multimodal, and MCP (through Claude Desktop App/claude.ai). Lists various Claude models with context window and type. Highlights limitations: no direct cursor/rules, LSP/ToolSpec, rate limits, and no local execution. Critical for smart routing and AI strategy."
+    },
+    {
+      "path": "data/knowledge/models/gpt-4.json",
+      "title": "GPT-4 Overview",
+      "description": "General information, best practices, and common pitfalls for the GPT-4 model.",
+      "status": "Analyzed",
+      "summary_ai": "Describes GPT-4 as a high-quality commercial LLM by OpenAI, supporting API, function calling, and system prompts. Lists platforms (OpenAI API, ChatGPT, Copilot). Provides best practices (use official docs, monitor rates/costs, error handling) and common pitfalls (rate limits, improper error handling, API key leakage), along with links to official OpenAI documentation."
+    },
+    {
+      "path": "data/knowledge/models/gpt4_integration.json",
+      "title": "GPT-4 Integration",
+      "description": "Capabilities and limitations of GPT-4 models integration within the project.",
+      "status": "Analyzed",
+      "summary_ai": "Details GPT-4 model integration via OpenAI API, supporting function calling, tool use, vision, multimodal, JSON mode, and structured outputs. Lists various GPT-4 models with context window and type. Highlights limitations: no direct cursor/rules, MCP, LSP/ToolSpec, rate limits, and no local execution. Notes MCP requires specific clients like VSCode or Claude Desktop. Provides integration clients and relevant sources."
+    },
+    {
+      "path": "data/knowledge/models/llama3.json",
+      "title": "Llama 3 Overview",
+      "description": "General information, best practices, and common pitfalls for the Llama 3 model.",
+      "status": "Analyzed",
+      "summary_ai": "Describes Llama 3 as a high-quality, open-source LLM by Meta with a large context window, requiring significant resources. Lists platforms (Ollama, LM Studio, Hugging Face). Provides best practices (use latest weights/tokenizer, check platform compatibility, test latency/memory) and common pitfalls (version mismatch, insufficient memory). Includes links to its GitHub repository."
+    },
+    {
+      "path": "data/knowledge/models/llama3_integration.json",
+      "title": "Llama 3 Integration",
+      "description": "Capabilities and limitations of Llama 3 models integration within the project.",
+      "status": "Analyzed",
+      "summary_ai": "Details Llama 3 model integration via local deployment (Ollama, LM Studio, HuggingFace) or external APIs. Supports tool use (via wrappers) and multimodal (new versions). Highlights limitations: no direct cursor/rules, MCP, LSP/ToolSpec; significant local compute resources needed; non-native tool use. Lists various Llama 3 models with parameters, types, and quantization options. Provides integration clients and local running details (CPU/GPU, memory requirements)."
+    },
+    {
+      "path": "data/knowledge/models/mistral.json",
+      "title": "Mistral Overview",
+      "description": "General information, best practices, and common pitfalls for the Mistral model.",
+      "status": "Analyzed",
+      "summary_ai": "Describes Mistral as an open-source LLM known for fast inference, low resource requirements, and support for custom prompts and fine-tuning. Lists platforms (Ollama, LM Studio, API). Provides best practices (latest model version, platform compatibility, real-data testing) and common pitfalls (version mismatch, prompt customization errors). Includes links to its GitHub repository and Ollama documentation."
+    }
+  ]
+} 
