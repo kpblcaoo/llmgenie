@@ -37,5 +37,13 @@
       "total_planned_sessions": 16,
       "estimated_total_duration": "11 weeks"
     }
+  },
+  "model_evaluation": {
+    "framework_document": "docs/model_evaluation_framework.md",
+    "current_task": "TSK-MODEL-001",
+    "current_insight": "INS-MODEL-001",
+    "session_log": "data/logs/sessions/session_meta_2025-06-11_model_evaluation.jsonl",
+    "supported_models": ["Claude 3.5 Sonnet", "Claude 3.7 Sonnet", "Claude 4"],
+    "evaluation_criteria": ["context handling", "reasoning quality", "task completion efficiency"]
   }
 } 

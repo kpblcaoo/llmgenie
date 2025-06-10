@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2025-05-26T00:45:00Z",
+  "updated": "2025-06-11T10:40:00Z",
   "insights": [
     {
       "id": "INS-001",
@@ -239,6 +239,57 @@
       "description": "При старте новой сессии/эпика часто отсутствуют шаблоны логов (template_event_log.json, template_tech_log.json, template_meta_log.json), скрипты для инициализации (session_cli.py) и папка для архивов (data/archived_jsons/). Это приводит к ручным ошибкам и потере времени. Рекомендация: добавить шаблоны логов по умолчанию, автоматизировать создание папок и инициализацию сессии через CLI или AI.",
       "tags": ["workflow", "session_control", "infrastructure", "lessons_learned", "automation"],
       "impact": "Автоматизация инфраструктуры старта сессии ускорит запуск новых эпиков, снизит количество ошибок и повысит воспроизводимость."
+    },
+    {
+      "id": "INS-MODEL-001",
+      "date": "2025-06-11T11:20:00Z",
+      "type": "workflow_optimization",
+      "epic": "meta_workflow_optimization",
+      "title": "Comprehensive Cursor Models Analysis: 31 Models Available in June 2025",
+      "description": "Исследование официальной документации Cursor выявило 31 доступную модель от 6 провайдеров: Anthropic Claude (6 моделей), Google Gemini (3), OpenAI (9), xAI Grok (3), DeepSeek (4), Cursor (1). Ключевые находки: Gemini 2.5 Flash - лучший бесплатный с 1M контекстом, Claude 3.7 Sonnet (текущая модель) - отличный выбор, o3-mini всего 0.25 req/msg для reasoning. Различия в цене до 200х (от 0 до 50 req/msg). Normal vs Max mode для разных задач. Auto-select рекомендуется большинству пользователей.",
+      "tags": ["workflow", "models", "cursor", "pricing", "performance"],
+      "key_findings": {
+        "total_models": 31,
+        "providers": ["Anthropic", "Google", "OpenAI", "xAI", "DeepSeek", "Cursor"],
+        "free_models": ["Gemini 2.5 Flash", "GPT-4o mini", "Deepseek V3/V3.1", "Grok 3 Mini", "Cursor Small"],
+        "best_context": "Gemini 2.5 Pro/Flash (1M tokens)",
+        "best_reasoning": "o3, o4-mini, Deepseek R1",
+        "current_model_assessment": "Claude 3.7 Sonnet - excellent choice for current work",
+        "price_range": "0 to 50 requests/message (200x difference)",
+        "special_modes": ["Auto-select", "Thinking", "Agentic", "Max Mode"]
+      },
+      "recommendations": {
+        "for_current_work": "Continue with Claude 3.7 Sonnet - optimal for development tasks",
+        "for_economy": "Gemini 2.5 Flash - free with huge context, Deepseek V3.1 for Agent work",
+        "for_complex_tasks": "Claude 4 Opus or o3 for premium quality",
+        "for_large_files": "Gemini 2.5 Pro/Flash (1M context)",
+        "auto_mode": "Consider using Auto-select for adaptive model selection"
+      },
+      "lesson_learned": "Cursor market is more sophisticated than initially researched - proper documentation analysis essential before making recommendations"
+    },
+    {
+      "id": "INS-2025-06-11-MODEL-001",
+      "date": "2025-06-11T10:40:00Z",
+      "type": "workflow_lesson",
+      "epic": "model_evaluation_workflow_optimization",
+      "description": "При оценке AI моделей для llmgenie важно: 1) Начинать с официального списка доступных моделей в Cursor, а не общих исследований рынка; 2) Фокусироваться на практических рекомендациях для реального workflow; 3) Учитывать специфику проекта (кодинг, анализ, архитектура).",
+      "tags": ["model_evaluation", "cursor", "workflow_optimization", "research_methodology"],
+      "impact": "Ускоряет выбор модели, избегает излишней детализации, фокусирует на практическом применении."
+    },
+    {
+      "id": "INS-2025-06-11-STRUCT-001",
+      "date": "2025-06-11T12:30:00Z",
+      "type": "critical_workflow_error",
+      "epic": "project_analysis_workflow",
+      "description": "КРИТИЧЕСКАЯ ОШИБКА: AI пропустил llmstruct интеграцию при анализе проекта llmgenie. Не учёл: 1) src/struct.json (192KB) как основу для анализа; 2) src/.llmstruct_index/ modular index; 3) Rule 017_struct_tools_integration; 4) Зависимость llmgenie от llmstruct. Результат: неполный анализ архитектуры.",
+      "tags": ["critical_error", "llmstruct", "project_analysis", "workflow", "context_omission"],
+      "impact": "Без llmstruct контекста анализ проекта неполный. Lessons learned: всегда проверять ключевые зависимости и integration rules перед началом анализа.",
+      "prevention": [
+        "Проверять rules перед началом работы",
+        "Искать ключевые файлы (struct.json, .llmstruct_index)",
+        "Анализировать зависимости в requirements.txt",
+        "Использовать modular index для понимания архитектуры"
+      ]
     }
   ]
 }

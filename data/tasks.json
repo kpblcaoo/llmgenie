@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2025-05-26T00:50:00Z",
+  "updated": "2025-06-11T11:30:00Z",
   "tasks": [
     {
       "id": "TSK-001",
@@ -572,6 +572,61 @@
       "created": "2025-06-05T17:30:00Z",
       "estimated_hours": 10,
       "dependencies": ["TSK-CLEANUP-003", "TSK-CLEANUP-004"]
+    },
+    {
+      "id": "TSK-MODEL-001",
+      "title": "Comprehensive AI Model Evaluation for llmgenie Workflow",
+      "status": "completed",
+      "description": "Systematically evaluate and document all available AI models in Cursor IDE for optimal llmgenie workflow. Create strategic model selection framework based on official Cursor documentation.",
+      "epic": "model_evaluation_workflow_optimization",
+      "priority": "high",
+      "tags": ["model_evaluation", "cursor", "workflow_optimization", "documentation"],
+      "created": "2025-06-11T10:05:00Z",
+      "completed": "2025-06-11T11:30:00Z",
+      "deliverables": [
+        "docs/cursor_models_comprehensive_june_2025.md",
+        "docs/project_workflow_strategy_june_2025.md",
+        "Updated insights.json with practical findings"
+      ],
+      "key_findings": {
+        "total_models": 31,
+        "providers": 6,
+        "best_free": "Gemini 2.5 Flash (1M context)",
+        "current_model": "Claude 4 Sonnet (excellent choice)",
+        "price_range": "0-50 requests/message (200x variation)"
+      }
+    },
+    {
+      "id": "TSK-WORKFLOW-001",
+      "title": "Fix Critical llmstruct Integration Omission in Project Analysis Workflow",
+      "status": "in_progress",
+      "description": "CRITICAL: Fix major workflow error where AI started project analysis without considering llmstruct core dependency. Update all workflow documents, prompts, and analysis plans to include mandatory llmstruct integration checks.",
+      "epic": "project_analysis_workflow_fix",
+      "priority": "critical",
+      "tags": ["critical_fix", "llmstruct", "workflow", "project_analysis", "integration"],
+      "created": "2025-06-11T12:30:00Z",
+      "context": {
+        "error": "AI completely missed llmstruct integration when starting project analysis",
+        "missing_elements": [
+          "src/struct.json (192KB, 7131 lines) analysis",
+          "src/.llmstruct_index/ modular index check",
+          "Rule 017_struct_tools_integration compliance",
+          "llmgenie-llmstruct dependency validation"
+        ],
+        "impact": "Incomplete architecture analysis without core dependency context"
+      },
+      "deliverables": [
+        "Updated docs/project_workflow_strategy_june_2025.md",
+        "Corrected session logs",
+        "Updated insights.json with lesson learned",
+        "Fixed workflow prompts with llmstruct integration"
+      ],
+      "prevention_measures": [
+        "Always check integration rules before analysis",
+        "Verify key dependency files (struct.json, .llmstruct_index)",
+        "Analyze requirements.txt dependencies",
+        "Use modular index for architecture understanding"
+      ]
     }
   ]
 }
