@@ -384,4 +384,10 @@ def create_context_manager(extractor: Optional[SafeKnowledgeExtractor] = None,
         # Return disabled instance rather than None
         manager = SessionContextManager()
         manager.disable()
-        return manager 
+        return manager
+
+# Alias for expected function name
+def create_session_context_manager(extractor: Optional[SafeKnowledgeExtractor] = None,
+                                  discovery: Optional[SmartCodeDiscovery] = None) -> SessionContextManager:
+    """Create session context manager safely (alias for create_context_manager)"""
+    return create_context_manager(extractor, discovery) 
