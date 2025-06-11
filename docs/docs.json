@@ -45,6 +45,48 @@
     {
       "title": "Log Data",
       "path": "docs/index/log_data.json"
+    },
+    {
+      "title": "Phase 4A: Enhanced Quick Wins Implementation",
+      "path": "docs/index/phase_4a_documentation.json",
+      "description": "Documentation for Phase 4A enhanced implementation with MCP tools integration",
+      "subsections": [
+        {
+          "title": "Auto-Logging System Documentation",
+          "path": "docs/phase_4a/auto_logging_system.md"
+        },
+        {
+          "title": "Self-Refine Pipeline Guide",
+          "path": "docs/phase_4a/self_refine_pipeline.md"
+        },
+        {
+          "title": "MCP Tools Integration Manual",
+          "path": "docs/phase_4a/mcp_tools_integration.md"
+        },
+        {
+          "title": "Enhanced Logging Intelligence Design",
+          "path": "docs/phase_4a/enhanced_logging_intelligence.md"
+        }
+      ]
+    },
+    {
+      "title": "MCP Tools Documentation",
+      "path": "docs/index/mcp_tools_documentation.json",
+      "description": "Comprehensive documentation for all 11 MCP tools and their usage patterns",
+      "subsections": [
+        {
+          "title": "RAG Tools (5) - Context Enhancement",
+          "path": "docs/mcp_tools/rag_tools.md"
+        },
+        {
+          "title": "Struct Tools (6) - Architecture Analysis", 
+          "path": "docs/mcp_tools/struct_tools.md"
+        },
+        {
+          "title": "Auto-Logger Integration Examples",
+          "path": "docs/mcp_tools/auto_logger_examples.md"
+        }
+      ]
     }
   ]
 } 

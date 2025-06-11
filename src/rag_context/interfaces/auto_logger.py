@@ -111,9 +111,13 @@ class AutoLogger:
         if not recent_events:
             return {"pattern": "no_activity", "confidence": 1.0}
         
+        # Constants for pattern detection
+        STRUCT_TOOLS_PREFIX = "struct_"
+        CONTEXT_TOOLS = {"enhance_prompt", "get_relevant_rules"}
+        
         tool_usage = {}
         models_used = set()
-        time_span = None
+        event_timespan = self._calculate_timespan(recent_events)
         
         for event in recent_events:
             if event.get("tool"):
@@ -121,23 +125,52 @@ class AutoLogger:
             if event.get("model"):
                 models_used.add(event["model"])
         
-        # Detect patterns
-        if "struct_" in str(tool_usage.keys()):
-            pattern = "architecture_analysis"
-        elif "enhance_prompt" in tool_usage or "get_relevant_rules" in tool_usage:
-            pattern = "context_enhancement"
-        elif len(models_used) > 1:
-            pattern = "model_collaboration"
-        else:
-            pattern = "focused_work"
+        # Improved pattern detection with confidence calculation
+        pattern, confidence = self._detect_pattern_with_confidence(
+            tool_usage, models_used, event_timespan
+        )
         
         return {
             "pattern": pattern,
-            "confidence": 0.8,
+            "confidence": confidence,
             "tools_used": list(tool_usage.keys()),
             "models_involved": list(models_used),
-            "activity_level": len(recent_events)
+            "activity_level": len(recent_events),
+            "timespan_minutes": event_timespan.total_seconds() / 60 if event_timespan else 0
         }
+
+    def _detect_pattern_with_confidence(self, tool_usage: Dict, models_used: set, timespan) -> tuple:
+        """Detect patterns with evidence-based confidence scoring"""
+        CONTEXT_TOOLS = {"enhance_prompt", "get_relevant_rules"}
+        
+        struct_tool_count = sum(1 for tool in tool_usage.keys() if tool.startswith("struct_"))
+        context_tool_count = sum(tool_usage.get(tool, 0) for tool in CONTEXT_TOOLS)
+        
+        # Evidence-based pattern detection
+        if struct_tool_count >= 2:
+            confidence = min(0.9, 0.6 + (struct_tool_count * 0.1))
+            return "architecture_analysis", confidence
+        elif context_tool_count >= 3:
+            confidence = min(0.85, 0.5 + (context_tool_count * 0.1))
+            return "context_enhancement", confidence
+        elif len(models_used) > 1:
+            confidence = 0.75 if len(models_used) > 2 else 0.6
+            return "model_collaboration", confidence
+        else:
+            confidence = 0.5 + min(0.3, len(tool_usage) * 0.05)
+            return "focused_work", confidence
+
+    def _calculate_timespan(self, events: List[Dict]) -> Optional[Any]:
+        """Calculate time span of events"""
+        if len(events) < 2:
+            return None
+        
+        try:
+            start_time = datetime.fromisoformat(events[0]["timestamp"].replace('Z', '+00:00'))
+            end_time = datetime.fromisoformat(events[-1]["timestamp"].replace('Z', '+00:00'))
+            return end_time - start_time
+        except (KeyError, ValueError):
+            return None
     
     def generate_session_summary(self, session: str = None) -> Dict[str, Any]:
         """Generate automatic session summary"""
