@@ -137,6 +137,22 @@
       "last_updated": "2025-01-05"
     },
     {
+      "id": "001_struct_tools_best_practices",
+      "file": "tools/001_struct_tools_best_practices.mdc",
+      "description": "Best practices for dedicated struct_tools package for project structural analysis. Separation of concerns from RAG system, workflow integration patterns, MCP integration, and quality gates.",
+      "references": ["@struct_tools", "@session_log", "@struct.json", "@modular_index", "@017_struct_tools_integration"],
+      "fallback": "If struct_tools unavailable, use manual codebase analysis with file listings. Log fallback usage for improvement tracking.",
+      "last_updated": "2025-01-05"
+    },
+    {
+      "id": "002_mcp_cursor_integration",
+      "file": "tools/002_mcp_cursor_integration.mdc",
+      "description": "Best practices for MCP Cursor integration. Cursor должен использовать специальный тихий скрипт запуска MCP сервера для избежания конфликтов.",
+      "references": ["@scripts/start_mcp_server_cursor.sh", "@.cursor/mcp.json", "@session_log"],
+      "fallback": "Если Cursor не может запустить скрипт, используй прямой вызов python с PYTHONPATH.",
+      "last_updated": "2025-01-05"
+    },
+    {
       "id": "200_knowledge_engineer",
       "file": "roles/200_knowledge_engineer.mdc_",
       "description": "Designs, maintains, and documents the project knowledge base. Ensures best practices and onboarding materials are up to date.",

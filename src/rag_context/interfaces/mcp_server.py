@@ -86,8 +86,13 @@ class MCPServer:
                     description="Возвращает структуру проекта из struct.json",
                     inputSchema={
                         "type": "object",
-                        "properties": {},
-                        "required": []
+                        "properties": {
+                            "random_string": {
+                                "type": "string",
+                                "description": "Dummy parameter for no-parameter tools"
+                            }
+                        },
+                        "required": ["random_string"]
                     }
                 ),
                 types.Tool(
@@ -154,12 +159,20 @@ class MCPServer:
                     return [types.TextContent(type="text", text=json.dumps(response, indent=2, ensure_ascii=False))]
                 
                 elif name == "get_project_structure":
-                    if self.config.struct_json.exists():
+                    try:
+                        if not self.config.has_struct_support:
+                            return [types.TextContent(type="text", text=json.dumps({
+                                "warning": "struct.json not available",
+                                "suggestion": "Run 'lmstruct parse src/ -o struct.json' to generate project structure",
+                                "status": "struct features disabled"
+                            }, indent=2, ensure_ascii=False))]
+                        
                         with open(self.config.struct_json, 'r', encoding='utf-8') as f:
                             struct_data = json.load(f)
+                        
                         return [types.TextContent(type="text", text=json.dumps(struct_data, indent=2, ensure_ascii=False))]
-                    else:
-                        return [types.TextContent(type="text", text='{"error": "struct.json not found"}')]
+                    except Exception as e:
+                        return [types.TextContent(type="text", text=json.dumps({"error": str(e)}, indent=2, ensure_ascii=False))]
                 
                 elif name == "get_system_stats":
                     stats = self.enhancer.get_stats()

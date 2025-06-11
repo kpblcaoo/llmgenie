@@ -165,12 +165,18 @@ class CLITool:
     async def struct_command(self, output_format: str = "text") -> str:
         """Команда для получения структуры проекта"""
         try:
-            if not self.config.struct_json.exists():
-                error_msg = "struct.json not found"
+            # Проверяем поддержку struct.json
+            if not self.config.has_struct_support:
+                message = {
+                    "warning": "struct.json not available",
+                    "suggestion": "Run 'lmstruct parse src/ -o struct.json' to generate project structure",
+                    "fallback": "Using basic project information instead"
+                }
+                
                 if output_format == "json":
-                    return json.dumps({"error": error_msg}, indent=2, ensure_ascii=False)
+                    return json.dumps(message, indent=2, ensure_ascii=False)
                 else:
-                    return f"Error: {error_msg}"
+                    return f"⚠️  {message['warning']}\n💡 {message['suggestion']}\n📝 {message['fallback']}"
             
             with open(self.config.struct_json, 'r', encoding='utf-8') as f:
                 struct_data = json.load(f)

@@ -11,7 +11,7 @@ class RAGConfig:
     
     # Пути к источникам данных
     rules_dir: Path = Path(".cursor/rules")
-    struct_json: Path = Path("struct.json")
+    struct_json: Optional[Path] = Path("struct.json")
     
     # Embedding конфигурация
     embedding_model: str = "all-MiniLM-L6-v2"
@@ -40,13 +40,22 @@ class RAGConfig:
         
         # Убеждаемся что директории существуют
         self.cache_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Проверяем struct.json и делаем его опциональным
+        if self.struct_json and not self.struct_json.exists():
+            print(f"Warning: struct.json not found at {self.struct_json}, struct features disabled")
+            self.struct_json = None
     
     @property
     def is_valid(self) -> bool:
         """Проверка корректности конфигурации"""
         return (
             self.rules_dir.exists() and 
-            self.struct_json.exists() and
             self.max_context_length > 0 and
             0 <= self.similarity_threshold <= 1
-        ) 
+        )
+    
+    @property
+    def has_struct_support(self) -> bool:
+        """Проверка доступности struct.json функций"""
+        return self.struct_json is not None and self.struct_json.exists() 
