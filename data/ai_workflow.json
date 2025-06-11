@@ -87,6 +87,24 @@
         "template_endpoint": "GET /handoff/template",
         "ci_integration": "handoff_cli.py check --fail-on-warnings"
       }
+    },
+    "rag_enhancement_workflow": {
+      "description": "Workflow for leveraging RAG tools for intelligent context injection and rule application.",
+      "checklist": [
+        "Автоматический поиск релевантных правил через `get_relevant_rules` для любой задачи.",
+        "Улучшение промптов AI через `enhance_prompt` с добавлением контекста проекта и правил.",
+        "Использование `get_project_structure` для глубокого понимания архитектуры при планировании и кодировании.",
+        "Автоматическое применение best practices и workflow правил на основе извлеченного контекста.",
+        "Контекстно-ориентированная генерация кода с учетом правил и структуры проекта."
+      ],
+      "automation": {
+        "tools_used": ["enhance_prompt", "get_relevant_rules", "get_project_structure"],
+        "integration_patterns": [
+          "Rule-aware task planning",
+          "Context-enhanced code generation",
+          "Automatic best practices application"
+        ]
+      }
     }
   },
   "logging": {

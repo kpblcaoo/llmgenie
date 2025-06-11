@@ -22,6 +22,14 @@ except ImportError:
 from ..enhancer import PromptEnhancer
 from ..config import RAGConfig
 
+# Импорт auto_logger для автоматического логирования
+try:
+    from .auto_logger import auto_logger, detect_and_log_model_context
+    AUTO_LOGGING_AVAILABLE = True
+except ImportError:
+    AUTO_LOGGING_AVAILABLE = False
+    auto_logger = None
+
 # Импорт struct_tools для архитектурного анализа
 try:
     from ...struct_tools.structure_analyzer import StructureAnalyzer, StructureConfig
@@ -253,8 +261,19 @@ class MCPServer:
         
         @self.server.call_tool()
         async def handle_call_tool(name: str, arguments: dict) -> List[types.TextContent]:
-            """Обработка вызовов инструментов"""
+            """Обработка вызовов инструментов с автоматическим логированием"""
+            import time
+            start_time = time.time()
+            
+            # Автоматическое логирование вызова инструмента
+            if AUTO_LOGGING_AVAILABLE and auto_logger:
+                # Определяем модель по контексту (если возможно)
+                detected_model = detect_and_log_model_context()
+                auto_logger.log_tool_call(name, arguments, detected_model)
+            
             try:
+                result = None
+                
                 if name == "enhance_prompt":
                     query = arguments["query"]
                     max_context = arguments.get("max_context", 2000)
@@ -264,7 +283,7 @@ class MCPServer:
                         self.config.max_context_length = max_context
                     
                     enhanced = await self.enhancer.enhance(query)
-                    return [types.TextContent(type="text", text=enhanced)]
+                    result = [types.TextContent(type="text", text=enhanced)]
                 
                 elif name == "get_relevant_rules":
                     query = arguments["query"]
@@ -278,13 +297,13 @@ class MCPServer:
                     results = self.enhancer.retriever.retrieve(query, max_rules)
                     
                     rules = []
-                    for result in results:
+                    for result_item in results:
                         rule = {
-                            "title": result.document.metadata.get("title", "Untitled"),
-                            "content": result.document.content[:500] + "..." if len(result.document.content) > 500 else result.document.content,
-                            "source": result.document.source,
-                            "score": round(result.score, 3),
-                            "type": result.document.doc_type
+                            "title": result_item.document.metadata.get("title", "Untitled"),
+                            "content": result_item.document.content[:500] + "..." if len(result_item.document.content) > 500 else result_item.document.content,
+                            "source": result_item.document.source,
+                            "score": round(result_item.score, 3),
+                            "type": result_item.document.doc_type
                         }
                         rules.append(rule)
                     
@@ -292,45 +311,59 @@ class MCPServer:
                         "rules": rules,
                         "total_found": len(rules)
                     }
-                    return [types.TextContent(type="text", text=json.dumps(response, indent=2, ensure_ascii=False))]
+                    result = [types.TextContent(type="text", text=json.dumps(response, indent=2, ensure_ascii=False))]
                 
                 elif name == "get_project_structure":
                     try:
                         if not self.config.has_struct_support:
-                            return [types.TextContent(type="text", text=json.dumps({
+                            result = [types.TextContent(type="text", text=json.dumps({
                                 "warning": "struct.json not available",
                                 "suggestion": "Run 'lmstruct parse src/ -o struct.json' to generate project structure",
                                 "status": "struct features disabled"
                             }, indent=2, ensure_ascii=False))]
-                        
-                        with open(self.config.struct_json, 'r', encoding='utf-8') as f:
-                            struct_data = json.load(f)
-                        
-                        return [types.TextContent(type="text", text=json.dumps(struct_data, indent=2, ensure_ascii=False))]
+                        else:
+                            with open(self.config.struct_json, 'r', encoding='utf-8') as f:
+                                struct_data = json.load(f)
+                            
+                            result = [types.TextContent(type="text", text=json.dumps(struct_data, indent=2, ensure_ascii=False))]
                     except Exception as e:
-                        return [types.TextContent(type="text", text=json.dumps({"error": str(e)}, indent=2, ensure_ascii=False))]
+                        result = [types.TextContent(type="text", text=json.dumps({"error": str(e)}, indent=2, ensure_ascii=False))]
                 
                 elif name == "get_system_stats":
                     stats = self.enhancer.get_stats()
-                    return [types.TextContent(type="text", text=json.dumps(stats, indent=2, ensure_ascii=False))]
+                    result = [types.TextContent(type="text", text=json.dumps(stats, indent=2, ensure_ascii=False))]
                 
                 elif name == "refresh_index":
                     success = await self.enhancer.refresh_index()
-                    result = {
+                    result_data = {
                         "status": "success" if success else "error",
                         "message": "Index refreshed successfully" if success else "Failed to refresh index"
                     }
-                    return [types.TextContent(type="text", text=json.dumps(result, indent=2, ensure_ascii=False))]
+                    result = [types.TextContent(type="text", text=json.dumps(result_data, indent=2, ensure_ascii=False))]
                 
                 # Обработчики struct_tools
                 elif name.startswith("struct_") and self.struct_analyzer:
-                    return await self._handle_struct_tool(name, arguments)
+                    result = await self._handle_struct_tool(name, arguments)
                 
                 else:
-                    return [types.TextContent(type="text", text=f'Error: Unknown tool "{name}"')]
+                    result = [types.TextContent(type="text", text=f'Error: Unknown tool "{name}"')]
+                
+                # Автоматическое логирование результата
+                if AUTO_LOGGING_AVAILABLE and auto_logger:
+                    duration_ms = (time.time() - start_time) * 1000
+                    auto_logger.log_tool_result(name, result, duration_ms, detected_model if 'detected_model' in locals() else "unknown")
+                
+                return result
             
             except Exception as e:
-                return [types.TextContent(type="text", text=f'Error: {str(e)}')]
+                error_result = [types.TextContent(type="text", text=f'Error: {str(e)}')]
+                
+                # Логируем ошибку
+                if AUTO_LOGGING_AVAILABLE and auto_logger:
+                    duration_ms = (time.time() - start_time) * 1000
+                    auto_logger.log_tool_result(name, error_result, duration_ms, detected_model if 'detected_model' in locals() else "unknown")
+                
+                return error_result
     
     async def _handle_struct_tool(self, name: str, arguments: Dict[str, Any]) -> List[types.TextContent]:
         """Обработка struct_tools инструментов"""

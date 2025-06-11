@@ -19,9 +19,9 @@
     {
       "id": "PROMPT-003",
       "title": "Связывание задач, идей, инсайтов и PR",
-      "description": "При добавлении новой задачи, идеи, инсайта или PR обязательно указывай поля epic, tags и related_* для сквозной навигации и автоматизации.",
-      "tags": ["workflow", "llm_context", "automation"],
-      "template": "Добавь к объекту поля: \"epic\": \"meta_workflow_management\", \"tags\": [...], \"related_tasks\": [...], \"related_ideas\": [...], \"related_insights\": [...], \"related_prs\": [...] (по необходимости)."
+      "description": "При добавлении новой задачи, идеи, инсайта или PR обязательно указывай поля epic, tags и related_* для сквозной навигации и автоматизации. Используй RAG инструменты для обогащения контекста релевантными правилами и структурой проекта.",
+      "tags": ["workflow", "llm_context", "automation", "rag_enhanced"],
+      "template": "При добавлении новой задачи, идеи, инсайта или PR, перед заполнением полей, используй `enhance_prompt` для получения наиболее релевантного контекста, правил и информации о структуре проекта. Затем добавь к объекту поля: \"epic\": \"meta_workflow_management\", \"tags\": [...], \"related_tasks\": [...], \"related_ideas\": [...], \"related_insights\": [...], \"related_prs\": [...] (по необходимости)."
     },
     {
       "id": "PROMPT-004",
@@ -84,6 +84,13 @@
       "title": "Code Quality Check",
       "template": "Run flake8, mypy, black, isort on the codebase. Aggregate results and generate a summary report.",
       "usage": "Used by AI to automate code quality analysis."
+    },
+    {
+      "id": "code_generation_rag_enhanced",
+      "title": "RAG-Enhanced Code Generation",
+      "description": "Генерация кода с использованием релевантных правил, архитектурного контекста и лучших практик, полученных через RAG инструменты.",
+      "tags": ["code_generation", "rag_enhanced", "architecture", "rules", "best_practices"],
+      "template": "При генерации кода, в первую очередь используй `enhance_prompt` с детальным описанием задачи, чтобы получить: 1. Наиболее релевантные правила (`get_relevant_rules`). 2. Архитектурный контекст (`get_project_structure` или `struct_analyze_module` для конкретных частей кода). 3. Любые другие релевантные данные. На основе этого контекста сгенерируй код, следуя лучшим практикам и архитектурным ограничениям. Укажи все зависимости и импорты, следуй code style и стандартам проекта."
     }
   ],
   "debug": [

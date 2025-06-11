@@ -1,0 +1,7 @@
+{
+  "text_preview": "автоматическое логирование workflow cursor MCP интеграция",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}
