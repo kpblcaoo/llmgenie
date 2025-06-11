@@ -1,0 +1,7 @@
+{
+  "text_preview": "For legacy data, update to current date if relevant.\n- Regularly review and archive old project data",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

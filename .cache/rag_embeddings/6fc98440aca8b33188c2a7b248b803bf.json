@@ -1,0 +1,7 @@
+{
+  "text_preview": "Add authentication to the FastAPI app",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

@@ -1,0 +1,7 @@
+{
+  "text_preview": "Pre-commit hooks для проверки struct.json analysis\n2Automated test coverage reporting\n3. Documentati",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

@@ -1,0 +1,7 @@
+{
+  "text_preview": "Fix the logging issue in the application",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

@@ -16,6 +16,16 @@ from .task_classifier import TaskClassifier, ClassificationResult
 from .quality_validator import QualityValidator
 from .quality_intelligence import QualityIntelligence
 
+# RAG Integration
+try:
+    from rag_context import PromptEnhancer, RAGConfig
+    RAG_AVAILABLE = True
+except ImportError:
+    print("Warning: RAG Context system not available. Install with: pip install sentence-transformers faiss-cpu")
+    PromptEnhancer = None
+    RAGConfig = None
+    RAG_AVAILABLE = False
+
 
 class ModelChoice(Enum):
     """Available LLM backends for task execution"""
@@ -47,11 +57,24 @@ class ModelRouter:
     
     def __init__(self, classifier: Optional[TaskClassifier] = None,
                  quality_validator: Optional[QualityValidator] = None,
-                 quality_intelligence: Optional[QualityIntelligence] = None):
-        """Initialize router with task classifier, quality validator, and intelligence system"""
+                 quality_intelligence: Optional[QualityIntelligence] = None,
+                 rag_enhancer: Optional['PromptEnhancer'] = None):
+        """Initialize router with task classifier, quality validator, intelligence system, and RAG enhancer"""
         self.classifier = classifier or TaskClassifier()
         self.quality_validator = quality_validator or QualityValidator()
         self.quality_intelligence = quality_intelligence or QualityIntelligence()
+        
+        # RAG Context Enhancement
+        if RAG_AVAILABLE and rag_enhancer is None:
+            try:
+                self.rag_enhancer = PromptEnhancer(RAGConfig())
+                print("RAG Context Enhancement initialized")
+            except Exception as e:
+                print(f"Warning: Failed to initialize RAG enhancer: {e}")
+                self.rag_enhancer = None
+        else:
+            self.rag_enhancer = rag_enhancer
+        
         self.ollama_base_url = "http://localhost:11434"
         self.claude_api_key = None  # Will be set from environment
         
@@ -77,16 +100,27 @@ class ModelRouter:
             RoutingDecision with selected model and reasoning
         """
         
+        # Enhance query with RAG context if available
+        enhanced_query = query
+        if self.rag_enhancer:
+            try:
+                enhanced_query = await self.rag_enhancer.enhance(query, context)
+                if enhanced_query != query:
+                    print(f"RAG enhanced query (length: {len(query)} -> {len(enhanced_query)})")
+            except Exception as e:
+                print(f"Warning: RAG enhancement failed: {e}")
+                enhanced_query = query
+        
         # If user specified model preference, respect it
         if model_preference != ModelChoice.AUTO:
-            return await self._create_preference_decision(model_preference, query)
+            return await self._create_preference_decision(model_preference, enhanced_query)
         
-        # Classify task using Epic 5 research patterns
-        classification = self.classifier.classify_task(query, context)
+        # Classify task using Epic 5 research patterns (use enhanced query)
+        classification = self.classifier.classify_task(enhanced_query, context)
         
-        # Predict quality requirements using enhanced QualityValidator
+        # Predict quality requirements using enhanced QualityValidator (use enhanced query)
         quality_requirements = self.quality_validator.predict_quality_requirements(
-            query, classification.task_type
+            enhanced_query, classification.task_type
         )
         
         # Select optimal model based on classification AND quality requirements

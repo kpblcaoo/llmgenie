@@ -1,0 +1,7 @@
+{
+  "text_preview": "---\ndescription: Session management and logging for all work situations.",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}
