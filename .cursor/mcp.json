@@ -1,14 +1,15 @@
 {
   "mcpServers": {
     "llmgenie-rag": {
-      "command": "python",
+      "command": "/home/kpblc/projects/llmgenie/venv/bin/python",
       "args": [
         "-m",
         "rag_context.interfaces.mcp_server"
       ],
       "env": {
-        "PYTHONPATH": "."
-      }
+        "PYTHONPATH": "/home/kpblc/projects/llmgenie/src"
+      },
+      "cwd": "/home/kpblc/projects/llmgenie"
     }
   }
 }
