@@ -1,5 +1,177 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
+## Meta
+# Struct Tools Best Practices (Atomic)
+- role: tools
+- id: 001_struct_tools_best_practices
+- applies to: [code][meta][architecture]
+- dependencies: [@struct_tools, @session_log, @struct.json, @modular_index]
+
+## Purpose
+Best practices for using dedicated struct_tools for project structural analysis. 
+Establishes specialized workflow separate from RAG system for optimal architecture understanding, refactoring planning, and code quality assessment.
+
+## Core Design Philosophy
+
+### **Separation of Concerns**
+- **struct_tools:** Dedicated structural analysis (architecture, dependencies, complexity)
+- **RAG system:** Context enhancement and rules retrieval
+- **No overlap:** Each tool has distinct, focused responsibility
+
+### **struct.json as Analysis Tool, Not Dependency**
+- Generate on-demand for specific analysis tasks
+- Multiple project support: different struct.json files for different codebases
+- Graceful degradation when unavailable
+- Fresh generation before major architectural work
+
+## Workflow Integration
+
+### **When to Use struct_tools**
+
+#### Planning Phase (High Value)
+```bash
+# Before major refactoring or epic work
+python -m struct_tools generate src --force
+python -m struct_tools overview
+python -m struct_tools report -o epic_baseline_report.md
+```
+
+#### Module Analysis (Targeted)
+```bash
+# Before modifying specific modules
+python -m struct_tools module src/llmgenie/task_router.py --complexity --impact
+python -m struct_tools callers TaskClassifier --module src/llmgenie/task_router.py
+```
+
+#### Architecture Review (Comprehensive)
+```bash
+# For code review and architecture decisions
+python -m struct_tools generate --force
+python -m struct_tools search "router" 
+python -m struct_tools report -o architecture_review.md
+```
+
+### **When NOT to Use struct_tools**
+
+#### Daily Development (Overhead)
+- Routine bug fixes
+- Simple feature additions
+- Test writing
+- Documentation updates
+
+#### CI/CD Pipeline (Performance)
+- Automated builds
+- Test execution
+- Deployment scripts
+- Production monitoring
+
+## MCP Integration Patterns
+
+### **Cursor IDE Integration**
+- 6 specialized MCP tools for structural analysis
+- Available alongside existing 5 RAG tools
+- Focused commands: generate, overview, analyze, search, callers, report
+
+### **Smart Usage in Cursor**
+```
+@struct_overview - Quick project statistics
+@struct_generate src --force - Fresh analysis before major work
+@struct_analyze_module path/to/module.py - Deep module analysis
+@struct_search_functions "router" - Find related functions
+@struct_find_callers function_name - Impact assessment
+@struct_generate_report - Comprehensive documentation
+```
+
+## Technical Best Practices
+
+### **Performance Optimization**
+- **Incremental analysis:** Only regenerate when needed (1+ hour cache)
+- **Modular index:** Use .llmstruct_index/ for detailed per-module work
+- **Exclude patterns:** Skip tests/, __pycache__, venv/ for performance
+- **Parallel workflows:** struct_tools + RAG can run simultaneously
+
+### **Quality Gates**
+- **Pre-epic:** Generate baseline struct.json + report
+- **Pre-commit:** Analyze changed modules for impact assessment
+- **Pre-merge:** Compare struct.json diff for architectural changes
+- **Post-epic:** Document structural insights and lessons learned
+
+### **File Management**
+- **Dedicated struct files:** Different projects get separate struct.json files
+- **Versioned reports:** Keep architecture_report_YYYY-MM-DD.md for history
+- **Gitignore:** Add struct.json to .gitignore for active development (too dynamic)
+- **Archive:** Save struct.json snapshots for major milestones
+
+## Integration with Existing Workflow
+
+### **Complementary to RAG**
+- **RAG:** Rules retrieval, context enhancement, daily development support
+- **struct_tools:** Architecture analysis, refactoring planning, complexity assessment
+- **Together:** Complete development intelligence system
+
+### **Rule Dependencies**
+- @017_struct_tools_integration: Basic integration patterns
+- @core/006_best_practices_recording: Documentation requirements
+- @session_log: Log all structural analysis usage and insights
+
+## Complexity Assessment Guidelines
+
+### **Complexity Score Interpretation**
+- **0-10:** Simple module (low risk refactoring)
+- **11-30:** Medium complexity (standard review process)
+- **31-50:** High complexity (detailed impact analysis required)
+- **51+:** Critical complexity (architectural review mandatory)
+
+### **Refactoring Risk Levels**
+- **LOW:** No external dependencies (safe to refactor)
+- **MEDIUM:** Few dependencies (coordinate with affected teams)
+- **HIGH:** Multiple dependencies (comprehensive testing required)
+- **CRITICAL:** Heavily used (architectural review and phased approach)
+
+## Common Usage Patterns
+
+### **Epic Planning**
+1. Generate fresh struct.json baseline
+2. Identify high-complexity modules requiring attention
+3. Assess refactoring risks for planned changes
+4. Document architectural constraints and opportunities
+
+### **Code Review**
+1. Analyze changed modules for complexity growth
+2. Check call graph changes for unintended dependencies
+3. Validate that new code follows established patterns
+4. Assess impact on overall architecture
+
+### **Knowledge Transfer**
+1. Generate comprehensive architecture report
+2. Include complexity metrics and dependency graphs
+3. Highlight critical modules and integration points
+4. Document architectural decisions and trade-offs
+
+## @-References
+- @src/struct_tools/: Dedicated structural analysis package
+- @struct.json: Generated project structure analysis
+- @.llmstruct_index/: Modular per-file analysis
+- @session_log: For logging structural analysis usage and insights
+- @017_struct_tools_integration: Integration patterns with development workflow
+
+## Fallback
+- If struct_tools unavailable, use manual codebase analysis with file listings
+- If llmstruct unavailable, document architectural constraints for manual analysis
+- Log fallback usage in session_log for improvement tracking
+
+## Quality Metrics
+- Reduction in architectural surprises during refactoring
+- Improved accuracy in effort estimation for complex changes
+- Better documentation of architectural decisions and trade-offs
+- Faster onboarding through comprehensive structural understanding
+
+## Lessons Learned Integration
+- All structural insights that guide development decisions must be logged
+- Architectural patterns and anti-patterns discovered should be documented
+- Performance bottlenecks identified through complexity analysis should be tracked
+- Integration challenges and solutions should be recorded for future reference
+

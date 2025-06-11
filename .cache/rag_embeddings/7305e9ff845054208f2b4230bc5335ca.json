@@ -1,0 +1,7 @@
+{
+  "text_preview": "Generate fresh struct.json baseline\n2Identify high-complexity modules requiring attention\n3. Assess ",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

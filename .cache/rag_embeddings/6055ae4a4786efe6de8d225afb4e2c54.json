@@ -1,0 +1,7 @@
+{
+  "text_preview": "Document architectural decisions and trade-offs\n@-References\n- @src/struct_tools/: Dedicated structu",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}
