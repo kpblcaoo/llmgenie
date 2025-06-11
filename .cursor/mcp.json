@@ -1,12 +1,14 @@
 {
   "mcpServers": {
-    "llmgenie-handoff-validator": {
-      "description": "llmgenie handoff validation and workflow management tools",
-      "transport": {
-        "type": "sse",
-        "url": "http://localhost:8000/mcp"
-      },
-      "env": {}
+    "llmgenie-rag": {
+      "command": "python",
+      "args": [
+        "-m",
+        "rag_context.interfaces.mcp_server"
+      ],
+      "env": {
+        "PYTHONPATH": "."
+      }
     }
   }
-} 
+}
