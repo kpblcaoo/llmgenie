@@ -10,7 +10,7 @@ import os
 # Add src to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-from llmgenie.api.main import app
+from core.llmgenie.api.main import app
 
 client = TestClient(app)
 

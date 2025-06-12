@@ -1,7 +1,0 @@
-{
-  "text_preview": "---\ndescription: Restore focus using meta-log and ai_workflow.json if lost.\nglobs:\nalwaysApply: fals",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

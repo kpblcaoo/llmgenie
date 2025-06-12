@@ -1,7 +1,0 @@
-{
-  "text_preview": "Create a FastAPI endpoint for file upload",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

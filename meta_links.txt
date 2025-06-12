@@ -1,3 +1,0 @@
-.cursor/rules/core/001_ai_best_practices.mdc_:- role: core
-.cursor/rules/core/001_ai_best_practices.mdc_:- applies to: [meta, discuss, code]
-.cursor/rules/core/001_ai_best_practices.mdc_:- links: @data/ai_workflow.json, @data/logs/sessions/session_<current>.jsonl, @project_state.json, @docs/decision_memos/

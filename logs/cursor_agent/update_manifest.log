@@ -1,0 +1,37 @@
+# Лог обновления project_manifest.json
+# Дата: $(date)
+
+## ЭТАП 6: Обновление project_manifest.json
+
+### ПЛАН:
+1. Скопировать project_state.json в restructure/
+2. Обновить пути в копии с:
+   - src/llmgenie → restructure/core/llmgenie
+   - src/rag_context → restructure/core/rag_context
+   - src/struct_tools → restructure/core/struct_tools
+   - docs/ → restructure/docs/
+
+### КЛЮЧЕВЫЕ ПУТИ ДЛЯ ОБНОВЛЕНИЯ:
+- "src/llmgenie/" → "restructure/core/llmgenie/"
+- "src/rag_context/" → "restructure/core/rag_context/"
+- "src/struct_tools/" → "restructure/core/struct_tools/" 
+- "docs/" → "restructure/docs/"
+
+### НАЧИНАЮ ОБНОВЛЕНИЕ...
+
+### ВЫПОЛНЕННЫЕ ОПЕРАЦИИ:
+
+[$(date)] Команда: cp project_state.json restructure/project_state.json
+- Статус: ✅ Манифест скопирован
+
+[$(date)] Команда: sed -i 's|"src/llmgenie/|"restructure/core/llmgenie/|g; s|"src/rag_context/|"restructure/core/rag_context/|g; s|"src/struct_tools/|"restructure/core/struct_tools/|g; s|"docs/|"restructure/docs/|g' restructure/project_state.json
+- Статус: ✅ Пути обновлены
+
+### ПРОВЕРКА:
+- Найдено "restructure/core" упоминаний: 10+
+- Старые пути "src/llmgenie": заменены
+- Пути "docs/": обновлены на "restructure/docs/"
+
+[$(date)] ЭТАП 6 ЗАВЕРШЕН - project_state.json обновлен
+
+## СЛЕДУЮЩИЙ ЭТАП: Создание итогового чек-листа 

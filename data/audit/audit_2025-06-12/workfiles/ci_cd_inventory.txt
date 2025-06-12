@@ -1,2 +1,0 @@
-итого 8,0K
--rw-rw-r-- 1 kpblc kpblc 7,1K июн  9 18:12 ci.yml

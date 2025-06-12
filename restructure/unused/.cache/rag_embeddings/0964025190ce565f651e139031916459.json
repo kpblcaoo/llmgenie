@@ -1,7 +1,0 @@
-{
-  "text_preview": "Quality Metrics Pattern\npython\nOrchestrationResult(\nexecution_time=duration,\ncoordination_efficiency",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

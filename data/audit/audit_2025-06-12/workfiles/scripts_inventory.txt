@@ -1,8 +1,0 @@
-итого 28K
--rwxr-xr-x 1 kpblc kpblc 1,9K июн  6 10:38 epic_cleanup_commands.sh
--rwxrwxr-x 1 kpblc kpblc 1,1K июн 11 11:04 prepare_for_cursor.sh
--rwxrwxr-x 1 kpblc kpblc 1,3K июн 11 11:04 start_mcp_server_cursor.sh
--rwxrwxr-x 1 kpblc kpblc 2,8K июн 11 11:04 start_mcp_server.sh
--rwxrwxr-x 1 kpblc kpblc  725 июн 11 11:04 struct-tools
--rwxrwxr-x 1 kpblc kpblc  720 июн  9 19:01 test_fastmcp.py
-drwxrwxr-x 2 kpblc kpblc 4,0K июн  9 18:12 tools

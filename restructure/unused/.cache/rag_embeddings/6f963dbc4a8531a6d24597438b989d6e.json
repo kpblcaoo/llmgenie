@@ -1,7 +1,0 @@
-{
-  "text_preview": "Always work in an active session linked to an epic.\nalwaysApply: true\n---\nMeta\nSession Management (A",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

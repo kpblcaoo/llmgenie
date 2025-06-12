@@ -1,7 +1,0 @@
-{
-  "text_preview": "Phase Structure\n\nPhase 1: Reconnaissance (proven detailed)\n├── 1A: Large file analysis (Gemini)\n├── ",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

@@ -1,7 +1,0 @@
-{
-  "text_preview": "---\ndescription:\nglobs:\nalwaysApply: false\n---\nMeta\nMCP Cursor Integration Best Practices (Atomic)\n-",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

@@ -1,7 +1,0 @@
-{
-  "text_preview": "---\ndescription: Rules must be designed for multi-environment portability (Cursor, VSCode, CLI, API)",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

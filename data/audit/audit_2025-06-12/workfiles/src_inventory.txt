@@ -1,5 +1,0 @@
-итого 464K
-drwxr-xr-x 9 kpblc kpblc 4,0K июн  9 19:00 llmgenie
-drwxrwxr-x 5 kpblc kpblc 4,0K июн 11 18:39 rag_context
--rw-rw-r-- 1 kpblc kpblc 451K июн 11 20:04 struct.json
-drwxrwxr-x 3 kpblc kpblc 4,0K июн 11 10:29 struct_tools

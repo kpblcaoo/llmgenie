@@ -1,7 +1,0 @@
-{
-  "text_preview": "---\ndescription: All rules must be validated with static analysis for cycles, redundancy, and invali",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

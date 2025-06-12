@@ -1,7 +1,0 @@
-{
-  "text_preview": "Ориентируйся на user rules, .cursor/rules/, data/ai_workflow.json, project_manifest.json, prompts_co",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

@@ -1,7 +1,0 @@
-{
-  "text_preview": "НЕ создавать 300+ строк тестов если уже есть 550+ строк\n✅ Follow These Practices\n1struct.json = SOUR",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

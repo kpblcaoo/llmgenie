@@ -1,0 +1,39 @@
+# Лог обновления импортов
+# Дата: $(date)
+
+## ЭТАП 2: Обновление импортов в restructure/core/
+
+### Найденные импорты для замены:
+Паттерн: from llmstruct → from core.llmgenie
+
+### Файлы с импортами:
+1. restructure/core/llmgenie/modules/commands/queue.py - 3 импорта
+2. restructure/core/llmgenie/modules/cli/copilot.py - 2 импорта  
+3. restructure/core/llmgenie/modules/cli/handlers_legacy.py - 6 импортов
+4. restructure/core/llmgenie/modules/cli/parse.py - 3 импорта
+5. restructure/core/llmgenie/modules/cli/query.py - 3 импорта
+6. restructure/core/llmgenie/modules/cli/analyze_duplicates.py - 1 импорт
+7. restructure/core/llmgenie/modules/cli/audit.py - 1 импорт
+8. restructure/core/llmgenie/modules/cli/handlers.py - 6 импортов
+9. restructure/core/llmgenie/modules/cli/utils.py - 1 комментарий
+10. restructure/core/llmgenie/modules/commands/metrics.py - 6 импортов
+11. restructure/core/llmgenie/cli.py - 13 импортов
+
+### Начинаю обновление...
+
+### ВЫПОЛНЕННЫЕ ОПЕРАЦИИ:
+[$(date)] Команда: find restructure/core/ -name "*.py" -exec sed -i 's/from llmstruct/from core.llmgenie/g' {} \;
+- Статус: ✅ Успешно
+
+[$(date)] Команда: find restructure/core/ -name "*.py" -exec sed -i 's/llmstruct\.toml/core.llmgenie.toml/g' {} \;
+- Статус: ✅ Успешно
+
+### РЕЗУЛЬТАТ ПРОВЕРКИ:
+- Старые импорты "from llmstruct": ❌ Не найдены (все заменены)
+- Новые импорты "from core.llmgenie": ✅ Найдены во всех файлах
+- Всего обновлено файлов: 11
+- Всего обновлено импортов: ~42
+
+[$(date)] ЭТАП 2 ЗАВЕРШЕН - Импорты успешно обновлены
+
+## СЛЕДУЮЩИЙ ЭТАП: Копирование документации 

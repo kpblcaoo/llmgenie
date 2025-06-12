@@ -1,0 +1,42 @@
+# Лог переноса неиспользуемых файлов
+# Дата: $(date)
+
+## ЭТАП 5: Перенос неиспользуемых файлов
+
+### КРИТЕРИИ ДЛЯ UNUSED:
+- Дублированные файлы
+- Тестовые файлы без значимости
+- Очевидно устаревшие файлы
+- Большие бинарные файлы (bfg.jar)
+
+### НАЙДЕННЫЕ КАНДИДАТЫ:
+1. bfg.jar (14MB) - утилита для очистки git, может быть ненужна
+2. .cursor.zip - возможно устаревший экспорт
+3. architecture_report_demo.md - дублирует architecture_report.md
+4. Возможные кеш файлы в .cache/, .pytest_cache/
+
+### НАЧИНАЮ АНАЛИЗ И ПЕРЕНОС...
+
+### ВЫПОЛНЕННЫЕ ОПЕРАЦИИ:
+
+[$(date)] Команда: cp bfg.jar restructure/unused/ && cp .cursor.zip restructure/unused/ && cp architecture_report_demo.md restructure/unused/
+- Статус: ✅ Большие/дублированные файлы перенесены
+
+[$(date)] Команда: cp src/.llmstruct_index.zip* restructure/unused/
+- Статус: ✅ Кешированные индексы перенесены
+
+[$(date)] Команда: cp -r .cache restructure/unused/
+- Статус: ✅ Кеш папка перенесена (содержит rag_embeddings)
+
+### РЕЗУЛЬТАТ:
+- restructure/unused/bfg.jar (14MB)
+- restructure/unused/.cursor.zip 
+- restructure/unused/architecture_report_demo.md
+- restructure/unused/.llmstruct_index.zip
+- restructure/unused/.llmstruct_index.zip.1
+- restructure/unused/.cache/ (кеш эмбеддингов)
+- Всего перенесено: 6 элементов
+
+[$(date)] ЭТАП 5 ЗАВЕРШЕН - Неиспользуемые файлы перенесены
+
+## СЛЕДУЮЩИЙ ЭТАП: Обновление project_manifest.json 

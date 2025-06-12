@@ -1,7 +1,0 @@
-{
-  "text_preview": "Log every interaction and analyze logs for improvements.\nalwaysApply: true\n---\nMeta\nLogging & Retros",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

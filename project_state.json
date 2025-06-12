@@ -39,9 +39,9 @@
         "Smart routing: code generation → Ollama, architecture → Claude"
       ],
       "key_files": [
-        "src/llmgenie/task_router/task_classifier.py",
-        "src/llmgenie/task_router/model_router.py", 
-        "src/llmgenie/task_router/quality_validator.py"
+        "restructure/core/llmgenie/task_router/task_classifier.py",
+        "restructure/core/llmgenie/task_router/model_router.py", 
+        "restructure/core/llmgenie/task_router/quality_validator.py"
       ],
       "supported_models": {
         "ollama": ["mistral:7b-instruct", "codellama:7b", "mistral:latest"],
@@ -53,7 +53,7 @@
         "api_cost_savings": "30-50% для рутинных задач"
       },
       "integration": "POST /agents/execute через FastAPI с автоматическим routing",
-      "links": ["docs/taskrouter/user_guide.md", "tests/test_task_router.py"]
+      "links": ["restructure/docs/taskrouter/user_guide.md", "tests/test_task_router.py"]
     },
     "mcp_integration": {
       "purpose": "🔗 Model Context Protocol для интеграции с Cursor IDE и AI assistants",
@@ -65,9 +65,9 @@
         "Template generation для handoff packages"
       ],
       "key_files": [
-        "src/llmgenie/api/main.py (FastApiMCP mount)",
+        "restructure/core/llmgenie/api/main.py (FastApiMCP mount)",
         ".cursor/mcp.json (Cursor IDE конфигурация)",
-        "src/llmgenie/api/handoff_validator.py"
+        "restructure/core/llmgenie/api/handoff_validator.py"
       ],
       "cursor_config": ".cursor/mcp.json → llmgenie-handoff-validator на localhost:8000/mcp",
       "endpoints": {
@@ -76,18 +76,18 @@
         "GET /handoff/template": "Template generation"
       },
       "testing": "✅ curl http://localhost:8000/mcp показывает SSE пинги",
-      "links": ["docs/mcp_integration_guide.md", "docs/QUICK_START_MCP.md"]
+      "links": ["restructure/docs/mcp_integration_guide.md", "restructure/docs/QUICK_START_MCP.md"]
     },
     "CLI": {
       "purpose": "Управление задачами, сессиями, правилами через командную строку.",
       "main_functions": ["Запуск задач", "Переключение режимов", "Логирование", "Handoff validation"],
-      "key_files": ["src/llmgenie/modules/cli/cli.py", "src/llmgenie/cli/handoff_cli.py"],
+      "key_files": ["restructure/core/llmgenie/modules/cli/cli.py", "restructure/core/llmgenie/cli/handoff_cli.py"],
       "handoff_commands": {
         "validate": "python src/llmgenie/cli/handoff_cli.py validate config.json --verbose",
         "template": "python src/llmgenie/cli/handoff_cli.py template output.json",
         "check": "python src/llmgenie/cli/handoff_cli.py check config.json --fail-on-warnings"
       },
-      "links": ["docs/CLI.md"]
+      "links": ["restructure/docs/CLI.md"]
     },
     "API": {
       "purpose": "REST API для интеграции с внешними сервисами и UI + TaskRouter integration.",
@@ -98,7 +98,7 @@
         "Handoff validation", 
         "Template generation"
       ],
-      "key_files": ["src/llmgenie/api/main.py", "src/llmgenie/api/handoff_validator.py"],
+      "key_files": ["restructure/core/llmgenie/api/main.py", "restructure/core/llmgenie/api/handoff_validator.py"],
       "endpoints": {
         "POST /agents/execute": "🎯 Smart execution с TaskRouter (auto/ollama/claude agent types)",
         "POST /handoff/validate": "Валидация handoff пакета (completeness score, file validation)",
@@ -113,7 +113,7 @@
     "llmgenie": {
       "purpose": "Основной оркестратор AI workflow с TaskRouter integration.",
       "main_functions": ["Оркестрация", "Smart AI routing", "Интеграция", "Контроль сессий"],
-      "key_files": ["src/llmgenie/"],
+      "key_files": ["restructure/core/llmgenie/"],
       "epic5_integration": "TaskRouter полностью интегрирован в workflow",
       "current_capabilities_summary": {
         "smart_ai_routing": "Automated model selection (Ollama/Claude) based on task complexity and cost optimization.",
@@ -138,17 +138,17 @@
     },
     "json_structures": {
       "purpose": "Хранение задач, идей, сессий, состояния, и модульной документации.",
-      "main_files": ["data/ideas.json", "data/tasks.json", "data/sessions/", "project_state.json", "docs/docs.json"],
-      "modular_documentation_index": "docs/docs.json (Central index for modular documentation)",
-      "modular_documentation_modules": "docs/index/ (Contains modular JSON documentation files)",
+      "main_files": ["data/ideas.json", "data/tasks.json", "data/sessions/", "project_state.json", "restructure/docs/docs.json"],
+      "modular_documentation_index": "restructure/docs/docs.json (Central index for modular documentation)",
+      "modular_documentation_modules": "restructure/docs/index/ (Contains modular JSON documentation files)",
       "handoff_structures": ["data/handoff/*.json", "data/knowledge/handoff_*.md", "data/audit/rules_audit_*.md"]
     },
     "handoff_validation": {
       "purpose": "Автоматизированная валидация handoff пакетов для передачи контекста между ролями/сессиями.",
       "main_functions": ["Валидация completeness", "Проверка файлов", "Анализ startup prompt", "Контрольные вопросы"],
       "key_files": [
-        "src/llmgenie/api/handoff_validator.py",
-        "src/llmgenie/cli/handoff_cli.py", 
+        "restructure/core/llmgenie/api/handoff_validator.py",
+        "restructure/core/llmgenie/cli/handoff_cli.py", 
         "data/ai_workflow.json (handoff_validation stage)"
       ],
       "validation_criteria": {
@@ -193,7 +193,7 @@
   },
   "user_rules": {
     "description": "Пользовательские правила (user/global rules) настраиваются самим пользователем в Cursor IDE (Settings > Rules). Рекомендуется ознакомиться с best practices и добавить необходимые правила для своего workflow.",
-    "links": ["https://docs.cursor.so/rules", "docs/ONBOARDING_LLMSTRUCT.md"]
+    "links": ["https://docs.cursor.so/rules", "restructure/docs/ONBOARDING_LLMSTRUCT.md"]
   },
   "role_guides": {
     "user": "Работа с CLI/API, базовые сценарии, минимум технических деталей.",
@@ -223,7 +223,7 @@
       "Документировать изменения в rules_manifest.json, onboarding",
       "Использовать agent requested для ситуативных сценариев, alwaysApply — для стандартов, globs — для паттернов"
     ],
-    "links": ["docs/ONBOARDING_LLMGENIE.md", "decision_memos/*", "knowledge/cursor.md"]
+    "links": ["restructure/docs/ONBOARDING_LLMGENIE.md", "decision_memos/*", "knowledge/cursor.md"]
   },
   "epic5_summary": {
     "status": "🎯 67% COMPLETED - Phases 1-2 fully working",

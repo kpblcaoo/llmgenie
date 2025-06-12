@@ -1,7 +1,0 @@
-{
-  "text_preview": "Executor Strategy Pattern\npython\nclass ParallelExecutor:\nasync def execute(self, task: Orchestration",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

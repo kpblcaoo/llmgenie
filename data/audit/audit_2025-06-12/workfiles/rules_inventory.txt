@@ -1,9 +1,0 @@
-итого 44K
-drwxr-xr-x 2 kpblc kpblc 4,0K июн  9 18:12 core
-drwxrwxr-x 2 kpblc kpblc 4,0K июн 11 23:25 core-rules
-drwxr-xr-x 3 kpblc kpblc 4,0K июн  9 18:12 roles
--rw-rw-r-- 1 kpblc kpblc  14K июн 11 11:04 rules_manifest.json
-drwxr-xr-x 2 kpblc kpblc 4,0K июн  6 12:54 security
-drwxr-xr-x 2 kpblc kpblc 4,0K июн  6 12:54 templates
-drwxrwxr-x 2 kpblc kpblc 4,0K июн 11 10:53 tools
-drwxr-xr-x 2 kpblc kpblc 4,0K июн 10 18:16 workflows

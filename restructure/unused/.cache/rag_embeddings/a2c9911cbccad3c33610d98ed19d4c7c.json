@@ -1,7 +1,0 @@
-{
-  "text_preview": "---\ndescription: When reviewing code or in [review] mode\nglobs:\nalwaysApply: false\n---\nMeta\nRole: Re",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

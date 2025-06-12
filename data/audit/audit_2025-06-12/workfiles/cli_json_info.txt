@@ -1,2 +1,0 @@
-ls: невозможно получить доступ к 'data/cli.json': Нет такого файла или каталога
-data/cli.json not found

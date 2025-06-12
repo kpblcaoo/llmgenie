@@ -1,7 +1,0 @@
-{
-  "text_preview": "logging interaction session event_log tech_log meta-log",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

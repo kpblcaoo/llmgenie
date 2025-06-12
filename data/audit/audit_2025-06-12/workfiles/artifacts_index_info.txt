@@ -1,2 +1,0 @@
-ls: невозможно получить доступ к 'data/artifacts_index.json': Нет такого файла или каталога
-data/artifacts_index.json not found

@@ -1,7 +1,0 @@
-{
-  "text_preview": "---\ndescription: May suggest hypotheses/ideas when contextually appropriate or when the user expects",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

@@ -1,7 +1,0 @@
-{
-  "text_preview": "Use only documented and approved AI features in workflow.\nalwaysApply: false\n---\nMeta\nAI Capabilitie",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

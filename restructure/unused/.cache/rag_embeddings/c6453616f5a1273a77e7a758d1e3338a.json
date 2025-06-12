@@ -1,7 +1,0 @@
-{
-  "text_preview": "---\ndescription:\nglobs:\nalwaysApply: false\n---\nMeta\nModular Architecture Patterns (Atomic)\n- Epic 5 ",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

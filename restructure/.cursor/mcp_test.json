@@ -1,9 +1,0 @@
-{
-  "mcpServers": {
-    "llmgenie-v2": {
-      "description": "llmgenie FastMCP server - new modular implementation",
-      "url": "sse://localhost:8001",
-      "env": {}
-    }
-  }
-} 

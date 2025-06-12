@@ -1,7 +1,0 @@
-{
-  "text_preview": "---\ndescription: Universal context transfer protocol for handoff between sessions, chats, roles, and",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

@@ -1,4 +1,0 @@
-
-This is a function definition in Python. The function is named `foo` and takes one argument, which we'll call `x`. The function body consists of a single expression, `return x * 2`, which returns the value of `x` multiplied by 2.
-
-So if you were to call this function with an argument `5`, for example, it would return `10`, since `5` multiplied by 2 is `10`.

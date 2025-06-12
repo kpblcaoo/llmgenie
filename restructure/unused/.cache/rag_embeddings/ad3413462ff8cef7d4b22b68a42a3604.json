@@ -1,7 +1,0 @@
-{
-  "text_preview": "4A.3 Self-Refine Pipeline implementation with MCP enhancement - should use Claude 4 Sonnet vs Gemini",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

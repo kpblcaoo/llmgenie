@@ -1,7 +1,0 @@
-{
-  "text_preview": "Task Classification → ✅ FULLY IMPLEMENTED\npython\nEXISTS: src/llmgenie/task_router/task_classifier.py",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

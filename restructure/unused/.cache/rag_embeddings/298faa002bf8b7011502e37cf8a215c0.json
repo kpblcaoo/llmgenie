@@ -1,7 +1,0 @@
-{
-  "text_preview": "---\ndescription: Enforce security audit checklist for all reviews and audits. Atomic rule with @-ref",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

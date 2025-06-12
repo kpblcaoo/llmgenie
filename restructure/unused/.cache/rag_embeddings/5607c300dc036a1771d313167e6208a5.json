@@ -1,7 +1,0 @@
-{
-  "text_preview": "---\ndescription: Project data, symlink policy, and data requirements.",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}

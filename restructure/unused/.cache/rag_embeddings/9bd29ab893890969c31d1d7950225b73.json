@@ -1,7 +1,0 @@
-{
-  "text_preview": "Write documentation for the project structure",
-  "embedding_shape": [
-    384
-  ],
-  "model": "all-MiniLM-L6-v2"
-}
