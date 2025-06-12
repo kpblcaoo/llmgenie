@@ -1,0 +1,28 @@
+{
+  "llmgenie": {
+    "version": "2.0.0",
+    "mode": "assistant",
+    "default_profile": "dev",
+    "logging": {
+      "level": "INFO",
+      "format": "structured",
+      "output": "logs/llmgenie.log"
+    },
+    "workspace": {
+      "projects_dir": "projects/",
+      "temp_dir": "tmp/",
+      "cache_dir": ".cache/"
+    },
+    "ai_models": {
+      "default": "claude-3-sonnet",
+      "fallback": "gpt-4",
+      "local": "ollama/llama3"
+    },
+    "features": {
+      "rag_context": true,
+      "struct_tools": true,
+      "mcp_server": true,
+      "auto_logging": true
+    }
+  }
+} 

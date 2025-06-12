@@ -1,0 +1,25 @@
+{
+  "profile": "dev",
+  "description": "Development profile for llmgenie",
+  "extends": "defaults",
+  "overrides": {
+    "logging": {
+      "level": "DEBUG",
+      "output": "logs/dev.log"
+    },
+    "features": {
+      "debug_mode": true,
+      "verbose_output": true,
+      "auto_reload": true
+    },
+    "ai_models": {
+      "default": "claude-3-sonnet",
+      "temperature": 0.1,
+      "max_tokens": 4000
+    },
+    "workspace": {
+      "auto_backup": true,
+      "git_integration": true
+    }
+  }
+} 

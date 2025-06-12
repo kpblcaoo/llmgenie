@@ -1,0 +1,42 @@
+{
+  "project_name": "example_project",
+  "description": "Example project configuration override",
+  "extends": "tool",
+  "overrides": {
+    "workspace": {
+      "project_root": "projects/example_project/",
+      "ignore_patterns": [
+        "node_modules/",
+        ".git/",
+        "dist/",
+        "build/",
+        "__pycache__/"
+      ]
+    },
+    "features": {
+      "language_specific": {
+        "python": true,
+        "javascript": true,
+        "typescript": false
+      },
+      "frameworks": {
+        "react": false,
+        "django": true,
+        "fastapi": true
+      }
+    },
+    "ai_models": {
+      "context_window": 16000,
+      "specialized_models": {
+        "code_review": "claude-3-sonnet",
+        "documentation": "gpt-4",
+        "refactoring": "claude-3-sonnet"
+      }
+    },
+    "integrations": {
+      "git_hooks": true,
+      "pre_commit": true,
+      "ci_cd": "github_actions"
+    }
+  }
+} 
