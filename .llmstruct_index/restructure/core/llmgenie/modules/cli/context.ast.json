@@ -1,0 +1,12 @@
+{
+  "module": "restructure/core/llmgenie/modules/cli/context.py",
+  "functions": [
+    {
+      "name": "context",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

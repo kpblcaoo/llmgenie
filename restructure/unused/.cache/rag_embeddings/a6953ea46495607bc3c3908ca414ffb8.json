@@ -1,0 +1,7 @@
+{
+  "text_preview": "Define project scope and data policies.\nalwaysApply: false\n---\nMeta\nProject Scope (Atomic)\n- Define ",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

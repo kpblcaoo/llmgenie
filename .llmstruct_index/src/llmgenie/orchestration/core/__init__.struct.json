@@ -1,0 +1,20 @@
+{
+  "module_id": "src.llmgenie.orchestration.core.__init__",
+  "path": "src/llmgenie/orchestration/core/__init__.py",
+  "category": "cli",
+  "module_doc": "Core types and models for Agent Orchestration\n\nEpic 5 Phase 3.1: Modular orchestration architecture\nSingle responsibility: Define core types and data models",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [
+    "AgentCoordination",
+    "ExecutionMode",
+    "OrchestrationResult",
+    "OrchestrationTask",
+    "coordination_types",
+    "execution_modes",
+    "task_models"
+  ],
+  "hash": "8304eeadcb25757d10007da0558bd44a097fa0d3a5c33b628f15392e17f797bf",
+  "artifact_id": "3313ac3d-194d-436b-a5bd-5abd4c230c56"
+}

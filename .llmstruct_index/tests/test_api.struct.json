@@ -48,20 +48,20 @@
   "classes": [],
   "callgraph": {
     "test_health_check": [
-      "client.get",
-      "response.json"
+      "response.json",
+      "client.get"
     ],
     "test_workflow_modes": [
-      "client.get",
-      "response.json"
+      "response.json",
+      "client.get"
     ],
     "test_agent_execute": [
-      "client.post",
-      "response.json"
+      "response.json",
+      "client.post"
     ],
     "test_mcp_tools_placeholder": [
-      "client.post",
-      "response.json"
+      "response.json",
+      "client.post"
     ]
   },
   "dependencies": [
@@ -74,5 +74,5 @@
     "sys"
   ],
   "hash": "1a2b1fd51aa2161c4ce2e92b7ab2b226923863ee708de205c59d35e5fbd83131",
-  "artifact_id": "af2d4ff9-a8ba-40cc-b04d-0ab8f5cbe191"
+  "artifact_id": "93268be8-edf2-4d45-9a11-725861bd5e70"
 }

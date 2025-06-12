@@ -1,0 +1,25 @@
+{
+  "module_id": "restructure.core.llmgenie.task_router.__init__",
+  "path": "restructure/core/llmgenie/task_router/__init__.py",
+  "category": "cli",
+  "module_doc": "Task Router Module for LLMGenie\n\nIntelligent task routing between Claude and Ollama based on:\n- Task complexity analysis\n- Model capability matching  \n- Performance optimization\n- Quality requirements\n\nIntegrates with existing FastAPI agent infrastructure.",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [
+    "ComplexityLevel",
+    "ModelChoice",
+    "ModelRouter",
+    "QualityResult",
+    "QualityScore",
+    "QualityValidator",
+    "RoutingDecision",
+    "TaskClassifier",
+    "TaskType",
+    "model_router",
+    "quality_validator",
+    "task_classifier"
+  ],
+  "hash": "4d7f0b94bbf729690622d92f329ef04a66e4caa3a3cf3f874e745945b155d75a",
+  "artifact_id": "b5f0c543-e45d-47e6-a2e3-db9d6198aebf"
+}

@@ -32,15 +32,15 @@
   "classes": [],
   "callgraph": {
     "interactive": [
-      "interactive_legacy",
+      "logging.warning",
       "interactive_modular",
-      "logging.warning"
+      "interactive_legacy"
     ],
     "interactive_modular": [
+      "logging.info",
       "create_cli_core",
       "cli_core.run_interactive_mode",
-      "hasattr",
-      "logging.info"
+      "hasattr"
     ]
   },
   "dependencies": [
@@ -69,5 +69,5 @@
     "write_to_file"
   ],
   "hash": "51450e4006a43d948e918bd87e43874e584f08c569cdbe9f89aff58c9d6293a2",
-  "artifact_id": "093aa9e1-7c72-4fb1-946c-966617561977"
+  "artifact_id": "aa727337-cad1-430b-b413-9763945f038c"
 }

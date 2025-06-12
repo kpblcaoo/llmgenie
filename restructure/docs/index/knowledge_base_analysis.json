@@ -1,0 +1,20 @@
+{
+  "title": "Knowledge Base Analysis (data/knowledge/)",
+  "description": "Inventory and analysis of files within the data/knowledge/ directory.",
+  "docs": [
+    {
+      "path": "data/knowledge/README.md",
+      "title": "Knowledge Base README",
+      "description": "Overview and structure of the LLMGenie Knowledge Base.",
+      "status": "Analyzed",
+      "summary_ai": "Centralized knowledge base for AI assistants and development team, detailing working functions of Epic 5 TaskRouter + Ollama integration. Structured into /techs, /envs, /models, /templates directories, with core files like common.json and handoff_*.md. Emphasizes structured, up-to-date, and integrated principles. Provides guidelines for AI and human use."
+    },
+    {
+      "path": "data/knowledge/techs/mcp_model_context_protocol.md",
+      "title": "Model Context Protocol (MCP) - Technical Reference",
+      "description": "Detailed technical guide for Model Context Protocol (MCP) including implementation status, core capabilities, architecture, Ollama integration, quality control, performance, and best practices.",
+      "status": "Analyzed",
+      "summary_ai": "Comprehensive technical guide for MCP, detailing its role in Smart AI Routing, Handoff Validation, and Cursor IDE integration. Confirms working implementation of MCP Server, TaskRouter, and FastApiMCP. Covers transport layers (stdio, SSE, HTTP), function types (Tools, Resources, Prompts), Ollama integration patterns for task routing and quality control, performance metrics, and implementation best practices. Crucial for understanding LLM interaction and modular documentation structure."
+    }
+  ]
+} 

@@ -1,0 +1,18 @@
+{
+  "module_id": "test_handoff_validation",
+  "path": "test_handoff_validation.py",
+  "category": "test",
+  "module_doc": "",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [
+    "HandoffFile",
+    "HandoffPackage",
+    "HandoffValidator",
+    "llmgenie.api.handoff_validator",
+    "sys"
+  ],
+  "hash": "73f23cc4fb5bd815a41be988ae5fdd22508789da8b8d325d0fd5d819f604cb39",
+  "artifact_id": "84a89d63-8682-491c-9c01-dd1110a41780"
+}

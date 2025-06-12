@@ -1,0 +1,116 @@
+{
+  "module_id": "restructure.core.llmgenie.cli",
+  "path": "restructure/core/llmgenie/cli.py",
+  "category": "core",
+  "module_doc": "LLMStruct CLI - Main entry point for the command-line interface.",
+  "functions": [
+    {
+      "name": "main",
+      "docstring": "Command-line interface for LLMstruct.",
+      "line_range": [
+        55,
+        318
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "normalize_patterns",
+      "docstring": "",
+      "line_range": [
+        281,
+        292
+      ],
+      "parameters": [
+        "arglist"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "main": [
+      "query_parser.add_argument",
+      "parse_parser.add_argument",
+      "parser.parse_args",
+      "dogfood_parser.add_argument",
+      "audit_parser.add_argument",
+      "argparse.ArgumentParser",
+      "review_parser.add_argument",
+      "copilot_parser.add_argument",
+      "parser.add_subparsers",
+      "subparsers.add_parser",
+      "duplicates_parser.add_argument",
+      "epic.add_epic_cli_subparser",
+      "context_parser.add_argument"
+    ],
+    "normalize_patterns": [
+      "result.extend",
+      "p.strip",
+      "item.split",
+      "result.append",
+      "item.strip"
+    ]
+  },
+  "dependencies": [
+    "JSONCache",
+    "LLMClient",
+    "List",
+    "Optional",
+    "Path",
+    "analyze_duplicates",
+    "argparse",
+    "asyncio",
+    "attach_to_llm_request",
+    "audit",
+    "cli_core",
+    "context",
+    "copilot",
+    "core.llmgenie",
+    "core.llmgenie.cache",
+    "core.llmgenie.generators.json_generator",
+    "core.llmgenie.modules.cli",
+    "core.llmgenie.modules.cli.analyze_duplicates",
+    "core.llmgenie.modules.cli.audit",
+    "core.llmgenie.modules.cli.context",
+    "core.llmgenie.modules.cli.copilot",
+    "core.llmgenie.modules.cli.dogfood",
+    "core.llmgenie.modules.cli.handlers",
+    "core.llmgenie.modules.cli.parse",
+    "core.llmgenie.modules.cli.query",
+    "core.llmgenie.modules.cli.review",
+    "core.llmgenie.modules.cli.utils",
+    "core.llmgenie.modules.commands.queue",
+    "core.llmgenie.self_run",
+    "create_cli_core",
+    "dogfood",
+    "epic",
+    "generate_json",
+    "get_folder_structure",
+    "initialize_copilot",
+    "interactive",
+    "interactive_legacy",
+    "interactive_modular",
+    "json",
+    "load_config",
+    "load_gitignore",
+    "logging",
+    "os",
+    "parse",
+    "parse_files_from_response",
+    "pathlib",
+    "process_cli_queue_enhanced",
+    "query",
+    "re",
+    "read_file_content",
+    "review",
+    "shutil",
+    "sys",
+    "time",
+    "toml",
+    "typing",
+    "write_to_file"
+  ],
+  "hash": "490033407f065a15e63e0682825a90bf9d2a9736f6a2f2f8ec71545d08f8dc9b",
+  "artifact_id": "d89c2510-7501-4b54-8c94-df236ae56a97"
+}

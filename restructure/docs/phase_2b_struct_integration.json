@@ -1,0 +1,225 @@
+{
+  "timestamp": "2025-06-10T22:26:28.284198",
+  "phase": "2B_struct_integration_testing",
+  "project_stats": {
+    "total_modules": 42,
+    "total_functions": 180,
+    "total_classes": 37
+  },
+  "routing_summary": {
+    "total_tasks": 16,
+    "model_distribution": {
+      "mistral:7b-instruct": 6,
+      "claude-3-5-sonnet-20241022": 10
+    },
+    "complexity_analysis": {
+      "medium": {
+        "mistral:7b-instruct": 5
+      },
+      "high": {
+        "claude-3-5-sonnet-20241022": 4,
+        "mistral:7b-instruct": 1
+      },
+      "very_high": {
+        "claude-3-5-sonnet-20241022": 6
+      }
+    },
+    "routing_concerns": [
+      "1 high complexity tasks routed to Mistral"
+    ]
+  },
+  "detailed_results": [
+    {
+      "task_id": 1,
+      "task_type": "code_generation",
+      "task": "Generate unit tests for the _log_coordination_event function in llmgenie.orchestration.agent_orchestrator",
+      "context": "Module: llmgenie.orchestration.agent_orchestrator, Function: _log_coordination_event",
+      "complexity": "medium",
+      "selected_model": "mistral:7b-instruct",
+      "routing_time_ms": 0.81,
+      "confidence": 0.5,
+      "reasoning": "Task: simple_query | Complexity: simple | Selected: mistral:7b-instruct | Task classified as simple_query with simple complexity. Ollama preferred: routine task matching established patterns.",
+      "fallback": "claude-3-5-sonnet-20241022"
+    },
+    {
+      "task_id": 2,
+      "task_type": "code_review",
+      "task": "Review the implementation of _log_coordination_event for potential improvements",
+      "context": "Module: llmgenie.orchestration.agent_orchestrator, Function: _log_coordination_event",
+      "complexity": "high",
+      "selected_model": "claude-3-5-sonnet-20241022",
+      "routing_time_ms": 0.06,
+      "confidence": 0.5,
+      "reasoning": "Task: code_review | Complexity: simple | Selected: claude-3-5-sonnet-20241022 | Task classified as code_review with simple complexity. Claude preferred: complex reasoning or critical decision required.",
+      "fallback": "mistral:7b-instruct"
+    },
+    {
+      "task_id": 3,
+      "task_type": "documentation",
+      "task": "Create comprehensive documentation for OrchestrationTask class",
+      "context": "Module: llmgenie.orchestration.agent_orchestrator, Class: OrchestrationTask",
+      "complexity": "medium",
+      "selected_model": "mistral:7b-instruct",
+      "routing_time_ms": 0.04,
+      "confidence": 0.8,
+      "reasoning": "Task: documentation | Complexity: simple | Selected: mistral:7b-instruct | Task classified as documentation with simple complexity. Ollama preferred: routine task matching established patterns.",
+      "fallback": "claude-3-5-sonnet-20241022"
+    },
+    {
+      "task_id": 4,
+      "task_type": "refactoring",
+      "task": "Suggest refactoring strategies for OrchestrationTask to improve maintainability",
+      "context": "Module: llmgenie.orchestration.agent_orchestrator, Class: OrchestrationTask",
+      "complexity": "high",
+      "selected_model": "mistral:7b-instruct",
+      "routing_time_ms": 0.05,
+      "confidence": 0.5,
+      "reasoning": "Task: refactoring | Complexity: simple | Selected: mistral:7b-instruct | Task classified as refactoring with simple complexity. Mixed complexity: consider hybrid approach or quality validation.",
+      "fallback": "claude-3-5-sonnet-20241022"
+    },
+    {
+      "task_id": 5,
+      "task_type": "architecture_planning",
+      "task": "Analyze and optimize dependencies for llmgenie.orchestration.agent_orchestrator module",
+      "context": "Module: llmgenie.orchestration.agent_orchestrator, Dependencies: 20",
+      "complexity": "very_high",
+      "selected_model": "claude-3-5-sonnet-20241022",
+      "routing_time_ms": 0.05,
+      "confidence": 0.5,
+      "reasoning": "Task: refactoring | Complexity: complex | Selected: claude-3-5-sonnet-20241022 | Task classified as refactoring with complex complexity. Claude preferred: complex reasoning or critical decision required.",
+      "fallback": "mistral:7b-instruct"
+    },
+    {
+      "task_id": 6,
+      "task_type": "code_generation",
+      "task": "Generate unit tests for the cmd_services function in llmgenie.modules.commands.services",
+      "context": "Module: llmgenie.modules.commands.services, Function: cmd_services",
+      "complexity": "medium",
+      "selected_model": "mistral:7b-instruct",
+      "routing_time_ms": 0.05,
+      "confidence": 0.5,
+      "reasoning": "Task: simple_query | Complexity: simple | Selected: mistral:7b-instruct | Task classified as simple_query with simple complexity. Ollama preferred: routine task matching established patterns.",
+      "fallback": "claude-3-5-sonnet-20241022"
+    },
+    {
+      "task_id": 7,
+      "task_type": "code_review",
+      "task": "Review the implementation of cmd_services for potential improvements",
+      "context": "Module: llmgenie.modules.commands.services, Function: cmd_services",
+      "complexity": "high",
+      "selected_model": "claude-3-5-sonnet-20241022",
+      "routing_time_ms": 0.08,
+      "confidence": 0.5,
+      "reasoning": "Task: code_review | Complexity: simple | Selected: claude-3-5-sonnet-20241022 | Task classified as code_review with simple complexity. Claude preferred: complex reasoning or critical decision required.",
+      "fallback": "mistral:7b-instruct"
+    },
+    {
+      "task_id": 8,
+      "task_type": "architecture_planning",
+      "task": "Analyze and optimize dependencies for llmgenie.modules.commands.services module",
+      "context": "Module: llmgenie.modules.commands.services, Dependencies: 8",
+      "complexity": "very_high",
+      "selected_model": "claude-3-5-sonnet-20241022",
+      "routing_time_ms": 0.08,
+      "confidence": 0.5,
+      "reasoning": "Task: refactoring | Complexity: complex | Selected: claude-3-5-sonnet-20241022 | Task classified as refactoring with complex complexity. Claude preferred: complex reasoning or critical decision required.",
+      "fallback": "mistral:7b-instruct"
+    },
+    {
+      "task_id": 9,
+      "task_type": "architecture_planning",
+      "task": "Analyze and optimize dependencies for llmgenie.orchestration.__init__ module",
+      "context": "Module: llmgenie.orchestration.__init__, Dependencies: 11",
+      "complexity": "very_high",
+      "selected_model": "claude-3-5-sonnet-20241022",
+      "routing_time_ms": 0.08,
+      "confidence": 0.5,
+      "reasoning": "Task: refactoring | Complexity: complex | Selected: claude-3-5-sonnet-20241022 | Task classified as refactoring with complex complexity. Claude preferred: complex reasoning or critical decision required.",
+      "fallback": "mistral:7b-instruct"
+    },
+    {
+      "task_id": 10,
+      "task_type": "code_generation",
+      "task": "Generate unit tests for the get_agent_status function in llmgenie.mcp.server",
+      "context": "Module: llmgenie.mcp.server, Function: get_agent_status",
+      "complexity": "medium",
+      "selected_model": "mistral:7b-instruct",
+      "routing_time_ms": 0.08,
+      "confidence": 0.5,
+      "reasoning": "Task: simple_query | Complexity: simple | Selected: mistral:7b-instruct | Task classified as simple_query with simple complexity. Ollama preferred: routine task matching established patterns.",
+      "fallback": "claude-3-5-sonnet-20241022"
+    },
+    {
+      "task_id": 11,
+      "task_type": "code_review",
+      "task": "Review the implementation of get_agent_status for potential improvements",
+      "context": "Module: llmgenie.mcp.server, Function: get_agent_status",
+      "complexity": "high",
+      "selected_model": "claude-3-5-sonnet-20241022",
+      "routing_time_ms": 0.08,
+      "confidence": 0.5,
+      "reasoning": "Task: code_review | Complexity: simple | Selected: claude-3-5-sonnet-20241022 | Task classified as code_review with simple complexity. Claude preferred: complex reasoning or critical decision required.",
+      "fallback": "mistral:7b-instruct"
+    },
+    {
+      "task_id": 12,
+      "task_type": "architecture_planning",
+      "task": "Analyze and optimize dependencies for llmgenie.mcp.server module",
+      "context": "Module: llmgenie.mcp.server, Dependencies: 21",
+      "complexity": "very_high",
+      "selected_model": "claude-3-5-sonnet-20241022",
+      "routing_time_ms": 0.07,
+      "confidence": 0.5,
+      "reasoning": "Task: refactoring | Complexity: complex | Selected: claude-3-5-sonnet-20241022 | Task classified as refactoring with complex complexity. Claude preferred: complex reasoning or critical decision required.",
+      "fallback": "mistral:7b-instruct"
+    },
+    {
+      "task_id": 13,
+      "task_type": "code_generation",
+      "task": "Generate unit tests for the audit function in llmgenie.modules.cli.audit",
+      "context": "Module: llmgenie.modules.cli.audit, Function: audit",
+      "complexity": "medium",
+      "selected_model": "mistral:7b-instruct",
+      "routing_time_ms": 0.09,
+      "confidence": 0.5,
+      "reasoning": "Task: simple_query | Complexity: simple | Selected: mistral:7b-instruct | Task classified as simple_query with simple complexity. Ollama preferred: routine task matching established patterns.",
+      "fallback": "claude-3-5-sonnet-20241022"
+    },
+    {
+      "task_id": 14,
+      "task_type": "code_review",
+      "task": "Review the implementation of audit for potential improvements",
+      "context": "Module: llmgenie.modules.cli.audit, Function: audit",
+      "complexity": "high",
+      "selected_model": "claude-3-5-sonnet-20241022",
+      "routing_time_ms": 0.09,
+      "confidence": 0.5,
+      "reasoning": "Task: code_review | Complexity: simple | Selected: claude-3-5-sonnet-20241022 | Task classified as code_review with simple complexity. Claude preferred: complex reasoning or critical decision required.",
+      "fallback": "mistral:7b-instruct"
+    },
+    {
+      "task_id": 15,
+      "task_type": "architecture_planning",
+      "task": "Analyze and optimize dependencies for llmgenie.modules.cli.audit module",
+      "context": "Module: llmgenie.modules.cli.audit, Dependencies: 5",
+      "complexity": "very_high",
+      "selected_model": "claude-3-5-sonnet-20241022",
+      "routing_time_ms": 0.09,
+      "confidence": 0.5,
+      "reasoning": "Task: refactoring | Complexity: complex | Selected: claude-3-5-sonnet-20241022 | Task classified as refactoring with complex complexity. Claude preferred: complex reasoning or critical decision required.",
+      "fallback": "mistral:7b-instruct"
+    },
+    {
+      "task_id": 16,
+      "task_type": "complex_reasoning",
+      "task": "Design integration strategy between llmgenie.orchestration.agent_orchestrator and llmgenie.modules.commands.services",
+      "context": "Cross-module integration planning",
+      "complexity": "very_high",
+      "selected_model": "claude-3-5-sonnet-20241022",
+      "routing_time_ms": 0.08,
+      "confidence": 0.8,
+      "reasoning": "Task: architecture_planning | Complexity: moderate | Selected: claude-3-5-sonnet-20241022 | Task classified as architecture_planning with moderate complexity. Claude preferred: complex reasoning or critical decision required.",
+      "fallback": "mistral:7b-instruct"
+    }
+  ]
+}

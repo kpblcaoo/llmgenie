@@ -1,0 +1,302 @@
+{
+  "module_id": "restructure.core.llmgenie.modules.cli.utils",
+  "path": "restructure/core/llmgenie/modules/cli/utils.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "load_gitignore",
+      "docstring": "Load and normalize patterns from .gitignore.",
+      "line_range": [
+        6,
+        20
+      ],
+      "parameters": [
+        "root_dir"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "load_config",
+      "docstring": "Load settings from core.llmgenie.toml or return empty dict.",
+      "line_range": [
+        22,
+        32
+      ],
+      "parameters": [
+        "root_dir"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "read_file_content",
+      "docstring": "Read content of a file if it exists and is a text file.",
+      "line_range": [
+        34,
+        43
+      ],
+      "parameters": [
+        "file_path"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "write_to_file",
+      "docstring": "Write content to a file in base_dir (default ./tmp) and return the path.",
+      "line_range": [
+        45,
+        63
+      ],
+      "parameters": [
+        "content",
+        "filename",
+        "base_dir"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "parse_files_from_response",
+      "docstring": "Extract filenames and content from LLM response (e.g., ```filename\ncontent```).",
+      "line_range": [
+        65,
+        72
+      ],
+      "parameters": [
+        "response"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_cache_config",
+      "docstring": "",
+      "line_range": [
+        74,
+        75
+      ],
+      "parameters": [
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_copilot_config",
+      "docstring": "",
+      "line_range": [
+        77,
+        78
+      ],
+      "parameters": [
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_queue_config",
+      "docstring": "",
+      "line_range": [
+        80,
+        81
+      ],
+      "parameters": [
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_context_config",
+      "docstring": "",
+      "line_range": [
+        83,
+        84
+      ],
+      "parameters": [
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_exclude_dirs",
+      "docstring": "",
+      "line_range": [
+        86,
+        93
+      ],
+      "parameters": [
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_include_patterns",
+      "docstring": "",
+      "line_range": [
+        95,
+        98
+      ],
+      "parameters": [
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_exclude_patterns",
+      "docstring": "",
+      "line_range": [
+        100,
+        103
+      ],
+      "parameters": [
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_max_file_size",
+      "docstring": "",
+      "line_range": [
+        105,
+        106
+      ],
+      "parameters": [
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_struct_file_path",
+      "docstring": "",
+      "line_range": [
+        108,
+        109
+      ],
+      "parameters": [
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_context_file_path",
+      "docstring": "",
+      "line_range": [
+        111,
+        112
+      ],
+      "parameters": [
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "save_config",
+      "docstring": "",
+      "line_range": [
+        114,
+        121
+      ],
+      "parameters": [
+        "config",
+        "root_dir"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "load_gitignore": [
+      "Path",
+      "line.startswith",
+      "gitignore_path.exists",
+      "gitignore_path.open",
+      "logging.error",
+      "line.strip"
+    ],
+    "load_config": [
+      "Path",
+      "config_path.exists",
+      "toml.load",
+      "logging.error",
+      "config_path.open"
+    ],
+    "read_file_content": [
+      "Path",
+      "path.open",
+      "path.is_file",
+      "logging.error",
+      "f.read"
+    ],
+    "write_to_file": [
+      "Path",
+      "str",
+      "logging.info",
+      "file_path.exists",
+      "f.write",
+      "logging.error",
+      "base_path.mkdir",
+      "logging.warning",
+      "file_path.open",
+      "re.sub"
+    ],
+    "parse_files_from_response": [
+      "filename.strip",
+      "files.append",
+      "content.strip",
+      "re.findall"
+    ],
+    "get_cache_config": [
+      "config.get"
+    ],
+    "get_copilot_config": [
+      "config.get"
+    ],
+    "get_queue_config": [
+      "config.get"
+    ],
+    "get_context_config": [
+      "config.get"
+    ],
+    "get_exclude_dirs": [
+      "parsing_config.get",
+      "set",
+      "list",
+      "config.get",
+      "cli_config.get"
+    ],
+    "get_include_patterns": [
+      "config.get",
+      "cli_config.get",
+      "parsing_config.get"
+    ],
+    "get_exclude_patterns": [
+      "config.get",
+      "cli_config.get",
+      "parsing_config.get"
+    ],
+    "get_max_file_size": [
+      "config.get"
+    ],
+    "get_struct_file_path": [
+      "config.get"
+    ],
+    "get_context_file_path": [
+      "config.get"
+    ],
+    "save_config": [
+      "Path",
+      "toml.dump",
+      "logging.error",
+      "config_path.open"
+    ]
+  },
+  "dependencies": [
+    "List",
+    "Optional",
+    "Path",
+    "logging",
+    "pathlib",
+    "re",
+    "toml",
+    "typing"
+  ],
+  "hash": "2af9c4d39b5839e6d9ccb00fc9c93bbb5d6936765b7763474e5dc9c24800e628",
+  "artifact_id": "01bb7619-fd20-4fcf-b93e-5bc053bcdf61"
+}

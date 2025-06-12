@@ -1,0 +1,22 @@
+---
+description: Each rule must be atomic: cover a single responsibility, be testable, and have no side effects. This ensures clarity, maintainability, and safe automation in the Cursor/AI workflow.
+globs: .cursor/rules/**/*.mdc_
+alwaysApply: false
+---
+
+## Critical Rule
+- Every rule file must implement only one responsibility or best practice.
+- Atomic rules must be independently testable and reviewable.
+- Avoid side effects and cross-cutting concerns in a single rule.
+
+## Example
+<example>
+A rule that only enforces logging checkpoints, without mixing in session management or context restoration.
+</example>
+<example type="invalid">
+A rule that combines logging, session management, and context restoration in one file.
+</example>
+
+## @-References
+- @rules_manifest.json: For tracking atomic rule dependencies and responsibilities.
+- @session_log: For logging rule creation and review events. 

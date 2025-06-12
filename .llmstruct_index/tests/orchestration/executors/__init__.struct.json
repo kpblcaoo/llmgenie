@@ -1,0 +1,12 @@
+{
+  "module_id": "tests.orchestration.executors.__init__",
+  "path": "tests/orchestration/executors/__init__.py",
+  "category": "test",
+  "module_doc": "Executor strategy tests\n\nEpic 5 Phase 3.2: Modular executor tests\n- ParallelExecutor tests\n- SequentialExecutor tests  \n- CollaborativeExecutor tests",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [],
+  "hash": "d878102fd65f0224ee4e226de4fb6ffeaf2f4628b87f0d92753e3585ac2aa9dc",
+  "artifact_id": "7f27e094-bb73-4cd6-8bcb-8cd0e32f233a"
+}

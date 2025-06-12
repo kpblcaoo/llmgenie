@@ -1,0 +1,981 @@
+{
+  "module_id": "tests.test_task_router",
+  "path": "tests/test_task_router.py",
+  "category": "test",
+  "module_doc": "Comprehensive tests for Epic 5 TaskRouter implementation\n\nTests task classification, model routing, and integration with FastAPI",
+  "functions": [
+    {
+      "name": "setup_method",
+      "docstring": "Setup classifier for each test",
+      "line_range": [
+        20,
+        22
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_code_generation_classification",
+      "docstring": "Test code generation task classification",
+      "line_range": [
+        24,
+        31
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_documentation_classification",
+      "docstring": "Test documentation task classification",
+      "line_range": [
+        33,
+        39
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_complex_reasoning_classification",
+      "docstring": "Test complex reasoning task classification",
+      "line_range": [
+        41,
+        48
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_debugging_classification",
+      "docstring": "Test debugging task classification",
+      "line_range": [
+        50,
+        56
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_complexity_scoring",
+      "docstring": "Test complexity level calculation",
+      "line_range": [
+        58,
+        73
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_context_based_classification",
+      "docstring": "Test classification with context information",
+      "line_range": [
+        75,
+        86
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "setup_method",
+      "docstring": "Setup router for each test",
+      "line_range": [
+        92,
+        95
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_ollama_routing_preference",
+      "docstring": "Test routing to Ollama for code generation",
+      "line_range": [
+        98,
+        106
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_claude_routing_preference",
+      "docstring": "Test routing to Claude for complex reasoning",
+      "line_range": [
+        109,
+        116
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_user_model_preference",
+      "docstring": "Test user model preference override",
+      "line_range": [
+        119,
+        130
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_fallback_model_selection",
+      "docstring": "Test fallback model logic",
+      "line_range": [
+        133,
+        140
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_ollama_execution",
+      "docstring": "Test actual Ollama execution",
+      "line_range": [
+        144,
+        162
+      ],
+      "parameters": [
+        "self",
+        "mock_post"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio",
+        "patch('httpx.AsyncClient.post')"
+      ]
+    },
+    {
+      "name": "test_claude_execution_placeholder",
+      "docstring": "Test Claude execution (placeholder implementation)",
+      "line_range": [
+        165,
+        174
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_error_handling",
+      "docstring": "Test error handling in execution",
+      "line_range": [
+        178,
+        190
+      ],
+      "parameters": [
+        "self",
+        "mock_post"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio",
+        "patch('httpx.AsyncClient.post')"
+      ]
+    },
+    {
+      "name": "setup_method",
+      "docstring": "Setup for performance tests",
+      "line_range": [
+        196,
+        198
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_model_performance_baselines",
+      "docstring": "Test that performance baselines match Epic 5 findings",
+      "line_range": [
+        200,
+        210
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_routing_decision_optimization",
+      "docstring": "Test routing optimization for performance",
+      "line_range": [
+        213,
+        221
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_quality_threshold_calculation",
+      "docstring": "Test quality threshold based on task complexity",
+      "line_range": [
+        223,
+        234
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_agent_request_compatibility",
+      "docstring": "Test compatibility with existing AgentRequest model",
+      "line_range": [
+        240,
+        260
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_routing_decision_serialization",
+      "docstring": "Test that RoutingDecision can be serialized for API responses",
+      "line_range": [
+        263,
+        279
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "setup_method",
+      "docstring": "Setup for quality validator tests",
+      "line_range": [
+        285,
+        287
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_python_code_validation_success",
+      "docstring": "Test successful Python code validation",
+      "line_range": [
+        289,
+        311
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_python_code_validation_syntax_error",
+      "docstring": "Test Python code with syntax errors",
+      "line_range": [
+        313,
+        326
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_javascript_code_validation",
+      "docstring": "Test JavaScript code validation",
+      "line_range": [
+        328,
+        349
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_text_validation_high_quality",
+      "docstring": "Test high-quality text validation",
+      "line_range": [
+        351,
+        374
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_text_validation_poor_quality",
+      "docstring": "Test poor quality text validation",
+      "line_range": [
+        376,
+        385
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_documentation_specific_validation",
+      "docstring": "Test documentation-specific validation",
+      "line_range": [
+        387,
+        411
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_fallback_decision_making",
+      "docstring": "Test fallback decision based on task type and quality",
+      "line_range": [
+        413,
+        455
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_quality_thresholds_by_task_type",
+      "docstring": "Test different quality thresholds for different task types",
+      "line_range": [
+        457,
+        466
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_coherence_score_calculation",
+      "docstring": "Test text coherence scoring",
+      "line_range": [
+        468,
+        481
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_completeness_score_calculation",
+      "docstring": "Test text completeness scoring",
+      "line_range": [
+        483,
+        499
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_empty_input_handling",
+      "docstring": "Test handling of empty inputs",
+      "line_range": [
+        501,
+        513
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_quality_metrics_extraction",
+      "docstring": "Test quality metrics extraction for monitoring",
+      "line_range": [
+        515,
+        532
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_generic_code_validation",
+      "docstring": "Test generic code validation for unknown languages",
+      "line_range": [
+        534,
+        547
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "TestTaskClassifier",
+      "docstring": "Test TaskClassifier with Epic 5 research patterns",
+      "line_range": [
+        17,
+        86
+      ],
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": "Setup classifier for each test",
+          "line_range": [
+            20,
+            22
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_code_generation_classification",
+          "docstring": "Test code generation task classification",
+          "line_range": [
+            24,
+            31
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_documentation_classification",
+          "docstring": "Test documentation task classification",
+          "line_range": [
+            33,
+            39
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_complex_reasoning_classification",
+          "docstring": "Test complex reasoning task classification",
+          "line_range": [
+            41,
+            48
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_debugging_classification",
+          "docstring": "Test debugging task classification",
+          "line_range": [
+            50,
+            56
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_complexity_scoring",
+          "docstring": "Test complexity level calculation",
+          "line_range": [
+            58,
+            73
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_context_based_classification",
+          "docstring": "Test classification with context information",
+          "line_range": [
+            75,
+            86
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    },
+    {
+      "name": "TestModelRouter",
+      "docstring": "Test ModelRouter with Epic 5 integration patterns",
+      "line_range": [
+        89,
+        190
+      ],
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": "Setup router for each test",
+          "line_range": [
+            92,
+            95
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_ollama_routing_preference",
+          "docstring": "Test routing to Ollama for code generation",
+          "line_range": [
+            98,
+            106
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_claude_routing_preference",
+          "docstring": "Test routing to Claude for complex reasoning",
+          "line_range": [
+            109,
+            116
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_user_model_preference",
+          "docstring": "Test user model preference override",
+          "line_range": [
+            119,
+            130
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_fallback_model_selection",
+          "docstring": "Test fallback model logic",
+          "line_range": [
+            133,
+            140
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_ollama_execution",
+          "docstring": "Test actual Ollama execution",
+          "line_range": [
+            144,
+            162
+          ],
+          "parameters": [
+            "self",
+            "mock_post"
+          ]
+        },
+        {
+          "name": "test_claude_execution_placeholder",
+          "docstring": "Test Claude execution (placeholder implementation)",
+          "line_range": [
+            165,
+            174
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_error_handling",
+          "docstring": "Test error handling in execution",
+          "line_range": [
+            178,
+            190
+          ],
+          "parameters": [
+            "self",
+            "mock_post"
+          ]
+        }
+      ],
+      "bases": []
+    },
+    {
+      "name": "TestPerformanceOptimization",
+      "docstring": "Test performance optimization based on Epic 5 baselines",
+      "line_range": [
+        193,
+        234
+      ],
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": "Setup for performance tests",
+          "line_range": [
+            196,
+            198
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_model_performance_baselines",
+          "docstring": "Test that performance baselines match Epic 5 findings",
+          "line_range": [
+            200,
+            210
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_routing_decision_optimization",
+          "docstring": "Test routing optimization for performance",
+          "line_range": [
+            213,
+            221
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_quality_threshold_calculation",
+          "docstring": "Test quality threshold based on task complexity",
+          "line_range": [
+            223,
+            234
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    },
+    {
+      "name": "TestIntegrationWithFastAPI",
+      "docstring": "Test integration with existing FastAPI infrastructure",
+      "line_range": [
+        237,
+        279
+      ],
+      "methods": [
+        {
+          "name": "test_agent_request_compatibility",
+          "docstring": "Test compatibility with existing AgentRequest model",
+          "line_range": [
+            240,
+            260
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_routing_decision_serialization",
+          "docstring": "Test that RoutingDecision can be serialized for API responses",
+          "line_range": [
+            263,
+            279
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    },
+    {
+      "name": "TestQualityValidator",
+      "docstring": "Test enhanced Quality Validator with real validation logic",
+      "line_range": [
+        282,
+        547
+      ],
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": "Setup for quality validator tests",
+          "line_range": [
+            285,
+            287
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_python_code_validation_success",
+          "docstring": "Test successful Python code validation",
+          "line_range": [
+            289,
+            311
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_python_code_validation_syntax_error",
+          "docstring": "Test Python code with syntax errors",
+          "line_range": [
+            313,
+            326
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_javascript_code_validation",
+          "docstring": "Test JavaScript code validation",
+          "line_range": [
+            328,
+            349
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_text_validation_high_quality",
+          "docstring": "Test high-quality text validation",
+          "line_range": [
+            351,
+            374
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_text_validation_poor_quality",
+          "docstring": "Test poor quality text validation",
+          "line_range": [
+            376,
+            385
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_documentation_specific_validation",
+          "docstring": "Test documentation-specific validation",
+          "line_range": [
+            387,
+            411
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_fallback_decision_making",
+          "docstring": "Test fallback decision based on task type and quality",
+          "line_range": [
+            413,
+            455
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_quality_thresholds_by_task_type",
+          "docstring": "Test different quality thresholds for different task types",
+          "line_range": [
+            457,
+            466
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_coherence_score_calculation",
+          "docstring": "Test text coherence scoring",
+          "line_range": [
+            468,
+            481
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_completeness_score_calculation",
+          "docstring": "Test text completeness scoring",
+          "line_range": [
+            483,
+            499
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_empty_input_handling",
+          "docstring": "Test handling of empty inputs",
+          "line_range": [
+            501,
+            513
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_quality_metrics_extraction",
+          "docstring": "Test quality metrics extraction for monitoring",
+          "line_range": [
+            515,
+            532
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_generic_code_validation",
+          "docstring": "Test generic code validation for unknown languages",
+          "line_range": [
+            534,
+            547
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "setup_method": [
+      "QualityValidator"
+    ],
+    "test_code_generation_classification": [],
+    "test_documentation_classification": [],
+    "test_complex_reasoning_classification": [],
+    "test_debugging_classification": [],
+    "test_complexity_scoring": [],
+    "test_context_based_classification": [],
+    "test_ollama_routing_preference": [],
+    "test_claude_routing_preference": [],
+    "test_user_model_preference": [],
+    "test_fallback_model_selection": [],
+    "test_ollama_execution": [
+      "patch",
+      "Mock"
+    ],
+    "test_claude_execution_placeholder": [],
+    "test_error_handling": [
+      "patch",
+      "Exception"
+    ],
+    "test_model_performance_baselines": [
+      "expected_baselines.items"
+    ],
+    "test_routing_decision_optimization": [],
+    "test_quality_threshold_calculation": [
+      "classifier.classify_task",
+      "TaskClassifier"
+    ],
+    "test_agent_request_compatibility": [
+      "classifier.classify_task",
+      "TaskClassifier",
+      "isinstance"
+    ],
+    "test_routing_decision_serialization": [
+      "isinstance",
+      "router.route_task",
+      "ModelRouter"
+    ],
+    "test_python_code_validation_success": [],
+    "test_python_code_validation_syntax_error": [
+      "any",
+      "issue.lower"
+    ],
+    "test_javascript_code_validation": [],
+    "test_text_validation_high_quality": [],
+    "test_text_validation_poor_quality": [],
+    "test_documentation_specific_validation": [
+      "len"
+    ],
+    "test_fallback_decision_making": [
+      "QualityResult"
+    ],
+    "test_quality_thresholds_by_task_type": [],
+    "test_coherence_score_calculation": [],
+    "test_completeness_score_calculation": [
+      "complete_text.lower"
+    ],
+    "test_empty_input_handling": [],
+    "test_quality_metrics_extraction": [
+      "QualityResult"
+    ],
+    "test_generic_code_validation": []
+  },
+  "dependencies": [
+    "AsyncMock",
+    "ComplexityLevel",
+    "Mock",
+    "ModelChoice",
+    "ModelRouter",
+    "QualityResult",
+    "QualityScore",
+    "QualityValidator",
+    "RoutingDecision",
+    "TaskClassifier",
+    "TaskType",
+    "asyncio",
+    "patch",
+    "pytest",
+    "src.llmgenie.task_router",
+    "src.llmgenie.task_router.task_classifier",
+    "unittest.mock"
+  ],
+  "hash": "07b8ae843db69e19353cb6bd830e348ff42e34847c774212be84ff248f3dd137",
+  "artifact_id": "9a075c04-8b51-42d5-a073-bfd7bd2410f8"
+}

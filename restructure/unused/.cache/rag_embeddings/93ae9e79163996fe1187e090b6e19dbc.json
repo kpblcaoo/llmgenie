@@ -1,0 +1,7 @@
+{
+  "text_preview": "---\ndescription: Each rule must be atomic: cover a single responsibility, be testable, and have no s",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

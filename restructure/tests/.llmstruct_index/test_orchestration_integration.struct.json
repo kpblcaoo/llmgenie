@@ -1,0 +1,477 @@
+{
+  "module_id": "test_orchestration_integration",
+  "path": "test_orchestration_integration.py",
+  "category": "test",
+  "module_doc": "Integration tests for orchestration with Epic 5 components\n\nEpic 5 Phase 3.2: Test integration with TaskRouter, ModelRouter, QualityValidator",
+  "functions": [
+    {
+      "name": "mock_model_routers",
+      "docstring": "Create mock ModelRouter instances that simulate Epic 5 behavior",
+      "line_range": [
+        19,
+        47
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.fixture"
+      ]
+    },
+    {
+      "name": "mock_task_classifier",
+      "docstring": "Create mock TaskClassifier for auto-mode selection",
+      "line_range": [
+        50,
+        70
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.fixture"
+      ]
+    },
+    {
+      "name": "orchestrator_with_classifier",
+      "docstring": "Create orchestrator with TaskClassifier for auto-mode selection",
+      "line_range": [
+        73,
+        78
+      ],
+      "parameters": [
+        "self",
+        "mock_model_routers",
+        "mock_task_classifier"
+      ],
+      "decorators": [
+        "pytest.fixture"
+      ]
+    },
+    {
+      "name": "orchestrator_basic",
+      "docstring": "Create basic orchestrator without TaskClassifier",
+      "line_range": [
+        81,
+        83
+      ],
+      "parameters": [
+        "self",
+        "mock_model_routers"
+      ],
+      "decorators": [
+        "pytest.fixture"
+      ]
+    },
+    {
+      "name": "test_auto_mode_selection_with_task_classifier",
+      "docstring": "Test automatic execution mode selection using TaskClassifier",
+      "line_range": [
+        86,
+        118
+      ],
+      "parameters": [
+        "self",
+        "orchestrator_with_classifier",
+        "mock_task_classifier"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_fallback_mode_selection",
+      "docstring": "Test fallback mode selection when TaskClassifier is not available",
+      "line_range": [
+        121,
+        134
+      ],
+      "parameters": [
+        "self",
+        "orchestrator_basic"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_quality_validator_integration",
+      "docstring": "Test integration with QualityValidator in collaborative mode",
+      "line_range": [
+        137,
+        166
+      ],
+      "parameters": [
+        "self",
+        "orchestrator_basic"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_real_epic5_component_compatibility",
+      "docstring": "Test compatibility with real Epic 5 component interfaces",
+      "line_range": [
+        169,
+        202
+      ],
+      "parameters": [
+        "self",
+        "mock_model_routers"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_context_preservation_across_modes",
+      "docstring": "Test that context is preserved and used across different execution modes",
+      "line_range": [
+        205,
+        230
+      ],
+      "parameters": [
+        "self",
+        "orchestrator_basic"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_error_handling_and_resilience",
+      "docstring": "Test error handling and system resilience",
+      "line_range": [
+        233,
+        262
+      ],
+      "parameters": [
+        "self",
+        "orchestrator_basic",
+        "mock_model_routers"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_performance_metrics_accuracy",
+      "docstring": "Test accuracy of performance metrics",
+      "line_range": [
+        265,
+        296
+      ],
+      "parameters": [
+        "self",
+        "orchestrator_basic",
+        "mock_model_routers"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_orchestrator_stats_and_capabilities",
+      "docstring": "Test orchestrator introspection capabilities",
+      "line_range": [
+        298,
+        316
+      ],
+      "parameters": [
+        "self",
+        "orchestrator_with_classifier"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "create_mock_router",
+      "docstring": "",
+      "line_range": [
+        21,
+        41
+      ],
+      "parameters": [
+        "model_name"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "timed_execute",
+      "docstring": "",
+      "line_range": [
+        268,
+        270
+      ],
+      "parameters": [],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "TestOrchestrationIntegration",
+      "docstring": "Test orchestration integration with Epic 5 components",
+      "line_range": [
+        15,
+        316
+      ],
+      "methods": [
+        {
+          "name": "mock_model_routers",
+          "docstring": "Create mock ModelRouter instances that simulate Epic 5 behavior",
+          "line_range": [
+            19,
+            47
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "mock_task_classifier",
+          "docstring": "Create mock TaskClassifier for auto-mode selection",
+          "line_range": [
+            50,
+            70
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "orchestrator_with_classifier",
+          "docstring": "Create orchestrator with TaskClassifier for auto-mode selection",
+          "line_range": [
+            73,
+            78
+          ],
+          "parameters": [
+            "self",
+            "mock_model_routers",
+            "mock_task_classifier"
+          ]
+        },
+        {
+          "name": "orchestrator_basic",
+          "docstring": "Create basic orchestrator without TaskClassifier",
+          "line_range": [
+            81,
+            83
+          ],
+          "parameters": [
+            "self",
+            "mock_model_routers"
+          ]
+        },
+        {
+          "name": "test_auto_mode_selection_with_task_classifier",
+          "docstring": "Test automatic execution mode selection using TaskClassifier",
+          "line_range": [
+            86,
+            118
+          ],
+          "parameters": [
+            "self",
+            "orchestrator_with_classifier",
+            "mock_task_classifier"
+          ]
+        },
+        {
+          "name": "test_fallback_mode_selection",
+          "docstring": "Test fallback mode selection when TaskClassifier is not available",
+          "line_range": [
+            121,
+            134
+          ],
+          "parameters": [
+            "self",
+            "orchestrator_basic"
+          ]
+        },
+        {
+          "name": "test_quality_validator_integration",
+          "docstring": "Test integration with QualityValidator in collaborative mode",
+          "line_range": [
+            137,
+            166
+          ],
+          "parameters": [
+            "self",
+            "orchestrator_basic"
+          ]
+        },
+        {
+          "name": "test_real_epic5_component_compatibility",
+          "docstring": "Test compatibility with real Epic 5 component interfaces",
+          "line_range": [
+            169,
+            202
+          ],
+          "parameters": [
+            "self",
+            "mock_model_routers"
+          ]
+        },
+        {
+          "name": "test_context_preservation_across_modes",
+          "docstring": "Test that context is preserved and used across different execution modes",
+          "line_range": [
+            205,
+            230
+          ],
+          "parameters": [
+            "self",
+            "orchestrator_basic"
+          ]
+        },
+        {
+          "name": "test_error_handling_and_resilience",
+          "docstring": "Test error handling and system resilience",
+          "line_range": [
+            233,
+            262
+          ],
+          "parameters": [
+            "self",
+            "orchestrator_basic",
+            "mock_model_routers"
+          ]
+        },
+        {
+          "name": "test_performance_metrics_accuracy",
+          "docstring": "Test accuracy of performance metrics",
+          "line_range": [
+            265,
+            296
+          ],
+          "parameters": [
+            "self",
+            "orchestrator_basic",
+            "mock_model_routers"
+          ]
+        },
+        {
+          "name": "test_orchestrator_stats_and_capabilities",
+          "docstring": "Test orchestrator introspection capabilities",
+          "line_range": [
+            298,
+            316
+          ],
+          "parameters": [
+            "self",
+            "orchestrator_with_classifier"
+          ]
+        }
+      ],
+      "bases": []
+    },
+    {
+      "name": "MockClassification",
+      "docstring": "",
+      "line_range": [
+        59,
+        62
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "MockClassification",
+      "docstring": "",
+      "line_range": [
+        101,
+        104
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "MockQualityResult",
+      "docstring": "",
+      "line_range": [
+        149,
+        150
+      ],
+      "methods": [],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "mock_model_routers": [],
+    "create_mock_router": [
+      "AsyncMock",
+      "RoutingDecision",
+      "Mock"
+    ],
+    "mock_task_classifier": [
+      "AsyncMock",
+      "Mock",
+      "MockClassification"
+    ],
+    "orchestrator_with_classifier": [
+      "AgentOrchestrator"
+    ],
+    "orchestrator_basic": [
+      "AgentOrchestrator"
+    ],
+    "test_auto_mode_selection_with_task_classifier": [
+      "MockClassification",
+      "orchestrator_with_classifier.orchestrate"
+    ],
+    "test_fallback_mode_selection": [
+      "orchestrator_basic.orchestrate"
+    ],
+    "test_quality_validator_integration": [
+      "orchestrator_basic.orchestrate",
+      "MockQualityResult",
+      "Mock",
+      "patch"
+    ],
+    "test_real_epic5_component_compatibility": [
+      "orchestrator.orchestrate",
+      "mock_model_routers.items",
+      "isinstance",
+      "AgentOrchestrator",
+      "OrchestrationTask"
+    ],
+    "test_context_preservation_across_modes": [
+      "orchestrator_basic.orchestrate"
+    ],
+    "test_error_handling_and_resilience": [
+      "orchestrator_basic.orchestrate",
+      "Exception",
+      "mock_model_routers.values",
+      "scenario_name.replace"
+    ],
+    "test_performance_metrics_accuracy": [],
+    "timed_execute": [
+      "asyncio.sleep"
+    ],
+    "test_orchestrator_stats_and_capabilities": [
+      "len",
+      "orchestrator_with_classifier.get_orchestration_stats"
+    ]
+  },
+  "dependencies": [
+    "AgentOrchestrator",
+    "AsyncMock",
+    "ExecutionMode",
+    "Mock",
+    "ModelChoice",
+    "ModelRouter",
+    "OrchestrationTask",
+    "QualityValidator",
+    "RoutingDecision",
+    "TaskClassifier",
+    "asyncio",
+    "dataclass",
+    "dataclasses",
+    "patch",
+    "pytest",
+    "src.llmgenie.orchestration",
+    "src.llmgenie.task_router",
+    "unittest.mock"
+  ],
+  "hash": "d022e42a6a52b802b48109bb25fd31ac89a8c1af331e97cb36c0db421d2f4384",
+  "artifact_id": "6b10c861-220d-48cc-aa4f-b4c422b27c20"
+}

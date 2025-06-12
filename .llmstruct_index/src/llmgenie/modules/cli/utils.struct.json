@@ -203,43 +203,43 @@
   "classes": [],
   "callgraph": {
     "load_gitignore": [
-      "logging.error",
-      "gitignore_path.open",
-      "line.strip",
-      "line.startswith",
       "Path",
-      "gitignore_path.exists"
+      "line.startswith",
+      "gitignore_path.exists",
+      "gitignore_path.open",
+      "logging.error",
+      "line.strip"
     ],
     "load_config": [
-      "logging.error",
-      "config_path.exists",
       "Path",
+      "config_path.exists",
       "toml.load",
+      "logging.error",
       "config_path.open"
     ],
     "read_file_content": [
-      "logging.error",
-      "path.is_file",
       "Path",
       "path.open",
+      "path.is_file",
+      "logging.error",
       "f.read"
     ],
     "write_to_file": [
+      "Path",
+      "str",
+      "logging.info",
+      "file_path.exists",
+      "f.write",
       "logging.error",
       "base_path.mkdir",
       "logging.warning",
-      "logging.info",
-      "Path",
-      "str",
-      "re.sub",
-      "file_path.exists",
-      "f.write",
-      "file_path.open"
+      "file_path.open",
+      "re.sub"
     ],
     "parse_files_from_response": [
-      "content.strip",
       "filename.strip",
       "files.append",
+      "content.strip",
       "re.findall"
     ],
     "get_cache_config": [
@@ -255,21 +255,21 @@
       "config.get"
     ],
     "get_exclude_dirs": [
+      "parsing_config.get",
       "set",
       "list",
       "config.get",
-      "parsing_config.get",
       "cli_config.get"
     ],
     "get_include_patterns": [
-      "parsing_config.get",
       "config.get",
-      "cli_config.get"
+      "cli_config.get",
+      "parsing_config.get"
     ],
     "get_exclude_patterns": [
-      "parsing_config.get",
       "config.get",
-      "cli_config.get"
+      "cli_config.get",
+      "parsing_config.get"
     ],
     "get_max_file_size": [
       "config.get"
@@ -281,9 +281,9 @@
       "config.get"
     ],
     "save_config": [
-      "logging.error",
-      "toml.dump",
       "Path",
+      "toml.dump",
+      "logging.error",
       "config_path.open"
     ]
   },
@@ -298,5 +298,5 @@
     "typing"
   ],
   "hash": "3f9f61b289dbdcbe85ccc89e60dd4e6a5a9a2cc31194ab9d0d8fe613fac51924",
-  "artifact_id": "5bc6901d-e896-47e6-9d25-6448dac45de8"
+  "artifact_id": "17faeb3b-be82-4c83-8e84-42ba081513e7"
 }

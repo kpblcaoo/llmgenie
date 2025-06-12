@@ -1,0 +1,7 @@
+{
+  "text_preview": "---\ndescription: Language policy for prompts and user communication.\nglobs:\nalwaysApply: false\n---\nM",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

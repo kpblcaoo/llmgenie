@@ -48,26 +48,26 @@
       "json.load"
     ],
     "show_links": [
-      "print",
-      "load_json",
-      "item.get",
-      "json.dumps",
-      "link_map.items",
       "Path",
-      "data.get",
       "str",
+      "item.get",
+      "print",
       "results.items",
       "epic_path.exists",
-      "t.upper",
       "status_filter.lower",
-      "epic.get"
+      "load_json",
+      "link_map.items",
+      "epic.get",
+      "t.upper",
+      "json.dumps",
+      "data.get"
     ],
     "add_epic_cli_subparser": [
-      "subparsers.add_parser",
       "epic_sub.add_parser",
-      "show_links_parser.set_defaults",
       "show_links_parser.add_argument",
-      "epic_parser.add_subparsers"
+      "epic_parser.add_subparsers",
+      "subparsers.add_parser",
+      "show_links_parser.set_defaults"
     ]
   },
   "dependencies": [
@@ -77,5 +77,5 @@
     "pathlib"
   ],
   "hash": "7a96cb38d4cc07f413b5da974e0eb6c461a8ce1c76f96f808c8a4414a7eb1b30",
-  "artifact_id": "b1abb599-d7d3-45b4-931e-0cff16506f04"
+  "artifact_id": "4a4c957f-d1a3-4dcb-9260-35e3cd0f41fa"
 }

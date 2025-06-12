@@ -1,0 +1,355 @@
+{
+  "module_id": "src.rag_context.embedder",
+  "path": "src/rag_context/embedder.py",
+  "category": "core",
+  "module_doc": "Embedding система для RAG контекста",
+  "functions": [
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        16,
+        22
+      ],
+      "parameters": [
+        "self",
+        "model_name",
+        "cache_dir"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "model",
+      "docstring": "Lazy loading модели",
+      "line_range": [
+        25,
+        30
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "property"
+      ]
+    },
+    {
+      "name": "embed_text",
+      "docstring": "Получает embedding для текста с кэшированием",
+      "line_range": [
+        32,
+        54
+      ],
+      "parameters": [
+        "self",
+        "text"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "embed_batch",
+      "docstring": "Batch обработка текстов для эффективности",
+      "line_range": [
+        56,
+        91
+      ],
+      "parameters": [
+        "self",
+        "texts"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_hash_text",
+      "docstring": "Создает hash для текста",
+      "line_range": [
+        93,
+        95
+      ],
+      "parameters": [
+        "self",
+        "text"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_load_from_cache",
+      "docstring": "Загружает embedding из кэша на диске",
+      "line_range": [
+        97,
+        105
+      ],
+      "parameters": [
+        "self",
+        "text_hash"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_save_to_cache",
+      "docstring": "Сохраняет embedding в кэш на диске",
+      "line_range": [
+        107,
+        125
+      ],
+      "parameters": [
+        "self",
+        "text_hash",
+        "embedding",
+        "text_preview"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "similarity",
+      "docstring": "Вычисляет cosine similarity между embeddings",
+      "line_range": [
+        127,
+        129
+      ],
+      "parameters": [
+        "self",
+        "embedding1",
+        "embedding2"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "find_most_similar",
+      "docstring": "Находит наиболее похожие embeddings",
+      "line_range": [
+        131,
+        144
+      ],
+      "parameters": [
+        "self",
+        "query_embedding",
+        "candidate_embeddings",
+        "threshold"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_cache_stats",
+      "docstring": "Статистика кэша",
+      "line_range": [
+        146,
+        153
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "SimpleEmbedder",
+      "docstring": "Простая система embeddings с кэшированием",
+      "line_range": [
+        13,
+        153
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            16,
+            22
+          ],
+          "parameters": [
+            "self",
+            "model_name",
+            "cache_dir"
+          ]
+        },
+        {
+          "name": "model",
+          "docstring": "Lazy loading модели",
+          "line_range": [
+            25,
+            30
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "embed_text",
+          "docstring": "Получает embedding для текста с кэшированием",
+          "line_range": [
+            32,
+            54
+          ],
+          "parameters": [
+            "self",
+            "text"
+          ]
+        },
+        {
+          "name": "embed_batch",
+          "docstring": "Batch обработка текстов для эффективности",
+          "line_range": [
+            56,
+            91
+          ],
+          "parameters": [
+            "self",
+            "texts"
+          ]
+        },
+        {
+          "name": "_hash_text",
+          "docstring": "Создает hash для текста",
+          "line_range": [
+            93,
+            95
+          ],
+          "parameters": [
+            "self",
+            "text"
+          ]
+        },
+        {
+          "name": "_load_from_cache",
+          "docstring": "Загружает embedding из кэша на диске",
+          "line_range": [
+            97,
+            105
+          ],
+          "parameters": [
+            "self",
+            "text_hash"
+          ]
+        },
+        {
+          "name": "_save_to_cache",
+          "docstring": "Сохраняет embedding в кэш на диске",
+          "line_range": [
+            107,
+            125
+          ],
+          "parameters": [
+            "self",
+            "text_hash",
+            "embedding",
+            "text_preview"
+          ]
+        },
+        {
+          "name": "similarity",
+          "docstring": "Вычисляет cosine similarity между embeddings",
+          "line_range": [
+            127,
+            129
+          ],
+          "parameters": [
+            "self",
+            "embedding1",
+            "embedding2"
+          ]
+        },
+        {
+          "name": "find_most_similar",
+          "docstring": "Находит наиболее похожие embeddings",
+          "line_range": [
+            131,
+            144
+          ],
+          "parameters": [
+            "self",
+            "query_embedding",
+            "candidate_embeddings",
+            "threshold"
+          ]
+        },
+        {
+          "name": "get_cache_stats",
+          "docstring": "Статистика кэша",
+          "line_range": [
+            146,
+            153
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "Path"
+    ],
+    "model": [
+      "print",
+      "SentenceTransformer"
+    ],
+    "embed_text": [
+      "self._save_to_cache",
+      "self._load_from_cache",
+      "self._hash_text"
+    ],
+    "embed_batch": [
+      "self._save_to_cache",
+      "len",
+      "print",
+      "self._hash_text",
+      "range",
+      "zip",
+      "new_indices.append",
+      "new_texts.append",
+      "enumerate",
+      "self._load_from_cache"
+    ],
+    "_hash_text": [
+      "hashlib.md5",
+      "text.encode"
+    ],
+    "_load_from_cache": [
+      "cache_file.exists",
+      "print",
+      "np.load"
+    ],
+    "_save_to_cache": [
+      "open",
+      "print",
+      "json.dump",
+      "np.save"
+    ],
+    "similarity": [
+      "float",
+      "np.dot"
+    ],
+    "find_most_similar": [
+      "self.similarity",
+      "enumerate",
+      "similarities.sort",
+      "similarities.append"
+    ],
+    "get_cache_stats": [
+      "sum",
+      "len",
+      "list",
+      "f.stat"
+    ]
+  },
+  "dependencies": [
+    "Dict",
+    "List",
+    "Optional",
+    "Path",
+    "SentenceTransformer",
+    "Tuple",
+    "hashlib",
+    "json",
+    "numpy",
+    "os",
+    "pathlib",
+    "sentence_transformers",
+    "typing"
+  ],
+  "hash": "d229d61d5b3f22f6b3f7c1b0b0efd293a16f13e53eb3391b24951b70fece349e",
+  "artifact_id": "1875da44-9dae-4985-9099-38f1c789f5bc"
+}

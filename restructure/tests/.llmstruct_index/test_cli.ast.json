@@ -1,0 +1,19 @@
+{
+  "module": "test_cli.py",
+  "functions": [
+    {
+      "name": "test_cli_import",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "test_llm_client_import",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

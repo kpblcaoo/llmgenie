@@ -44,7 +44,14 @@
       "end_line": null
     },
     {
-      "name": "execute_mcp_tool",
+      "name": "validate_handoff_package",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "get_handoff_template",
       "ast_hash": null,
       "source": null,
       "start_line": null,

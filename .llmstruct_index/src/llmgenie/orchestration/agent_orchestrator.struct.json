@@ -1,0 +1,516 @@
+{
+  "module_id": "src.llmgenie.orchestration.agent_orchestrator",
+  "path": "src/llmgenie/orchestration/agent_orchestrator.py",
+  "category": "core",
+  "module_doc": "Agent Orchestrator for Multi-Agent Task Coordination\n\nEpic 5 Phase 3.1: Multi-Agent Orchestration implementation\nExtends existing TaskRouter/ModelRouter with orchestration capabilities.\n\nDesign principle: Composition over inheritance - leverages existing components.",
+  "functions": [
+    {
+      "name": "__init__",
+      "docstring": "Initialize orchestrator with TaskRouter components",
+      "line_range": [
+        78,
+        90
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_initialize_agent_routers",
+      "docstring": "Initialize specialized ModelRouter instances for different agent roles",
+      "line_range": [
+        92,
+        99
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "coordinate_multi_agent_tasks",
+      "docstring": "Main coordination method for multi-agent tasks\n\nEpic 5 Phase 3.1 requirement: coordinate_multi_agent_tasks",
+      "line_range": [
+        101,
+        145
+      ],
+      "parameters": [
+        "self",
+        "complex_task"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_execute_parallel",
+      "docstring": "Parallel task execution pattern\n\nEpic 5 example: documentation + code generation simultaneously",
+      "line_range": [
+        147,
+        215
+      ],
+      "parameters": [
+        "self",
+        "task"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_execute_sequential",
+      "docstring": "Sequential handoffs pattern\n\nEpic 5 example: design → implementation → review",
+      "line_range": [
+        217,
+        284
+      ],
+      "parameters": [
+        "self",
+        "task"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_execute_collaborative",
+      "docstring": "Collaborative problem solving pattern\n\nEpic 5 example: multiple models, best result selection",
+      "line_range": [
+        286,
+        347
+      ],
+      "parameters": [
+        "self",
+        "task"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_decompose_task",
+      "docstring": "Automatic task decomposition using TaskClassifier\n\nAI-assisted task decomposition from Epic 5 checklist",
+      "line_range": [
+        349,
+        381
+      ],
+      "parameters": [
+        "self",
+        "query",
+        "mode"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_calculate_quality_score",
+      "docstring": "Calculate quality score using existing QualityValidator",
+      "line_range": [
+        383,
+        405
+      ],
+      "parameters": [
+        "self",
+        "result"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_validate_result_quality",
+      "docstring": "Validate result quality using existing Epic 5 QualityValidator",
+      "line_range": [
+        407,
+        415
+      ],
+      "parameters": [
+        "self",
+        "execution_result",
+        "task"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_log_coordination_event",
+      "docstring": "Log coordination event for analysis and improvement",
+      "line_range": [
+        417,
+        433
+      ],
+      "parameters": [
+        "self",
+        "task",
+        "result"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_coordination_metrics",
+      "docstring": "Get coordination performance metrics",
+      "line_range": [
+        435,
+        452
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "manage_parallel_execution",
+      "docstring": "Manage multiple parallel executions\n\nEpic 5 Phase 3.1 requirement: manage_parallel_execution",
+      "line_range": [
+        456,
+        484
+      ],
+      "parameters": [
+        "self",
+        "task_list"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "handle_inter_agent_communication",
+      "docstring": "Handle communication between agents\n\nEpic 5 Phase 3.1 requirement: handle_inter_agent_communication",
+      "line_range": [
+        486,
+        516
+      ],
+      "parameters": [
+        "self",
+        "sender_agent",
+        "receiver_agent",
+        "message"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "execute_subtask",
+      "docstring": "",
+      "line_range": [
+        160,
+        182
+      ],
+      "parameters": [
+        "router_name",
+        "subtask"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "ExecutionMode",
+      "docstring": "Multi-Agent execution patterns from Epic 5 checklist",
+      "line_range": [
+        28,
+        32
+      ],
+      "methods": [],
+      "bases": [
+        "Enum"
+      ]
+    },
+    {
+      "name": "AgentCoordination",
+      "docstring": "Agent coordination strategies",
+      "line_range": [
+        35,
+        39
+      ],
+      "methods": [],
+      "bases": [
+        "Enum"
+      ]
+    },
+    {
+      "name": "OrchestrationTask",
+      "docstring": "Task for multi-agent orchestration",
+      "line_range": [
+        43,
+        52
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "OrchestrationResult",
+      "docstring": "Result of multi-agent orchestration",
+      "line_range": [
+        56,
+        65
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "AgentOrchestrator",
+      "docstring": "Multi-Agent Orchestrator for Epic 5 Phase 3 Production Ready\n\nCoordinates multiple TaskRouter instances for complex multi-agent workflows.\nImplements patterns from Epic 5 checklist: parallel, sequential, collaborative execution.\n\nDesign: Composition with existing TaskRouter/ModelRouter components",
+      "line_range": [
+        68,
+        516
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize orchestrator with TaskRouter components",
+          "line_range": [
+            78,
+            90
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "_initialize_agent_routers",
+          "docstring": "Initialize specialized ModelRouter instances for different agent roles",
+          "line_range": [
+            92,
+            99
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "coordinate_multi_agent_tasks",
+          "docstring": "Main coordination method for multi-agent tasks\n\nEpic 5 Phase 3.1 requirement: coordinate_multi_agent_tasks",
+          "line_range": [
+            101,
+            145
+          ],
+          "parameters": [
+            "self",
+            "complex_task"
+          ]
+        },
+        {
+          "name": "_execute_parallel",
+          "docstring": "Parallel task execution pattern\n\nEpic 5 example: documentation + code generation simultaneously",
+          "line_range": [
+            147,
+            215
+          ],
+          "parameters": [
+            "self",
+            "task"
+          ]
+        },
+        {
+          "name": "_execute_sequential",
+          "docstring": "Sequential handoffs pattern\n\nEpic 5 example: design → implementation → review",
+          "line_range": [
+            217,
+            284
+          ],
+          "parameters": [
+            "self",
+            "task"
+          ]
+        },
+        {
+          "name": "_execute_collaborative",
+          "docstring": "Collaborative problem solving pattern\n\nEpic 5 example: multiple models, best result selection",
+          "line_range": [
+            286,
+            347
+          ],
+          "parameters": [
+            "self",
+            "task"
+          ]
+        },
+        {
+          "name": "_decompose_task",
+          "docstring": "Automatic task decomposition using TaskClassifier\n\nAI-assisted task decomposition from Epic 5 checklist",
+          "line_range": [
+            349,
+            381
+          ],
+          "parameters": [
+            "self",
+            "query",
+            "mode"
+          ]
+        },
+        {
+          "name": "_calculate_quality_score",
+          "docstring": "Calculate quality score using existing QualityValidator",
+          "line_range": [
+            383,
+            405
+          ],
+          "parameters": [
+            "self",
+            "result"
+          ]
+        },
+        {
+          "name": "_validate_result_quality",
+          "docstring": "Validate result quality using existing Epic 5 QualityValidator",
+          "line_range": [
+            407,
+            415
+          ],
+          "parameters": [
+            "self",
+            "execution_result",
+            "task"
+          ]
+        },
+        {
+          "name": "_log_coordination_event",
+          "docstring": "Log coordination event for analysis and improvement",
+          "line_range": [
+            417,
+            433
+          ],
+          "parameters": [
+            "self",
+            "task",
+            "result"
+          ]
+        },
+        {
+          "name": "get_coordination_metrics",
+          "docstring": "Get coordination performance metrics",
+          "line_range": [
+            435,
+            452
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "manage_parallel_execution",
+          "docstring": "Manage multiple parallel executions\n\nEpic 5 Phase 3.1 requirement: manage_parallel_execution",
+          "line_range": [
+            456,
+            484
+          ],
+          "parameters": [
+            "self",
+            "task_list"
+          ]
+        },
+        {
+          "name": "handle_inter_agent_communication",
+          "docstring": "Handle communication between agents\n\nEpic 5 Phase 3.1 requirement: handle_inter_agent_communication",
+          "line_range": [
+            486,
+            516
+          ],
+          "parameters": [
+            "self",
+            "sender_agent",
+            "receiver_agent",
+            "message"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "QualityValidator",
+      "self._initialize_agent_routers",
+      "TaskClassifier"
+    ],
+    "_initialize_agent_routers": [
+      "ModelRouter"
+    ],
+    "coordinate_multi_agent_tasks": [
+      "self._calculate_quality_score",
+      "str",
+      "OrchestrationResult",
+      "self._execute_sequential",
+      "self._execute_collaborative",
+      "self._log_coordination_event",
+      "ValueError",
+      "self._execute_parallel",
+      "datetime.now"
+    ],
+    "_execute_parallel": [
+      "len",
+      "self._decompose_task"
+    ],
+    "execute_subtask": [
+      "router.route_task",
+      "router.execute_with_model"
+    ],
+    "_execute_sequential": [
+      "len",
+      "str",
+      "router.route_task",
+      "list",
+      "OrchestrationResult",
+      "r.get",
+      "router.execute_with_model",
+      "results.values",
+      "enumerate",
+      "self._decompose_task",
+      "execution_result.get"
+    ],
+    "_execute_collaborative": [
+      "str",
+      "router.route_task",
+      "self._validate_result_quality",
+      "OrchestrationResult",
+      "router.execute_with_model",
+      "max",
+      "collaborative_results.items"
+    ],
+    "_decompose_task": [
+      "query.lower"
+    ],
+    "_calculate_quality_score": [
+      "max",
+      "r.get",
+      "k.startswith",
+      "self._validate_result_quality"
+    ],
+    "_validate_result_quality": [
+      "execution_result.get"
+    ],
+    "_log_coordination_event": [
+      "len",
+      "datetime.now"
+    ],
+    "get_coordination_metrics": [
+      "sum",
+      "len",
+      "e.get"
+    ],
+    "manage_parallel_execution": [
+      "str",
+      "self.coordinate_multi_agent_tasks",
+      "OrchestrationResult",
+      "enumerate",
+      "processed_results.append",
+      "isinstance",
+      "asyncio.gather"
+    ],
+    "handle_inter_agent_communication": [
+      "datetime.now",
+      "message.get"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "Dict",
+    "Enum",
+    "List",
+    "ModelChoice",
+    "ModelRouter",
+    "Optional",
+    "QualityResult",
+    "QualityValidator",
+    "RoutingDecision",
+    "TaskClassifier",
+    "Union",
+    "asyncio",
+    "dataclass",
+    "dataclasses",
+    "datetime",
+    "enum",
+    "json",
+    "task_router",
+    "typing"
+  ],
+  "hash": "8de034bd011f87998ab0fe3acfba6fb9fd59a210e8dad03ecdfea02c67789df2",
+  "artifact_id": "d04d4496-520a-4975-ab1f-c5ee0f4df463"
+}

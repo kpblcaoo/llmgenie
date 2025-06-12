@@ -1,0 +1,7 @@
+{
+  "text_preview": "NEVER assume components missing without checking struct.json\n2Use modular indices before making clai",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

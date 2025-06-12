@@ -1,0 +1,135 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+## Meta
+# Epic Completion & Merge Workflow (Best Practice)
+
+## Purpose
+Стандартизированный workflow для завершения эпиков и слияния в основные ветки
+Основан на Epic 5 completion experience и user feedback
+
+## Epic Completion Checklist
+
+### 📋 **Pre-Commit Validation**
+1. **Component Verification via struct.json**
+   ```bash
+   # КРИТИЧЕСКИ ВАЖНО: проверить src/struct.json и tests/struct.json
+   # ПЕРЕД утверждениями о недостающих компонентах
+   ```
+2. **Test Coverage Validation**
+   ```bash
+   python -m pytest tests/test_<epic_name>.py tests/<epic_component>/ -v
+   # Все тесты должны проходить (100% success rate)
+   ```
+3. **Documentation Review**
+   - Убедиться что не дублируем существующие доки
+   - Создать краткую "конфетку" документацию
+   - Ссылки на detailed documentation, не инлайн дублирование
+
+### 🔧 **Git Workflow**
+1. **Status Check**
+   ```bash
+   git status
+   # Проверить что находимся в правильной epic ветке
+   ```
+
+2. **Selective Add** (НЕ git add .)
+   ```bash
+   git add <specific-epic-files>
+   # Исключить временные файлы (venv, cache, etc.)
+   ```
+
+3. **Git Config Setup** (если нужно)
+   ```bash
+   git config user.email "email@domain.com"
+   git config user.name "username"
+   ```
+
+4. **Commit Message Template**
+   ```bash
+   git commit -m "feat(<epic_name>): <Epic Title> - <Status>"
+   # Примеры:
+   # feat(epic5): Complete MCP-Ollama Integration - Production Ready
+   # feat(epic3): Handoff Validation System - Complete
+   ```
+
+5. **Branch Switch & Merge**
+   ```bash
+   git checkout <target-branch>
+   git merge <epic-branch> --no-ff -m "merge: <Epic Name> complete"
+   ```
+
+### 📊 **Merge Validation**
+1. **Проверить количество изменений**
+   - Файлы созданы/изменены должны соответствовать scope
+   - Не должно быть тысяч строк если компоненты уже существовали
+
+2. **Post-merge Test Run**
+   ```bash
+   python -m pytest <affected-areas> -v
+   # Убедиться что merge не сломал функциональность
+   ```
+
+## Critical Lessons (Epic 5 Experience)
+
+### ❌ **Avoid These Mistakes**
+1. **НЕ создавать дублирующий код без проверки struct.json**
+2. **НЕ игнорировать user feedback "проверяй struct.json"**  
+3. **НЕ делать git add . (захватывает временные файлы)**
+4. **НЕ создавать 300+ строк тестов если уже есть 550+ строк**
+
+### ✅ **Follow These Practices**
+1. **struct.json = SOURCE OF TRUTH** для анализа компонентов
+2. **Modular indices** содержат детальную информацию о реализации
+3. **"стоять! проверяй"** = критический сигнал к анализу
+4. **Краткая документация > подробное дублирование**
+
+### 🎯 **Success Indicators**
+- **Все тесты проходят** (100% success rate)
+- **Документация является конфеткой** (краткая но исчерпывающая)
+- **Нет дублирования** существующего функционала
+- **Merge diff соответствует** реальному scope изменений
+
+## Epic Status Templates
+
+### **Production Ready**
+```
+Status: ✅ COMPLETE (95%+) - Ready for Production
+Components: <list key components>
+Testing: <X>/<X> tests passing (100%)
+Documentation: Production-ready guide created
+```
+
+### **Phase Complete**
+```
+Status: ✅ Phase <X> COMPLETE
+Next: Phase <X+1> - <description>
+Blockers: <none|list blockers>
+```
+
+## Integration with Rules
+
+### @-References
+- @core/006_best_practices_recording: All workflows recorded
+- @templates/900_template_commit: Commit message format
+- @workflows/100_code_review: Code review process
+- @core/001_logging_checkpoints: Session logging
+
+### Fallback
+- If git config missing, set locally for repo
+- If tests fail, investigate before merge
+- If documentation exists, reference don't duplicate
+
+## Automation Opportunities
+
+### **Future Enhancements**
+1. **Pre-commit hooks** для проверки struct.json analysis
+2. **Automated test coverage** reporting
+3. **Documentation diff detection** (avoid duplication)
+4. **Epic completion templates** based on этого workflow
+
+---
+
+*Best practice записан на основе Epic 5 completion experience. Обновлять по мере получения новых insights.*

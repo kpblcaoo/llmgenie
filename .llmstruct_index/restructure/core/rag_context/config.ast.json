@@ -1,0 +1,26 @@
+{
+  "module": "restructure/core/rag_context/config.py",
+  "functions": [
+    {
+      "name": "__post_init__",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "is_valid",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "has_struct_support",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

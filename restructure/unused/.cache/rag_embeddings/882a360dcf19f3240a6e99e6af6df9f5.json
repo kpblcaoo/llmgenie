@@ -1,0 +1,7 @@
+{
+  "text_preview": "Все такие действия фиксируются в audit_log и session_log.\nWorkflow (этапы)\n1Запуск аудита (по распис",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

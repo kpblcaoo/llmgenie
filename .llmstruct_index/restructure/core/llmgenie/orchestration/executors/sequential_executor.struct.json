@@ -1,0 +1,267 @@
+{
+  "module_id": "restructure.core.llmgenie.orchestration.executors.sequential_executor",
+  "path": "restructure/core/llmgenie/orchestration/executors/sequential_executor.py",
+  "category": "core",
+  "module_doc": "Sequential execution strategy\n\nEpic 5 Phase 3.1: Sequential handoffs execution\nSingle responsibility: Execute tasks in sequence with context handoffs",
+  "functions": [
+    {
+      "name": "__init__",
+      "docstring": "Initialize with available ModelRouter instances",
+      "line_range": [
+        23,
+        25
+      ],
+      "parameters": [
+        "self",
+        "agent_routers"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "execute",
+      "docstring": "Execute task using sequential strategy\n\nExecutes subtasks in order, passing context between steps",
+      "line_range": [
+        27,
+        104
+      ],
+      "parameters": [
+        "self",
+        "task"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_execute_step",
+      "docstring": "Execute single sequential step with context",
+      "line_range": [
+        106,
+        148
+      ],
+      "parameters": [
+        "self",
+        "router_name",
+        "subtask",
+        "context",
+        "step_name"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_enhance_query_with_context",
+      "docstring": "Enhance query with context from previous steps for better handoff",
+      "line_range": [
+        150,
+        167
+      ],
+      "parameters": [
+        "self",
+        "subtask",
+        "context",
+        "step_name"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_extract_summary",
+      "docstring": "Extract summary from step result for context handoff",
+      "line_range": [
+        169,
+        183
+      ],
+      "parameters": [
+        "self",
+        "step_result"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_extract_key_outputs",
+      "docstring": "Extract key outputs for next step context",
+      "line_range": [
+        185,
+        196
+      ],
+      "parameters": [
+        "self",
+        "step_result"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_decompose_sequential_task",
+      "docstring": "Decompose task into sequential steps\n\nEpic 5 pattern: design → implementation → review",
+      "line_range": [
+        198,
+        236
+      ],
+      "parameters": [
+        "self",
+        "query"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "SequentialExecutor",
+      "docstring": "Sequential handoffs execution strategy\n\nEpic 5 example: design → implementation → review\nBenefit: Context preservation, logical workflow",
+      "line_range": [
+        15,
+        236
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize with available ModelRouter instances",
+          "line_range": [
+            23,
+            25
+          ],
+          "parameters": [
+            "self",
+            "agent_routers"
+          ]
+        },
+        {
+          "name": "execute",
+          "docstring": "Execute task using sequential strategy\n\nExecutes subtasks in order, passing context between steps",
+          "line_range": [
+            27,
+            104
+          ],
+          "parameters": [
+            "self",
+            "task"
+          ]
+        },
+        {
+          "name": "_execute_step",
+          "docstring": "Execute single sequential step with context",
+          "line_range": [
+            106,
+            148
+          ],
+          "parameters": [
+            "self",
+            "router_name",
+            "subtask",
+            "context",
+            "step_name"
+          ]
+        },
+        {
+          "name": "_enhance_query_with_context",
+          "docstring": "Enhance query with context from previous steps for better handoff",
+          "line_range": [
+            150,
+            167
+          ],
+          "parameters": [
+            "self",
+            "subtask",
+            "context",
+            "step_name"
+          ]
+        },
+        {
+          "name": "_extract_summary",
+          "docstring": "Extract summary from step result for context handoff",
+          "line_range": [
+            169,
+            183
+          ],
+          "parameters": [
+            "self",
+            "step_result"
+          ]
+        },
+        {
+          "name": "_extract_key_outputs",
+          "docstring": "Extract key outputs for next step context",
+          "line_range": [
+            185,
+            196
+          ],
+          "parameters": [
+            "self",
+            "step_result"
+          ]
+        },
+        {
+          "name": "_decompose_sequential_task",
+          "docstring": "Decompose task into sequential steps\n\nEpic 5 pattern: design → implementation → review",
+          "line_range": [
+            198,
+            236
+          ],
+          "parameters": [
+            "self",
+            "query"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [],
+    "execute": [
+      "len",
+      "self._extract_summary",
+      "str",
+      "list",
+      "agents_used.append",
+      "self._extract_key_outputs",
+      "OrchestrationResult",
+      "enumerate",
+      "self._decompose_sequential_task",
+      "self._execute_step",
+      "step_result.get",
+      "datetime.now"
+    ],
+    "_execute_step": [
+      "str",
+      "self._enhance_query_with_context",
+      "list",
+      "router.route_task",
+      "context.keys",
+      "router.execute_with_model"
+    ],
+    "_enhance_query_with_context": [
+      "previous_outputs.append",
+      "value.get",
+      "key.startswith",
+      "context.items"
+    ],
+    "_extract_summary": [
+      "str",
+      "step_result.get",
+      "len",
+      "isinstance"
+    ],
+    "_extract_key_outputs": [
+      "key_outputs.append",
+      "step_result.get",
+      "isinstance"
+    ],
+    "_decompose_sequential_task": [
+      "any",
+      "query.lower"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "Dict",
+    "List",
+    "ModelChoice",
+    "ModelRouter",
+    "OrchestrationResult",
+    "OrchestrationTask",
+    "core",
+    "datetime",
+    "task_router",
+    "typing"
+  ],
+  "hash": "eed9a52c092a9869150c9740578d82836d45b6f78691fceef7487f9a43018ecd",
+  "artifact_id": "e973e3fc-642c-4d8e-b87b-ee8d1ee60d4f"
+}

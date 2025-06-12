@@ -1,0 +1,100 @@
+## Meta
+# Structural Code Analysis Integration (Atomic)
+- role: core
+- id: 017_struct_tools_integration  
+- applies to: [code][meta][audit]
+- dependencies: [@session_log, @ai_workflow.json]
+
+## Purpose
+Integrate lmstruct parse tools (struct.json + modular index) into development workflow for enhanced code understanding, architecture planning, and quality maintenance.
+
+## Core Protocol
+
+### **When to Use Structural Analysis**
+
+#### struct.json (Global Architecture)
+- **Planning phase:** Understanding overall codebase structure before major changes
+- **Architecture reviews:** Analyzing dependencies, call graphs, module relationships
+- **Epic/task planning:** Scoping impact of large features or refactoring
+- **Onboarding:** Giving new team members complete project overview
+- **Code metrics:** Tracking evolution of codebase complexity over time
+
+#### Modular Index (.llmstruct_index/)
+- **Active development:** Detailed analysis of specific modules being modified
+- **Function-level work:** Understanding method signatures, parameters, decorators
+- **Code review:** Analyzing AST structure and function interdependencies  
+- **Refactoring:** Detailed examination of classes, methods, and call patterns
+- **Integration points:** Finding exact APIs and interfaces for new functionality
+
+### **Workflow Integration Points**
+
+#### 1. Epic/Task Initialization
+```bash
+# Before starting major work - full analysis
+lmstruct parse --modular-index --include-hashes --include-ranges ./src/ -o ./struct.json
+
+# Document baseline for comparison
+git add struct.json src/.llmstruct_index/
+git commit -m "checkpoint: struct analysis baseline for [epic/task]"
+```
+
+#### 2. Active Development
+- Use modular index for detailed analysis of working modules
+- Reference struct.json for understanding broader impact
+- Log structural insights that guide development decisions
+
+#### 3. Before Major Commits
+```bash
+# Regenerate after significant changes
+lmstruct parse --modular-index --include-hashes --include-ranges ./src/ -o ./struct.json
+
+# Compare with previous version to understand impact
+git diff struct.json
+```
+
+#### 4. Code Review & Quality Gates
+- Include structural analysis in review process
+- Use modular index to verify function signatures match requirements
+- Check call graph changes for unintended side effects
+
+### **Best Practices**
+
+#### Smart Usage Patterns
+- **Start sessions:** Quick struct.json scan for orientation
+- **Deep dives:** Modular index for specific module work
+- **Impact analysis:** Diff struct.json between major changes
+- **Knowledge transfer:** Use both for comprehensive handoff documentation
+
+#### Performance Optimization
+- Cache modular index when working on same modules
+- Use `--use-cache` for incremental updates
+- Exclude test directories for production analysis: `--exclude-dir tests/`
+- Include specific directories for focused analysis: `--include-dir src/llmgenie/`
+
+#### Integration with AI Workflow
+- Reference structural data in prompts for context-aware development
+- Use function signatures from modular index for accurate API integration
+- Include call graphs in architectural decision documentation
+
+## @-References
+- @session_log: For logging structural analysis usage and insights
+- @ai_workflow.json: For integration with workflow stages
+- @struct.json: Global project structure and metrics
+- @src/.llmstruct_index/: Detailed modular analysis
+
+## Fallback
+- If lmstruct unavailable, use manual codebase analysis with file listings
+- If modular index fails, fall back to struct.json only
+- Log fallback usage in session_log for improvement tracking
+
+## Quality Metrics
+- Reduction in architecture misunderstandings
+- Faster onboarding for new team members  
+- Improved accuracy in impact assessments
+- Better integration between new and existing code
+
+## Epic 5 Integration
+- Use struct.json for planning TaskRouter architecture
+- Use modular index for integrating with existing MCP endpoints
+- Regenerate after each major Epic 5 phase completion
+- Document structural insights that guide Ollama integration decisions 

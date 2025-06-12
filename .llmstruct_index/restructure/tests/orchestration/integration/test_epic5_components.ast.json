@@ -1,0 +1,40 @@
+{
+  "module": "restructure/tests/orchestration/integration/test_epic5_components.py",
+  "functions": [
+    {
+      "name": "orchestrator_with_classifier",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "test_auto_mode_selection",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "test_model_router_interface_compliance",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "test_orchestrator_stats_with_classifier",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "test_orchestrator_stats_without_classifier",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

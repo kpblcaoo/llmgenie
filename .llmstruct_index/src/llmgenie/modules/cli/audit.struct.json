@@ -20,11 +20,11 @@
   "classes": [],
   "callgraph": {
     "audit": [
-      "print",
-      "analyze_duplicates",
       "Path",
+      "print",
+      "file_path.exists",
       "hasattr",
-      "file_path.exists"
+      "analyze_duplicates"
     ]
   },
   "dependencies": [
@@ -35,5 +35,5 @@
     "pathlib"
   ],
   "hash": "2db7989b347f40218b0105a07e15164e4fa869ecf87fe977e929a36ad7b90179",
-  "artifact_id": "b438496f-7b23-4892-b9e0-3d8f500da715"
+  "artifact_id": "50f6b34d-ba2a-4562-84e2-993e5912ffd2"
 }

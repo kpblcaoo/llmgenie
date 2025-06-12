@@ -1,0 +1,7 @@
+{
+  "text_preview": "Git Config Setup (если нужно)\nbash\ngit config user.email \"email@domain.com\"\ngit config user.name \"us",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

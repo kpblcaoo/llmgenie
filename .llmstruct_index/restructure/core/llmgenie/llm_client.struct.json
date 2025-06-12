@@ -1,0 +1,254 @@
+{
+  "module_id": "restructure.core.llmgenie.llm_client",
+  "path": "restructure/core/llmgenie/llm_client.py",
+  "category": "core",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "__init__",
+      "docstring": "Initialize LLMClient with optional Ollama host.",
+      "line_range": [
+        28,
+        36
+      ],
+      "parameters": [
+        "self",
+        "ollama_host"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "query",
+      "docstring": "Query LLMs with prompt, context, and optional model.",
+      "line_range": [
+        38,
+        86
+      ],
+      "parameters": [
+        "self",
+        "prompt",
+        "context_path",
+        "mode",
+        "model",
+        "artifact_ids"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_query_grok",
+      "docstring": "Query Grok API.",
+      "line_range": [
+        88,
+        115
+      ],
+      "parameters": [
+        "self",
+        "prompt"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_query_anthropic",
+      "docstring": "Query Anthropic API.",
+      "line_range": [
+        117,
+        141
+      ],
+      "parameters": [
+        "self",
+        "prompt"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_query_ollama",
+      "docstring": "Query Ollama API with specified model.",
+      "line_range": [
+        143,
+        156
+      ],
+      "parameters": [
+        "self",
+        "prompt",
+        "model"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_query_hybrid",
+      "docstring": "Query multiple LLMs and combine results.",
+      "line_range": [
+        158,
+        172
+      ],
+      "parameters": [
+        "self",
+        "prompt",
+        "model"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "LLMClient",
+      "docstring": "",
+      "line_range": [
+        27,
+        172
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize LLMClient with optional Ollama host.",
+          "line_range": [
+            28,
+            36
+          ],
+          "parameters": [
+            "self",
+            "ollama_host"
+          ]
+        },
+        {
+          "name": "query",
+          "docstring": "Query LLMs with prompt, context, and optional model.",
+          "line_range": [
+            38,
+            86
+          ],
+          "parameters": [
+            "self",
+            "prompt",
+            "context_path",
+            "mode",
+            "model",
+            "artifact_ids"
+          ]
+        },
+        {
+          "name": "_query_grok",
+          "docstring": "Query Grok API.",
+          "line_range": [
+            88,
+            115
+          ],
+          "parameters": [
+            "self",
+            "prompt"
+          ]
+        },
+        {
+          "name": "_query_anthropic",
+          "docstring": "Query Anthropic API.",
+          "line_range": [
+            117,
+            141
+          ],
+          "parameters": [
+            "self",
+            "prompt"
+          ]
+        },
+        {
+          "name": "_query_ollama",
+          "docstring": "Query Ollama API with specified model.",
+          "line_range": [
+            143,
+            156
+          ],
+          "parameters": [
+            "self",
+            "prompt",
+            "model"
+          ]
+        },
+        {
+          "name": "_query_hybrid",
+          "docstring": "Query multiple LLMs and combine results.",
+          "line_range": [
+            158,
+            172
+          ],
+          "parameters": [
+            "self",
+            "prompt",
+            "model"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "os.getenv",
+      "logging.info",
+      "int"
+    ],
+    "query": [
+      "Path",
+      "self._query_ollama",
+      "asyncio.sleep",
+      "logging.info",
+      "self._query_grok",
+      "range",
+      "json.load",
+      "logging.error",
+      "self._query_anthropic",
+      "logging.warning",
+      "json.dumps",
+      "self._query_hybrid"
+    ],
+    "_query_grok": [
+      "logging.info",
+      "logging.error",
+      "response.json",
+      "result.get",
+      "session.post",
+      "aiohttp.ClientSession"
+    ],
+    "_query_anthropic": [
+      "logging.info",
+      "logging.error",
+      "response.json",
+      "result.get",
+      "session.post",
+      "aiohttp.ClientSession"
+    ],
+    "_query_ollama": [
+      "logging.info",
+      "logging.error",
+      "logging.debug",
+      "response.json",
+      "result.get",
+      "session.post",
+      "aiohttp.ClientSession"
+    ],
+    "_query_hybrid": [
+      "len",
+      "self._query_ollama",
+      "self._query_grok",
+      "logging.info",
+      "self._query_anthropic",
+      "isinstance",
+      "asyncio.gather"
+    ]
+  },
+  "dependencies": [
+    "List",
+    "Optional",
+    "Path",
+    "aiohttp",
+    "asyncio",
+    "dotenv",
+    "json",
+    "load_dotenv",
+    "logging",
+    "os",
+    "pathlib",
+    "typing"
+  ],
+  "hash": "c477d5e96f165fa96546ff8e2673db785cee146f6fffd0f424d21072431133ba",
+  "artifact_id": "b5ec002e-6c1a-468a-98b9-52f428ef55e2"
+}

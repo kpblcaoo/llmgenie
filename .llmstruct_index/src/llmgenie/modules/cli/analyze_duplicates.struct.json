@@ -20,24 +20,24 @@
   "classes": [],
   "callgraph": {
     "analyze_duplicates": [
+      "sorted",
       "len",
-      "print",
       "filtered_duplicates.items",
-      "WorkflowOrchestrator",
-      "traceback.print_exc",
       "rec.get",
-      "duplication_data.get",
       "duplicates.items",
-      "json.dumps",
-      "json.dump",
+      "r.get",
+      "WorkflowOrchestrator",
+      "print",
       "analysis.get",
       "open",
-      "r.get",
+      "json.dump",
       "orchestrator.analyze_codebase_for_duplicates",
       "enumerate",
-      "sorted",
       "getattr",
-      "hasattr"
+      "hasattr",
+      "duplication_data.get",
+      "traceback.print_exc",
+      "json.dumps"
     ]
   },
   "dependencies": [
@@ -47,5 +47,5 @@
     "traceback"
   ],
   "hash": "d9c98a76c4920b3bfe62a812811aa9edf7158fa6d307eecd1235c4a2d93f146c",
-  "artifact_id": "fb180c0c-e170-450e-8ab2-ba28960083ca"
+  "artifact_id": "e5bf211c-1fae-4d33-aa96-e2d61a8c77dd"
 }

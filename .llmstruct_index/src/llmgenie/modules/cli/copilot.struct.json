@@ -20,28 +20,28 @@
   "classes": [],
   "callgraph": {
     "copilot": [
-      "logging.error",
-      "manager.unload_context_layer",
-      "print",
-      "open",
-      "Path",
-      "manager.get_context_status",
-      "enumerate",
-      "getattr",
-      "manager.export_context",
-      "hasattr",
+      "config_path.exists",
       "manager.validate_change",
-      "template_path.exists",
+      "manager.get_context_status",
+      "smart_suggest",
+      "manager.unload_context_layer",
+      "getattr",
+      "hasattr",
       "manager.load_context_layer",
-      "manager.refresh_all_contexts",
+      "logging.error",
+      "manager.close",
+      "layers.split",
+      "Path",
       "shutil.copy",
       "logging.info",
-      "layers.split",
+      "open",
+      "print",
+      "f.write",
+      "manager.export_context",
+      "manager.refresh_all_contexts",
       "initialize_copilot",
-      "config_path.exists",
-      "smart_suggest",
-      "manager.close",
-      "f.write"
+      "enumerate",
+      "template_path.exists"
     ]
   },
   "dependencies": [
@@ -54,5 +54,5 @@
     "smart_suggest"
   ],
   "hash": "7bc44c139d0fb9c7f3ae37544ef763d68cc55e4220c2e89d73d766801541f947",
-  "artifact_id": "b74bc04c-4f4f-4329-9734-16bb41934e59"
+  "artifact_id": "bbe6330b-6cf4-4d57-8626-12bcecc81e3b"
 }

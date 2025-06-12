@@ -1,0 +1,7 @@
+{
+  "text_preview": "Auto-Selection with Fallbacks\npython\nSmart defaults with manual override capability\nexecution_mode =",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

@@ -1,0 +1,7 @@
+{
+  "text_preview": "---\ndescription:\nglobs:\nalwaysApply: false\n---\nMeta\nStruct Tools Best Practices (Atomic)\n- role: too",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

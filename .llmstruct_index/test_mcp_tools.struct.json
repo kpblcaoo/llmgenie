@@ -1,0 +1,36 @@
+{
+  "module_id": "test_mcp_tools",
+  "path": "test_mcp_tools.py",
+  "category": "test",
+  "module_doc": "Тестовый скрипт для проверки доступности MCP инструментов",
+  "functions": [
+    {
+      "name": "test_mcp_tools",
+      "docstring": "Тест всех инструментов MCP",
+      "line_range": [
+        11,
+        74
+      ],
+      "parameters": [],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "test_mcp_tools": [
+      "len",
+      "MCPServer",
+      "print"
+    ]
+  },
+  "dependencies": [
+    "MCPServer",
+    "asyncio",
+    "json",
+    "mcp",
+    "src.rag_context.interfaces.mcp_server",
+    "types"
+  ],
+  "hash": "88101208d0ad6b543494d08ea2df5cb8a942aa2755655878fd18b0ec3d913c84",
+  "artifact_id": "905acdb2-fdac-4195-ad7a-3ac9c4cd2816"
+}

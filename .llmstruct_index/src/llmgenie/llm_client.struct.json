@@ -182,57 +182,57 @@
   ],
   "callgraph": {
     "__init__": [
-      "int",
       "os.getenv",
-      "logging.info"
+      "logging.info",
+      "int"
     ],
     "query": [
-      "logging.error",
+      "Path",
+      "self._query_ollama",
+      "asyncio.sleep",
+      "logging.info",
+      "self._query_grok",
+      "range",
       "json.load",
+      "logging.error",
       "self._query_anthropic",
       "logging.warning",
       "json.dumps",
-      "self._query_ollama",
-      "range",
-      "Path",
-      "self._query_hybrid",
-      "asyncio.sleep",
-      "self._query_grok",
-      "logging.info"
+      "self._query_hybrid"
     ],
     "_query_grok": [
+      "logging.info",
       "logging.error",
       "response.json",
       "result.get",
-      "aiohttp.ClientSession",
       "session.post",
-      "logging.info"
+      "aiohttp.ClientSession"
     ],
     "_query_anthropic": [
+      "logging.info",
       "logging.error",
       "response.json",
       "result.get",
-      "aiohttp.ClientSession",
       "session.post",
-      "logging.info"
+      "aiohttp.ClientSession"
     ],
     "_query_ollama": [
-      "logging.debug",
+      "logging.info",
       "logging.error",
+      "logging.debug",
       "response.json",
       "result.get",
-      "aiohttp.ClientSession",
       "session.post",
-      "logging.info"
+      "aiohttp.ClientSession"
     ],
     "_query_hybrid": [
       "len",
-      "asyncio.gather",
-      "self._query_anthropic",
-      "isinstance",
       "self._query_ollama",
       "self._query_grok",
-      "logging.info"
+      "logging.info",
+      "self._query_anthropic",
+      "isinstance",
+      "asyncio.gather"
     ]
   },
   "dependencies": [
@@ -250,5 +250,5 @@
     "typing"
   ],
   "hash": "c477d5e96f165fa96546ff8e2673db785cee146f6fffd0f424d21072431133ba",
-  "artifact_id": "cd04a10d-0b53-4a44-9644-0638a7ab70a5"
+  "artifact_id": "2773fd43-b3bf-4b3e-bbca-9b3e462ed0c2"
 }

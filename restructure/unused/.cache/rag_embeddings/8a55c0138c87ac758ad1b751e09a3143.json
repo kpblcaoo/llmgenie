@@ -1,0 +1,7 @@
+{
+  "text_preview": "Responsible for updating knowledge about project components and their possibilities.\nglobs: data/kno",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

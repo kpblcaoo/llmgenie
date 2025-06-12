@@ -1,0 +1,26 @@
+{
+  "module": "restructure/core/rag_context/enhanced_logging_intelligence.py",
+  "functions": [
+    {
+      "name": "create_enhanced_logging_intelligence",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "__init__",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "analyze_current_session",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

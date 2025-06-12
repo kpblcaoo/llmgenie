@@ -1,0 +1,31 @@
+{
+  "module_id": "restructure.core.llmgenie.modules.cli.dogfood",
+  "path": "restructure/core/llmgenie/modules/cli/dogfood.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "dogfood",
+      "docstring": "Run dogfooding analysis.",
+      "line_range": [
+        3,
+        5
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "dogfood": [
+      "logging.warning"
+    ]
+  },
+  "dependencies": [
+    "logging"
+  ],
+  "hash": "18989e9381a3f9872468dfd93602c7b12cbe7cb740a402dda2711c7c98bb3a98",
+  "artifact_id": "0d3bac63-0230-4d4f-a2ae-5076ea56e0a0"
+}

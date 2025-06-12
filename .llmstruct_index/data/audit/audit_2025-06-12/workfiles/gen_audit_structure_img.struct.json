@@ -1,0 +1,15 @@
+{
+  "module_id": "data.audit.audit_2025-06-12.workfiles.gen_audit_structure_img",
+  "path": "data/audit/audit_2025-06-12/workfiles/gen_audit_structure_img.py",
+  "category": "core",
+  "module_doc": "",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [
+    "matplotlib.patches",
+    "matplotlib.pyplot"
+  ],
+  "hash": "f24074251d03490eee123a07a4ac27f84f8c5de1f6782a0c75b64aa29493da3a",
+  "artifact_id": "3b95286d-1116-472f-b062-fea99ae44024"
+}

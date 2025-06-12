@@ -1,0 +1,58 @@
+{
+  "module_id": "restructure.core.llmgenie.modules.cli.copilot",
+  "path": "restructure/core/llmgenie/modules/cli/copilot.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "copilot",
+      "docstring": "Copilot integration and context management.",
+      "line_range": [
+        5,
+        113
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "copilot": [
+      "config_path.exists",
+      "manager.validate_change",
+      "manager.get_context_status",
+      "smart_suggest",
+      "manager.unload_context_layer",
+      "getattr",
+      "hasattr",
+      "manager.load_context_layer",
+      "logging.error",
+      "manager.close",
+      "layers.split",
+      "Path",
+      "shutil.copy",
+      "logging.info",
+      "open",
+      "print",
+      "f.write",
+      "manager.export_context",
+      "manager.refresh_all_contexts",
+      "initialize_copilot",
+      "enumerate",
+      "template_path.exists"
+    ]
+  },
+  "dependencies": [
+    "Path",
+    "core.llmgenie.copilot",
+    "initialize_copilot",
+    "logging",
+    "pathlib",
+    "shutil",
+    "smart_suggest"
+  ],
+  "hash": "87b3028495cb05fc38eca77649022a488eff1f25da8260c72d9a3de36113d47d",
+  "artifact_id": "8875f162-fb43-467f-9108-dc996efc544f"
+}

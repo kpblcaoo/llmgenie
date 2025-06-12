@@ -20,29 +20,29 @@
   "classes": [],
   "callgraph": {
     "interactive_legacy": [
-      "logging.error",
-      "get_folder_structure",
-      "input",
-      "os.listdir",
-      "json.dumps",
-      "args_str.strip",
       "re.match",
+      "read_file_content",
       "parse",
-      "print",
       "JSONCache",
       "logging.warning",
-      "user_input.startswith",
+      "client.query",
+      "write_to_file",
+      "sorted",
+      "logging.error",
       "m.group",
+      "json.dumps",
       "Path",
       "attach_to_llm_request",
-      "client.query",
-      "cache.close",
-      "read_file_content",
-      "LLMClient",
       "user_input.lower",
-      "sorted",
-      "write_to_file",
-      "load_gitignore"
+      "user_input.startswith",
+      "cache.close",
+      "load_gitignore",
+      "LLMClient",
+      "input",
+      "get_folder_structure",
+      "print",
+      "args_str.strip",
+      "os.listdir"
     ]
   },
   "dependencies": [
@@ -69,5 +69,5 @@
     "write_to_file"
   ],
   "hash": "3676e871a4d165bc1a661bc3791663f9127c614086610286e69f1ddb1674c68e",
-  "artifact_id": "b0f75cb4-919a-49ba-8639-ff7262a1ea30"
+  "artifact_id": "16900bed-4cc4-4a41-829b-63eb0f9d5825"
 }

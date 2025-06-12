@@ -1,0 +1,12 @@
+{
+  "module_id": "restructure.core.llmgenie.modules.commands.__init__",
+  "path": "restructure/core/llmgenie/modules/commands/__init__.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [],
+  "hash": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
+  "artifact_id": "f8a10ff9-eab4-4be3-af55-6f156f79a6e3"
+}

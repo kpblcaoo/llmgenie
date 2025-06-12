@@ -1,0 +1,109 @@
+{
+  "title": "Log Data",
+  "description": "Analysis of various log files including session logs and epic-specific logs.",
+  "files": [
+    {
+      "file": "data/logs/event_log.jsonl",
+      "summary_status": "not_found",
+      "content": "General event log file not found. Log entries are organized per session."
+    },
+    {
+      "file": "data/logs/tech_log.jsonl",
+      "summary_status": "not_found",
+      "content": "General tech log file not found. Log entries are organized per session."
+    },
+    {
+      "file": "data/logs/meta_log.jsonl",
+      "summary_status": "not_found",
+      "content": "General meta log file not found. Log entries are organized per session."
+    }
+  ],
+  "session_logs": [
+    {
+      "path": "data/logs/sessions/session_meta_2025-06-11_model_evaluation.jsonl",
+      "title": "Session Log: Model Evaluation (2025-06-11)",
+      "description": "Details a session on AI model evaluation and context preservation, including user corrections, research phases, and critical errors like missing llmstruct integration.",
+      "status": "Completed",
+      "summary_ai": "This session log details an AI model evaluation, covering initial research, model comparisons (Claude 4 Sonnet vs. Gemini 2.5 Flash), and strategic workflow planning. It highlights user interventions to correct AI analysis (llmstruct integration), the implementation of phased analysis (Reconnaissance, Diagnosis, Planning, Implementation), and deep code analysis (QualityValidator, AgentOrchestrator). The log also records a critical gap analysis (DeepEval, TruLens, HELM, RAGAS), the design of a smart integration architecture (Quality-Aware Routing, Evaluation-Routing Bridge, Smart Fallback), and subsequent Quality Assurance checks. The session concludes with the resolution of a circular import issue and full project validation. The log emphasizes continuous documentation updates and robust error handling."
+    },
+    {
+      "path": "data/logs/sessions/session_mcp_knowledge_update_20250609.log",
+      "title": "Session Log: MCP Knowledge Update (2025-06-09)",
+      "description": "Records updates related to Model Context Protocol (MCP) documentation and protocol changes.",
+      "status": "Completed",
+      "summary_ai": "This session log details updates to the Model Context Protocol (MCP) documentation, focusing on refining the protocol and integrating it with project workflows. Key actions include updating MCP-related files, clarifying MCP functionalities, and ensuring the knowledge base reflects the latest protocol definitions. The log highlights the importance of keeping documentation synchronized with development, especially concerning AI model interaction and context management."
+    },
+    {
+      "path": "data/logs/sessions/epic5_mcp_migration_final_2025-06-09.jsonl",
+      "title": "Session Log: Epic 5 MCP Migration Final (2025-06-09)",
+      "description": "Documents a session on MCP migration, detailing issues with tool loss, debugging, and the decision to use REST API over MCP due to library bugs.",
+      "status": "Completed",
+      "summary_ai": "This session log documents the final stages of Epic 5 MCP migration, revealing critical issues such as tool loss during execution and library bugs that led to a strategic decision to transition from MCP to a direct REST API for tool communication. It details debugging efforts, the analysis of communication protocols, and the justification for the architectural shift to ensure stability and reliability. The log serves as a crucial retrospective on a significant design decision."
+    },
+    {
+      "path": "data/logs/sessions/epic5_continuation_session_2025-01-09.jsonl",
+      "title": "Session Log: Epic 5 Continuation (2025-01-09)",
+      "description": "Describes a session continuing Epic 5, focusing on AgentOrchestrator implementation, modular architecture, and the importance of struct.json as the \"source of truth.\"",
+      "status": "Completed",
+      "summary_ai": "This session log details the continuation of Epic 5, focusing on the development and refinement of the AgentOrchestrator. Key topics include the emphasis on a modular architecture, the role of src/struct.json as the authoritative source of truth for the project's structure, and the integration of various components within the TaskRouter. The log highlights decision-making processes, implementation steps, and the overall progression towards a robust and scalable multi-agent system."
+    },
+    {
+      "path": "data/logs/sessions/epic5_ollama_test_results.json",
+      "title": "Session Log: Epic 5 Ollama Test Results",
+      "description": "Contains test results for Ollama models, including latency and tool call counts for mistral:7b-instruct and OpenAI API compatibility.",
+      "status": "Completed",
+      "summary_ai": "This log file contains performance test results for Ollama models, specifically `mistral:7b-instruct`, evaluating latency and tool call counts. It also assesses OpenAI API compatibility for various scenarios including default, tool_code, and tool_code_json calls. The results indicate varying performance characteristics and compatibility across different test conditions, crucial for model selection and optimization."
+    },
+    {
+      "path": "data/logs/sessions/epic5_phase1_setup_2025-01-05.jsonl",
+      "title": "Session Log: Epic 5 Phase 1 Setup (2025-01-05)",
+      "description": "Details Epic 5 Phase 1 setup, including Ollama integration, llmstruct tool integration, and implementation of TaskClassifier and ModelRouter.",
+      "status": "Completed",
+      "summary_ai": "This session log outlines the setup for Epic 5 Phase 1, focusing on the integration of Ollama for local LLM inference and the implementation of llmstruct for tool management. Key components developed include the TaskClassifier and ModelRouter, designed to intelligently route tasks and select appropriate models. The log emphasizes initial architectural decisions, the establishment of the core infrastructure, and the foundational work for integrating various AI models and tools within the project."
+    },
+    {
+      "path": "data/logs/sessions/epic3_standards_handoff_2025-01-05.jsonl",
+      "title": "Session Log: Epic 3 Standards Handoff (2025-01-05)",
+      "description": "Documents a session on standardizing and automating handoff processes in Epic 3, including rules auditing, best practices integration, and MCP/CLI validation.",
+      "status": "Completed",
+      "summary_ai": "This session log details efforts to standardize and automate handoff processes during Epic 3. It covers the auditing of existing rules, the integration of best practices into workflows, and the validation of Model Context Protocol (MCP) and CLI tools for seamless context transfer. The log emphasizes establishing robust procedures for handoffs to ensure consistency and efficiency in collaborative development."
+    },
+    {
+      "path": "data/logs/sessions/session_epic_bg_agents_pilot.jsonl",
+      "title": "Session Log: Epic Background Agents Pilot",
+      "description": "Describes a pilot session for background agents, detailing the decision to use Ollama for local automation due to privacy concerns with Cursor's agents.",
+      "status": "Completed",
+      "summary_ai": "This session log documents a pilot for background agents, highlighting the decision to leverage Ollama for local automation. The choice was driven by privacy concerns regarding Cursor's built-in agents, which could transmit sensitive data to external servers. The log details the setup and initial testing of local background agents, underscoring the project's commitment to data privacy and security."
+    },
+    {
+      "path": "data/logs/sessions/session_meta_2024-06-09_project_auditor.jsonl",
+      "title": "Session Log: Project Auditor (2024-06-09)",
+      "description": "Contains entries from a session on implementing the Project Auditor role and its workflow, including the use of struct.json for analysis.",
+      "status": "Completed",
+      "summary_ai": "This session log captures entries from a session focused on implementing the Project Auditor role and defining its workflow. A key aspect was the use of src/struct.json for analyzing the project's architecture and ensuring compliance with established standards. The log details the process of integrating audit functionalities into the development lifecycle, emphasizing structured analysis and adherence to project guidelines."
+    }
+  ],
+  "epic_logs": [
+    {
+      "path": "data/epic_logs/epic_ai_workflow_rules_2024/event_log.jsonl",
+      "title": "Epic AI Workflow Rules: Event Log (2024)",
+      "description": "Detailed event log for the Epic AI Workflow Rules, tracking all actions and system events.",
+      "status": "Completed",
+      "summary_ai": "This event log for the Epic AI Workflow Rules provides a comprehensive record of all actions and system events during the epic. It details the implementation and refinement of AI workflow rules, logging every step, decision, and system interaction. The log serves as a critical audit trail for understanding the evolution of the AI's operational guidelines and ensuring adherence to best practices."
+    },
+    {
+      "path": "data/epic_logs/epic_ai_workflow_rules_2024/meta_log.jsonl",
+      "title": "Epic AI Workflow Rules: Meta Log (2024)",
+      "description": "Meta log for the Epic AI Workflow Rules, tracking high-level decisions and context changes.",
+      "status": "Completed",
+      "summary_ai": "This meta log for the Epic AI Workflow Rules tracks high-level decisions, context changes, and strategic adjustments made during the epic. It provides an overview of the AI's reasoning processes, outlining key choices in rule implementation, workflow optimization, and overall project management. The log serves as a valuable resource for understanding the strategic direction and rationale behind the AI's operational behavior."
+    },
+    {
+      "path": "data/epic_logs/epic_ai_workflow_rules_2024/tech_log.jsonl",
+      "title": "Epic AI Workflow Rules: Tech Log (2024)",
+      "description": "Technical log for the Epic AI Workflow Rules, capturing errors, debugging info, and technical reasoning.",
+      "status": "Completed",
+      "summary_ai": "The technical log for Epic AI Workflow Rules (2024) is currently empty. This file is intended to capture errors, debugging information, and technical reasoning during the epic."
+    }
+  ]
+} 

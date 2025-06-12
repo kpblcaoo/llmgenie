@@ -1,0 +1,209 @@
+{
+  "module_id": "tests.orchestration.executors.test_parallel_executor",
+  "path": "tests/orchestration/executors/test_parallel_executor.py",
+  "category": "test",
+  "module_doc": "Test ParallelExecutor implementation\n\nEpic 5 Phase 3.2: Modular executor tests\nSingle responsibility: Test ParallelExecutor only",
+  "functions": [
+    {
+      "name": "parallel_executor",
+      "docstring": "Create ParallelExecutor with mock routers",
+      "line_range": [
+        20,
+        26
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.fixture"
+      ]
+    },
+    {
+      "name": "test_parallel_execution_success",
+      "docstring": "Test successful parallel execution",
+      "line_range": [
+        29,
+        37
+      ],
+      "parameters": [
+        "self",
+        "parallel_executor",
+        "sample_task"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_parallel_execution_partial_failure",
+      "docstring": "Test parallel execution with one agent failing",
+      "line_range": [
+        40,
+        55
+      ],
+      "parameters": [
+        "self",
+        "parallel_executor",
+        "sample_task"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_subtask_decomposition",
+      "docstring": "Test automatic subtask decomposition",
+      "line_range": [
+        58,
+        65
+      ],
+      "parameters": [
+        "self",
+        "parallel_executor"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_timing_efficiency",
+      "docstring": "Test that parallel execution is actually parallel",
+      "line_range": [
+        68,
+        85
+      ],
+      "parameters": [
+        "self",
+        "parallel_executor",
+        "sample_task"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "delayed_execute",
+      "docstring": "",
+      "line_range": [
+        71,
+        73
+      ],
+      "parameters": [],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "TestParallelExecutor",
+      "docstring": "Test parallel execution strategy",
+      "line_range": [
+        16,
+        85
+      ],
+      "methods": [
+        {
+          "name": "parallel_executor",
+          "docstring": "Create ParallelExecutor with mock routers",
+          "line_range": [
+            20,
+            26
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_parallel_execution_success",
+          "docstring": "Test successful parallel execution",
+          "line_range": [
+            29,
+            37
+          ],
+          "parameters": [
+            "self",
+            "parallel_executor",
+            "sample_task"
+          ]
+        },
+        {
+          "name": "test_parallel_execution_partial_failure",
+          "docstring": "Test parallel execution with one agent failing",
+          "line_range": [
+            40,
+            55
+          ],
+          "parameters": [
+            "self",
+            "parallel_executor",
+            "sample_task"
+          ]
+        },
+        {
+          "name": "test_subtask_decomposition",
+          "docstring": "Test automatic subtask decomposition",
+          "line_range": [
+            58,
+            65
+          ],
+          "parameters": [
+            "self",
+            "parallel_executor"
+          ]
+        },
+        {
+          "name": "test_timing_efficiency",
+          "docstring": "Test that parallel execution is actually parallel",
+          "line_range": [
+            68,
+            85
+          ],
+          "parameters": [
+            "self",
+            "parallel_executor",
+            "sample_task"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "parallel_executor": [
+      "ParallelExecutor",
+      "create_mock_router"
+    ],
+    "test_parallel_execution_success": [
+      "len",
+      "parallel_executor.execute"
+    ],
+    "test_parallel_execution_partial_failure": [
+      "len",
+      "parallel_executor.execute",
+      "Exception"
+    ],
+    "test_subtask_decomposition": [
+      "parallel_executor._decompose_task",
+      "any",
+      "len",
+      "subtask.lower"
+    ],
+    "test_timing_efficiency": [],
+    "delayed_execute": [
+      "asyncio.sleep"
+    ]
+  },
+  "dependencies": [
+    "Mock",
+    "ParallelExecutor",
+    "asyncio",
+    "create_mock_router",
+    "fixtures",
+    "pytest",
+    "sample_task",
+    "src.llmgenie.orchestration.executors",
+    "time",
+    "unittest.mock"
+  ],
+  "hash": "ddcd4b096d4dc729b3e684bba692064d2767fe18826b66775122089d1140c562",
+  "artifact_id": "f5d96d3b-daef-4f39-81c2-9a7dec00924e"
+}

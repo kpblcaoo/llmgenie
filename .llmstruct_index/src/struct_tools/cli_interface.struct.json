@@ -1,0 +1,380 @@
+{
+  "module_id": "src.struct_tools.cli_interface",
+  "path": "src/struct_tools/cli_interface.py",
+  "category": "core",
+  "module_doc": "CLI интерфейс для структурного анализа проекта",
+  "functions": [
+    {
+      "name": "main",
+      "docstring": "Точка входа для CLI",
+      "line_range": [
+        383,
+        386
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        18,
+        20
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "create_parser",
+      "docstring": "Создание парсера аргументов командной строки",
+      "line_range": [
+        22,
+        149
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "setup_logging",
+      "docstring": "Настройка логирования",
+      "line_range": [
+        151,
+        157
+      ],
+      "parameters": [
+        "self",
+        "verbose"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "initialize_analyzer",
+      "docstring": "Инициализация анализатора",
+      "line_range": [
+        159,
+        172
+      ],
+      "parameters": [
+        "self",
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "cmd_generate",
+      "docstring": "Команда генерации структуры",
+      "line_range": [
+        174,
+        188
+      ],
+      "parameters": [
+        "self",
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "cmd_overview",
+      "docstring": "Команда обзора проекта",
+      "line_range": [
+        190,
+        213
+      ],
+      "parameters": [
+        "self",
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "cmd_module",
+      "docstring": "Команда анализа модуля",
+      "line_range": [
+        215,
+        285
+      ],
+      "parameters": [
+        "self",
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "cmd_search",
+      "docstring": "Команда поиска функций",
+      "line_range": [
+        287,
+        308
+      ],
+      "parameters": [
+        "self",
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "cmd_callers",
+      "docstring": "Команда поиска вызывающих функций",
+      "line_range": [
+        310,
+        335
+      ],
+      "parameters": [
+        "self",
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "cmd_report",
+      "docstring": "Команда генерации отчёта",
+      "line_range": [
+        337,
+        348
+      ],
+      "parameters": [
+        "self",
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "run",
+      "docstring": "Запуск CLI",
+      "line_range": [
+        350,
+        380
+      ],
+      "parameters": [
+        "self",
+        "argv"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "StructureCLI",
+      "docstring": "CLI интерфейс для работы со структурным анализом",
+      "line_range": [
+        15,
+        380
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            18,
+            20
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "create_parser",
+          "docstring": "Создание парсера аргументов командной строки",
+          "line_range": [
+            22,
+            149
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "setup_logging",
+          "docstring": "Настройка логирования",
+          "line_range": [
+            151,
+            157
+          ],
+          "parameters": [
+            "self",
+            "verbose"
+          ]
+        },
+        {
+          "name": "initialize_analyzer",
+          "docstring": "Инициализация анализатора",
+          "line_range": [
+            159,
+            172
+          ],
+          "parameters": [
+            "self",
+            "args"
+          ]
+        },
+        {
+          "name": "cmd_generate",
+          "docstring": "Команда генерации структуры",
+          "line_range": [
+            174,
+            188
+          ],
+          "parameters": [
+            "self",
+            "args"
+          ]
+        },
+        {
+          "name": "cmd_overview",
+          "docstring": "Команда обзора проекта",
+          "line_range": [
+            190,
+            213
+          ],
+          "parameters": [
+            "self",
+            "args"
+          ]
+        },
+        {
+          "name": "cmd_module",
+          "docstring": "Команда анализа модуля",
+          "line_range": [
+            215,
+            285
+          ],
+          "parameters": [
+            "self",
+            "args"
+          ]
+        },
+        {
+          "name": "cmd_search",
+          "docstring": "Команда поиска функций",
+          "line_range": [
+            287,
+            308
+          ],
+          "parameters": [
+            "self",
+            "args"
+          ]
+        },
+        {
+          "name": "cmd_callers",
+          "docstring": "Команда поиска вызывающих функций",
+          "line_range": [
+            310,
+            335
+          ],
+          "parameters": [
+            "self",
+            "args"
+          ]
+        },
+        {
+          "name": "cmd_report",
+          "docstring": "Команда генерации отчёта",
+          "line_range": [
+            337,
+            348
+          ],
+          "parameters": [
+            "self",
+            "args"
+          ]
+        },
+        {
+          "name": "run",
+          "docstring": "Запуск CLI",
+          "line_range": [
+            350,
+            380
+          ],
+          "parameters": [
+            "self",
+            "argv"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "logging.getLogger"
+    ],
+    "create_parser": [
+      "Path",
+      "mod_parser.add_argument",
+      "report_parser.add_argument",
+      "callers_parser.add_argument",
+      "parser.add_argument",
+      "argparse.ArgumentParser",
+      "parser.add_subparsers",
+      "subparsers.add_parser",
+      "gen_parser.add_argument",
+      "search_parser.add_argument"
+    ],
+    "setup_logging": [
+      "logging.basicConfig"
+    ],
+    "initialize_analyzer": [
+      "StructureAnalyzer",
+      "StructureConfig",
+      "hasattr"
+    ],
+    "cmd_generate": [
+      "print"
+    ],
+    "cmd_overview": [
+      "print"
+    ],
+    "cmd_module": [
+      "print"
+    ],
+    "cmd_search": [
+      "len",
+      "print"
+    ],
+    "cmd_callers": [
+      "len",
+      "print"
+    ],
+    "cmd_report": [
+      "print"
+    ],
+    "run": [
+      "self.cmd_callers",
+      "print",
+      "parser.parse_args",
+      "self.setup_logging",
+      "self.cmd_module",
+      "parser.print_help",
+      "self.initialize_analyzer",
+      "self.cmd_generate",
+      "self.cmd_overview",
+      "self.cmd_search",
+      "self.create_parser",
+      "self.cmd_report"
+    ],
+    "main": [
+      "StructureCLI",
+      "cli.run"
+    ]
+  },
+  "dependencies": [
+    "Optional",
+    "Path",
+    "StructureAnalyzer",
+    "StructureConfig",
+    "argparse",
+    "json",
+    "logging",
+    "pathlib",
+    "structure_analyzer",
+    "sys",
+    "typing"
+  ],
+  "hash": "3ada7ae986e24db35a509f66751ae1b53710ffaa9135c7aced362404fdf7917e",
+  "artifact_id": "33eb4f69-a988-469b-b978-3a13932dcd01"
+}

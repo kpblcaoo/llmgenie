@@ -1,0 +1,18 @@
+{
+  "module_id": "src.struct_tools.__init__",
+  "path": "src/struct_tools/__init__.py",
+  "category": "cli",
+  "module_doc": "struct_tools - Специализированные инструменты для работы со структурным анализом проекта\n\nЭтот пакет предоставляет мощные инструменты для:\n- Генерации и анализа struct.json\n- Работы с modular index (.llmstruct_index/)\n- Архитектурного анализа проекта  \n- Оценки влияния рефакторинга\n- Анализа зависимостей и call graphs",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [
+    "StructureAnalyzer",
+    "StructureCLI",
+    "StructureConfig",
+    "cli_interface",
+    "structure_analyzer"
+  ],
+  "hash": "b0756092205908aa270fe5bbe802e388145c4e7f458c4f96a738f4d5c0e5fcc1",
+  "artifact_id": "2d04eff3-2d43-4f80-b36c-15e470c7e323"
+}

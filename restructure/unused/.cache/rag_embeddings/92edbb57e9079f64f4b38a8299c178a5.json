@@ -1,0 +1,7 @@
+{
+  "text_preview": "---\ndescription: Enforce commit message template for all code changes. Atomic rule with @-reference ",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

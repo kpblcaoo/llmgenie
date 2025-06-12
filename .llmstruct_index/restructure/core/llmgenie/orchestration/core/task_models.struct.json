@@ -1,0 +1,205 @@
+{
+  "module_id": "restructure.core.llmgenie.orchestration.core.task_models",
+  "path": "restructure/core/llmgenie/orchestration/core/task_models.py",
+  "category": "core",
+  "module_doc": "Task data models for orchestration\n\nEpic 5 Phase 3.1: Orchestration task modeling\nSingle responsibility: Define task and result data structures",
+  "functions": [
+    {
+      "name": "__post_init__",
+      "docstring": "Validate task configuration after initialization",
+      "line_range": [
+        53,
+        64
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_estimated_agents_needed",
+      "docstring": "Estimate number of agents needed for this task",
+      "line_range": [
+        66,
+        74
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_estimated_duration",
+      "docstring": "Estimate task duration in seconds",
+      "line_range": [
+        76,
+        88
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "is_successful",
+      "docstring": "Check if the orchestration was successful",
+      "line_range": [
+        128,
+        130
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_summary",
+      "docstring": "Get a human-readable summary of the result",
+      "line_range": [
+        132,
+        139
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_performance_metrics",
+      "docstring": "Get performance metrics for analysis",
+      "line_range": [
+        141,
+        149
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "OrchestrationTask",
+      "docstring": "Task for multi-agent orchestration\n\nEncapsulates all information needed for multi-agent task execution",
+      "line_range": [
+        17,
+        88
+      ],
+      "methods": [
+        {
+          "name": "__post_init__",
+          "docstring": "Validate task configuration after initialization",
+          "line_range": [
+            53,
+            64
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "get_estimated_agents_needed",
+          "docstring": "Estimate number of agents needed for this task",
+          "line_range": [
+            66,
+            74
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "get_estimated_duration",
+          "docstring": "Estimate task duration in seconds",
+          "line_range": [
+            76,
+            88
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    },
+    {
+      "name": "OrchestrationResult",
+      "docstring": "Result of multi-agent orchestration\n\nContains execution results and performance metrics",
+      "line_range": [
+        92,
+        149
+      ],
+      "methods": [
+        {
+          "name": "is_successful",
+          "docstring": "Check if the orchestration was successful",
+          "line_range": [
+            128,
+            130
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "get_summary",
+          "docstring": "Get a human-readable summary of the result",
+          "line_range": [
+            132,
+            139
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "get_performance_metrics",
+          "docstring": "Get performance metrics for analysis",
+          "line_range": [
+            141,
+            149
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__post_init__": [
+      "datetime.now",
+      "ValueError"
+    ],
+    "get_estimated_agents_needed": [
+      "len"
+    ],
+    "get_estimated_duration": [
+      "len"
+    ],
+    "is_successful": [],
+    "get_summary": [],
+    "get_performance_metrics": [
+      "len",
+      "self.is_successful"
+    ]
+  },
+  "dependencies": [
+    "AgentCoordination",
+    "Any",
+    "Dict",
+    "ExecutionMode",
+    "List",
+    "Optional",
+    "coordination_types",
+    "dataclass",
+    "dataclasses",
+    "datetime",
+    "execution_modes",
+    "field",
+    "typing"
+  ],
+  "hash": "fb639631d019c43ec74c72cf47ad23aa4f9a5330458d0e80afa075b6e00dfa3b",
+  "artifact_id": "e356d843-9ccc-4431-be2d-1894ebd051ed"
+}

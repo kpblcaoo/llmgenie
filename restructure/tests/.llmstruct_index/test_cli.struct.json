@@ -1,0 +1,47 @@
+{
+  "module_id": "test_cli",
+  "path": "test_cli.py",
+  "category": "test",
+  "module_doc": "Tests for llmgenie CLI module",
+  "functions": [
+    {
+      "name": "test_cli_import",
+      "docstring": "Test that CLI module can be imported",
+      "line_range": [
+        12,
+        18
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "test_llm_client_import",
+      "docstring": "Test that LLM client can be imported",
+      "line_range": [
+        20,
+        26
+      ],
+      "parameters": [],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "test_cli_import": [
+      "pytest.fail"
+    ],
+    "test_llm_client_import": [
+      "pytest.fail"
+    ]
+  },
+  "dependencies": [
+    "cli",
+    "llm_client",
+    "llmgenie",
+    "os",
+    "pytest",
+    "sys"
+  ],
+  "hash": "892f36ff6a9ab5c3fdb8215906c8d9ca50a2fd5fbe714e8475dfd92bafef5fef",
+  "artifact_id": "cff756a0-c9d8-4660-ba4b-f58f7f3f4a56"
+}

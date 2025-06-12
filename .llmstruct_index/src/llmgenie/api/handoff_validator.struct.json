@@ -322,46 +322,46 @@
       "Path"
     ],
     "validate_package": [
-      "len",
       "all",
-      "self._find_missing_files",
-      "self._calculate_completeness_score",
-      "file_validation.values",
-      "self._validate_startup_prompt",
-      "ValidationResult",
-      "self._validate_control_questions",
-      "self._validate_files",
+      "len",
       "self._generate_warnings",
-      "self._generate_recommendations"
+      "ValidationResult",
+      "self._generate_recommendations",
+      "self._validate_files",
+      "self._validate_startup_prompt",
+      "self._validate_control_questions",
+      "self._find_missing_files",
+      "file_validation.values",
+      "self._calculate_completeness_score"
     ],
     "_validate_files": [
-      "file_path.exists",
-      "file_path.stat"
+      "file_path.stat",
+      "file_path.exists"
     ],
     "_find_missing_files": [
       "set",
       "list"
     ],
     "_validate_startup_prompt": [
-      "prompt.lower",
-      "StartupPrompt"
+      "StartupPrompt",
+      "prompt.lower"
     ],
     "_validate_control_questions": [
-      "ControlQuestions",
-      "len"
+      "len",
+      "ControlQuestions"
     ],
     "_calculate_completeness_score": [
-      "len",
-      "max",
       "sum",
-      "file_validation.values"
+      "len",
+      "file_validation.values",
+      "max"
     ],
     "_generate_warnings": [
+      "all",
       "len",
       "file_validation.items",
-      "all",
-      "file_validation.values",
-      "warnings.append"
+      "warnings.append",
+      "file_validation.values"
     ],
     "_generate_recommendations": [
       "len",
@@ -384,5 +384,5 @@
     "typing"
   ],
   "hash": "95e1fca4753701656be3b38544e6201c6077ce68a7837cc24ecc6ae98625cbc3",
-  "artifact_id": "ddc867cb-44f5-4c4d-99a4-3cb4764efc78"
+  "artifact_id": "6fb9fd6b-c4f5-415d-ad37-56095cc329ae"
 }

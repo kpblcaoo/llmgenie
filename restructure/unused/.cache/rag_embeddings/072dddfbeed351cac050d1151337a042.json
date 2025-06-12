@@ -1,0 +1,7 @@
+{
+  "text_preview": "---\ndescription: When workflow modes and context tags e.g. [code] is mentioned\nglobs:\nalwaysApply: f",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

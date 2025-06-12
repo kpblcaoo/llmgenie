@@ -1,0 +1,182 @@
+{
+  "module_id": "src.llmgenie.mcp.server",
+  "path": "src/llmgenie/mcp/server.py",
+  "category": "core",
+  "module_doc": "FastMCP Server Implementation\n\nClean server initialization using decorators",
+  "functions": [
+    {
+      "name": "validate_handoff",
+      "docstring": "",
+      "line_range": [
+        29,
+        47
+      ],
+      "parameters": [
+        "package_data"
+      ],
+      "decorators": [
+        "mcp.tool()"
+      ]
+    },
+    {
+      "name": "get_handoff_template",
+      "docstring": "",
+      "line_range": [
+        50,
+        82
+      ],
+      "parameters": [],
+      "decorators": [
+        "mcp.tool()"
+      ]
+    },
+    {
+      "name": "get_project_state",
+      "docstring": "",
+      "line_range": [
+        85,
+        108
+      ],
+      "parameters": [],
+      "decorators": [
+        "mcp.tool()"
+      ]
+    },
+    {
+      "name": "health_check",
+      "docstring": "",
+      "line_range": [
+        111,
+        118
+      ],
+      "parameters": [],
+      "decorators": [
+        "mcp.tool()"
+      ]
+    },
+    {
+      "name": "execute_agent_task",
+      "docstring": "",
+      "line_range": [
+        121,
+        171
+      ],
+      "parameters": [
+        "agent_type",
+        "task",
+        "context"
+      ],
+      "decorators": [
+        "mcp.tool()"
+      ]
+    },
+    {
+      "name": "get_agent_status",
+      "docstring": "",
+      "line_range": [
+        174,
+        181
+      ],
+      "parameters": [
+        "agent_id"
+      ],
+      "decorators": [
+        "mcp.tool()"
+      ]
+    },
+    {
+      "name": "get_rules_manifest",
+      "docstring": "",
+      "line_range": [
+        184,
+        201
+      ],
+      "parameters": [],
+      "decorators": [
+        "mcp.tool()"
+      ]
+    },
+    {
+      "name": "get_workflow_modes",
+      "docstring": "",
+      "line_range": [
+        204,
+        211
+      ],
+      "parameters": [],
+      "decorators": [
+        "mcp.tool()"
+      ]
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "validate_handoff": [
+      "str",
+      "mcp.tool",
+      "HandoffPackage",
+      "validator.validate_package"
+    ],
+    "get_handoff_template": [
+      "mcp.tool"
+    ],
+    "get_project_state": [
+      "Path",
+      "str",
+      "mcp.tool",
+      "project_state_path.exists",
+      "open",
+      "state.get",
+      "json.load"
+    ],
+    "health_check": [
+      "mcp.tool",
+      "datetime.now"
+    ],
+    "execute_agent_task": [
+      "str",
+      "mcp.tool",
+      "router.route_task",
+      "router.execute_with_model",
+      "datetime.now",
+      "execution_result.get"
+    ],
+    "get_agent_status": [
+      "mcp.tool"
+    ],
+    "get_rules_manifest": [
+      "open",
+      "mcp.tool",
+      "json.load",
+      "str"
+    ],
+    "get_workflow_modes": [
+      "mcp.tool"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "Dict",
+    "FastMCP",
+    "HandoffPackage",
+    "HandoffValidator",
+    "List",
+    "ModelChoice",
+    "ModelRouter",
+    "Optional",
+    "Path",
+    "TaskClassifier",
+    "ValidationResult",
+    "api.handoff_validator",
+    "asyncio",
+    "datetime",
+    "fastmcp",
+    "json",
+    "logging",
+    "pathlib",
+    "task_router",
+    "typing"
+  ],
+  "hash": "0dff6427b5df5156492a11d9dfd2c7984b7b86e6e4972411700ace0edb3cf23d",
+  "artifact_id": "efa5fadb-e439-43b2-8867-30d71e2542c5"
+}

@@ -1,0 +1,618 @@
+{
+  "module_id": "src.rag_context.active_knowledge_integration",
+  "path": "src/rag_context/active_knowledge_integration.py",
+  "category": "core",
+  "module_doc": "Active Knowledge Integration - Phase 4A.2.4 Safe Implementation\nIntegrates Phase 4A.2.1 (extraction), 4A.2.2 (discovery), 4A.2.3 (context) into active workflow.",
+  "functions": [
+    {
+      "name": "create_active_integrator",
+      "docstring": "Create active integrator safely",
+      "line_range": [
+        456,
+        467
+      ],
+      "parameters": [
+        "extractor",
+        "discovery",
+        "context_manager"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "Initialize with optional existing components",
+      "line_range": [
+        55,
+        71
+      ],
+      "parameters": [
+        "self",
+        "extractor",
+        "discovery",
+        "context_manager"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "start_active_session",
+      "docstring": "Start active knowledge-aware session.\n\nImmediately provides proactive suggestions based on task.",
+      "line_range": [
+        73,
+        112
+      ],
+      "parameters": [
+        "self",
+        "task_description",
+        "files_involved"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_contextual_suggestions",
+      "docstring": "Get contextual suggestions based on current coding context.\n\n\"You solved this before\" type suggestions.",
+      "line_range": [
+        114,
+        149
+      ],
+      "parameters": [
+        "self",
+        "current_code",
+        "current_file"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "notify_solution_implemented",
+      "docstring": "Notify that a solution was implemented - auto-tag for future discovery.",
+      "line_range": [
+        151,
+        192
+      ],
+      "parameters": [
+        "self",
+        "solution_description",
+        "code_snippet"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "suggest_related_sessions",
+      "docstring": "Suggest related sessions that might have relevant context.",
+      "line_range": [
+        194,
+        239
+      ],
+      "parameters": [
+        "self",
+        "current_problem"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_generate_proactive_suggestions",
+      "docstring": "Generate proactive suggestions for a new task",
+      "line_range": [
+        241,
+        258
+      ],
+      "parameters": [
+        "self",
+        "task_description"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_convert_discovery_to_suggestions",
+      "docstring": "Convert discovery results to knowledge suggestions",
+      "line_range": [
+        260,
+        281
+      ],
+      "parameters": [
+        "self",
+        "discovery_result"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_get_context_based_suggestions",
+      "docstring": "Get suggestions based on previous session contexts",
+      "line_range": [
+        283,
+        307
+      ],
+      "parameters": [
+        "self",
+        "problem_type"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_get_file_based_suggestions",
+      "docstring": "Get suggestions based on current file context",
+      "line_range": [
+        309,
+        327
+      ],
+      "parameters": [
+        "self",
+        "current_file"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_get_workflow_suggestions",
+      "docstring": "Get workflow suggestions based on problem type",
+      "line_range": [
+        329,
+        350
+      ],
+      "parameters": [
+        "self",
+        "problem_type"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_classify_problem_type",
+      "docstring": "Classify problem type from task description",
+      "line_range": [
+        352,
+        365
+      ],
+      "parameters": [
+        "self",
+        "task_description"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_save_solution_pattern",
+      "docstring": "Save new solution pattern to knowledge base",
+      "line_range": [
+        367,
+        389
+      ],
+      "parameters": [
+        "self",
+        "pattern"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_log_session_event",
+      "docstring": "Log session events for integration tracking",
+      "line_range": [
+        391,
+        407
+      ],
+      "parameters": [
+        "self",
+        "event_type",
+        "details"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_suggestion_to_dict",
+      "docstring": "Convert suggestion to dict for JSON serialization",
+      "line_range": [
+        409,
+        418
+      ],
+      "parameters": [
+        "self",
+        "suggestion"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_integration_stats",
+      "docstring": "Get integration system statistics",
+      "line_range": [
+        420,
+        442
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "disable",
+      "docstring": "Disable integration system safely",
+      "line_range": [
+        444,
+        448
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "enable",
+      "docstring": "Enable integration system",
+      "line_range": [
+        450,
+        452
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "KnowledgeSuggestion",
+      "docstring": "Proactive knowledge suggestion for active workflow",
+      "line_range": [
+        17,
+        24
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "ActiveSessionState",
+      "docstring": "Current active session state for context-aware suggestions",
+      "line_range": [
+        28,
+        35
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "ActiveKnowledgeIntegrator",
+      "docstring": "Active Knowledge Integration system - the intelligence layer.\n\nBrings together all knowledge preservation components into active workflow:\n- Proactive suggestions during coding\n- \"You solved this before\" notifications  \n- Auto-tagging of new solutions\n- Smart context switching\n\nSafe design principles:\n- Builds on all previous Phase 4A.2.1-3 components\n- Non-intrusive suggestions (can be ignored)\n- Performance-conscious (fast suggestions)\n- Easy disable without workflow disruption",
+      "line_range": [
+        38,
+        452
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize with optional existing components",
+          "line_range": [
+            55,
+            71
+          ],
+          "parameters": [
+            "self",
+            "extractor",
+            "discovery",
+            "context_manager"
+          ]
+        },
+        {
+          "name": "start_active_session",
+          "docstring": "Start active knowledge-aware session.\n\nImmediately provides proactive suggestions based on task.",
+          "line_range": [
+            73,
+            112
+          ],
+          "parameters": [
+            "self",
+            "task_description",
+            "files_involved"
+          ]
+        },
+        {
+          "name": "get_contextual_suggestions",
+          "docstring": "Get contextual suggestions based on current coding context.\n\n\"You solved this before\" type suggestions.",
+          "line_range": [
+            114,
+            149
+          ],
+          "parameters": [
+            "self",
+            "current_code",
+            "current_file"
+          ]
+        },
+        {
+          "name": "notify_solution_implemented",
+          "docstring": "Notify that a solution was implemented - auto-tag for future discovery.",
+          "line_range": [
+            151,
+            192
+          ],
+          "parameters": [
+            "self",
+            "solution_description",
+            "code_snippet"
+          ]
+        },
+        {
+          "name": "suggest_related_sessions",
+          "docstring": "Suggest related sessions that might have relevant context.",
+          "line_range": [
+            194,
+            239
+          ],
+          "parameters": [
+            "self",
+            "current_problem"
+          ]
+        },
+        {
+          "name": "_generate_proactive_suggestions",
+          "docstring": "Generate proactive suggestions for a new task",
+          "line_range": [
+            241,
+            258
+          ],
+          "parameters": [
+            "self",
+            "task_description"
+          ]
+        },
+        {
+          "name": "_convert_discovery_to_suggestions",
+          "docstring": "Convert discovery results to knowledge suggestions",
+          "line_range": [
+            260,
+            281
+          ],
+          "parameters": [
+            "self",
+            "discovery_result"
+          ]
+        },
+        {
+          "name": "_get_context_based_suggestions",
+          "docstring": "Get suggestions based on previous session contexts",
+          "line_range": [
+            283,
+            307
+          ],
+          "parameters": [
+            "self",
+            "problem_type"
+          ]
+        },
+        {
+          "name": "_get_file_based_suggestions",
+          "docstring": "Get suggestions based on current file context",
+          "line_range": [
+            309,
+            327
+          ],
+          "parameters": [
+            "self",
+            "current_file"
+          ]
+        },
+        {
+          "name": "_get_workflow_suggestions",
+          "docstring": "Get workflow suggestions based on problem type",
+          "line_range": [
+            329,
+            350
+          ],
+          "parameters": [
+            "self",
+            "problem_type"
+          ]
+        },
+        {
+          "name": "_classify_problem_type",
+          "docstring": "Classify problem type from task description",
+          "line_range": [
+            352,
+            365
+          ],
+          "parameters": [
+            "self",
+            "task_description"
+          ]
+        },
+        {
+          "name": "_save_solution_pattern",
+          "docstring": "Save new solution pattern to knowledge base",
+          "line_range": [
+            367,
+            389
+          ],
+          "parameters": [
+            "self",
+            "pattern"
+          ]
+        },
+        {
+          "name": "_log_session_event",
+          "docstring": "Log session events for integration tracking",
+          "line_range": [
+            391,
+            407
+          ],
+          "parameters": [
+            "self",
+            "event_type",
+            "details"
+          ]
+        },
+        {
+          "name": "_suggestion_to_dict",
+          "docstring": "Convert suggestion to dict for JSON serialization",
+          "line_range": [
+            409,
+            418
+          ],
+          "parameters": [
+            "self",
+            "suggestion"
+          ]
+        },
+        {
+          "name": "get_integration_stats",
+          "docstring": "Get integration system statistics",
+          "line_range": [
+            420,
+            442
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "disable",
+          "docstring": "Disable integration system safely",
+          "line_range": [
+            444,
+            448
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "enable",
+          "docstring": "Enable integration system",
+          "line_range": [
+            450,
+            452
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "SessionContextManager",
+      "SafeKnowledgeExtractor",
+      "SmartCodeDiscovery",
+      "Path"
+    ],
+    "start_active_session": [
+      "len",
+      "str",
+      "self._classify_problem_type",
+      "ActiveSessionState",
+      "self._log_session_event",
+      "int",
+      "self._suggestion_to_dict",
+      "self._generate_proactive_suggestions",
+      "time.time"
+    ],
+    "get_contextual_suggestions": [
+      "sorted",
+      "suggestions.extend",
+      "self._get_context_based_suggestions",
+      "self._convert_discovery_to_suggestions",
+      "self._get_file_based_suggestions"
+    ],
+    "notify_solution_implemented": [
+      "str",
+      "self._log_session_event",
+      "int",
+      "time.time",
+      "self._save_solution_pattern"
+    ],
+    "suggest_related_sessions": [
+      "Path",
+      "len",
+      "set",
+      "open",
+      "context_stats.get",
+      "json.load",
+      "current_problem.lower",
+      "description.split",
+      "related_sessions.append",
+      "snapshot.get",
+      "related_sessions.sort",
+      "bool"
+    ],
+    "_generate_proactive_suggestions": [
+      "suggestions.extend",
+      "self._convert_discovery_to_suggestions",
+      "self._classify_problem_type",
+      "self._get_workflow_suggestions"
+    ],
+    "_convert_discovery_to_suggestions": [
+      "Path",
+      "len",
+      "KnowledgeSuggestion",
+      "enumerate",
+      "suggestions.append"
+    ],
+    "_get_context_based_suggestions": [
+      "min",
+      "KnowledgeSuggestion",
+      "suggestions.append",
+      "self.suggest_related_sessions"
+    ],
+    "_get_file_based_suggestions": [
+      "Path",
+      "KnowledgeSuggestion",
+      "suggestions.append"
+    ],
+    "_get_workflow_suggestions": [
+      "problem_type.title",
+      "KnowledgeSuggestion",
+      "suggestions.append"
+    ],
+    "_classify_problem_type": [
+      "any",
+      "task_description.lower"
+    ],
+    "_save_solution_pattern": [
+      "Path",
+      "patterns_file.exists",
+      "open",
+      "json.dump",
+      "patterns.append",
+      "json.load"
+    ],
+    "_log_session_event": [
+      "open",
+      "time.time",
+      "json.dumps",
+      "f.write"
+    ],
+    "_suggestion_to_dict": [],
+    "get_integration_stats": [
+      "log_file.exists",
+      "open",
+      "sum"
+    ],
+    "disable": [
+      "self._log_session_event"
+    ],
+    "enable": [],
+    "create_active_integrator": [
+      "print",
+      "integrator.disable",
+      "ActiveKnowledgeIntegrator"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "Dict",
+    "DiscoveryResult",
+    "List",
+    "Optional",
+    "Path",
+    "SafeKnowledgeExtractor",
+    "SessionContextManager",
+    "SmartCodeDiscovery",
+    "Tuple",
+    "code_discovery",
+    "dataclass",
+    "dataclasses",
+    "json",
+    "knowledge_extractor",
+    "pathlib",
+    "session_context_manager",
+    "time",
+    "typing"
+  ],
+  "hash": "80e046baa4fc0e0d227447432806987fef70e8ec0dab38f131cdb0160f876c92",
+  "artifact_id": "e4256d03-62ef-4c23-9c31-4f319fb2f434"
+}

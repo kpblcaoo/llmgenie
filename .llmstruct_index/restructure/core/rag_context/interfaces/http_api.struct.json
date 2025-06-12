@@ -1,0 +1,419 @@
+{
+  "module_id": "restructure.core.rag_context.interfaces.http_api",
+  "path": "restructure/core/rag_context/interfaces/http_api.py",
+  "category": "core",
+  "module_doc": "HTTP API Server для веб-интеграций и внешних сервисов",
+  "functions": [
+    {
+      "name": "main",
+      "docstring": "Главная функция для запуска HTTP API сервера",
+      "line_range": [
+        261,
+        281
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        59,
+        83
+      ],
+      "parameters": [
+        "self",
+        "config",
+        "port"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_setup_routes",
+      "docstring": "Настройка API endpoints",
+      "line_range": [
+        85,
+        236
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "run",
+      "docstring": "Запуск HTTP API сервера",
+      "line_range": [
+        238,
+        249
+      ],
+      "parameters": [
+        "self",
+        "host"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "run_sync",
+      "docstring": "Синхронный запуск сервера",
+      "line_range": [
+        251,
+        258
+      ],
+      "parameters": [
+        "self",
+        "host"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "startup_event",
+      "docstring": "Инициализация при запуске сервера",
+      "line_range": [
+        89,
+        93
+      ],
+      "parameters": [],
+      "decorators": [
+        "self.app.on_event('startup')"
+      ]
+    },
+    {
+      "name": "root",
+      "docstring": "Корневой endpoint",
+      "line_range": [
+        96,
+        103
+      ],
+      "parameters": [],
+      "decorators": [
+        "self.app.get('/')"
+      ]
+    },
+    {
+      "name": "health_check",
+      "docstring": "Health check для мониторинга",
+      "line_range": [
+        106,
+        112
+      ],
+      "parameters": [],
+      "decorators": [
+        "self.app.get('/health')"
+      ]
+    },
+    {
+      "name": "enhance_prompt",
+      "docstring": "Улучшает промпт добавлением релевантного контекста",
+      "line_range": [
+        115,
+        140
+      ],
+      "parameters": [
+        "request"
+      ],
+      "decorators": [
+        "self.app.post('/enhance', response_model=EnhanceResponse)"
+      ]
+    },
+    {
+      "name": "search_rules",
+      "docstring": "Ищет релевантные правила для запроса",
+      "line_range": [
+        143,
+        171
+      ],
+      "parameters": [
+        "request"
+      ],
+      "decorators": [
+        "self.app.post('/rules/search', response_model=RulesResponse)"
+      ]
+    },
+    {
+      "name": "get_project_structure",
+      "docstring": "Возвращает структуру проекта из struct.json",
+      "line_range": [
+        174,
+        187
+      ],
+      "parameters": [],
+      "decorators": [
+        "self.app.get('/project/structure')"
+      ]
+    },
+    {
+      "name": "get_system_stats",
+      "docstring": "Возвращает статистику RAG системы",
+      "line_range": [
+        190,
+        197
+      ],
+      "parameters": [],
+      "decorators": [
+        "self.app.get('/stats')"
+      ]
+    },
+    {
+      "name": "refresh_index",
+      "docstring": "Обновляет индекс документов RAG системы",
+      "line_range": [
+        200,
+        213
+      ],
+      "parameters": [],
+      "decorators": [
+        "self.app.post('/admin/refresh')"
+      ]
+    },
+    {
+      "name": "enhance_prompt_get",
+      "docstring": "GET версия enhance для простых интеграций",
+      "line_range": [
+        217,
+        225
+      ],
+      "parameters": [
+        "query",
+        "max_context"
+      ],
+      "decorators": [
+        "self.app.get('/enhance')"
+      ]
+    },
+    {
+      "name": "search_rules_get",
+      "docstring": "GET версия rules search для простых интеграций  ",
+      "line_range": [
+        228,
+        236
+      ],
+      "parameters": [
+        "query",
+        "max_rules"
+      ],
+      "decorators": [
+        "self.app.get('/rules/search')"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "name": "EnhanceRequest",
+      "docstring": "",
+      "line_range": [
+        25,
+        28
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    },
+    {
+      "name": "EnhanceResponse",
+      "docstring": "",
+      "line_range": [
+        31,
+        35
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    },
+    {
+      "name": "RulesRequest",
+      "docstring": "",
+      "line_range": [
+        38,
+        40
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    },
+    {
+      "name": "RuleInfo",
+      "docstring": "",
+      "line_range": [
+        43,
+        48
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    },
+    {
+      "name": "RulesResponse",
+      "docstring": "",
+      "line_range": [
+        51,
+        53
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    },
+    {
+      "name": "HTTPAPIServer",
+      "docstring": "HTTP API Server для универсального доступа к RAG системе",
+      "line_range": [
+        56,
+        258
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            59,
+            83
+          ],
+          "parameters": [
+            "self",
+            "config",
+            "port"
+          ]
+        },
+        {
+          "name": "_setup_routes",
+          "docstring": "Настройка API endpoints",
+          "line_range": [
+            85,
+            236
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "run",
+          "docstring": "Запуск HTTP API сервера",
+          "line_range": [
+            238,
+            249
+          ],
+          "parameters": [
+            "self",
+            "host"
+          ]
+        },
+        {
+          "name": "run_sync",
+          "docstring": "Синхронный запуск сервера",
+          "line_range": [
+            251,
+            258
+          ],
+          "parameters": [
+            "self",
+            "host"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "FastAPI",
+      "ImportError",
+      "PromptEnhancer",
+      "self._setup_routes",
+      "RAGConfig"
+    ],
+    "_setup_routes": [],
+    "startup_event": [
+      "print"
+    ],
+    "root": [],
+    "health_check": [],
+    "enhance_prompt": [
+      "len",
+      "str",
+      "enhanced_query.count",
+      "max",
+      "HTTPException",
+      "EnhanceResponse"
+    ],
+    "search_rules": [
+      "len",
+      "str",
+      "rules.append",
+      "RuleInfo",
+      "round",
+      "HTTPException",
+      "RulesResponse"
+    ],
+    "get_project_structure": [
+      "HTTPException",
+      "open",
+      "json.load",
+      "str"
+    ],
+    "get_system_stats": [
+      "HTTPException",
+      "str"
+    ],
+    "refresh_index": [
+      "HTTPException",
+      "str"
+    ],
+    "enhance_prompt_get": [
+      "EnhanceRequest",
+      "Query",
+      "enhance_prompt"
+    ],
+    "search_rules_get": [
+      "RulesRequest",
+      "Query",
+      "search_rules"
+    ],
+    "run": [
+      "uvicorn.Server",
+      "print",
+      "server.serve",
+      "uvicorn.Config"
+    ],
+    "run_sync": [
+      "uvicorn.run"
+    ],
+    "main": [
+      "len",
+      "server.run",
+      "int",
+      "HTTPAPIServer"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "BaseModel",
+    "CORSMiddleware",
+    "Dict",
+    "FastAPI",
+    "HTTPException",
+    "List",
+    "Optional",
+    "Path",
+    "PromptEnhancer",
+    "Query",
+    "RAGConfig",
+    "asyncio",
+    "config",
+    "enhancer",
+    "fastapi",
+    "fastapi.middleware.cors",
+    "json",
+    "pathlib",
+    "pydantic",
+    "sys",
+    "typing",
+    "uvicorn"
+  ],
+  "hash": "1af7ded9db88a3b9e27d52eb109dc02b6f4149443f98b05453389ef62d17c65f",
+  "artifact_id": "e1882a9f-7269-402b-901f-a36439efcbdc"
+}

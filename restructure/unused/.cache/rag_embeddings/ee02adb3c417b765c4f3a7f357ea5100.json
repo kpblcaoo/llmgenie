@@ -1,0 +1,7 @@
+{
+  "text_preview": "Use only approved commands and log all executions.\nalwaysApply: false\n---\nMeta\nCLI Commands (Atomic)",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

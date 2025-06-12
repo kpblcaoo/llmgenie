@@ -89,61 +89,61 @@
   "classes": [],
   "callgraph": {
     "metrics_status": [
-      "tracker.get_session_summary",
       "print",
+      "tracker.get_session_summary",
       "get_metrics_tracker"
     ],
     "metrics_summary": [
-      "tracker.get_session_summary",
       "print",
+      "tracker.get_session_summary",
       "max",
       "get_metrics_tracker"
     ],
     "metrics_analytics": [
-      "print",
-      "get_metrics_tracker",
-      "json.dump",
-      "json.dumps",
-      "tracker.get_session_summary",
       "open",
+      "tracker.get_analytics_data",
+      "print",
       "csv.writer",
+      "json.dump",
+      "writer.writerow",
+      "get_metrics_tracker",
       "enumerate",
       "time.strftime",
-      "writer.writerow",
-      "tracker.get_analytics_data"
+      "tracker.get_session_summary",
+      "json.dumps"
     ],
     "metrics_report": [
-      "len",
-      "print",
-      "get_metrics_tracker",
-      "open",
       "sum",
-      "f.write",
-      "time.strftime",
-      "min",
+      "len",
       "analytics.get",
-      "tracker.get_analytics_data"
+      "open",
+      "tracker.get_analytics_data",
+      "print",
+      "min",
+      "f.write",
+      "get_metrics_tracker",
+      "time.strftime"
     ],
     "metrics_track": [
-      "print",
-      "track_workflow_event"
+      "track_workflow_event",
+      "print"
     ],
     "metrics_tokens": [
       "print",
       "get_metrics_tracker",
-      "summary.get",
       "get_token_summary",
       "enumerate",
-      "interaction.get"
+      "interaction.get",
+      "summary.get"
     ],
     "cmd_metrics": [
-      "print",
+      "metrics_report",
       "metrics_track",
-      "metrics_analytics",
+      "print",
       "metrics_tokens",
+      "metrics_analytics",
       "metrics_status",
-      "metrics_summary",
-      "metrics_report"
+      "metrics_summary"
     ]
   },
   "dependencies": [
@@ -156,5 +156,5 @@
     "track_workflow_event"
   ],
   "hash": "f3cdbecb744fbdb29ca949fe874d201a44bc014625127b14d500e5828dc11e54",
-  "artifact_id": "310e70c1-9723-4760-b9c7-82e0f72b3d2e"
+  "artifact_id": "c730cc6a-73a7-44c6-9b8d-a90b93566318"
 }

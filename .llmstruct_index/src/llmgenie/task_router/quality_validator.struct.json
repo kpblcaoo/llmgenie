@@ -1,0 +1,544 @@
+{
+  "module_id": "src.llmgenie.task_router.quality_validator",
+  "path": "src/llmgenie/task_router/quality_validator.py",
+  "category": "core",
+  "module_doc": "Quality Validator for LLM Output Assessment\n\nEnhanced implementation for Epic 5 Phase 2: Quality Validation Pipeline\nProvides comprehensive validation for code and text outputs with automatic fallback",
+  "functions": [
+    {
+      "name": "__init__",
+      "docstring": "Initialize validator with quality rules and thresholds",
+      "line_range": [
+        48,
+        74
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "validate_code_output",
+      "docstring": "Validate code output quality with syntax checking and structure analysis\n\nArgs:\n    code: Code string to validate\n    language: Programming language (default: python)\n    \nReturns:\n    QualityResult with detailed analysis",
+      "line_range": [
+        76,
+        107
+      ],
+      "parameters": [
+        "self",
+        "code",
+        "language"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_validate_python_code",
+      "docstring": "Validate Python code specifically",
+      "line_range": [
+        109,
+        167
+      ],
+      "parameters": [
+        "self",
+        "code"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_validate_javascript_code",
+      "docstring": "Basic JavaScript validation",
+      "line_range": [
+        169,
+        207
+      ],
+      "parameters": [
+        "self",
+        "code"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_validate_generic_code",
+      "docstring": "Generic code validation for unknown languages",
+      "line_range": [
+        209,
+        239
+      ],
+      "parameters": [
+        "self",
+        "code"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "validate_text_output",
+      "docstring": "Validate text output quality with coherence and completeness analysis\n\nArgs:\n    text: Text string to validate\n    expected_type: Type of text (documentation, explanation, etc.)\n    \nReturns:\n    QualityResult with detailed analysis",
+      "line_range": [
+        241,
+        320
+      ],
+      "parameters": [
+        "self",
+        "text",
+        "expected_type"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_calculate_coherence_score",
+      "docstring": "Calculate text coherence based on transition words and structure",
+      "line_range": [
+        322,
+        337
+      ],
+      "parameters": [
+        "self",
+        "text"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_calculate_completeness_score",
+      "docstring": "Calculate text completeness based on structure and content indicators",
+      "line_range": [
+        339,
+        356
+      ],
+      "parameters": [
+        "self",
+        "text"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "should_fallback",
+      "docstring": "Determine if we should fallback to a different model based on quality\n\nArgs:\n    result: Quality validation result\n    task_type: Type of task being validated\n    \nReturns:\n    True if fallback is recommended",
+      "line_range": [
+        358,
+        373
+      ],
+      "parameters": [
+        "self",
+        "result",
+        "task_type"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_quality_metrics",
+      "docstring": "Extract standardized quality metrics for monitoring",
+      "line_range": [
+        375,
+        383
+      ],
+      "parameters": [
+        "self",
+        "result"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "predict_quality_requirements",
+      "docstring": "Predicts the quality requirements for a given task description and type.\nThis is a placeholder for a more sophisticated ML-based prediction.\n\nArgs:\n    task_description: The description of the task.\n    task_type: The type of the task (e.g., CODE_GENERATION, DOCUMENTATION).\n    \nReturns:\n    A dictionary with predicted quality requirements (e.g., \"min_score\", \"max_latency\").",
+      "line_range": [
+        385,
+        415
+      ],
+      "parameters": [
+        "self",
+        "task_description",
+        "task_type"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "assess_model_capability",
+      "docstring": "Assesses a model's capability against predicted quality requirements.\nThis will be integrated with ModelRouter's performance baselines.\n\nArgs:\n    model_choice: The model being assessed (e.g., ModelChoice.CLAUDE_SONNET).\n    quality_requirements: Predicted quality requirements.\n    \nReturns:\n    A capability score (0-1) indicating how well the model meets requirements.",
+      "line_range": [
+        417,
+        446
+      ],
+      "parameters": [
+        "self",
+        "model_choice",
+        "quality_requirements"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "integrate_deepeval_metrics",
+      "docstring": "Integrates DeepEval metrics with the QualityResult.\nRequires 'deepeval' library to be installed.",
+      "line_range": [
+        448,
+        482
+      ],
+      "parameters": [
+        "self",
+        "result"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "integrate_trulens_monitoring",
+      "docstring": "Sends quality metrics to TruLens for monitoring.\nRequires 'trulens-eval' library to be installed.",
+      "line_range": [
+        484,
+        530
+      ],
+      "parameters": [
+        "self",
+        "task_id",
+        "result"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "QualityScore",
+      "docstring": "Quality assessment levels",
+      "line_range": [
+        17,
+        23
+      ],
+      "methods": [],
+      "bases": [
+        "Enum"
+      ]
+    },
+    {
+      "name": "QualityResult",
+      "docstring": "Result of quality validation",
+      "line_range": [
+        27,
+        34
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "QualityValidator",
+      "docstring": "Quality Validator for LLM outputs\n\nEnhanced implementation with real validation logic:\n- Code syntax and structure validation\n- Text coherence and completeness analysis\n- Automatic fallback decision making\n- Quality thresholds based on task type",
+      "line_range": [
+        37,
+        530
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize validator with quality rules and thresholds",
+          "line_range": [
+            48,
+            74
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "validate_code_output",
+          "docstring": "Validate code output quality with syntax checking and structure analysis\n\nArgs:\n    code: Code string to validate\n    language: Programming language (default: python)\n    \nReturns:\n    QualityResult with detailed analysis",
+          "line_range": [
+            76,
+            107
+          ],
+          "parameters": [
+            "self",
+            "code",
+            "language"
+          ]
+        },
+        {
+          "name": "_validate_python_code",
+          "docstring": "Validate Python code specifically",
+          "line_range": [
+            109,
+            167
+          ],
+          "parameters": [
+            "self",
+            "code"
+          ]
+        },
+        {
+          "name": "_validate_javascript_code",
+          "docstring": "Basic JavaScript validation",
+          "line_range": [
+            169,
+            207
+          ],
+          "parameters": [
+            "self",
+            "code"
+          ]
+        },
+        {
+          "name": "_validate_generic_code",
+          "docstring": "Generic code validation for unknown languages",
+          "line_range": [
+            209,
+            239
+          ],
+          "parameters": [
+            "self",
+            "code"
+          ]
+        },
+        {
+          "name": "validate_text_output",
+          "docstring": "Validate text output quality with coherence and completeness analysis\n\nArgs:\n    text: Text string to validate\n    expected_type: Type of text (documentation, explanation, etc.)\n    \nReturns:\n    QualityResult with detailed analysis",
+          "line_range": [
+            241,
+            320
+          ],
+          "parameters": [
+            "self",
+            "text",
+            "expected_type"
+          ]
+        },
+        {
+          "name": "_calculate_coherence_score",
+          "docstring": "Calculate text coherence based on transition words and structure",
+          "line_range": [
+            322,
+            337
+          ],
+          "parameters": [
+            "self",
+            "text"
+          ]
+        },
+        {
+          "name": "_calculate_completeness_score",
+          "docstring": "Calculate text completeness based on structure and content indicators",
+          "line_range": [
+            339,
+            356
+          ],
+          "parameters": [
+            "self",
+            "text"
+          ]
+        },
+        {
+          "name": "should_fallback",
+          "docstring": "Determine if we should fallback to a different model based on quality\n\nArgs:\n    result: Quality validation result\n    task_type: Type of task being validated\n    \nReturns:\n    True if fallback is recommended",
+          "line_range": [
+            358,
+            373
+          ],
+          "parameters": [
+            "self",
+            "result",
+            "task_type"
+          ]
+        },
+        {
+          "name": "get_quality_metrics",
+          "docstring": "Extract standardized quality metrics for monitoring",
+          "line_range": [
+            375,
+            383
+          ],
+          "parameters": [
+            "self",
+            "result"
+          ]
+        },
+        {
+          "name": "predict_quality_requirements",
+          "docstring": "Predicts the quality requirements for a given task description and type.\nThis is a placeholder for a more sophisticated ML-based prediction.\n\nArgs:\n    task_description: The description of the task.\n    task_type: The type of the task (e.g., CODE_GENERATION, DOCUMENTATION).\n    \nReturns:\n    A dictionary with predicted quality requirements (e.g., \"min_score\", \"max_latency\").",
+          "line_range": [
+            385,
+            415
+          ],
+          "parameters": [
+            "self",
+            "task_description",
+            "task_type"
+          ]
+        },
+        {
+          "name": "assess_model_capability",
+          "docstring": "Assesses a model's capability against predicted quality requirements.\nThis will be integrated with ModelRouter's performance baselines.\n\nArgs:\n    model_choice: The model being assessed (e.g., ModelChoice.CLAUDE_SONNET).\n    quality_requirements: Predicted quality requirements.\n    \nReturns:\n    A capability score (0-1) indicating how well the model meets requirements.",
+          "line_range": [
+            417,
+            446
+          ],
+          "parameters": [
+            "self",
+            "model_choice",
+            "quality_requirements"
+          ]
+        },
+        {
+          "name": "integrate_deepeval_metrics",
+          "docstring": "Integrates DeepEval metrics with the QualityResult.\nRequires 'deepeval' library to be installed.",
+          "line_range": [
+            448,
+            482
+          ],
+          "parameters": [
+            "self",
+            "result"
+          ]
+        },
+        {
+          "name": "integrate_trulens_monitoring",
+          "docstring": "Sends quality metrics to TruLens for monitoring.\nRequires 'trulens-eval' library to be installed.",
+          "line_range": [
+            484,
+            530
+          ],
+          "parameters": [
+            "self",
+            "task_id",
+            "result"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [],
+    "validate_code_output": [
+      "self._validate_generic_code",
+      "code.strip",
+      "self._validate_javascript_code",
+      "language.lower",
+      "QualityResult",
+      "self._validate_python_code"
+    ],
+    "_validate_python_code": [
+      "len",
+      "ast.parse",
+      "str",
+      "re.findall",
+      "re.search",
+      "min",
+      "code.split",
+      "QualityResult",
+      "max",
+      "issues.append",
+      "line.strip",
+      "round",
+      "QualityScore",
+      "bool"
+    ],
+    "_validate_javascript_code": [
+      "len",
+      "re.search",
+      "min",
+      "code.split",
+      "QualityResult",
+      "code.count",
+      "max",
+      "issues.append",
+      "line.strip",
+      "round",
+      "QualityScore",
+      "bool"
+    ],
+    "_validate_generic_code": [
+      "len",
+      "re.search",
+      "min",
+      "code.split",
+      "code.strip",
+      "QualityResult",
+      "max",
+      "issues.append",
+      "line.strip",
+      "round",
+      "QualityScore",
+      "bool"
+    ],
+    "validate_text_output": [
+      "len",
+      "self._calculate_coherence_score",
+      "text.split",
+      "p.strip",
+      "re.search",
+      "text.lower",
+      "min",
+      "s.strip",
+      "max",
+      "issues.append",
+      "round",
+      "QualityScore",
+      "QualityResult",
+      "text.strip",
+      "self._calculate_completeness_score",
+      "bool"
+    ],
+    "_calculate_coherence_score": [
+      "len",
+      "set",
+      "text.split",
+      "re.search",
+      "min"
+    ],
+    "_calculate_completeness_score": [
+      "re.search",
+      "min",
+      "text.strip"
+    ],
+    "should_fallback": [],
+    "get_quality_metrics": [
+      "len"
+    ],
+    "predict_quality_requirements": [
+      "max"
+    ],
+    "assess_model_capability": [
+      "max",
+      "quality_requirements.get",
+      "min",
+      "model_performance_data.get"
+    ],
+    "integrate_deepeval_metrics": [
+      "relevancy_metric.measure",
+      "CoherenceMetric",
+      "coherence_metric.measure",
+      "print",
+      "LLMTestCase",
+      "RelevancyMetric"
+    ],
+    "integrate_trulens_monitoring": [
+      "Feedback",
+      "TruLlama",
+      "recording.record_metrics",
+      "print"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "App",
+    "CoherenceMetric",
+    "Dict",
+    "Enum",
+    "Feedback",
+    "LLMTestCase",
+    "List",
+    "Optional",
+    "RelevancyMetric",
+    "TaskType",
+    "TruLlama",
+    "Tuple",
+    "ast",
+    "dataclass",
+    "dataclasses",
+    "deepeval.metrics",
+    "deepeval.test_case",
+    "enum",
+    "json",
+    "re",
+    "task_router.task_classifier",
+    "trulens_eval",
+    "trulens_eval.app",
+    "typing"
+  ],
+  "hash": "4fde90c0beab73512575c35fa58af6d39c56c997788e84539b664ff144dfe176",
+  "artifact_id": "2aea726e-9f72-40d9-95c3-8920a19d5e8b"
+}

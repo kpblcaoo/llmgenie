@@ -1,0 +1,337 @@
+{
+  "module_id": "restructure.core.rag_context.loader",
+  "path": "restructure/core/rag_context/loader.py",
+  "category": "core",
+  "module_doc": "Загрузчики для правил и структуры проекта",
+  "functions": [
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        24,
+        27
+      ],
+      "parameters": [
+        "self",
+        "rules_dir",
+        "extensions",
+        "exclude_patterns"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "load_documents",
+      "docstring": "Загружает все правила как документы",
+      "line_range": [
+        29,
+        44
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_get_rule_files",
+      "docstring": "Получает список файлов правил",
+      "line_range": [
+        46,
+        66
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_parse_rule_file",
+      "docstring": "Парсит отдельный файл правил",
+      "line_range": [
+        68,
+        93
+      ],
+      "parameters": [
+        "self",
+        "file_path"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_clean_markdown",
+      "docstring": "Базовая очистка markdown для лучшего embedding",
+      "line_range": [
+        95,
+        109
+      ],
+      "parameters": [
+        "self",
+        "content"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_extract_metadata",
+      "docstring": "Извлекает метаданные из содержимого",
+      "line_range": [
+        111,
+        124
+      ],
+      "parameters": [
+        "self",
+        "content"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        130,
+        131
+      ],
+      "parameters": [
+        "self",
+        "struct_json"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "load_document",
+      "docstring": "Загружает struct.json как документ",
+      "line_range": [
+        133,
+        161
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_format_struct_content",
+      "docstring": "Форматирует struct.json в читаемый текст",
+      "line_range": [
+        163,
+        189
+      ],
+      "parameters": [
+        "self",
+        "struct_data"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "Document",
+      "docstring": "Унифицированный документ для RAG системы",
+      "line_range": [
+        13,
+        18
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "RulesLoader",
+      "docstring": "Загрузчик правил из .cursor/rules",
+      "line_range": [
+        21,
+        124
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            24,
+            27
+          ],
+          "parameters": [
+            "self",
+            "rules_dir",
+            "extensions",
+            "exclude_patterns"
+          ]
+        },
+        {
+          "name": "load_documents",
+          "docstring": "Загружает все правила как документы",
+          "line_range": [
+            29,
+            44
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "_get_rule_files",
+          "docstring": "Получает список файлов правил",
+          "line_range": [
+            46,
+            66
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "_parse_rule_file",
+          "docstring": "Парсит отдельный файл правил",
+          "line_range": [
+            68,
+            93
+          ],
+          "parameters": [
+            "self",
+            "file_path"
+          ]
+        },
+        {
+          "name": "_clean_markdown",
+          "docstring": "Базовая очистка markdown для лучшего embedding",
+          "line_range": [
+            95,
+            109
+          ],
+          "parameters": [
+            "self",
+            "content"
+          ]
+        },
+        {
+          "name": "_extract_metadata",
+          "docstring": "Извлекает метаданные из содержимого",
+          "line_range": [
+            111,
+            124
+          ],
+          "parameters": [
+            "self",
+            "content"
+          ]
+        }
+      ],
+      "bases": []
+    },
+    {
+      "name": "StructLoader",
+      "docstring": "Загрузчик структуры проекта из struct.json",
+      "line_range": [
+        127,
+        189
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            130,
+            131
+          ],
+          "parameters": [
+            "self",
+            "struct_json"
+          ]
+        },
+        {
+          "name": "load_document",
+          "docstring": "Загружает struct.json как документ",
+          "line_range": [
+            133,
+            161
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "_format_struct_content",
+          "docstring": "Форматирует struct.json в читаемый текст",
+          "line_range": [
+            163,
+            189
+          ],
+          "parameters": [
+            "self",
+            "struct_data"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [],
+    "load_documents": [
+      "self._parse_rule_file",
+      "documents.append",
+      "print",
+      "self._get_rule_files"
+    ],
+    "_get_rule_files": [
+      "filtered_files.append",
+      "files.extend",
+      "set",
+      "list",
+      "fnmatch.fnmatch"
+    ],
+    "_parse_rule_file": [
+      "str",
+      "self._clean_markdown",
+      "self._extract_metadata",
+      "print",
+      "metadata.update",
+      "Document",
+      "file_path.stat",
+      "file_path.read_text"
+    ],
+    "_clean_markdown": [
+      "line.replace",
+      "clean_line.replace",
+      "clean_line.strip",
+      "content.split",
+      "line.strip",
+      "cleaned_lines.append"
+    ],
+    "_extract_metadata": [
+      "line.startswith",
+      "content.split",
+      "line.split"
+    ],
+    "load_document": [
+      "len",
+      "str",
+      "open",
+      "print",
+      "json.load",
+      "struct_data.get",
+      "Document",
+      "self._format_struct_content"
+    ],
+    "_format_struct_content": [
+      "content_parts.append",
+      "ep_data.get",
+      "comp_data.get"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "BeautifulSoup",
+    "Comment",
+    "Dict",
+    "List",
+    "Optional",
+    "Path",
+    "bs4",
+    "dataclass",
+    "dataclasses",
+    "fnmatch",
+    "json",
+    "pathlib",
+    "typing"
+  ],
+  "hash": "fa67b66a2df9b0a735345eed1628571710a243564f5fe9313f7ef8552bccbe91",
+  "artifact_id": "5c46ef0f-083c-41fb-aab2-4f71c7deb5bb"
+}

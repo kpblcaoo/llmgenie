@@ -43,18 +43,18 @@
   "classes": [],
   "callgraph": {
     "log_event": [
-      "LOG_FILE.open",
+      "f.write",
       "datetime.now",
-      "f.write"
+      "LOG_FILE.open"
     ],
     "send_to_ollama": [
-      "response.raise_for_status",
+      "response.json",
       "requests.post",
-      "response.json"
+      "response.raise_for_status"
     ],
     "main": [
-      "result_file.open",
       "send_to_ollama",
+      "result_file.open",
       "f.write",
       "log_event"
     ]
@@ -67,5 +67,5 @@
     "requests"
   ],
   "hash": "e84ed70980f42a0902e13c5b88eea995bdb78cf6dc8e5e66ccb7b85a68dc58a6",
-  "artifact_id": "e89086fc-abf8-40d8-8a66-e91fc6e3735e"
+  "artifact_id": "4654f97c-0f9c-48fc-9ed4-a0030260ab7b"
 }

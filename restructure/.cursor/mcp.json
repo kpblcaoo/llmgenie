@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "llmgenie-rag": {
+      "command": "/home/kpblc/projects/llmgenie/scripts/start_mcp_server_cursor.sh",
+      "args": []
+    }
+  }
+}

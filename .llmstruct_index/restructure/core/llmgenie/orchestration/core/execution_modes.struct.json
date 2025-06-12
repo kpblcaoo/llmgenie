@@ -1,0 +1,114 @@
+{
+  "module_id": "restructure.core.llmgenie.orchestration.core.execution_modes",
+  "path": "restructure/core/llmgenie/orchestration/core/execution_modes.py",
+  "category": "core",
+  "module_doc": "Execution modes for multi-agent orchestration\n\nEpic 5 Phase 3.1: Multi-Agent Orchestration patterns\nSingle responsibility: Define execution mode types and behavior",
+  "functions": [
+    {
+      "name": "get_description",
+      "docstring": "Get human-readable description of execution mode",
+      "line_range": [
+        48,
+        55
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_use_cases",
+      "docstring": "Get typical use cases for this execution mode",
+      "line_range": [
+        57,
+        76
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "suggest_mode",
+      "docstring": "Suggest optimal execution mode based on task description\n\nSimple heuristic-based suggestion - can be enhanced with ML",
+      "line_range": [
+        79,
+        100
+      ],
+      "parameters": [
+        "cls",
+        "task_description"
+      ],
+      "decorators": [
+        "classmethod"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "name": "ExecutionMode",
+      "docstring": "Multi-Agent execution patterns from Epic 5 checklist\n\nBased on Epic 5 research findings and checklist requirements:\n- Parallel task execution (documentation + code generation)\n- Sequential handoffs (design → implementation → review)  \n- Collaborative problem solving (multiple models, best result)",
+      "line_range": [
+        11,
+        100
+      ],
+      "methods": [
+        {
+          "name": "get_description",
+          "docstring": "Get human-readable description of execution mode",
+          "line_range": [
+            48,
+            55
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "get_use_cases",
+          "docstring": "Get typical use cases for this execution mode",
+          "line_range": [
+            57,
+            76
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "suggest_mode",
+          "docstring": "Suggest optimal execution mode based on task description\n\nSimple heuristic-based suggestion - can be enhanced with ML",
+          "line_range": [
+            79,
+            100
+          ],
+          "parameters": [
+            "cls",
+            "task_description"
+          ]
+        }
+      ],
+      "bases": [
+        "Enum"
+      ]
+    }
+  ],
+  "callgraph": {
+    "get_description": [
+      "descriptions.get"
+    ],
+    "get_use_cases": [
+      "use_cases.get"
+    ],
+    "suggest_mode": [
+      "any",
+      "task_description.lower"
+    ]
+  },
+  "dependencies": [
+    "Enum",
+    "enum"
+  ],
+  "hash": "9ac851f29c2f57f7816c66f9f7e952c7e747f1880994cd99c42ab2135bc1a329",
+  "artifact_id": "33e09e05-7493-45ff-83fb-82c26982d9f4"
+}

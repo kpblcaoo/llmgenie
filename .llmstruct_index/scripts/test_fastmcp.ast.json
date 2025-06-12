@@ -1,0 +1,12 @@
+{
+  "module": "scripts/test_fastmcp.py",
+  "functions": [
+    {
+      "name": "main",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

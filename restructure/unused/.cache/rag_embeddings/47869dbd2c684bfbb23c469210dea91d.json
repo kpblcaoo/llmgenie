@@ -1,0 +1,7 @@
+{
+  "text_preview": "Логирование всех этапов\nЧек-лист Project Auditor\n- [ ] Все ключевые компоненты проходят тесты\n- [ ] ",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

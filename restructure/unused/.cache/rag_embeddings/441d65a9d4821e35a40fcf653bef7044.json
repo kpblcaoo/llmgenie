@@ -1,0 +1,7 @@
+{
+  "text_preview": "Мне нужно изменить правила проекта, добавить новое atomic rule для работы с документацией",
+  "embedding_shape": [
+    384
+  ],
+  "model": "all-MiniLM-L6-v2"
+}

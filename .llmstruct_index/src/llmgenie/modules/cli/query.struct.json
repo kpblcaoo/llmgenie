@@ -20,19 +20,19 @@
   "classes": [],
   "callgraph": {
     "query": [
-      "logging.error",
-      "client.query",
-      "JSONCache",
-      "cache.close",
-      "logging.warning",
-      "orchestrator.get_context_for_scenario",
-      "LLMClient",
-      "json.dump",
       "Path",
+      "logging.info",
+      "json.dump",
+      "logging.error",
+      "cache.close",
+      "JSONCache",
       "client.query_with_context",
-      "create_context_orchestrator",
       "hasattr",
-      "logging.info"
+      "logging.warning",
+      "client.query",
+      "create_context_orchestrator",
+      "LLMClient",
+      "orchestrator.get_context_for_scenario"
     ]
   },
   "dependencies": [
@@ -49,5 +49,5 @@
     "pathlib"
   ],
   "hash": "aebf4b74c71a6845676877cbd60f5530d3afab38fa6ccec41c114e158cb0f614",
-  "artifact_id": "05848bcb-500b-4ebb-beac-10ed479ad050"
+  "artifact_id": "86f3f384-68e1-4953-8031-9963dd4705dd"
 }

@@ -43,8 +43,6 @@ poetry.lock  # Optional: include if committing lock file
 .pipenv
 
 # Generated JSON outputs (optional)
-filtered_struct.json
-#struct.json  # Generated file - excluded from repo as it's created by CI/CD
 
 # Logs and temporary data
 *.log
@@ -167,7 +165,6 @@ backup_*/
 
 # Private data - exclude from commits
 .personal/
-struct.json
 # LLMStruct indexes and caches
 #.llmstruct_*
 
