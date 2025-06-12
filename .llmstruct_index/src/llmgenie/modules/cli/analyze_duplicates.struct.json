@@ -1,0 +1,51 @@
+{
+  "module_id": "src.llmgenie.modules.cli.analyze_duplicates",
+  "path": "src/llmgenie/modules/cli/analyze_duplicates.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "analyze_duplicates",
+      "docstring": "Analyze function duplication using struct.json deep analysis.",
+      "line_range": [
+        1,
+        81
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "analyze_duplicates": [
+      "len",
+      "print",
+      "filtered_duplicates.items",
+      "WorkflowOrchestrator",
+      "traceback.print_exc",
+      "rec.get",
+      "duplication_data.get",
+      "duplicates.items",
+      "json.dumps",
+      "json.dump",
+      "analysis.get",
+      "open",
+      "r.get",
+      "orchestrator.analyze_codebase_for_duplicates",
+      "enumerate",
+      "sorted",
+      "getattr",
+      "hasattr"
+    ]
+  },
+  "dependencies": [
+    "WorkflowOrchestrator",
+    "json",
+    "llmstruct.workflow_orchestrator",
+    "traceback"
+  ],
+  "hash": "d9c98a76c4920b3bfe62a812811aa9edf7158fa6d307eecd1235c4a2d93f146c",
+  "artifact_id": "fb180c0c-e170-450e-8ab2-ba28960083ca"
+}

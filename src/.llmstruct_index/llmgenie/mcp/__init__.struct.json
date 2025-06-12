@@ -1,0 +1,17 @@
+{
+  "module_id": "llmgenie.mcp.__init__",
+  "path": "llmgenie/mcp/__init__.py",
+  "category": "cli",
+  "module_doc": "FastMCP Server Implementation\n\nEpic 5 Completion: Modular MCP architecture using FastMCP\n- Better initialization handling\n- Cleaner tool separation\n- Stable SSE transport",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [
+    "AgentTools",
+    "HandoffTools",
+    "ProjectTools",
+    "tools"
+  ],
+  "hash": "923abf222fd2a38c7f538f06c41510d360ade1778dfadd2d1e4c61067af77aa4",
+  "artifact_id": "fe2bd13d-b5d5-4488-9de7-8544e5842886"
+}

@@ -1,0 +1,71 @@
+{
+  "module_id": "scripts.tools.ollama_queue",
+  "path": "scripts/tools/ollama_queue.py",
+  "category": "core",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "log_event",
+      "docstring": "",
+      "line_range": [
+        25,
+        27
+      ],
+      "parameters": [
+        "event"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "send_to_ollama",
+      "docstring": "",
+      "line_range": [
+        29,
+        37
+      ],
+      "parameters": [
+        "prompt",
+        "model"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "main",
+      "docstring": "",
+      "line_range": [
+        39,
+        49
+      ],
+      "parameters": [],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "log_event": [
+      "LOG_FILE.open",
+      "datetime.now",
+      "f.write"
+    ],
+    "send_to_ollama": [
+      "response.raise_for_status",
+      "requests.post",
+      "response.json"
+    ],
+    "main": [
+      "result_file.open",
+      "send_to_ollama",
+      "f.write",
+      "log_event"
+    ]
+  },
+  "dependencies": [
+    "Path",
+    "datetime",
+    "json",
+    "pathlib",
+    "requests"
+  ],
+  "hash": "e84ed70980f42a0902e13c5b88eea995bdb78cf6dc8e5e66ccb7b85a68dc58a6",
+  "artifact_id": "e89086fc-abf8-40d8-8a66-e91fc6e3735e"
+}

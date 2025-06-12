@@ -1,0 +1,414 @@
+{
+  "module_id": "test_orchestration_parallel",
+  "path": "test_orchestration_parallel.py",
+  "category": "test",
+  "module_doc": "Unit tests for ParallelExecutor\n\nEpic 5 Phase 3.2: Test parallel execution strategy",
+  "functions": [
+    {
+      "name": "mock_agent_routers",
+      "docstring": "Create mock agent routers for testing",
+      "line_range": [
+        21,
+        34
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.fixture"
+      ]
+    },
+    {
+      "name": "parallel_executor",
+      "docstring": "Create ParallelExecutor instance",
+      "line_range": [
+        37,
+        39
+      ],
+      "parameters": [
+        "self",
+        "mock_agent_routers"
+      ],
+      "decorators": [
+        "pytest.fixture"
+      ]
+    },
+    {
+      "name": "sample_task",
+      "docstring": "Create sample orchestration task",
+      "line_range": [
+        42,
+        52
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "pytest.fixture"
+      ]
+    },
+    {
+      "name": "test_parallel_execution_success",
+      "docstring": "Test successful parallel execution",
+      "line_range": [
+        55,
+        91
+      ],
+      "parameters": [
+        "self",
+        "parallel_executor",
+        "sample_task",
+        "mock_agent_routers"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_parallel_execution_partial_failure",
+      "docstring": "Test parallel execution with one agent failing",
+      "line_range": [
+        94,
+        121
+      ],
+      "parameters": [
+        "self",
+        "parallel_executor",
+        "sample_task",
+        "mock_agent_routers"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_parallel_execution_all_failures",
+      "docstring": "Test parallel execution with all agents failing",
+      "line_range": [
+        124,
+        138
+      ],
+      "parameters": [
+        "self",
+        "parallel_executor",
+        "sample_task",
+        "mock_agent_routers"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_subtask_decomposition",
+      "docstring": "Test automatic subtask decomposition",
+      "line_range": [
+        141,
+        154
+      ],
+      "parameters": [
+        "self",
+        "parallel_executor"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_different_query_types",
+      "docstring": "Test decomposition for different query types",
+      "line_range": [
+        157,
+        175
+      ],
+      "parameters": [
+        "self",
+        "parallel_executor"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_predefined_subtasks",
+      "docstring": "Test execution with predefined subtasks",
+      "line_range": [
+        178,
+        206
+      ],
+      "parameters": [
+        "self",
+        "parallel_executor",
+        "mock_agent_routers"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_execution_timing",
+      "docstring": "Test that parallel execution is actually faster than sequential",
+      "line_range": [
+        209,
+        232
+      ],
+      "parameters": [
+        "self",
+        "parallel_executor",
+        "sample_task",
+        "mock_agent_routers"
+      ],
+      "decorators": [
+        "pytest.mark.asyncio"
+      ]
+    },
+    {
+      "name": "test_agent_router_validation",
+      "docstring": "Test initialization with invalid agent routers",
+      "line_range": [
+        234,
+        243
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "delayed_execute",
+      "docstring": "",
+      "line_range": [
+        212,
+        214
+      ],
+      "parameters": [],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "TestParallelExecutor",
+      "docstring": "Test parallel execution strategy",
+      "line_range": [
+        17,
+        243
+      ],
+      "methods": [
+        {
+          "name": "mock_agent_routers",
+          "docstring": "Create mock agent routers for testing",
+          "line_range": [
+            21,
+            34
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "parallel_executor",
+          "docstring": "Create ParallelExecutor instance",
+          "line_range": [
+            37,
+            39
+          ],
+          "parameters": [
+            "self",
+            "mock_agent_routers"
+          ]
+        },
+        {
+          "name": "sample_task",
+          "docstring": "Create sample orchestration task",
+          "line_range": [
+            42,
+            52
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "test_parallel_execution_success",
+          "docstring": "Test successful parallel execution",
+          "line_range": [
+            55,
+            91
+          ],
+          "parameters": [
+            "self",
+            "parallel_executor",
+            "sample_task",
+            "mock_agent_routers"
+          ]
+        },
+        {
+          "name": "test_parallel_execution_partial_failure",
+          "docstring": "Test parallel execution with one agent failing",
+          "line_range": [
+            94,
+            121
+          ],
+          "parameters": [
+            "self",
+            "parallel_executor",
+            "sample_task",
+            "mock_agent_routers"
+          ]
+        },
+        {
+          "name": "test_parallel_execution_all_failures",
+          "docstring": "Test parallel execution with all agents failing",
+          "line_range": [
+            124,
+            138
+          ],
+          "parameters": [
+            "self",
+            "parallel_executor",
+            "sample_task",
+            "mock_agent_routers"
+          ]
+        },
+        {
+          "name": "test_subtask_decomposition",
+          "docstring": "Test automatic subtask decomposition",
+          "line_range": [
+            141,
+            154
+          ],
+          "parameters": [
+            "self",
+            "parallel_executor"
+          ]
+        },
+        {
+          "name": "test_different_query_types",
+          "docstring": "Test decomposition for different query types",
+          "line_range": [
+            157,
+            175
+          ],
+          "parameters": [
+            "self",
+            "parallel_executor"
+          ]
+        },
+        {
+          "name": "test_predefined_subtasks",
+          "docstring": "Test execution with predefined subtasks",
+          "line_range": [
+            178,
+            206
+          ],
+          "parameters": [
+            "self",
+            "parallel_executor",
+            "mock_agent_routers"
+          ]
+        },
+        {
+          "name": "test_execution_timing",
+          "docstring": "Test that parallel execution is actually faster than sequential",
+          "line_range": [
+            209,
+            232
+          ],
+          "parameters": [
+            "self",
+            "parallel_executor",
+            "sample_task",
+            "mock_agent_routers"
+          ]
+        },
+        {
+          "name": "test_agent_router_validation",
+          "docstring": "Test initialization with invalid agent routers",
+          "line_range": [
+            234,
+            243
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "mock_agent_routers": [
+      "AsyncMock",
+      "Mock"
+    ],
+    "parallel_executor": [
+      "ParallelExecutor"
+    ],
+    "sample_task": [
+      "OrchestrationTask"
+    ],
+    "test_parallel_execution_success": [
+      "RoutingDecision",
+      "len",
+      "parallel_executor.execute"
+    ],
+    "test_parallel_execution_partial_failure": [
+      "RoutingDecision",
+      "len",
+      "Exception",
+      "parallel_executor.execute"
+    ],
+    "test_parallel_execution_all_failures": [
+      "len",
+      "Exception",
+      "parallel_executor.execute"
+    ],
+    "test_subtask_decomposition": [
+      "subtask.lower",
+      "parallel_executor._decompose_parallel_task",
+      "len",
+      "any",
+      "OrchestrationTask"
+    ],
+    "test_different_query_types": [
+      "any",
+      "subtask.lower",
+      "parallel_executor._decompose_parallel_task"
+    ],
+    "test_predefined_subtasks": [
+      "mock_agent_routers.items",
+      "RoutingDecision",
+      "mock_agent_routers.values",
+      "len",
+      "parallel_executor.execute",
+      "OrchestrationTask"
+    ],
+    "test_execution_timing": [],
+    "delayed_execute": [
+      "asyncio.sleep"
+    ],
+    "test_agent_router_validation": [
+      "len",
+      "ParallelExecutor",
+      "Mock"
+    ]
+  },
+  "dependencies": [
+    "AsyncMock",
+    "ExecutionMode",
+    "Mock",
+    "ModelChoice",
+    "ModelRouter",
+    "OrchestrationTask",
+    "ParallelExecutor",
+    "RoutingDecision",
+    "asyncio",
+    "datetime",
+    "pytest",
+    "src.llmgenie.orchestration.core",
+    "src.llmgenie.orchestration.executors",
+    "src.llmgenie.task_router",
+    "unittest.mock"
+  ],
+  "hash": "959de22abd6fdb706bdbf2af59be13f4b9ab095ede189c89292d19ef4fb90813",
+  "artifact_id": "94ef3af6-980b-44c3-9950-6be455d9e4d0"
+}

@@ -1,0 +1,208 @@
+{
+  "module_id": "src.llmgenie.api.main",
+  "path": "src/llmgenie/api/main.py",
+  "category": "core",
+  "module_doc": "FastAPI main application for llmgenie\nProvides REST API for multi-agent orchestration and workflow management",
+  "functions": [
+    {
+      "name": "health_check",
+      "docstring": "Health check endpoint",
+      "line_range": [
+        59,
+        65
+      ],
+      "parameters": [],
+      "decorators": [
+        "app.get('/health', response_model=HealthResponse)"
+      ]
+    },
+    {
+      "name": "get_project_state",
+      "docstring": "Get current project state",
+      "line_range": [
+        69,
+        84
+      ],
+      "parameters": [],
+      "decorators": [
+        "app.get('/project/state', response_model=ProjectStateResponse)"
+      ]
+    },
+    {
+      "name": "execute_agent_task",
+      "docstring": "Execute a task with specified agent",
+      "line_range": [
+        88,
+        102
+      ],
+      "parameters": [
+        "request"
+      ],
+      "decorators": [
+        "app.post('/agents/execute', response_model=AgentResponse)"
+      ]
+    },
+    {
+      "name": "get_agent_status",
+      "docstring": "Get status of specific agent",
+      "line_range": [
+        105,
+        112
+      ],
+      "parameters": [
+        "agent_id"
+      ],
+      "decorators": [
+        "app.get('/agents/status/{agent_id}')"
+      ]
+    },
+    {
+      "name": "get_rules_manifest",
+      "docstring": "Get rules manifest",
+      "line_range": [
+        116,
+        123
+      ],
+      "parameters": [],
+      "decorators": [
+        "app.get('/rules/manifest')"
+      ]
+    },
+    {
+      "name": "get_workflow_modes",
+      "docstring": "Get available workflow modes",
+      "line_range": [
+        126,
+        133
+      ],
+      "parameters": [],
+      "decorators": [
+        "app.get('/workflow/modes')"
+      ]
+    },
+    {
+      "name": "execute_mcp_tool",
+      "docstring": "Execute MCP tool (placeholder)",
+      "line_range": [
+        137,
+        144
+      ],
+      "parameters": [
+        "tool_name",
+        "parameters"
+      ],
+      "decorators": [
+        "app.post('/mcp/tools/execute')"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "name": "HealthResponse",
+      "docstring": "",
+      "line_range": [
+        36,
+        39
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    },
+    {
+      "name": "ProjectStateResponse",
+      "docstring": "",
+      "line_range": [
+        41,
+        44
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    },
+    {
+      "name": "AgentRequest",
+      "docstring": "",
+      "line_range": [
+        46,
+        49
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    },
+    {
+      "name": "AgentResponse",
+      "docstring": "",
+      "line_range": [
+        51,
+        55
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    }
+  ],
+  "callgraph": {
+    "health_check": [
+      "HealthResponse",
+      "datetime.now",
+      "app.get"
+    ],
+    "get_project_state": [
+      "app.get",
+      "json.load",
+      "ProjectStateResponse",
+      "open",
+      "state.get",
+      "str",
+      "HTTPException"
+    ],
+    "execute_agent_task": [
+      "AgentResponse",
+      "app.post",
+      "datetime.now"
+    ],
+    "get_agent_status": [
+      "app.get"
+    ],
+    "get_rules_manifest": [
+      "open",
+      "json.load",
+      "app.get",
+      "HTTPException"
+    ],
+    "get_workflow_modes": [
+      "app.get"
+    ],
+    "execute_mcp_tool": [
+      "app.post"
+    ]
+  },
+  "dependencies": [
+    "BaseModel",
+    "CORSMiddleware",
+    "Dict",
+    "FastAPI",
+    "HTTPException",
+    "HandoffPackage",
+    "HandoffValidator",
+    "List",
+    "Optional",
+    "ValidationResult",
+    "datetime",
+    "fastapi",
+    "fastapi.middleware.cors",
+    "handoff_validator",
+    "json",
+    "os",
+    "pydantic",
+    "typing",
+    "uvicorn"
+  ],
+  "hash": "3d81c20bffb1e4d568451ce3d5853a7d75ab4dd87b013b864130224a77e27f60",
+  "artifact_id": "135785e8-a589-4cce-80a7-3ea6dc9905ce"
+}

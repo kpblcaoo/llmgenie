@@ -1,0 +1,26 @@
+{
+  "module": "scripts/tools/ollama_queue.py",
+  "functions": [
+    {
+      "name": "log_event",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "send_to_ollama",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "main",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

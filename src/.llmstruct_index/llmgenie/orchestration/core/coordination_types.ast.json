@@ -1,0 +1,26 @@
+{
+  "module": "llmgenie/orchestration/core/coordination_types.py",
+  "functions": [
+    {
+      "name": "get_description",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "get_coordination_overhead",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "is_suitable_for_mode",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

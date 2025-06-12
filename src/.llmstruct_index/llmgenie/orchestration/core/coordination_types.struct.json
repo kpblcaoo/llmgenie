@@ -1,0 +1,113 @@
+{
+  "module_id": "llmgenie.orchestration.core.coordination_types",
+  "path": "llmgenie/orchestration/core/coordination_types.py",
+  "category": "core",
+  "module_doc": "Agent coordination types for orchestration\n\nEpic 5 Phase 3.1: Agent coordination strategies  \nSingle responsibility: Define coordination behavior types",
+  "functions": [
+    {
+      "name": "get_description",
+      "docstring": "Get human-readable description of coordination type",
+      "line_range": [
+        45,
+        52
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_coordination_overhead",
+      "docstring": "Get expected coordination overhead level",
+      "line_range": [
+        54,
+        61
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "is_suitable_for_mode",
+      "docstring": "Check if coordination type is suitable for execution mode",
+      "line_range": [
+        63,
+        82
+      ],
+      "parameters": [
+        "self",
+        "execution_mode"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "AgentCoordination",
+      "docstring": "Agent coordination strategies for multi-agent systems\n\nDefines how agents coordinate and synchronize during task execution",
+      "line_range": [
+        11,
+        82
+      ],
+      "methods": [
+        {
+          "name": "get_description",
+          "docstring": "Get human-readable description of coordination type",
+          "line_range": [
+            45,
+            52
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "get_coordination_overhead",
+          "docstring": "Get expected coordination overhead level",
+          "line_range": [
+            54,
+            61
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "is_suitable_for_mode",
+          "docstring": "Check if coordination type is suitable for execution mode",
+          "line_range": [
+            63,
+            82
+          ],
+          "parameters": [
+            "self",
+            "execution_mode"
+          ]
+        }
+      ],
+      "bases": [
+        "Enum"
+      ]
+    }
+  ],
+  "callgraph": {
+    "get_description": [
+      "descriptions.get"
+    ],
+    "get_coordination_overhead": [
+      "overhead.get"
+    ],
+    "is_suitable_for_mode": [
+      "compatibility.get"
+    ]
+  },
+  "dependencies": [
+    "Enum",
+    "ExecutionMode",
+    "enum",
+    "execution_modes"
+  ],
+  "hash": "4cff4ef946fc869a8a7824f878513933490778e73880cd2e0bd921972dc0eb1f",
+  "artifact_id": "908a7a21-bf2f-4098-81cb-b7618ef99c19"
+}

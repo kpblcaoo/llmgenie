@@ -1,0 +1,12 @@
+{
+  "module_id": "llmgenie.modules.commands.__init__",
+  "path": "llmgenie/modules/commands/__init__.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [],
+  "hash": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
+  "artifact_id": "560edded-abf2-4b50-89d2-3579db7aa24e"
+}

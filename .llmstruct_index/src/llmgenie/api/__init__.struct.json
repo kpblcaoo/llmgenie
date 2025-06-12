@@ -1,0 +1,12 @@
+{
+  "module_id": "src.llmgenie.api.__init__",
+  "path": "src/llmgenie/api/__init__.py",
+  "category": "cli",
+  "module_doc": "llmgenie API module\nFastAPI-based REST API for llmgenie orchestration",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [],
+  "hash": "113730aac8ee128f272f72d14db21b5639e86fbd7697a11dc62547f8f826d153",
+  "artifact_id": "36e96401-5ef6-4dd5-90bb-bb6c5d71c324"
+}

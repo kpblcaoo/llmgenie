@@ -1,0 +1,12 @@
+{
+  "module": "src/llmgenie/modules/cli/parse.py",
+  "functions": [
+    {
+      "name": "parse",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

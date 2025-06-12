@@ -1,0 +1,78 @@
+{
+  "module_id": "tests.test_api",
+  "path": "tests/test_api.py",
+  "category": "test",
+  "module_doc": "Tests for llmgenie FastAPI application",
+  "functions": [
+    {
+      "name": "test_health_check",
+      "docstring": "Test health check endpoint",
+      "line_range": [
+        17,
+        24
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "test_workflow_modes",
+      "docstring": "Test workflow modes endpoint",
+      "line_range": [
+        26,
+        34
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "test_agent_execute",
+      "docstring": "Test agent execution endpoint",
+      "line_range": [
+        36,
+        48
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "test_mcp_tools_placeholder",
+      "docstring": "Test MCP tools placeholder endpoint",
+      "line_range": [
+        50,
+        56
+      ],
+      "parameters": [],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "test_health_check": [
+      "client.get",
+      "response.json"
+    ],
+    "test_workflow_modes": [
+      "client.get",
+      "response.json"
+    ],
+    "test_agent_execute": [
+      "client.post",
+      "response.json"
+    ],
+    "test_mcp_tools_placeholder": [
+      "client.post",
+      "response.json"
+    ]
+  },
+  "dependencies": [
+    "TestClient",
+    "app",
+    "fastapi.testclient",
+    "llmgenie.api.main",
+    "os",
+    "pytest",
+    "sys"
+  ],
+  "hash": "1a2b1fd51aa2161c4ce2e92b7ab2b226923863ee708de205c59d35e5fbd83131",
+  "artifact_id": "af2d4ff9-a8ba-40cc-b04d-0ab8f5cbe191"
+}

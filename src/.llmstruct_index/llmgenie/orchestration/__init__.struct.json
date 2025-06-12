@@ -1,0 +1,24 @@
+{
+  "module_id": "llmgenie.orchestration.__init__",
+  "path": "llmgenie/orchestration/__init__.py",
+  "category": "cli",
+  "module_doc": "Multi-Agent Orchestration Package\n\nEpic 5 Phase 3.1: Complete orchestration system\n- AgentOrchestrator: Main orchestration class\n- Core: ExecutionMode, AgentCoordination, OrchestrationTask, OrchestrationResult\n- Executors: ParallelExecutor, SequentialExecutor, CollaborativeExecutor",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [
+    "AgentCoordination",
+    "AgentOrchestrator",
+    "CollaborativeExecutor",
+    "ExecutionMode",
+    "OrchestrationResult",
+    "OrchestrationTask",
+    "ParallelExecutor",
+    "SequentialExecutor",
+    "core",
+    "executors",
+    "orchestrator"
+  ],
+  "hash": "84b5d81bce4f1e78a7e889727b30bc9050567530d03928ca7b0979d04de3b09e",
+  "artifact_id": "1a9507d4-59dc-4b65-bc0f-394f824211ae"
+}

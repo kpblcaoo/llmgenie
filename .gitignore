@@ -44,7 +44,7 @@ poetry.lock  # Optional: include if committing lock file
 
 # Generated JSON outputs (optional)
 filtered_struct.json
-struct.json  # Generated file - excluded from repo as it's created by CI/CD
+#struct.json  # Generated file - excluded from repo as it's created by CI/CD
 
 # Logs and temporary data
 *.log
@@ -169,7 +169,7 @@ backup_*/
 .personal/
 struct.json
 # LLMStruct indexes and caches
-.llmstruct_*
+#.llmstruct_*
 
 
 ARCHIVE

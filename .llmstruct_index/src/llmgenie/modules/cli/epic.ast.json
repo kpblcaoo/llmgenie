@@ -1,0 +1,26 @@
+{
+  "module": "src/llmgenie/modules/cli/epic.py",
+  "functions": [
+    {
+      "name": "load_json",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "show_links",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "add_epic_cli_subparser",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

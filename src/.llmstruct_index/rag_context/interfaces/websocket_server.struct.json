@@ -1,0 +1,311 @@
+{
+  "module_id": "rag_context.interfaces.websocket_server",
+  "path": "rag_context/interfaces/websocket_server.py",
+  "category": "core",
+  "module_doc": "WebSocket Server для real-time интеграций",
+  "functions": [
+    {
+      "name": "main",
+      "docstring": "Главная функция для запуска WebSocket сервера",
+      "line_range": [
+        265,
+        295
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        25,
+        34
+      ],
+      "parameters": [
+        "self",
+        "config",
+        "port"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "register_connection",
+      "docstring": "Регистрация нового соединения",
+      "line_range": [
+        36,
+        39
+      ],
+      "parameters": [
+        "self",
+        "websocket"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "unregister_connection",
+      "docstring": "Удаление соединения",
+      "line_range": [
+        41,
+        44
+      ],
+      "parameters": [
+        "self",
+        "websocket"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "broadcast_message",
+      "docstring": "Отправка сообщения всем подключенным клиентам",
+      "line_range": [
+        46,
+        53
+      ],
+      "parameters": [
+        "self",
+        "message"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "handle_message",
+      "docstring": "Обработка входящего сообщения",
+      "line_range": [
+        55,
+        176
+      ],
+      "parameters": [
+        "self",
+        "websocket",
+        "message_str"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "handle_connection",
+      "docstring": "Обработка WebSocket соединения",
+      "line_range": [
+        178,
+        206
+      ],
+      "parameters": [
+        "self",
+        "websocket",
+        "path"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "run",
+      "docstring": "Запуск WebSocket сервера",
+      "line_range": [
+        208,
+        226
+      ],
+      "parameters": [
+        "self",
+        "host"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_client_example",
+      "docstring": "Возвращает пример клиентского кода",
+      "line_range": [
+        228,
+        262
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "WebSocketServer",
+      "docstring": "WebSocket Server для real-time доступа к RAG системе",
+      "line_range": [
+        22,
+        262
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            25,
+            34
+          ],
+          "parameters": [
+            "self",
+            "config",
+            "port"
+          ]
+        },
+        {
+          "name": "register_connection",
+          "docstring": "Регистрация нового соединения",
+          "line_range": [
+            36,
+            39
+          ],
+          "parameters": [
+            "self",
+            "websocket"
+          ]
+        },
+        {
+          "name": "unregister_connection",
+          "docstring": "Удаление соединения",
+          "line_range": [
+            41,
+            44
+          ],
+          "parameters": [
+            "self",
+            "websocket"
+          ]
+        },
+        {
+          "name": "broadcast_message",
+          "docstring": "Отправка сообщения всем подключенным клиентам",
+          "line_range": [
+            46,
+            53
+          ],
+          "parameters": [
+            "self",
+            "message"
+          ]
+        },
+        {
+          "name": "handle_message",
+          "docstring": "Обработка входящего сообщения",
+          "line_range": [
+            55,
+            176
+          ],
+          "parameters": [
+            "self",
+            "websocket",
+            "message_str"
+          ]
+        },
+        {
+          "name": "handle_connection",
+          "docstring": "Обработка WebSocket соединения",
+          "line_range": [
+            178,
+            206
+          ],
+          "parameters": [
+            "self",
+            "websocket",
+            "path"
+          ]
+        },
+        {
+          "name": "run",
+          "docstring": "Запуск WebSocket сервера",
+          "line_range": [
+            208,
+            226
+          ],
+          "parameters": [
+            "self",
+            "host"
+          ]
+        },
+        {
+          "name": "get_client_example",
+          "docstring": "Возвращает пример клиентского кода",
+          "line_range": [
+            228,
+            262
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "set",
+      "RAGConfig",
+      "ImportError",
+      "PromptEnhancer"
+    ],
+    "register_connection": [
+      "print",
+      "len"
+    ],
+    "unregister_connection": [
+      "print",
+      "len"
+    ],
+    "broadcast_message": [
+      "json.dumps",
+      "asyncio.gather",
+      "websocket.send"
+    ],
+    "handle_message": [
+      "params.get",
+      "locals",
+      "isinstance",
+      "str",
+      "open",
+      "json.load",
+      "round",
+      "asyncio.get_event_loop",
+      "rules.append",
+      "message.get",
+      "json.loads",
+      "len"
+    ],
+    "handle_connection": [
+      "json.dumps",
+      "self.register_connection",
+      "websocket.send",
+      "self.unregister_connection",
+      "print",
+      "self.handle_message"
+    ],
+    "run": [
+      "print",
+      "server.wait_closed",
+      "websockets.serve"
+    ],
+    "get_client_example": [],
+    "main": [
+      "server.run",
+      "int",
+      "server.get_client_example",
+      "print",
+      "WebSocketServer",
+      "len"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "Dict",
+    "Optional",
+    "Path",
+    "PromptEnhancer",
+    "RAGConfig",
+    "Set",
+    "asyncio",
+    "config",
+    "enhancer",
+    "json",
+    "pathlib",
+    "sys",
+    "typing",
+    "websockets"
+  ],
+  "hash": "9676904c881eaee00c82fd468681d7b301b3145a45389a3af56b7157906bce0c",
+  "artifact_id": "b529bcd1-6173-474b-a127-b8530f6fb37f"
+}

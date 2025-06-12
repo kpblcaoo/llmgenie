@@ -1,0 +1,124 @@
+{
+  "module": "rag_context/interfaces/auto_logger.py",
+  "functions": [
+    {
+      "name": "log_mcp_tool_call",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "log_mcp_tool_result",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "detect_and_log_model_context",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "__init__",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "detect_model",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "ensure_session",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "log_tool_call",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "log_tool_result",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "log_model_switch",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "log_workflow_phase",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "analyze_activity_pattern",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "_detect_pattern_with_confidence",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "_calculate_timespan",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "generate_session_summary",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "_hash_args",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "_summarize_args",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "_append_to_log",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

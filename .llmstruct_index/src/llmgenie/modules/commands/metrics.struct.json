@@ -1,0 +1,160 @@
+{
+  "module_id": "src.llmgenie.modules.commands.metrics",
+  "path": "src/llmgenie/modules/commands/metrics.py",
+  "category": "core",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "metrics_status",
+      "docstring": "Показать текущий статус метрик",
+      "line_range": [
+        1,
+        20
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "metrics_summary",
+      "docstring": "Показать детальную сводку метрик",
+      "line_range": [
+        22,
+        66
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "metrics_analytics",
+      "docstring": "Сгенерировать аналитические данные",
+      "line_range": [
+        68,
+        104
+      ],
+      "parameters": [
+        "output_file",
+        "format"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "metrics_report",
+      "docstring": "Создать всесторонний отчет",
+      "line_range": [
+        106,
+        134
+      ],
+      "parameters": [
+        "sessions",
+        "output_file"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "metrics_track",
+      "docstring": "Ручное отслеживание событий",
+      "line_range": [
+        136,
+        145
+      ],
+      "parameters": [
+        "event_type",
+        "details"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "metrics_tokens",
+      "docstring": "Показать детальную статистику токенов",
+      "line_range": [
+        147,
+        185
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "cmd_metrics",
+      "docstring": "Управление метриками проекта",
+      "line_range": [
+        187,
+        205
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "metrics_status": [
+      "tracker.get_session_summary",
+      "print",
+      "get_metrics_tracker"
+    ],
+    "metrics_summary": [
+      "tracker.get_session_summary",
+      "print",
+      "max",
+      "get_metrics_tracker"
+    ],
+    "metrics_analytics": [
+      "print",
+      "get_metrics_tracker",
+      "json.dump",
+      "json.dumps",
+      "tracker.get_session_summary",
+      "open",
+      "csv.writer",
+      "enumerate",
+      "time.strftime",
+      "writer.writerow",
+      "tracker.get_analytics_data"
+    ],
+    "metrics_report": [
+      "len",
+      "print",
+      "get_metrics_tracker",
+      "open",
+      "sum",
+      "f.write",
+      "time.strftime",
+      "min",
+      "analytics.get",
+      "tracker.get_analytics_data"
+    ],
+    "metrics_track": [
+      "print",
+      "track_workflow_event"
+    ],
+    "metrics_tokens": [
+      "print",
+      "get_metrics_tracker",
+      "summary.get",
+      "get_token_summary",
+      "enumerate",
+      "interaction.get"
+    ],
+    "cmd_metrics": [
+      "print",
+      "metrics_track",
+      "metrics_analytics",
+      "metrics_tokens",
+      "metrics_status",
+      "metrics_summary",
+      "metrics_report"
+    ]
+  },
+  "dependencies": [
+    "csv",
+    "get_metrics_tracker",
+    "get_token_summary",
+    "json",
+    "llmstruct.metrics_tracker",
+    "time",
+    "track_workflow_event"
+  ],
+  "hash": "f3cdbecb744fbdb29ca949fe874d201a44bc014625127b14d500e5828dc11e54",
+  "artifact_id": "310e70c1-9723-4760-b9c7-82e0f72b3d2e"
+}

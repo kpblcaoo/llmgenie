@@ -1,0 +1,26 @@
+{
+  "module": "llmgenie/orchestration/core/execution_modes.py",
+  "functions": [
+    {
+      "name": "get_description",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "get_use_cases",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    },
+    {
+      "name": "suggest_mode",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

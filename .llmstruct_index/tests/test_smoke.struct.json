@@ -1,0 +1,25 @@
+{
+  "module_id": "tests.test_smoke",
+  "path": "tests/test_smoke.py",
+  "category": "test",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "test_smoke",
+      "docstring": "",
+      "line_range": [
+        1,
+        2
+      ],
+      "parameters": [],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "test_smoke": []
+  },
+  "dependencies": [],
+  "hash": "a6845264444e66537bcf4ff95e3560a9deb6764c4ad8fda31f59580707d69a97",
+  "artifact_id": "0d53a1e0-2d4a-41ee-9255-3f48edd736ec"
+}

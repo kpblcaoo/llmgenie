@@ -1,0 +1,442 @@
+{
+  "module_id": "llmgenie.mcp.tools",
+  "path": "llmgenie/mcp/tools.py",
+  "category": "core",
+  "module_doc": "MCP Tools Implementation\n\nModular tools architecture:\n- HandoffTools: Context transfer validation\n- ProjectTools: Project state management  \n- AgentTools: Agent orchestration",
+  "functions": [
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        26,
+        29
+      ],
+      "parameters": [
+        "self",
+        "mcp"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_register_tools",
+      "docstring": "Register all handoff tools with MCP server",
+      "line_range": [
+        31,
+        34
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "validate_handoff",
+      "docstring": "Validate handoff package completeness for context transfer between AI sessions\n\nArgs:\n    package_data: Handoff package with from_role, to_role, files, etc.\n    \nReturns:\n    Validation result with completeness score and recommendations",
+      "line_range": [
+        36,
+        64
+      ],
+      "parameters": [
+        "self",
+        "package_data"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_handoff_template",
+      "docstring": "Get handoff package template with required files and validation criteria",
+      "line_range": [
+        66,
+        99
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        105,
+        107
+      ],
+      "parameters": [
+        "self",
+        "mcp"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_register_tools",
+      "docstring": "Register all project tools with MCP server",
+      "line_range": [
+        109,
+        114
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_project_state",
+      "docstring": "Get current project state",
+      "line_range": [
+        116,
+        142
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_rules_manifest",
+      "docstring": "Get rules manifest",
+      "line_range": [
+        144,
+        162
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_workflow_modes",
+      "docstring": "Get available workflow modes",
+      "line_range": [
+        164,
+        172
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "health_check",
+      "docstring": "Health check endpoint",
+      "line_range": [
+        174,
+        182
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        188,
+        192
+      ],
+      "parameters": [
+        "self",
+        "mcp"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_register_tools",
+      "docstring": "Register all agent tools with MCP server",
+      "line_range": [
+        194,
+        197
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "execute_agent_task",
+      "docstring": "Execute a task with specified agent - Enhanced with Ollama/Claude routing\n\nArgs:\n    agent_type: Type of agent (auto, smart, ollama, claude)\n    task: Task description to execute\n    context: Optional context data\n    \nReturns:\n    Agent execution result with routing decision and metrics",
+      "line_range": [
+        199,
+        271
+      ],
+      "parameters": [
+        "self",
+        "agent_type",
+        "task",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_agent_status",
+      "docstring": "Get status of specific agent\n\nArgs:\n    agent_id: Agent identifier\n    \nReturns:\n    Agent status information",
+      "line_range": [
+        273,
+        289
+      ],
+      "parameters": [
+        "self",
+        "agent_id"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "HandoffTools",
+      "docstring": "Tools for handoff validation and context transfer",
+      "line_range": [
+        23,
+        99
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            26,
+            29
+          ],
+          "parameters": [
+            "self",
+            "mcp"
+          ]
+        },
+        {
+          "name": "_register_tools",
+          "docstring": "Register all handoff tools with MCP server",
+          "line_range": [
+            31,
+            34
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "validate_handoff",
+          "docstring": "Validate handoff package completeness for context transfer between AI sessions\n\nArgs:\n    package_data: Handoff package with from_role, to_role, files, etc.\n    \nReturns:\n    Validation result with completeness score and recommendations",
+          "line_range": [
+            36,
+            64
+          ],
+          "parameters": [
+            "self",
+            "package_data"
+          ]
+        },
+        {
+          "name": "get_handoff_template",
+          "docstring": "Get handoff package template with required files and validation criteria",
+          "line_range": [
+            66,
+            99
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    },
+    {
+      "name": "ProjectTools",
+      "docstring": "Tools for project state and workflow management",
+      "line_range": [
+        102,
+        182
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            105,
+            107
+          ],
+          "parameters": [
+            "self",
+            "mcp"
+          ]
+        },
+        {
+          "name": "_register_tools",
+          "docstring": "Register all project tools with MCP server",
+          "line_range": [
+            109,
+            114
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "get_project_state",
+          "docstring": "Get current project state",
+          "line_range": [
+            116,
+            142
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "get_rules_manifest",
+          "docstring": "Get rules manifest",
+          "line_range": [
+            144,
+            162
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "get_workflow_modes",
+          "docstring": "Get available workflow modes",
+          "line_range": [
+            164,
+            172
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "health_check",
+          "docstring": "Health check endpoint",
+          "line_range": [
+            174,
+            182
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    },
+    {
+      "name": "AgentTools",
+      "docstring": "Tools for agent orchestration and task execution",
+      "line_range": [
+        185,
+        289
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            188,
+            192
+          ],
+          "parameters": [
+            "self",
+            "mcp"
+          ]
+        },
+        {
+          "name": "_register_tools",
+          "docstring": "Register all agent tools with MCP server",
+          "line_range": [
+            194,
+            197
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "execute_agent_task",
+          "docstring": "Execute a task with specified agent - Enhanced with Ollama/Claude routing\n\nArgs:\n    agent_type: Type of agent (auto, smart, ollama, claude)\n    task: Task description to execute\n    context: Optional context data\n    \nReturns:\n    Agent execution result with routing decision and metrics",
+          "line_range": [
+            199,
+            271
+          ],
+          "parameters": [
+            "self",
+            "agent_type",
+            "task",
+            "context"
+          ]
+        },
+        {
+          "name": "get_agent_status",
+          "docstring": "Get status of specific agent\n\nArgs:\n    agent_id: Agent identifier\n    \nReturns:\n    Agent status information",
+          "line_range": [
+            273,
+            289
+          ],
+          "parameters": [
+            "self",
+            "agent_id"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "ModelRouter",
+      "self._register_tools",
+      "TaskClassifier"
+    ],
+    "_register_tools": [],
+    "validate_handoff": [
+      "str",
+      "HandoffPackage"
+    ],
+    "get_handoff_template": [],
+    "get_project_state": [
+      "str",
+      "open",
+      "json.load",
+      "state.get",
+      "project_state_path.exists",
+      "Path"
+    ],
+    "get_rules_manifest": [
+      "open",
+      "json.load",
+      "str"
+    ],
+    "get_workflow_modes": [],
+    "health_check": [
+      "datetime.now"
+    ],
+    "execute_agent_task": [
+      "datetime.now",
+      "str",
+      "execution_result.get"
+    ],
+    "get_agent_status": []
+  },
+  "dependencies": [
+    "Any",
+    "BaseModel",
+    "Dict",
+    "FastMCP",
+    "HandoffPackage",
+    "HandoffValidator",
+    "List",
+    "ModelChoice",
+    "ModelRouter",
+    "Optional",
+    "Path",
+    "TaskClassifier",
+    "ValidationResult",
+    "api.handoff_validator",
+    "datetime",
+    "fastmcp",
+    "json",
+    "pathlib",
+    "pydantic",
+    "task_router",
+    "typing"
+  ],
+  "hash": "ab35e501f17c2819b5ed8ec1e5ed910b58708cc9bffc36a2ae144d539fdd3410",
+  "artifact_id": "7b01daba-09a3-465c-a0e8-60f1a5e4375d"
+}

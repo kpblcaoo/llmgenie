@@ -1,0 +1,241 @@
+{
+  "module_id": "llmgenie.api.main",
+  "path": "llmgenie/api/main.py",
+  "category": "core",
+  "module_doc": "FastAPI main application for llmgenie\nProvides REST API for multi-agent orchestration and workflow management",
+  "functions": [
+    {
+      "name": "health_check",
+      "docstring": "Health check endpoint",
+      "line_range": [
+        69,
+        75
+      ],
+      "parameters": [],
+      "decorators": [
+        "app.get('/health', response_model=HealthResponse)"
+      ]
+    },
+    {
+      "name": "get_project_state",
+      "docstring": "Get current project state",
+      "line_range": [
+        79,
+        94
+      ],
+      "parameters": [],
+      "decorators": [
+        "app.get('/project/state', response_model=ProjectStateResponse)"
+      ]
+    },
+    {
+      "name": "execute_agent_task",
+      "docstring": "Execute a task with specified agent - Enhanced with Ollama/Claude routing",
+      "line_range": [
+        98,
+        164
+      ],
+      "parameters": [
+        "request"
+      ],
+      "decorators": [
+        "app.post('/agents/execute', response_model=AgentResponse)"
+      ]
+    },
+    {
+      "name": "get_agent_status",
+      "docstring": "Get status of specific agent",
+      "line_range": [
+        167,
+        174
+      ],
+      "parameters": [
+        "agent_id"
+      ],
+      "decorators": [
+        "app.get('/agents/status/{agent_id}')"
+      ]
+    },
+    {
+      "name": "get_rules_manifest",
+      "docstring": "Get rules manifest",
+      "line_range": [
+        178,
+        185
+      ],
+      "parameters": [],
+      "decorators": [
+        "app.get('/rules/manifest')"
+      ]
+    },
+    {
+      "name": "get_workflow_modes",
+      "docstring": "Get available workflow modes",
+      "line_range": [
+        188,
+        195
+      ],
+      "parameters": [],
+      "decorators": [
+        "app.get('/workflow/modes')"
+      ]
+    },
+    {
+      "name": "validate_handoff_package",
+      "docstring": "Validate handoff package completeness for context transfer between AI sessions",
+      "line_range": [
+        199,
+        206
+      ],
+      "parameters": [
+        "package"
+      ],
+      "decorators": [
+        "app.post('/handoff/validate', response_model=ValidationResult, operation_id='validate_handoff_package')"
+      ]
+    },
+    {
+      "name": "get_handoff_template",
+      "docstring": "Get handoff package template with required files and validation criteria",
+      "line_range": [
+        209,
+        242
+      ],
+      "parameters": [],
+      "decorators": [
+        "app.get('/handoff/template', operation_id='get_handoff_template')"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "name": "HealthResponse",
+      "docstring": "",
+      "line_range": [
+        46,
+        49
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    },
+    {
+      "name": "ProjectStateResponse",
+      "docstring": "",
+      "line_range": [
+        51,
+        54
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    },
+    {
+      "name": "AgentRequest",
+      "docstring": "",
+      "line_range": [
+        56,
+        59
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    },
+    {
+      "name": "AgentResponse",
+      "docstring": "",
+      "line_range": [
+        61,
+        65
+      ],
+      "methods": [],
+      "bases": [
+        "BaseModel"
+      ]
+    }
+  ],
+  "callgraph": {
+    "health_check": [
+      "datetime.now",
+      "HealthResponse",
+      "app.get"
+    ],
+    "get_project_state": [
+      "HTTPException",
+      "ProjectStateResponse",
+      "str",
+      "open",
+      "json.load",
+      "state.get",
+      "app.get"
+    ],
+    "execute_agent_task": [
+      "execution_result.get",
+      "str",
+      "datetime.now",
+      "ModelRouter",
+      "router.execute_with_model",
+      "app.post",
+      "router.route_task",
+      "AgentResponse",
+      "TaskClassifier"
+    ],
+    "get_agent_status": [
+      "app.get"
+    ],
+    "get_rules_manifest": [
+      "HTTPException",
+      "open",
+      "json.load",
+      "app.get"
+    ],
+    "get_workflow_modes": [
+      "app.get"
+    ],
+    "validate_handoff_package": [
+      "HTTPException",
+      "validator.validate_package",
+      "str",
+      "HandoffValidator",
+      "app.post"
+    ],
+    "get_handoff_template": [
+      "app.get"
+    ]
+  },
+  "dependencies": [
+    "BaseModel",
+    "CORSMiddleware",
+    "Dict",
+    "FastAPI",
+    "FastApiMCP",
+    "HTTPException",
+    "HandoffPackage",
+    "HandoffValidator",
+    "List",
+    "ModelChoice",
+    "ModelRouter",
+    "Optional",
+    "Path",
+    "TaskClassifier",
+    "ValidationResult",
+    "datetime",
+    "fastapi",
+    "fastapi.middleware.cors",
+    "fastapi_mcp",
+    "handoff_validator",
+    "json",
+    "os",
+    "pathlib",
+    "pydantic",
+    "sys",
+    "task_router",
+    "typing",
+    "uvicorn"
+  ],
+  "hash": "924d3f4417bd5f759688dd49b03282f0e54d64231bf423eb061b52a46ecb3096",
+  "artifact_id": "73da6df0-d62f-4c9b-92ba-838a34f1a4c9"
+}

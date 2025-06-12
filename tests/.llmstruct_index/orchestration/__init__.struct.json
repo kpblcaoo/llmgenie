@@ -1,0 +1,16 @@
+{
+  "module_id": "orchestration.__init__",
+  "path": "orchestration/__init__.py",
+  "category": "test",
+  "module_doc": "Modular tests for Multi-Agent Orchestration\n\nEpic 5 Phase 3.2: Beautiful modular test structure\nFollowing same patterns as orchestration implementation",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [
+    "create_mock_classification",
+    "create_mock_router",
+    "fixtures"
+  ],
+  "hash": "e5cd8b226d3d4505ef637758defdd16b2aca91d7cd2ed38360feac8add3c5e8a",
+  "artifact_id": "29d3296f-f29e-4fda-b7a6-7dd762899fb1"
+}

@@ -1,0 +1,552 @@
+{
+  "module_id": "rag_context.interfaces.auto_logger",
+  "path": "rag_context/interfaces/auto_logger.py",
+  "category": "core",
+  "module_doc": "Auto Logger for MCP Server Integration\nAutomatic workflow logging without efficiency loss\nPart of Phase 4A.2: Agent-as-a-Judge Enhanced",
+  "functions": [
+    {
+      "name": "log_mcp_tool_call",
+      "docstring": "Convenience function for MCP tool call logging",
+      "line_range": [
+        261,
+        264
+      ],
+      "parameters": [
+        "tool_name",
+        "arguments",
+        "model"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "log_mcp_tool_result",
+      "docstring": "Convenience function for MCP tool result logging",
+      "line_range": [
+        266,
+        269
+      ],
+      "parameters": [
+        "tool_name",
+        "result",
+        "duration_ms",
+        "model"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "detect_and_log_model_context",
+      "docstring": "Detect model from context and log if switch detected",
+      "line_range": [
+        271,
+        282
+      ],
+      "parameters": [
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        18,
+        26
+      ],
+      "parameters": [
+        "self",
+        "session_log_path"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "detect_model",
+      "docstring": "Detect current model based on context clues",
+      "line_range": [
+        28,
+        36
+      ],
+      "parameters": [
+        "self",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "ensure_session",
+      "docstring": "Ensure active session exists, create if needed",
+      "line_range": [
+        38,
+        44
+      ],
+      "parameters": [
+        "self",
+        "session_name"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "log_tool_call",
+      "docstring": "Log MCP tool call with automatic metadata",
+      "line_range": [
+        46,
+        62
+      ],
+      "parameters": [
+        "self",
+        "tool_name",
+        "arguments",
+        "model",
+        "session"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "log_tool_result",
+      "docstring": "Log tool result with performance metrics",
+      "line_range": [
+        64,
+        79
+      ],
+      "parameters": [
+        "self",
+        "tool_name",
+        "result",
+        "duration_ms",
+        "model"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "log_model_switch",
+      "docstring": "Log model switches for continuity tracking",
+      "line_range": [
+        81,
+        94
+      ],
+      "parameters": [
+        "self",
+        "from_model",
+        "to_model",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "log_workflow_phase",
+      "docstring": "Log workflow phase transitions",
+      "line_range": [
+        96,
+        107
+      ],
+      "parameters": [
+        "self",
+        "phase",
+        "detected_by"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "analyze_activity_pattern",
+      "docstring": "Analyze recent activity to detect workflow patterns",
+      "line_range": [
+        109,
+        140
+      ],
+      "parameters": [
+        "self",
+        "recent_events"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_detect_pattern_with_confidence",
+      "docstring": "Detect patterns with evidence-based confidence scoring",
+      "line_range": [
+        142,
+        161
+      ],
+      "parameters": [
+        "self",
+        "tool_usage",
+        "models_used",
+        "timespan"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_calculate_timespan",
+      "docstring": "Calculate time span of events",
+      "line_range": [
+        163,
+        173
+      ],
+      "parameters": [
+        "self",
+        "events"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "generate_session_summary",
+      "docstring": "Generate automatic session summary",
+      "line_range": [
+        175,
+        223
+      ],
+      "parameters": [
+        "self",
+        "session"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_hash_args",
+      "docstring": "Create hash of arguments for deduplication",
+      "line_range": [
+        225,
+        228
+      ],
+      "parameters": [
+        "self",
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_summarize_args",
+      "docstring": "Create human-readable summary of arguments",
+      "line_range": [
+        230,
+        242
+      ],
+      "parameters": [
+        "self",
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_append_to_log",
+      "docstring": "Append event to session log file",
+      "line_range": [
+        244,
+        256
+      ],
+      "parameters": [
+        "self",
+        "event",
+        "session"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "AutoLogger",
+      "docstring": "Automatic logging system for MCP workflow events",
+      "line_range": [
+        15,
+        256
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            18,
+            26
+          ],
+          "parameters": [
+            "self",
+            "session_log_path"
+          ]
+        },
+        {
+          "name": "detect_model",
+          "docstring": "Detect current model based on context clues",
+          "line_range": [
+            28,
+            36
+          ],
+          "parameters": [
+            "self",
+            "context"
+          ]
+        },
+        {
+          "name": "ensure_session",
+          "docstring": "Ensure active session exists, create if needed",
+          "line_range": [
+            38,
+            44
+          ],
+          "parameters": [
+            "self",
+            "session_name"
+          ]
+        },
+        {
+          "name": "log_tool_call",
+          "docstring": "Log MCP tool call with automatic metadata",
+          "line_range": [
+            46,
+            62
+          ],
+          "parameters": [
+            "self",
+            "tool_name",
+            "arguments",
+            "model",
+            "session"
+          ]
+        },
+        {
+          "name": "log_tool_result",
+          "docstring": "Log tool result with performance metrics",
+          "line_range": [
+            64,
+            79
+          ],
+          "parameters": [
+            "self",
+            "tool_name",
+            "result",
+            "duration_ms",
+            "model"
+          ]
+        },
+        {
+          "name": "log_model_switch",
+          "docstring": "Log model switches for continuity tracking",
+          "line_range": [
+            81,
+            94
+          ],
+          "parameters": [
+            "self",
+            "from_model",
+            "to_model",
+            "context"
+          ]
+        },
+        {
+          "name": "log_workflow_phase",
+          "docstring": "Log workflow phase transitions",
+          "line_range": [
+            96,
+            107
+          ],
+          "parameters": [
+            "self",
+            "phase",
+            "detected_by"
+          ]
+        },
+        {
+          "name": "analyze_activity_pattern",
+          "docstring": "Analyze recent activity to detect workflow patterns",
+          "line_range": [
+            109,
+            140
+          ],
+          "parameters": [
+            "self",
+            "recent_events"
+          ]
+        },
+        {
+          "name": "_detect_pattern_with_confidence",
+          "docstring": "Detect patterns with evidence-based confidence scoring",
+          "line_range": [
+            142,
+            161
+          ],
+          "parameters": [
+            "self",
+            "tool_usage",
+            "models_used",
+            "timespan"
+          ]
+        },
+        {
+          "name": "_calculate_timespan",
+          "docstring": "Calculate time span of events",
+          "line_range": [
+            163,
+            173
+          ],
+          "parameters": [
+            "self",
+            "events"
+          ]
+        },
+        {
+          "name": "generate_session_summary",
+          "docstring": "Generate automatic session summary",
+          "line_range": [
+            175,
+            223
+          ],
+          "parameters": [
+            "self",
+            "session"
+          ]
+        },
+        {
+          "name": "_hash_args",
+          "docstring": "Create hash of arguments for deduplication",
+          "line_range": [
+            225,
+            228
+          ],
+          "parameters": [
+            "self",
+            "args"
+          ]
+        },
+        {
+          "name": "_summarize_args",
+          "docstring": "Create human-readable summary of arguments",
+          "line_range": [
+            230,
+            242
+          ],
+          "parameters": [
+            "self",
+            "args"
+          ]
+        },
+        {
+          "name": "_append_to_log",
+          "docstring": "Append event to session log file",
+          "line_range": [
+            244,
+            256
+          ],
+          "parameters": [
+            "self",
+            "event",
+            "session"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "Path"
+    ],
+    "detect_model": [
+      "any",
+      "context.lower"
+    ],
+    "ensure_session": [
+      "datetime.now"
+    ],
+    "log_tool_call": [
+      "self._hash_args",
+      "self._summarize_args",
+      "self._append_to_log",
+      "datetime.now",
+      "self.ensure_session"
+    ],
+    "log_tool_result": [
+      "datetime.now",
+      "self._append_to_log",
+      "len",
+      "str"
+    ],
+    "log_model_switch": [
+      "datetime.now",
+      "self._append_to_log"
+    ],
+    "log_workflow_phase": [
+      "datetime.now",
+      "self._append_to_log"
+    ],
+    "analyze_activity_pattern": [
+      "event.get",
+      "self._detect_pattern_with_confidence",
+      "tool_usage.keys",
+      "models_used.add",
+      "list",
+      "set",
+      "self._calculate_timespan",
+      "event_timespan.total_seconds",
+      "len",
+      "tool_usage.get"
+    ],
+    "_detect_pattern_with_confidence": [
+      "tool_usage.keys",
+      "sum",
+      "min",
+      "tool.startswith",
+      "len",
+      "tool_usage.get"
+    ],
+    "_calculate_timespan": [
+      "datetime.fromisoformat",
+      "len"
+    ],
+    "generate_session_summary": [
+      "event.get",
+      "models_used.add",
+      "open",
+      "list",
+      "tools_used.add",
+      "phases.add",
+      "events.append",
+      "set",
+      "log_file.exists",
+      "json.loads",
+      "len",
+      "line.strip"
+    ],
+    "_hash_args": [
+      "hashlib.md5",
+      "json.dumps",
+      "args_str.encode"
+    ],
+    "_summarize_args": [
+      "summary_parts.append",
+      "args.items",
+      "len",
+      "isinstance"
+    ],
+    "_append_to_log": [
+      "__import__",
+      "json.dumps",
+      "open",
+      "print",
+      "f.write"
+    ],
+    "log_mcp_tool_call": [
+      "auto_logger.log_tool_call"
+    ],
+    "log_mcp_tool_result": [
+      "auto_logger.log_tool_result"
+    ],
+    "detect_and_log_model_context": [
+      "hasattr",
+      "auto_logger.log_model_switch",
+      "auto_logger.detect_model"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "Dict",
+    "List",
+    "Optional",
+    "Path",
+    "asyncio",
+    "datetime",
+    "hashlib",
+    "json",
+    "pathlib",
+    "re",
+    "typing"
+  ],
+  "hash": "f2bc412c5b72a8930278fff9018170ee36da5ebc5b1190fbbbb146eb456da51e",
+  "artifact_id": "a540829f-29e4-449c-95e4-14060661bbb0"
+}

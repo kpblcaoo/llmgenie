@@ -1,0 +1,60 @@
+{
+  "module_id": "src.llmgenie.modules.cli.parse",
+  "path": "src/llmgenie/modules/cli/parse.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "parse",
+      "docstring": "Parse codebase and generate struct.json.",
+      "line_range": [
+        9,
+        93
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "parse": [
+      "logging.error",
+      "generate_json",
+      "ast_path.open",
+      "struct_path.open",
+      "JSONCache",
+      "logging.warning",
+      "load_config",
+      "json.dump",
+      "func.get",
+      "Path",
+      "cache.cache_json",
+      "getattr",
+      "parsing_config.get",
+      "cli_config.get",
+      "mod_dir.mkdir",
+      "cache.close",
+      "logging.info",
+      "struct_data.get",
+      "module.get",
+      "config.get"
+    ]
+  },
+  "dependencies": [
+    "JSONCache",
+    "Path",
+    "generate_json",
+    "json",
+    "llmstruct.cache",
+    "llmstruct.generators.json_generator",
+    "llmstruct.modules.cli.utils",
+    "load_config",
+    "logging",
+    "os",
+    "pathlib"
+  ],
+  "hash": "966276e0c717ac3bf78502224305e23e2ac9b49547bbbf13bb37c83cb85d8b9c",
+  "artifact_id": "18e7cd48-1f73-4086-8ffb-e9df486b5014"
+}

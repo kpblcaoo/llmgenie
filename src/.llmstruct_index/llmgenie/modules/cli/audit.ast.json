@@ -1,0 +1,12 @@
+{
+  "module": "llmgenie/modules/cli/audit.py",
+  "functions": [
+    {
+      "name": "audit",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

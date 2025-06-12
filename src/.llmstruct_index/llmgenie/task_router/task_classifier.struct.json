@@ -1,0 +1,325 @@
+{
+  "module_id": "llmgenie.task_router.task_classifier",
+  "path": "llmgenie/task_router/task_classifier.py",
+  "category": "core",
+  "module_doc": "Task Classification Engine for Smart LLM Routing\n\nBased on Epic 5 research findings:\n- Code generation patterns → Ollama preference\n- Documentation patterns → Ollama preference  \n- Complex reasoning patterns → Claude preference\n- Mixed complexity handling → Smart routing",
+  "functions": [
+    {
+      "name": "__init__",
+      "docstring": "Initialize classifier with Epic 5 research patterns",
+      "line_range": [
+        55,
+        78
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "classify_task",
+      "docstring": "Classify task based on Epic 5 research patterns\n\nArgs:\n    query: User request/task description\n    context: Optional context (file types, project info, etc.)\n    \nReturns:\n    ClassificationResult with routing recommendation",
+      "line_range": [
+        80,
+        115
+      ],
+      "parameters": [
+        "self",
+        "query",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_determine_task_type",
+      "docstring": "Determine primary task type from query content",
+      "line_range": [
+        117,
+        146
+      ],
+      "parameters": [
+        "self",
+        "query",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_calculate_complexity",
+      "docstring": "Calculate task complexity based on content analysis",
+      "line_range": [
+        148,
+        191
+      ],
+      "parameters": [
+        "self",
+        "query",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_get_routing_preferences",
+      "docstring": "Get routing preferences based on Epic 5 research findings:\n- Code generation patterns → Ollama preference\n- Documentation patterns → Ollama preference  \n- Complex reasoning patterns → Claude preference",
+      "line_range": [
+        193,
+        219
+      ],
+      "parameters": [
+        "self",
+        "task_type",
+        "complexity"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_calculate_confidence",
+      "docstring": "Calculate confidence score for classification",
+      "line_range": [
+        221,
+        241
+      ],
+      "parameters": [
+        "self",
+        "query",
+        "task_type",
+        "complexity"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_generate_reasoning",
+      "docstring": "Generate human-readable reasoning for classification",
+      "line_range": [
+        243,
+        258
+      ],
+      "parameters": [
+        "self",
+        "task_type",
+        "complexity",
+        "ollama_pref",
+        "claude_pref"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_complexity_score",
+      "docstring": "Get numerical complexity score for external systems\n\nIntegrates with existing workflow for performance monitoring",
+      "line_range": [
+        260,
+        270
+      ],
+      "parameters": [
+        "self",
+        "task_dict"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "TaskType",
+      "docstring": "Task classification types based on Epic 5 research",
+      "line_range": [
+        17,
+        26
+      ],
+      "methods": [],
+      "bases": [
+        "Enum"
+      ]
+    },
+    {
+      "name": "ComplexityLevel",
+      "docstring": "Task complexity levels for routing decisions",
+      "line_range": [
+        29,
+        34
+      ],
+      "methods": [],
+      "bases": [
+        "Enum"
+      ]
+    },
+    {
+      "name": "ClassificationResult",
+      "docstring": "Result of task classification analysis",
+      "line_range": [
+        38,
+        45
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "TaskClassifier",
+      "docstring": "Smart Task Classifier for LLM routing decisions\n\nIntegrates with existing AgentRequest pattern from main.py:98-112",
+      "line_range": [
+        48,
+        270
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize classifier with Epic 5 research patterns",
+          "line_range": [
+            55,
+            78
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "classify_task",
+          "docstring": "Classify task based on Epic 5 research patterns\n\nArgs:\n    query: User request/task description\n    context: Optional context (file types, project info, etc.)\n    \nReturns:\n    ClassificationResult with routing recommendation",
+          "line_range": [
+            80,
+            115
+          ],
+          "parameters": [
+            "self",
+            "query",
+            "context"
+          ]
+        },
+        {
+          "name": "_determine_task_type",
+          "docstring": "Determine primary task type from query content",
+          "line_range": [
+            117,
+            146
+          ],
+          "parameters": [
+            "self",
+            "query",
+            "context"
+          ]
+        },
+        {
+          "name": "_calculate_complexity",
+          "docstring": "Calculate task complexity based on content analysis",
+          "line_range": [
+            148,
+            191
+          ],
+          "parameters": [
+            "self",
+            "query",
+            "context"
+          ]
+        },
+        {
+          "name": "_get_routing_preferences",
+          "docstring": "Get routing preferences based on Epic 5 research findings:\n- Code generation patterns → Ollama preference\n- Documentation patterns → Ollama preference  \n- Complex reasoning patterns → Claude preference",
+          "line_range": [
+            193,
+            219
+          ],
+          "parameters": [
+            "self",
+            "task_type",
+            "complexity"
+          ]
+        },
+        {
+          "name": "_calculate_confidence",
+          "docstring": "Calculate confidence score for classification",
+          "line_range": [
+            221,
+            241
+          ],
+          "parameters": [
+            "self",
+            "query",
+            "task_type",
+            "complexity"
+          ]
+        },
+        {
+          "name": "_generate_reasoning",
+          "docstring": "Generate human-readable reasoning for classification",
+          "line_range": [
+            243,
+            258
+          ],
+          "parameters": [
+            "self",
+            "task_type",
+            "complexity",
+            "ollama_pref",
+            "claude_pref"
+          ]
+        },
+        {
+          "name": "get_complexity_score",
+          "docstring": "Get numerical complexity score for external systems\n\nIntegrates with existing workflow for performance monitoring",
+          "line_range": [
+            260,
+            270
+          ],
+          "parameters": [
+            "self",
+            "task_dict"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [],
+    "classify_task": [
+      "query.lower",
+      "self._calculate_complexity",
+      "self._calculate_confidence",
+      "self._generate_reasoning",
+      "ClassificationResult",
+      "self._get_routing_preferences",
+      "self._determine_task_type"
+    ],
+    "_determine_task_type": [
+      "any",
+      "re.search",
+      "context.get"
+    ],
+    "_calculate_complexity": [
+      "any",
+      "sum",
+      "query.split",
+      "context.get",
+      "len"
+    ],
+    "_get_routing_preferences": [],
+    "_calculate_confidence": [
+      "any",
+      "re.search",
+      "query.lower",
+      "min",
+      "query.split",
+      "len"
+    ],
+    "_generate_reasoning": [
+      "reasoning_parts.append"
+    ],
+    "get_complexity_score": [
+      "task_dict.get",
+      "self.classify_task"
+    ]
+  },
+  "dependencies": [
+    "Dict",
+    "Enum",
+    "List",
+    "Optional",
+    "Tuple",
+    "dataclass",
+    "dataclasses",
+    "enum",
+    "re",
+    "typing"
+  ],
+  "hash": "1524140f92d8dcaea7be637e602972fcb202050baa85e53f8ee8501d8ad33988",
+  "artifact_id": "b435477b-657a-4103-8dbe-9ef9b1f3350d"
+}

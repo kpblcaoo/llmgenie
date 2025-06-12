@@ -1,0 +1,53 @@
+{
+  "module_id": "src.llmgenie.modules.cli.query",
+  "path": "src/llmgenie/modules/cli/query.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "query",
+      "docstring": "Query LLMs with prompt and context.",
+      "line_range": [
+        8,
+        64
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "query": [
+      "logging.error",
+      "client.query",
+      "JSONCache",
+      "cache.close",
+      "logging.warning",
+      "orchestrator.get_context_for_scenario",
+      "LLMClient",
+      "json.dump",
+      "Path",
+      "client.query_with_context",
+      "create_context_orchestrator",
+      "hasattr",
+      "logging.info"
+    ]
+  },
+  "dependencies": [
+    "JSONCache",
+    "LLMClient",
+    "Path",
+    "create_context_orchestrator",
+    "json",
+    "llmstruct",
+    "llmstruct.cache",
+    "llmstruct.context_orchestrator",
+    "logging",
+    "os",
+    "pathlib"
+  ],
+  "hash": "aebf4b74c71a6845676877cbd60f5530d3afab38fa6ccec41c114e158cb0f614",
+  "artifact_id": "05848bcb-500b-4ebb-beac-10ed479ad050"
+}

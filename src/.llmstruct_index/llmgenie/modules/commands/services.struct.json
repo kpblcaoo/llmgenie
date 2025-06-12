@@ -1,0 +1,133 @@
+{
+  "module_id": "llmgenie.modules.commands.services",
+  "path": "llmgenie/modules/commands/services.py",
+  "category": "core",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "add_api_bot_commands",
+      "docstring": "Добавить команды для управления API и Bot сервисами",
+      "line_range": [
+        10,
+        47
+      ],
+      "parameters": [
+        "subparsers"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "cmd_api_management",
+      "docstring": "Управление API сервером",
+      "line_range": [
+        49,
+        111
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "cmd_bot_management",
+      "docstring": "Управление Telegram ботами",
+      "line_range": [
+        113,
+        190
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "cmd_services",
+      "docstring": "Управление всеми сервисами (API + Bots)",
+      "line_range": [
+        192,
+        233
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "add_api_bot_commands": [
+      "services_subparsers.add_parser",
+      "bot_parser.add_subparsers",
+      "services_parser.add_subparsers",
+      "metrics_parser.add_subparsers",
+      "api_start.add_argument",
+      "api_parser.add_subparsers",
+      "bot_start.add_argument",
+      "metrics_report.add_argument",
+      "metrics_track.add_argument",
+      "api_subparsers.add_parser",
+      "metrics_analytics.add_argument",
+      "subparsers.add_parser",
+      "bot_subparsers.add_parser",
+      "metrics_subparsers.add_parser"
+    ],
+    "cmd_api_management": [
+      "data.get",
+      "pid_file.unlink",
+      "str",
+      "response.json",
+      "int",
+      "open",
+      "requests.get",
+      "f.read",
+      "venv_path.exists",
+      "subprocess.Popen",
+      "f.write",
+      "process.terminate",
+      "psutil.Process",
+      "process.wait",
+      "pid_file.exists",
+      "print",
+      "requests.post",
+      "Path"
+    ],
+    "cmd_bot_management": [
+      "os.getenv",
+      "pid_file.unlink",
+      "str",
+      "int",
+      "open",
+      "bot_scripts.get",
+      "f.read",
+      "subprocess.Popen",
+      "f.write",
+      "process.terminate",
+      "psutil.Process",
+      "process.wait",
+      "process.is_running",
+      "pid_file.exists",
+      "print",
+      "active_bots.append",
+      "Path"
+    ],
+    "cmd_services": [
+      "type",
+      "cmd_api_management",
+      "cmd_bot_management",
+      "time.sleep",
+      "print"
+    ]
+  },
+  "dependencies": [
+    "Path",
+    "os",
+    "pathlib",
+    "psutil",
+    "requests",
+    "signal",
+    "subprocess",
+    "time"
+  ],
+  "hash": "96ca731ade5a7043ea0459124cc364e27740657bccffde74544182d938e57d98",
+  "artifact_id": "44c469ea-e74f-4161-96d2-71619772b461"
+}
