@@ -1,0 +1,4 @@
+итого 12K
+drwxr-xr-x 8 kpblc kpblc 4,0K июн  9 19:14 llmgenie
+drwxrwxr-x 3 kpblc kpblc 4,0K июн 11 20:04 rag_context
+drwxrwxr-x 2 kpblc kpblc 4,0K июн 11 11:28 struct_tools

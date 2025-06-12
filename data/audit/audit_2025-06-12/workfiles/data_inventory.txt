@@ -1,0 +1,25 @@
+итого 244K
+-rw-rw-r-- 1 kpblc kpblc  16K июн 11 14:45 ai_workflow.json
+drwxrwxr-x 3 kpblc kpblc 4,0K июн 12 10:54 audit
+-rw-rw-r-- 1 kpblc kpblc 7,3K июн 11 11:04 context_checkpoint_mcp_optimization_2025-01-05.md
+drwxrwxr-x 5 kpblc kpblc 4,0K июн 11 16:32 cursor_history_analysis
+-rw-rw-r-- 1 kpblc kpblc 3,2K июн 11 16:25 cursor_history_analysis_findings_2025-01-05.md
+drwxr-xr-x 4 kpblc kpblc 4,0K июн  6 09:49 epic_logs
+-rw-rw-r-- 1 kpblc kpblc 8,8K июн 11 18:27 gemini_request_cursor_history_analysis.md
+drwxrwxr-x 2 kpblc kpblc 4,0K июн  9 18:12 handoff
+-rw-rw-r-- 1 kpblc kpblc 7,7K июн 11 15:45 handoff_session_mcp_tools_diagnostic_2025-01-05.md
+-rw-r--r-- 1 kpblc kpblc  32K июн  6 10:38 ideas.json
+-rw-r--r-- 1 kpblc kpblc  31K июн 10 16:02 insights.json
+drwxr-xr-x 9 kpblc kpblc 4,0K июн 11 18:16 knowledge
+drwxr-xr-x 3 kpblc kpblc 4,0K июн 11 01:50 logs
+-rw-rw-r-- 1 kpblc kpblc 5,9K июн 11 18:10 phase_4A_2_knowledge_preservation_plan.md
+-rw-rw-r-- 1 kpblc kpblc  21K июн 11 18:27 phase_4a_enhanced_implementation_plan_2025-01-05.md
+-rw-rw-r-- 1 kpblc kpblc 4,9K июн 11 14:45 phase_4a_progress_report_2025-01-05.md
+drwxrwxr-x 2 kpblc kpblc 4,0K июн 11 01:51 plans
+-rw-r--r-- 1 kpblc kpblc 2,0K июн 10 16:02 project_manifest.json
+-rw-r--r-- 1 kpblc kpblc  391 июн  6 09:49 projects.json
+drwxrwxr-x 2 kpblc kpblc 4,0K июн 11 00:17 quality_intelligence
+-rw-rw-r-- 1 kpblc kpblc 3,4K июн 11 14:45 session_plan_capabilities_formalization_2025-01-05.md
+drwxr-xr-x 3 kpblc kpblc 4,0K июн 11 18:12 sessions
+-rw-r--r-- 1 kpblc kpblc  39K июн 10 16:02 tasks.json
+-rw-r--r-- 1 kpblc kpblc 2,1K июн  6 09:49 user_memory.json

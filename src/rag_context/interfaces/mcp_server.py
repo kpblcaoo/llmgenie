@@ -8,6 +8,7 @@ import asyncio
 import json
 from typing import Dict, Any, Optional, List
 from pathlib import Path
+from datetime import datetime
 
 try:
     from mcp.server.models import InitializationOptions
@@ -44,6 +45,25 @@ except ImportError:
         StructureAnalyzer = None
         StructureConfig = None
 
+# Импорт Phase 4A компонентов
+try:
+    from ..knowledge_extractor import create_knowledge_extractor
+    from ..code_discovery import create_discovery_system
+    from ..session_context_manager import create_session_context_manager
+    from ..cursor_intelligence import create_cursor_intelligence
+    PHASE4A_AVAILABLE = True
+    print("✅ Phase 4A knowledge_extractor available")
+    print("✅ Phase 4A code_discovery available")
+    print("✅ Phase 4A session_context_manager available")
+    print("✅ Phase 4A cursor_intelligence available")
+except ImportError as e:
+    PHASE4A_AVAILABLE = False
+    print(f"⚠️ Phase 4A components not available: {e}")
+    create_knowledge_extractor = None
+    create_discovery_system = None
+    create_session_context_manager = None
+    create_cursor_intelligence = None
+
 
 class MCPServer:
     """MCP Server для универсального доступа к RAG системе + Struct Tools"""
@@ -64,6 +84,21 @@ class MCPServer:
             self.struct_analyzer = StructureAnalyzer(struct_config)
         else:
             self.struct_analyzer = None
+        
+        # Инициализируем Phase 4A компоненты если доступны
+        self.phase4a_components = {}
+        if PHASE4A_AVAILABLE:
+            try:
+                self.phase4a_components = {
+                    'knowledge_extractor': create_knowledge_extractor(self.enhancer),
+                    'code_discovery': create_discovery_system(),
+                    'session_context_manager': create_session_context_manager(),
+                    'cursor_intelligence': create_cursor_intelligence()
+                }
+                print("✅ Phase 4A components initialized")
+            except Exception as e:
+                print(f"⚠️ Phase 4A initialization failed: {e}")
+                self.phase4a_components = {}
         
         # Создаем MCP сервер
         self.server = Server("llmgenie-rag-struct")
@@ -140,6 +175,15 @@ class MCPServer:
                 types.Tool(
                     name="refresh_index",
                     description="Обновляет индекс документов RAG системы",
+                    inputSchema={
+                        "type": "object",
+                        "properties": {},
+                        "required": []
+                    }
+                ),
+                types.Tool(
+                    name="discover_code",
+                    description="Discover code patterns and knowledge from project",
                     inputSchema={
                         "type": "object",
                         "properties": {},
@@ -257,6 +301,90 @@ class MCPServer:
                     )
                 ])
             
+            # Добавляем Phase 4A tools если доступны (начинаем с одного)
+            if PHASE4A_AVAILABLE and self.phase4a_components:
+                tools.extend([
+                    types.Tool(
+                        name="extract_code_knowledge", 
+                        description="Extract code patterns and knowledge from project for 'Have I solved this before?' functionality",
+                        inputSchema={
+                            "type": "object", 
+                            "properties": {},
+                            "required": []
+                        }
+                    ),
+                    types.Tool(
+                        name="discover_similar_solutions",
+                        description="Find similar solutions to current problem ('Have I solved this before?' functionality)",
+                        inputSchema={
+                            "type": "object",
+                            "properties": {
+                                "query": {
+                                    "type": "string", 
+                                    "description": "Problem description to search for"
+                                },
+                                "max_results": {
+                                    "type": "integer",
+                                    "description": "Maximum number of results to return",
+                                    "default": 5
+                                }
+                            },
+                            "required": ["query"]
+                        }
+                    ),
+                    types.Tool(
+                        name="preserve_session_context",
+                        description="Extract and preserve session context for future restoration",
+                        inputSchema={
+                            "type": "object",
+                            "properties": {
+                                "session_file": {
+                                    "type": "string",
+                                    "description": "Optional specific session file to process"
+                                }
+                            }
+                        }
+                    ),
+                    types.Tool(
+                        name="get_workflow_suggestions", 
+                        description="Get workflow intelligence and suggestions for current task context",
+                        inputSchema={
+                            "type": "object",
+                            "properties": {
+                                "task_description": {
+                                    "type": "string",
+                                    "description": "Description of current task/context for analysis"
+                                },
+                                "session_state": {
+                                    "type": "object",
+                                    "description": "Current session state for proactive suggestions",
+                                    "default": {}
+                                }
+                            },
+                            "required": ["task_description"]
+                        }
+                    ),
+                    types.Tool(
+                        name="get_cursor_intelligence",
+                        description="Get comprehensive Cursor Intelligence including architectural patterns and development guidance",
+                        inputSchema={
+                            "type": "object", 
+                            "properties": {
+                                "functionality_description": {
+                                    "type": "string",
+                                    "description": "Description of functionality to analyze for architectural patterns"
+                                },
+                                "analysis_type": {
+                                    "type": "string",
+                                    "description": "Type of analysis: 'architectural', 'workflow', or 'combined'",
+                                    "default": "combined"
+                                }
+                            },
+                            "required": ["functionality_description"]
+                        }
+                    )
+                ])
+            
             return tools
         
         @self.server.call_tool()
@@ -344,6 +472,126 @@ class MCPServer:
                 # Обработчики struct_tools
                 elif name.startswith("struct_") and self.struct_analyzer:
                     result = await self._handle_struct_tool(name, arguments)
+                
+                # Обработчики Phase 4A tools
+                elif name == "extract_code_knowledge" and PHASE4A_AVAILABLE and self.phase4a_components:
+                    extractor = self.phase4a_components.get('knowledge_extractor')
+                    if not extractor:
+                        result = [types.TextContent(type="text", text=json.dumps({
+                            "error": "Knowledge extractor not available"
+                        }, indent=2))]
+                    else:
+                        extraction_result = extractor.extract_code_knowledge()
+                        result = [types.TextContent(type="text", text=json.dumps(extraction_result, indent=2))]
+                
+                elif name == "discover_similar_solutions" and PHASE4A_AVAILABLE and self.phase4a_components:
+                    discovery_system = self.phase4a_components.get('code_discovery')
+                    if not discovery_system:
+                        result = [types.TextContent(type="text", text=json.dumps({
+                            "error": "Discovery system not available"
+                        }, indent=2))]
+                    else:
+                        query = arguments["query"]
+                        max_results = arguments.get("max_results", 5)
+                        
+                        discovery_result = discovery_system.search_solutions(query, max_results)
+                        
+                        # Convert result to JSON-serializable format
+                        response = {
+                            "query": discovery_result.query,
+                            "patterns_found": len(discovery_result.patterns_found),
+                            "search_time": round(discovery_result.search_time, 3),
+                            "suggestions": discovery_result.suggestions,
+                            "patterns": [
+                                {
+                                    "name": p.name,
+                                    "description": p.description,
+                                    "code_snippet": p.code_snippet[:100] + "..." if len(p.code_snippet) > 100 else p.code_snippet,
+                                    "source_file": p.source_file,
+                                    "pattern_id": p.pattern_id
+                                } for p in discovery_result.patterns_found
+                            ],
+                            "similarity_scores": discovery_result.similarity_scores
+                        }
+                        result = [types.TextContent(type="text", text=json.dumps(response, indent=2))]
+                
+                elif name == "preserve_session_context" and PHASE4A_AVAILABLE and self.phase4a_components:
+                    session_context_manager = self.phase4a_components.get('session_context_manager')
+                    if not session_context_manager:
+                        result = [types.TextContent(type="text", text=json.dumps({
+                            "error": "Session context manager not available"
+                        }, indent=2))]
+                    else:
+                        session_file = arguments.get("session_file")
+                        session_file_path = Path(session_file) if session_file else None
+                        
+                        extraction_result = session_context_manager.extract_session_context(session_file_path)
+                        
+                        # Convert dataclass to dict
+                        response = {
+                            "session_snapshots": extraction_result.session_snapshots,
+                            "decisions_extracted": extraction_result.decisions_extracted,
+                            "reasoning_chains": extraction_result.reasoning_chains,
+                            "extraction_time": round(extraction_result.extraction_time, 3),
+                            "success": extraction_result.success,
+                            "errors": extraction_result.errors
+                        }
+                        result = [types.TextContent(type="text", text=json.dumps(response, indent=2))]
+                
+                elif name == "get_workflow_suggestions" and PHASE4A_AVAILABLE and self.phase4a_components:
+                    cursor_intelligence = self.phase4a_components.get('cursor_intelligence')
+                    if not cursor_intelligence:
+                        result = [types.TextContent(type="text", text=json.dumps({
+                            "error": "Cursor intelligence not available"
+                        }, indent=2))]
+                    else:
+                        task_description = arguments["task_description"]
+                        session_state = arguments.get("session_state", {})
+                        
+                        # Analyze workflow context
+                        context = {"task_description": task_description}
+                        workflow_analysis = cursor_intelligence.analyze_workflow_context(context)
+                        
+                        # Get proactive suggestions
+                        proactive_suggestions = cursor_intelligence.get_proactive_suggestions(session_state)
+                        
+                        response = {
+                            "workflow_analysis": workflow_analysis,
+                            "proactive_suggestions": proactive_suggestions,
+                            "task_description": task_description,
+                            "analysis_timestamp": workflow_analysis.get("timestamp")
+                        }
+                        suggestions = suggestions_system.get_workflow_suggestions(task_description, session_state)
+                        result = [types.TextContent(type="text", text=json.dumps(suggestions, indent=2))]
+                
+                elif name == "get_cursor_intelligence" and PHASE4A_AVAILABLE and self.phase4a_components:
+                    cursor_intelligence = self.phase4a_components.get('cursor_intelligence')
+                    if not cursor_intelligence:
+                        result = [types.TextContent(type="text", text=json.dumps({
+                            "error": "Cursor intelligence not available"
+                        }, indent=2))]
+                    else:
+                        functionality_description = arguments["functionality_description"]
+                        analysis_type = arguments.get("analysis_type", "combined")
+                        
+                        response = {
+                            "functionality_description": functionality_description,
+                            "analysis_type": analysis_type
+                        }
+                        
+                        if analysis_type in ["architectural", "combined"]:
+                            # Get architectural insights
+                            arch_insights = cursor_intelligence.architectural_intelligence.suggest_module_placement(functionality_description)
+                            response["architectural_insights"] = [cursor_intelligence._insight_to_dict(insight) for insight in arch_insights]
+                        
+                        if analysis_type in ["workflow", "combined"]:
+                            # Get workflow analysis
+                            context = {"task_description": functionality_description}
+                            workflow_analysis = cursor_intelligence.analyze_workflow_context(context)
+                            response["workflow_analysis"] = workflow_analysis
+                        
+                        response["timestamp"] = datetime.now().isoformat()
+                        result = [types.TextContent(type="text", text=json.dumps(response, indent=2))]
                 
                 else:
                     result = [types.TextContent(type="text", text=f'Error: Unknown tool "{name}"')]

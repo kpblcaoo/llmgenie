@@ -1,0 +1,77 @@
+{
+  "epic_start": {
+    "description": "Старт нового эпика",
+    "checklist": [
+      "Создать ветку от develop: git checkout -b epic/<epic_id>-to-develop",
+      "Инициализировать event_log и tech_log",
+      "Добавить идею и задачу в ideas.json и tasks.json",
+      "Зафиксировать старт в meta-log"
+    ]
+  },
+  "epic_work": {
+    "description": "Ведение эпика",
+    "checklist": [
+      "Вести работу только в своей ветке",
+      "Фиксировать все действия в логах",
+      "Обновлять llm_context и attention_marker",
+      "Подгружать связанные задачи/идеи/инсайты/PR по id"
+    ]
+  },
+  "epic_finish": {
+    "description": "Завершение эпика",
+    "checklist": [
+      "Финальный коммит и summary",
+      "Оформить PR по шаблону (через gh или вручную)",
+      "Дождаться merge PR и выполнить git pull develop",
+      "Только после этого — архивировать логи эпика, проверять актуальность файлов, делать анализ",
+      "Добавить lessons learned и рекомендации в insights.json"
+    ]
+  },
+  "pause_restore": {
+    "description": "Пауза и восстановление",
+    "checklist": [
+      "Фиксировать паузы и восстановление в meta-log",
+      "Восстанавливать контекст по meta-log при возврате"
+    ]
+  },
+  "handoff_validation": {
+    "description": "Валидация handoff пакета перед передачей контекста",
+    "checklist": [
+      "Создать handoff конфигурацию (JSON) с минимум 5 файлами",
+      "Включить файлы типов: summary, lessons, checklist, audit, metadata",
+      "Составить startup prompt с статусом, инфраструктурой, уроками, ограничениями",
+      "Подготовить контрольные вопросы (минимум 3) по статусу, технике, scope",
+      "Запустить валидацию: python src/llmgenie/cli/handoff_cli.py validate config.json",
+      "Обеспечить completeness score >= 80%",
+      "Исправить предупреждения и рекомендации валидатора"
+    ],
+    "automation": {
+      "api_endpoint": "POST /handoff/validate",
+      "cli_tool": "src/llmgenie/cli/handoff_cli.py",
+      "template_endpoint": "GET /handoff/template",
+      "ci_integration": "handoff_cli.py check --fail-on-warnings"
+    }
+  },
+  "rag_enhancement_workflow": {
+    "description": "Workflow for leveraging RAG tools for intelligent context injection and rule application.",
+    "checklist": [
+      "Автоматический поиск релевантных правил через `get_relevant_rules` для любой задачи.",
+      "Улучшение промптов AI через `enhance_prompt` с добавлением контекста проекта и правил.",
+      "Использование `get_project_structure` для глубокого понимания архитектуры при планировании и кодировании.",
+      "Автоматическое применение best practices и workflow правил на основе извлеченного контекста.",
+      "Контекстно-ориентированная генерация кода с учетом правил и структуры проекта."
+    ],
+    "automation": {
+      "tools_used": [
+        "enhance_prompt",
+        "get_relevant_rules",
+        "get_project_structure"
+      ],
+      "integration_patterns": [
+        "Rule-aware task planning",
+        "Context-enhanced code generation",
+        "Automatic best practices application"
+      ]
+    }
+  }
+}

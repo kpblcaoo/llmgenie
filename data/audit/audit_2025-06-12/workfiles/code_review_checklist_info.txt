@@ -1,0 +1,1 @@
+-rw-r--r-- 1 kpblc kpblc 451 июн  6 10:45 docs/code_review_checklist.md

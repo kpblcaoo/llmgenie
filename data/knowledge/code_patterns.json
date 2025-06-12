@@ -1,75 +1,11 @@
 [
   {
-    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_17",
-    "name": "ModelRouter:",
-    "description": "Code pattern",
-    "code_snippet": "class ModelRouter:",
-    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
-    "extracted_at": 1749661234.155285
-  },
-  {
-    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_26",
-    "name": "TaskClassifier:",
-    "description": "Code pattern",
-    "code_snippet": "class TaskClassifier:",
-    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
-    "extracted_at": 1749661234.1552863
-  },
-  {
-    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_27",
-    "name": "classify_task",
-    "description": "Code pattern",
-    "code_snippet": "def classify_task(self, query: str, context: Optional[Dict] = None) -> ClassificationResult",
-    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
-    "extracted_at": 1749661234.1552868
-  },
-  {
-    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_33",
-    "name": "QualityValidator:",
-    "description": "Code pattern",
-    "code_snippet": "class QualityValidator:",
-    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
-    "extracted_at": 1749661234.155287
-  },
-  {
-    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_34",
-    "name": "validate_code_output",
-    "description": "Code pattern",
-    "code_snippet": "def validate_code_output(self, code: str, language: str) -> QualityResult",
-    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
-    "extracted_at": 1749661234.1552873
-  },
-  {
-    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_35",
-    "name": "validate_text_output",
-    "description": "Code pattern",
-    "code_snippet": "def validate_text_output(self, text: str, task_type: str) -> QualityResult",
-    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
-    "extracted_at": 1749661234.155288
-  },
-  {
-    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_49",
-    "name": "HandoffValidator:",
-    "description": "Code pattern",
-    "code_snippet": "class HandoffValidator:",
-    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
-    "extracted_at": 1749661234.1552882
-  },
-  {
-    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_50",
-    "name": "validate_package",
-    "description": "Code pattern",
-    "code_snippet": "def validate_package(self, package: HandoffPackage) -> ValidationResult",
-    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
-    "extracted_at": 1749661234.1552885
-  },
-  {
     "pattern_id": ".cursor/rules/workflows/320_modular_architecture_patterns.mdc_31",
     "name": "ParallelExecutor:",
     "description": "Code pattern",
     "code_snippet": "class ParallelExecutor:",
     "source_file": ".cursor/rules/workflows/320_modular_architecture_patterns.mdc",
-    "extracted_at": 1749661234.155289
+    "extracted_at": 1749672338.7646127
   },
   {
     "pattern_id": ".cursor/rules/workflows/320_modular_architecture_patterns.mdc_33",
@@ -77,7 +13,7 @@
     "description": "Code pattern",
     "code_snippet": "class SequentialExecutor:",
     "source_file": ".cursor/rules/workflows/320_modular_architecture_patterns.mdc",
-    "extracted_at": 1749661234.1552892
+    "extracted_at": 1749672338.7646139
   },
   {
     "pattern_id": ".cursor/rules/workflows/320_modular_architecture_patterns.mdc_35",
@@ -85,7 +21,7 @@
     "description": "Code pattern",
     "code_snippet": "class CollaborativeExecutor:",
     "source_file": ".cursor/rules/workflows/320_modular_architecture_patterns.mdc",
-    "extracted_at": 1749661234.1552894
+    "extracted_at": 1749672338.764614
   },
   {
     "pattern_id": ".cursor/rules/workflows/320_modular_architecture_patterns.mdc_44",
@@ -93,7 +29,7 @@
     "description": "Code pattern",
     "code_snippet": "class AgentOrchestrator:",
     "source_file": ".cursor/rules/workflows/320_modular_architecture_patterns.mdc",
-    "extracted_at": 1749661234.1552896
+    "extracted_at": 1749672338.7646146
   },
   {
     "pattern_id": ".cursor/rules/workflows/320_modular_architecture_patterns.mdc_45",
@@ -101,6 +37,70 @@
     "description": "Code pattern",
     "code_snippet": "def __init__(self, agent_routers: Dict[str, ModelRouter]):",
     "source_file": ".cursor/rules/workflows/320_modular_architecture_patterns.mdc",
-    "extracted_at": 1749661234.1552901
+    "extracted_at": 1749672338.7646148
+  },
+  {
+    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_17",
+    "name": "ModelRouter:",
+    "description": "Code pattern",
+    "code_snippet": "class ModelRouter:",
+    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
+    "extracted_at": 1749672338.7646155
+  },
+  {
+    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_26",
+    "name": "TaskClassifier:",
+    "description": "Code pattern",
+    "code_snippet": "class TaskClassifier:",
+    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
+    "extracted_at": 1749672338.7646158
+  },
+  {
+    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_27",
+    "name": "classify_task",
+    "description": "Code pattern",
+    "code_snippet": "def classify_task(self, query: str, context: Optional[Dict] = None) -> ClassificationResult",
+    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
+    "extracted_at": 1749672338.7646163
+  },
+  {
+    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_33",
+    "name": "QualityValidator:",
+    "description": "Code pattern",
+    "code_snippet": "class QualityValidator:",
+    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
+    "extracted_at": 1749672338.7646165
+  },
+  {
+    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_34",
+    "name": "validate_code_output",
+    "description": "Code pattern",
+    "code_snippet": "def validate_code_output(self, code: str, language: str) -> QualityResult",
+    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
+    "extracted_at": 1749672338.764617
+  },
+  {
+    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_35",
+    "name": "validate_text_output",
+    "description": "Code pattern",
+    "code_snippet": "def validate_text_output(self, text: str, task_type: str) -> QualityResult",
+    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
+    "extracted_at": 1749672338.7646172
+  },
+  {
+    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_49",
+    "name": "HandoffValidator:",
+    "description": "Code pattern",
+    "code_snippet": "class HandoffValidator:",
+    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
+    "extracted_at": 1749672338.7646174
+  },
+  {
+    "pattern_id": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc_50",
+    "name": "validate_package",
+    "description": "Code pattern",
+    "code_snippet": "def validate_package(self, package: HandoffPackage) -> ValidationResult",
+    "source_file": ".cursor/rules/workflows/330_epic5_CORRECTED_analysis.mdc",
+    "extracted_at": 1749672338.7646177
   }
 ]

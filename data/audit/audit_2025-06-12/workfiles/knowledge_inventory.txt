@@ -1,0 +1,14 @@
+итого 88K
+drwxrwxr-x 2 kpblc kpblc 4,0K июн 11 02:15 capabilities
+-rw-rw-r-- 1 kpblc kpblc 4,4K июн 11 23:05 code_patterns.json
+-rw-rw-r-- 1 kpblc kpblc 6,7K июн  9 18:12 common.json
+drwxr-xr-x 2 kpblc kpblc 4,0K июн  9 18:12 envs
+-rw-rw-r-- 1 kpblc kpblc 9,9K июн  9 18:12 epic5_capabilities_2025-01-09.md
+-rw-rw-r-- 1 kpblc kpblc 8,4K июн  9 18:12 handoff_automation_technical_guide.md
+-rw-rw-r-- 1 kpblc kpblc 8,7K июн  9 18:12 handoff_best_practices_synthesis_2025-01-05.md
+drwxrwxr-x 2 kpblc kpblc 4,0K июн 11 18:16 integration
+drwxr-xr-x 2 kpblc kpblc 4,0K июн 11 02:15 models
+drwxrwxr-x 4 kpblc kpblc 4,0K июн 11 02:15 projects
+-rw-rw-r-- 1 kpblc kpblc 5,3K июн 11 02:15 README.md
+drwxrwxr-x 2 kpblc kpblc 4,0K июн  9 18:12 techs
+drwxr-xr-x 2 kpblc kpblc 4,0K июн  6 09:49 templates
