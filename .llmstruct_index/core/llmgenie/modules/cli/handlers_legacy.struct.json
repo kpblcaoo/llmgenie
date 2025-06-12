@@ -1,0 +1,73 @@
+{
+  "module_id": "core.llmgenie.modules.cli.handlers_legacy",
+  "path": "core/llmgenie/modules/cli/handlers_legacy.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "interactive_legacy",
+      "docstring": "Run interactive CLI with LLM, supporting file/folder viewing and writing.",
+      "line_range": [
+        14,
+        149
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "interactive_legacy": [
+      "cache.close",
+      "attach_to_llm_request",
+      "user_input.lower",
+      "logging.error",
+      "load_gitignore",
+      "JSONCache",
+      "write_to_file",
+      "client.query",
+      "logging.warning",
+      "LLMClient",
+      "input",
+      "Path",
+      "read_file_content",
+      "json.dumps",
+      "parse",
+      "args_str.strip",
+      "print",
+      "re.match",
+      "os.listdir",
+      "sorted",
+      "user_input.startswith",
+      "get_folder_structure",
+      "m.group"
+    ]
+  },
+  "dependencies": [
+    "JSONCache",
+    "LLMClient",
+    "Path",
+    "attach_to_llm_request",
+    "core.llmgenie",
+    "core.llmgenie.cache",
+    "core.llmgenie.cli",
+    "core.llmgenie.generators.json_generator",
+    "core.llmgenie.modules.cli.utils",
+    "core.llmgenie.self_run",
+    "get_folder_structure",
+    "json",
+    "load_gitignore",
+    "logging",
+    "os",
+    "parse",
+    "pathlib",
+    "re",
+    "read_file_content",
+    "time",
+    "write_to_file"
+  ],
+  "hash": "d7480d621e41d40722fac2f1c85ae74a1307cb45818a7cdc01fc388082ed587b",
+  "artifact_id": "57e6ee1e-a0f9-470a-addf-a42e1c5d75dc"
+}

@@ -1,0 +1,116 @@
+{
+  "module_id": "tests.test_ollama_function_calling",
+  "path": "tests/test_ollama_function_calling.py",
+  "category": "test",
+  "module_doc": "Test script for Ollama function calling capability\nPart of Epic 5: MCP-Ollama Integration\n\nThis script tests:\n1. Basic function calling with different models\n2. Performance measurement\n3. Quality validation",
+  "functions": [
+    {
+      "name": "get_current_weather",
+      "docstring": "Get the current weather for a city (mock function for testing)\n\nArgs:\n    city: The name of the city\n    \nReturns:\n    dict: Weather information",
+      "line_range": [
+        19,
+        37
+      ],
+      "parameters": [
+        "city"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "add_two_numbers",
+      "docstring": "Add two numbers together\n\nArgs:\n    a: The first integer number\n    b: The second integer number\n    \nReturns:\n    int: The sum of the two numbers",
+      "line_range": [
+        40,
+        51
+      ],
+      "parameters": [
+        "a",
+        "b"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_model_function_calling",
+      "docstring": "Test function calling capability for a specific model\n\nArgs:\n    model_name: Name of the Ollama model to test\n    \nReturns:\n    dict: Test results including performance metrics",
+      "line_range": [
+        54,
+        128
+      ],
+      "parameters": [
+        "model_name"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "test_openai_compatible_endpoint",
+      "docstring": "Test OpenAI compatible endpoint functionality\n\nReturns:\n    dict: Test results for OpenAI compatibility",
+      "line_range": [
+        131,
+        178
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "main",
+      "docstring": "Main test execution function",
+      "line_range": [
+        181,
+        265
+      ],
+      "parameters": [],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "get_current_weather": [
+      "weather_data.get"
+    ],
+    "add_two_numbers": [],
+    "test_model_function_calling": [
+      "add_two_numbers",
+      "get_current_weather",
+      "str",
+      "ollama.chat",
+      "print",
+      "len",
+      "time.time"
+    ],
+    "test_openai_compatible_endpoint": [
+      "requests.post",
+      "str",
+      "data.get",
+      "len",
+      "response.json",
+      "print",
+      "time.time"
+    ],
+    "main": [
+      "isinstance",
+      "open",
+      "result.get",
+      "json.dump",
+      "hasattr",
+      "test_model_function_calling",
+      "test_openai_compatible_endpoint",
+      "print",
+      "test_results.items",
+      "sum",
+      "len",
+      "ollama.list"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "Dict",
+    "List",
+    "json",
+    "ollama",
+    "requests",
+    "time",
+    "typing"
+  ],
+  "hash": "ee0ccf1cf8a278a300a6c166371f0df26dd9bc8843a50e0fbda21bd40c742b25",
+  "artifact_id": "4eb83ed4-4c6b-4ccc-bc27-c252d4ef084c"
+}

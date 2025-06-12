@@ -1,0 +1,31 @@
+{
+  "module_id": "core.llmgenie.modules.cli.context",
+  "path": "core/llmgenie/modules/cli/context.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "context",
+      "docstring": "Generate context.json from input JSON.",
+      "line_range": [
+        3,
+        5
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "context": [
+      "logging.warning"
+    ]
+  },
+  "dependencies": [
+    "logging"
+  ],
+  "hash": "2eaa01d2531e7fab1705f319c2b166013a6c19186010ee7b126e5e8396dd4699",
+  "artifact_id": "404c30d3-83a7-41b3-9699-d9887d3365ce"
+}

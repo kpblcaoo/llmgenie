@@ -1,0 +1,19 @@
+{
+  "module_id": "core.llmgenie.orchestration.executors.__init__",
+  "path": "core/llmgenie/orchestration/executors/__init__.py",
+  "category": "cli",
+  "module_doc": "Execution strategies for multi-agent orchestration\n\nEpic 5 Phase 3.1: All execution modes\n- ParallelExecutor: Independent parallel execution\n- SequentialExecutor: Sequential handoffs with context\n- CollaborativeExecutor: Competitive quality optimization",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [
+    "CollaborativeExecutor",
+    "ParallelExecutor",
+    "SequentialExecutor",
+    "collaborative_executor",
+    "parallel_executor",
+    "sequential_executor"
+  ],
+  "hash": "9eb357fce290bb15766ae4f824cfe940887df5e2fa98a08ae50fa72e8d0ac401",
+  "artifact_id": "54936c61-8200-40ca-b0c1-0a9d0884a9d9"
+}

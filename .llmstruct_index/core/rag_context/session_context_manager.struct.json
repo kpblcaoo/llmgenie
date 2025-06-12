@@ -1,0 +1,601 @@
+{
+  "module_id": "core.rag_context.session_context_manager",
+  "path": "core/rag_context/session_context_manager.py",
+  "category": "core",
+  "module_doc": "Session Context Manager - Phase 4A.2.3 Safe Implementation\nBuilds on Phase 4A.2.1 (knowledge extraction) and 4A.2.2 (discovery) safely.",
+  "functions": [
+    {
+      "name": "create_context_manager",
+      "docstring": "Create context manager safely",
+      "line_range": [
+        377,
+        387
+      ],
+      "parameters": [
+        "extractor",
+        "discovery"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "create_session_context_manager",
+      "docstring": "Create session context manager safely (alias for create_context_manager)",
+      "line_range": [
+        390,
+        393
+      ],
+      "parameters": [
+        "extractor",
+        "discovery"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "Initialize with optional existing components",
+      "line_range": [
+        52,
+        67
+      ],
+      "parameters": [
+        "self",
+        "extractor",
+        "discovery"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "extract_session_context",
+      "docstring": "Extract key context from session logs safely.\n\nPreserves \"why we chose X over Y\" decision-making context.",
+      "line_range": [
+        69,
+        121
+      ],
+      "parameters": [
+        "self",
+        "session_file"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_get_session_files_safely",
+      "docstring": "Get session files safely",
+      "line_range": [
+        123,
+        142
+      ],
+      "parameters": [
+        "self",
+        "specific_file"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_extract_context_from_session",
+      "docstring": "Extract context from a single session file (simple implementation)",
+      "line_range": [
+        144,
+        188
+      ],
+      "parameters": [
+        "self",
+        "session_file"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_extract_session_description",
+      "docstring": "Extract session description from data",
+      "line_range": [
+        190,
+        197
+      ],
+      "parameters": [
+        "self",
+        "session_data"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_extract_decisions",
+      "docstring": "Extract key decisions from session data",
+      "line_range": [
+        199,
+        209
+      ],
+      "parameters": [
+        "self",
+        "session_data"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_extract_reasoning",
+      "docstring": "Extract reasoning chains from session data",
+      "line_range": [
+        211,
+        225
+      ],
+      "parameters": [
+        "self",
+        "session_data"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_extract_problem_type",
+      "docstring": "Extract problem type from session data",
+      "line_range": [
+        227,
+        243
+      ],
+      "parameters": [
+        "self",
+        "session_data"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_extract_solutions",
+      "docstring": "Extract solutions used from session data",
+      "line_range": [
+        245,
+        251
+      ],
+      "parameters": [
+        "self",
+        "session_data"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_extract_context_files",
+      "docstring": "Extract relevant context files from session data",
+      "line_range": [
+        253,
+        265
+      ],
+      "parameters": [
+        "self",
+        "session_data"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_generate_restoration_prompt",
+      "docstring": "Generate restoration prompt for session context",
+      "line_range": [
+        267,
+        292
+      ],
+      "parameters": [
+        "self",
+        "description",
+        "decisions",
+        "reasoning",
+        "problem_type"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_save_snapshots_safely",
+      "docstring": "Save session snapshots to JSON safely",
+      "line_range": [
+        294,
+        316
+      ],
+      "parameters": [
+        "self",
+        "snapshots"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "restore_session_context",
+      "docstring": "Restore context for a specific session",
+      "line_range": [
+        318,
+        337
+      ],
+      "parameters": [
+        "self",
+        "session_id"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_context_stats",
+      "docstring": "Get context management statistics",
+      "line_range": [
+        339,
+        365
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "disable",
+      "docstring": "Disable context manager safely",
+      "line_range": [
+        367,
+        369
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "enable",
+      "docstring": "Enable context manager",
+      "line_range": [
+        371,
+        373
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "SessionSnapshot",
+      "docstring": "Captured session context for restoration",
+      "line_range": [
+        17,
+        27
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "ContextExtractionResult",
+      "docstring": "Result of context extraction operation",
+      "line_range": [
+        31,
+        38
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "SessionContextManager",
+      "docstring": "Session Context Preservation for maintaining decision-making context.\n\nSafe design principles:\n- Builds on existing Phase 4A.2.1/4A.2.2 components\n- No breaking changes to existing session logging\n- Graceful fallback if session data unavailable\n- Simple file-based storage (no complex dependencies)",
+      "line_range": [
+        41,
+        373
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize with optional existing components",
+          "line_range": [
+            52,
+            67
+          ],
+          "parameters": [
+            "self",
+            "extractor",
+            "discovery"
+          ]
+        },
+        {
+          "name": "extract_session_context",
+          "docstring": "Extract key context from session logs safely.\n\nPreserves \"why we chose X over Y\" decision-making context.",
+          "line_range": [
+            69,
+            121
+          ],
+          "parameters": [
+            "self",
+            "session_file"
+          ]
+        },
+        {
+          "name": "_get_session_files_safely",
+          "docstring": "Get session files safely",
+          "line_range": [
+            123,
+            142
+          ],
+          "parameters": [
+            "self",
+            "specific_file"
+          ]
+        },
+        {
+          "name": "_extract_context_from_session",
+          "docstring": "Extract context from a single session file (simple implementation)",
+          "line_range": [
+            144,
+            188
+          ],
+          "parameters": [
+            "self",
+            "session_file"
+          ]
+        },
+        {
+          "name": "_extract_session_description",
+          "docstring": "Extract session description from data",
+          "line_range": [
+            190,
+            197
+          ],
+          "parameters": [
+            "self",
+            "session_data"
+          ]
+        },
+        {
+          "name": "_extract_decisions",
+          "docstring": "Extract key decisions from session data",
+          "line_range": [
+            199,
+            209
+          ],
+          "parameters": [
+            "self",
+            "session_data"
+          ]
+        },
+        {
+          "name": "_extract_reasoning",
+          "docstring": "Extract reasoning chains from session data",
+          "line_range": [
+            211,
+            225
+          ],
+          "parameters": [
+            "self",
+            "session_data"
+          ]
+        },
+        {
+          "name": "_extract_problem_type",
+          "docstring": "Extract problem type from session data",
+          "line_range": [
+            227,
+            243
+          ],
+          "parameters": [
+            "self",
+            "session_data"
+          ]
+        },
+        {
+          "name": "_extract_solutions",
+          "docstring": "Extract solutions used from session data",
+          "line_range": [
+            245,
+            251
+          ],
+          "parameters": [
+            "self",
+            "session_data"
+          ]
+        },
+        {
+          "name": "_extract_context_files",
+          "docstring": "Extract relevant context files from session data",
+          "line_range": [
+            253,
+            265
+          ],
+          "parameters": [
+            "self",
+            "session_data"
+          ]
+        },
+        {
+          "name": "_generate_restoration_prompt",
+          "docstring": "Generate restoration prompt for session context",
+          "line_range": [
+            267,
+            292
+          ],
+          "parameters": [
+            "self",
+            "description",
+            "decisions",
+            "reasoning",
+            "problem_type"
+          ]
+        },
+        {
+          "name": "_save_snapshots_safely",
+          "docstring": "Save session snapshots to JSON safely",
+          "line_range": [
+            294,
+            316
+          ],
+          "parameters": [
+            "self",
+            "snapshots"
+          ]
+        },
+        {
+          "name": "restore_session_context",
+          "docstring": "Restore context for a specific session",
+          "line_range": [
+            318,
+            337
+          ],
+          "parameters": [
+            "self",
+            "session_id"
+          ]
+        },
+        {
+          "name": "get_context_stats",
+          "docstring": "Get context management statistics",
+          "line_range": [
+            339,
+            365
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "disable",
+          "docstring": "Disable context manager safely",
+          "line_range": [
+            367,
+            369
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "enable",
+          "docstring": "Enable context manager",
+          "line_range": [
+            371,
+            373
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "Path",
+      "SmartCodeDiscovery",
+      "SafeKnowledgeExtractor"
+    ],
+    "extract_session_context": [
+      "snapshots.append",
+      "errors.append",
+      "self._get_session_files_safely",
+      "self._save_snapshots_safely",
+      "ContextExtractionResult",
+      "sum",
+      "len",
+      "time.time",
+      "self._extract_context_from_session"
+    ],
+    "_get_session_files_safely": [
+      "specific_file.exists",
+      "sorted",
+      "file.is_file",
+      "session_files.append",
+      "f.stat"
+    ],
+    "_extract_context_from_session": [
+      "self._extract_decisions",
+      "session_data.append",
+      "self._extract_problem_type",
+      "open",
+      "self._extract_session_description",
+      "self._extract_context_files",
+      "self._generate_restoration_prompt",
+      "line.strip",
+      "json.loads",
+      "self._extract_reasoning",
+      "SessionSnapshot",
+      "self._extract_solutions",
+      "time.time"
+    ],
+    "_extract_session_description": [
+      "entry.get",
+      "len"
+    ],
+    "_extract_decisions": [
+      "decisions.append",
+      "any",
+      "entry.get"
+    ],
+    "_extract_reasoning": [
+      "str",
+      "any",
+      "entry.get",
+      "reasoning.append"
+    ],
+    "_extract_problem_type": [
+      "any",
+      "entry.get",
+      "problem_keywords.items"
+    ],
+    "_extract_solutions": [
+      "solutions.append",
+      "entry.get"
+    ],
+    "_extract_context_files": [
+      "list",
+      "files.add",
+      "description.split",
+      "word.strip",
+      "set",
+      "any",
+      "entry.get"
+    ],
+    "_generate_restoration_prompt": [
+      "prompt_parts.append",
+      "enumerate"
+    ],
+    "_save_snapshots_safely": [
+      "int",
+      "open",
+      "snapshots_file.exists",
+      "json.dump",
+      "print",
+      "snapshots_file.rename",
+      "snapshots_data.append",
+      "time.time",
+      "asdict"
+    ],
+    "restore_session_context": [
+      "snapshot_data.get",
+      "snapshots_file.exists",
+      "json.load",
+      "open"
+    ],
+    "get_context_stats": [
+      "snapshot.get",
+      "open",
+      "snapshots_file.exists",
+      "json.load",
+      "len"
+    ],
+    "disable": [],
+    "enable": [],
+    "create_context_manager": [
+      "manager.disable",
+      "SessionContextManager",
+      "print"
+    ],
+    "create_session_context_manager": [
+      "create_context_manager"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "Dict",
+    "List",
+    "Optional",
+    "Path",
+    "SafeKnowledgeExtractor",
+    "SmartCodeDiscovery",
+    "asdict",
+    "code_discovery",
+    "dataclass",
+    "dataclasses",
+    "datetime",
+    "json",
+    "knowledge_extractor",
+    "pathlib",
+    "time",
+    "typing"
+  ],
+  "hash": "57328a157757a75b8daf27a187622e30db3b463df38139e30e30205a0cc2ffc8",
+  "artifact_id": "95ffd43f-b5f3-4845-9037-4a0bf35a1fda"
+}

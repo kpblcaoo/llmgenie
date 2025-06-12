@@ -1,0 +1,112 @@
+{
+  "module_id": "core.rag_context.config",
+  "path": "core/rag_context/config.py",
+  "category": "core",
+  "module_doc": "Configuration для RAG Context системы",
+  "functions": [
+    {
+      "name": "__post_init__",
+      "docstring": "Установка значений по умолчанию",
+      "line_range": [
+        33,
+        47
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "is_valid",
+      "docstring": "Проверка корректности конфигурации",
+      "line_range": [
+        50,
+        56
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "property"
+      ]
+    },
+    {
+      "name": "has_struct_support",
+      "docstring": "Проверка доступности struct.json функций",
+      "line_range": [
+        59,
+        61
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": [
+        "property"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "name": "RAGConfig",
+      "docstring": "Конфигурация для RAG Context Enhancement",
+      "line_range": [
+        9,
+        61
+      ],
+      "methods": [
+        {
+          "name": "__post_init__",
+          "docstring": "Установка значений по умолчанию",
+          "line_range": [
+            33,
+            47
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "is_valid",
+          "docstring": "Проверка корректности конфигурации",
+          "line_range": [
+            50,
+            56
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "has_struct_support",
+          "docstring": "Проверка доступности struct.json функций",
+          "line_range": [
+            59,
+            61
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__post_init__": [
+      "print"
+    ],
+    "is_valid": [],
+    "has_struct_support": []
+  },
+  "dependencies": [
+    "List",
+    "Optional",
+    "Path",
+    "dataclass",
+    "dataclasses",
+    "pathlib",
+    "typing"
+  ],
+  "hash": "8712b8b3a7612eaa6ee083d23b6262f104f0854308b5ef9e98c964a516d649ab",
+  "artifact_id": "fd0e4d23-c73f-449d-98d3-d6fa60231158"
+}

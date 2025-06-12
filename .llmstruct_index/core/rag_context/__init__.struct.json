@@ -1,0 +1,17 @@
+{
+  "module_id": "core.rag_context.__init__",
+  "path": "core/rag_context/__init__.py",
+  "category": "cli",
+  "module_doc": "RAG Context Enhancement System\n\nПростая система для улучшения контекста AI-исполнителей через \nрелевантное содержимое из .cursor/rules и struct.json",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [
+    "PromptEnhancer",
+    "RAGConfig",
+    "config",
+    "enhancer"
+  ],
+  "hash": "5ac7f7467ea4bcc73c1433be7e9694c8079808150e2e8e8694c10ec1bd963272",
+  "artifact_id": "15c6f878-f13c-4118-9b64-c8bfd8490b0d"
+}

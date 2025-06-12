@@ -1,0 +1,81 @@
+{
+  "module_id": "core.llmgenie.modules.cli.epic",
+  "path": "core/llmgenie/modules/cli/epic.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "load_json",
+      "docstring": "",
+      "line_range": [
+        5,
+        7
+      ],
+      "parameters": [
+        "path"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "show_links",
+      "docstring": "",
+      "line_range": [
+        9,
+        57
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "add_epic_cli_subparser",
+      "docstring": "",
+      "line_range": [
+        59,
+        67
+      ],
+      "parameters": [
+        "subparsers"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "load_json": [
+      "json.load",
+      "open"
+    ],
+    "show_links": [
+      "load_json",
+      "json.dumps",
+      "str",
+      "epic_path.exists",
+      "t.upper",
+      "item.get",
+      "epic.get",
+      "data.get",
+      "status_filter.lower",
+      "print",
+      "results.items",
+      "link_map.items",
+      "Path"
+    ],
+    "add_epic_cli_subparser": [
+      "show_links_parser.add_argument",
+      "show_links_parser.set_defaults",
+      "epic_sub.add_parser",
+      "subparsers.add_parser",
+      "epic_parser.add_subparsers"
+    ]
+  },
+  "dependencies": [
+    "Path",
+    "argparse",
+    "json",
+    "pathlib"
+  ],
+  "hash": "7a96cb38d4cc07f413b5da974e0eb6c461a8ce1c76f96f808c8a4414a7eb1b30",
+  "artifact_id": "06fc318e-0018-4c8d-9aa0-8aaaadd5d768"
+}

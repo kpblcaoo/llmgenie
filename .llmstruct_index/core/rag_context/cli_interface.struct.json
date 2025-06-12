@@ -1,0 +1,214 @@
+{
+  "module_id": "core.rag_context.cli_interface",
+  "path": "core/rag_context/cli_interface.py",
+  "category": "core",
+  "module_doc": "Enhanced CLI Interface for RAG Context Management\nNow includes Self-Refine Pipeline integration",
+  "functions": [
+    {
+      "name": "create_main_parser",
+      "docstring": "Create the main argument parser with all subcommands",
+      "line_range": [
+        20,
+        90
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "handle_rag_commands",
+      "docstring": "Handle RAG-related commands",
+      "line_range": [
+        93,
+        123
+      ],
+      "parameters": [
+        "args",
+        "cli_tool"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "handle_refine_commands",
+      "docstring": "Handle self-refine pipeline commands",
+      "line_range": [
+        126,
+        139
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "handle_refine_code",
+      "docstring": "Handle code refinement",
+      "line_range": [
+        142,
+        183
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "handle_refine_text",
+      "docstring": "Handle text refinement",
+      "line_range": [
+        186,
+        222
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "handle_refine_report",
+      "docstring": "Handle refinement report generation",
+      "line_range": [
+        225,
+        241
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "handle_refine_quick",
+      "docstring": "Handle quick refinement",
+      "line_range": [
+        244,
+        256
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "main",
+      "docstring": "Main entry point",
+      "line_range": [
+        259,
+        283
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "sync_main",
+      "docstring": "Synchronous wrapper for main",
+      "line_range": [
+        286,
+        288
+      ],
+      "parameters": [],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "create_main_parser": [
+      "refine_parser.add_subparsers",
+      "refine_subparsers.add_parser",
+      "code_parser.add_argument",
+      "text_parser.add_argument",
+      "stats_parser.add_argument",
+      "enhance_parser.add_argument",
+      "struct_parser.add_argument",
+      "report_parser.add_argument",
+      "quick_parser.add_argument",
+      "argparse.ArgumentParser",
+      "refresh_parser.add_argument",
+      "search_parser.add_argument",
+      "parser.add_subparsers",
+      "subparsers.add_parser"
+    ],
+    "handle_rag_commands": [
+      "cli_tool.refresh_command",
+      "cli_tool.enhance_command",
+      "cli_tool.stats_command",
+      "getattr",
+      "print",
+      "cli_tool.search_rules_command",
+      "cli_tool.struct_command"
+    ],
+    "handle_refine_commands": [
+      "handle_refine_code",
+      "sys.exit",
+      "handle_refine_text",
+      "handle_refine_quick",
+      "print",
+      "handle_refine_report"
+    ],
+    "handle_refine_code": [
+      "SelfRefinePipeline",
+      "sys.exit",
+      "print",
+      "pipeline.refine",
+      "pipeline.generate_refinement_report",
+      "Path",
+      "pipeline.refine_code_file"
+    ],
+    "handle_refine_text": [
+      "SelfRefinePipeline",
+      "sys.exit",
+      "print",
+      "len",
+      "pipeline.refine",
+      "Path"
+    ],
+    "handle_refine_report": [
+      "json.loads",
+      "print",
+      "sys.exit",
+      "Path"
+    ],
+    "handle_refine_quick": [
+      "quick_refine_code",
+      "quick_refine_text",
+      "print"
+    ],
+    "main": [
+      "create_main_parser",
+      "sys.exit",
+      "hasattr",
+      "handle_refine_commands",
+      "parser.print_help",
+      "print",
+      "CLITool",
+      "handle_rag_commands",
+      "parser.parse_args",
+      "RAGConfig"
+    ],
+    "sync_main": [
+      "main",
+      "asyncio.run"
+    ]
+  },
+  "dependencies": [
+    "CLITool",
+    "Optional",
+    "Path",
+    "PromptEnhancer",
+    "RAGConfig",
+    "RefinementType",
+    "SelfRefinePipeline",
+    "argparse",
+    "asyncio",
+    "config",
+    "enhancer",
+    "interfaces.cli_tool",
+    "interfaces.self_refine_pipeline",
+    "json",
+    "pathlib",
+    "quick_refine_code",
+    "quick_refine_text",
+    "sys",
+    "typing"
+  ],
+  "hash": "937f50b0dc1424f272a0bfc77654337f1d7ce1a090952463264f0c10b2f592ea",
+  "artifact_id": "e97f1cc1-5c47-447b-a1d0-4244c1d43c77"
+}

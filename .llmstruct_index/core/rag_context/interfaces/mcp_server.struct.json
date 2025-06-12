@@ -1,0 +1,347 @@
+{
+  "module_id": "core.rag_context.interfaces.mcp_server",
+  "path": "core/rag_context/interfaces/mcp_server.py",
+  "category": "core",
+  "module_doc": "MCP Server для интеграции с Cursor, VSCode, Claude Desktop\nОбъединяет RAG (5 инструментов) + Struct Tools (6 инструментов)\nИспользует официальный MCP Python SDK",
+  "functions": [
+    {
+      "name": "main",
+      "docstring": "Главная функция для запуска MCP сервера",
+      "line_range": [
+        822,
+        836
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        71,
+        105
+      ],
+      "parameters": [
+        "self",
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_setup_handlers",
+      "docstring": "Настройка MCP handlers",
+      "line_range": [
+        107,
+        614
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_handle_struct_tool",
+      "docstring": "Обработка struct_tools инструментов",
+      "line_range": [
+        616,
+        769
+      ],
+      "parameters": [
+        "self",
+        "name",
+        "arguments"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "run_stdio",
+      "docstring": "Запуск MCP сервера в stdio режиме (для Cursor)",
+      "line_range": [
+        771,
+        788
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_cursor_config",
+      "docstring": "Генерирует конфигурацию для Cursor",
+      "line_range": [
+        790,
+        802
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_vscode_config",
+      "docstring": "Генерирует конфигурацию для VSCode",
+      "line_range": [
+        804,
+        807
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "save_cursor_config",
+      "docstring": "Сохраняет конфигурацию для Cursor",
+      "line_range": [
+        809,
+        819
+      ],
+      "parameters": [
+        "self",
+        "config_path"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "handle_list_tools",
+      "docstring": "Список доступных инструментов",
+      "line_range": [
+        111,
+        388
+      ],
+      "parameters": [],
+      "decorators": [
+        "self.server.list_tools()"
+      ]
+    },
+    {
+      "name": "handle_call_tool",
+      "docstring": "Обработка вызовов инструментов с автоматическим логированием",
+      "line_range": [
+        391,
+        614
+      ],
+      "parameters": [
+        "name",
+        "arguments"
+      ],
+      "decorators": [
+        "self.server.call_tool()"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "name": "MCPServer",
+      "docstring": "MCP Server для универсального доступа к RAG системе + Struct Tools",
+      "line_range": [
+        68,
+        819
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            71,
+            105
+          ],
+          "parameters": [
+            "self",
+            "config"
+          ]
+        },
+        {
+          "name": "_setup_handlers",
+          "docstring": "Настройка MCP handlers",
+          "line_range": [
+            107,
+            614
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "_handle_struct_tool",
+          "docstring": "Обработка struct_tools инструментов",
+          "line_range": [
+            616,
+            769
+          ],
+          "parameters": [
+            "self",
+            "name",
+            "arguments"
+          ]
+        },
+        {
+          "name": "run_stdio",
+          "docstring": "Запуск MCP сервера в stdio режиме (для Cursor)",
+          "line_range": [
+            771,
+            788
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "get_cursor_config",
+          "docstring": "Генерирует конфигурацию для Cursor",
+          "line_range": [
+            790,
+            802
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "get_vscode_config",
+          "docstring": "Генерирует конфигурацию для VSCode",
+          "line_range": [
+            804,
+            807
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "save_cursor_config",
+          "docstring": "Сохраняет конфигурацию для Cursor",
+          "line_range": [
+            809,
+            819
+          ],
+          "parameters": [
+            "self",
+            "config_path"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "Server",
+      "ImportError",
+      "PromptEnhancer",
+      "create_knowledge_extractor",
+      "create_session_context_manager",
+      "self._setup_handlers",
+      "StructureAnalyzer",
+      "print",
+      "create_cursor_intelligence",
+      "StructureConfig",
+      "RAGConfig",
+      "Path",
+      "create_discovery_system"
+    ],
+    "_setup_handlers": [],
+    "handle_list_tools": [
+      "types.Tool",
+      "tools.extend"
+    ],
+    "handle_call_tool": [
+      "auto_logger.log_tool_result",
+      "name.startswith",
+      "cursor_intelligence.get_proactive_suggestions",
+      "len",
+      "time.time",
+      "auto_logger.log_tool_call",
+      "round",
+      "json.load",
+      "session_context_manager.extract_session_context",
+      "discovery_system.search_solutions",
+      "Path",
+      "json.dumps",
+      "self._handle_struct_tool",
+      "extractor.extract_code_knowledge",
+      "datetime.now",
+      "suggestions_system.get_workflow_suggestions",
+      "cursor_intelligence.analyze_workflow_context",
+      "detect_and_log_model_context",
+      "arguments.get",
+      "types.TextContent",
+      "open",
+      "str",
+      "cursor_intelligence._insight_to_dict",
+      "rules.append",
+      "workflow_analysis.get",
+      "locals"
+    ],
+    "_handle_struct_tool": [
+      "json.dumps",
+      "arguments.get",
+      "types.TextContent",
+      "str",
+      "result.update",
+      "len"
+    ],
+    "run_stdio": [
+      "NotificationOptions",
+      "InitializationOptions",
+      "print"
+    ],
+    "get_cursor_config": [],
+    "get_vscode_config": [
+      "self.get_cursor_config"
+    ],
+    "save_cursor_config": [
+      "self.get_cursor_config",
+      "open",
+      "json.dump",
+      "print",
+      "Path.cwd"
+    ],
+    "main": [
+      "server.run_stdio",
+      "server.save_cursor_config",
+      "MCPServer",
+      "print"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "Dict",
+    "InitializationOptions",
+    "List",
+    "NotificationOptions",
+    "Optional",
+    "Path",
+    "PromptEnhancer",
+    "RAGConfig",
+    "Server",
+    "StructureAnalyzer",
+    "StructureConfig",
+    "asyncio",
+    "auto_logger",
+    "code_discovery",
+    "config",
+    "create_cursor_intelligence",
+    "create_discovery_system",
+    "create_knowledge_extractor",
+    "create_session_context_manager",
+    "cursor_intelligence",
+    "datetime",
+    "detect_and_log_model_context",
+    "enhancer",
+    "json",
+    "knowledge_extractor",
+    "mcp.server",
+    "mcp.server.models",
+    "mcp.server.stdio",
+    "mcp.types",
+    "pathlib",
+    "session_context_manager",
+    "struct_tools.structure_analyzer",
+    "sys",
+    "time",
+    "typing"
+  ],
+  "hash": "f878d69e1759e3a3e2ae48e66ba2b5ea3aade210c4a4de59ac5b727e0684b207",
+  "artifact_id": "2375dc33-c3e0-489e-907e-f44cb88915a9"
+}

@@ -3,33 +3,35 @@
   "description": "Tool profile for llmgenie as assistant for other projects",
   "extends": "defaults",
   "overrides": {
-    "mode": "tool_assistant",
-    "logging": {
-      "level": "INFO",
-      "format": "json",
-      "output": "logs/tool.log"
-    },
-    "features": {
-      "auto_context_detection": true,
-      "project_analysis": true,
-      "smart_suggestions": true,
-      "workflow_automation": true
-    },
-    "ai_models": {
-      "default": "claude-3-sonnet",
-      "temperature": 0.0,
-      "max_tokens": 8000
-    },
-    "workspace": {
-      "isolation": true,
-      "project_sandboxing": true,
-      "auto_cleanup": true
-    },
-    "integrations": {
-      "cursor": true,
-      "vscode": true,
-      "git": true,
-      "mcp": true
+    "llmgenie": {
+      "mode": "tool_assistant",
+      "logging": {
+        "level": "INFO",
+        "format": "json",
+        "output": "logs/tool.log"
+      },
+      "features": {
+        "auto_context_detection": true,
+        "project_analysis": true,
+        "smart_suggestions": true,
+        "workflow_automation": true
+      },
+      "ai_models": {
+        "default": "claude-3-sonnet",
+        "temperature": 0.0,
+        "max_tokens": 8000
+      },
+      "workspace": {
+        "isolation": true,
+        "project_sandboxing": true,
+        "auto_cleanup": true
+      },
+      "integrations": {
+        "cursor": true,
+        "vscode": true,
+        "git": true,
+        "mcp": true
+      }
     }
   }
 } 

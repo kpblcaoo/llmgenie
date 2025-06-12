@@ -1,0 +1,12 @@
+{
+  "module": "tests/test_smoke.py",
+  "functions": [
+    {
+      "name": "test_smoke",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

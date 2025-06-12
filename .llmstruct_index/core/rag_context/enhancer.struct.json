@@ -1,0 +1,260 @@
+{
+  "module_id": "core.rag_context.enhancer",
+  "path": "core/rag_context/enhancer.py",
+  "category": "core",
+  "module_doc": "Prompt Enhancer - главный интерфейс RAG системы",
+  "functions": [
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        16,
+        33
+      ],
+      "parameters": [
+        "self",
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "initialize",
+      "docstring": "Инициализация системы - загрузка и индексация документов",
+      "line_range": [
+        35,
+        64
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "enhance",
+      "docstring": "Улучшает промпт добавлением релевантного контекста",
+      "line_range": [
+        66,
+        93
+      ],
+      "parameters": [
+        "self",
+        "task_text",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_load_all_documents",
+      "docstring": "Загружает все доступные документы",
+      "line_range": [
+        95,
+        116
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_build_enhanced_prompt",
+      "docstring": "Строит улучшенный промпт с контекстом",
+      "line_range": [
+        118,
+        169
+      ],
+      "parameters": [
+        "self",
+        "original_task",
+        "relevant_results",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_stats",
+      "docstring": "Статистика RAG системы",
+      "line_range": [
+        171,
+        189
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "refresh_index",
+      "docstring": "Обновляет индекс документов",
+      "line_range": [
+        191,
+        195
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "PromptEnhancer",
+      "docstring": "Главный интерфейс для улучшения промптов через RAG",
+      "line_range": [
+        13,
+        195
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            16,
+            33
+          ],
+          "parameters": [
+            "self",
+            "config"
+          ]
+        },
+        {
+          "name": "initialize",
+          "docstring": "Инициализация системы - загрузка и индексация документов",
+          "line_range": [
+            35,
+            64
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "enhance",
+          "docstring": "Улучшает промпт добавлением релевантного контекста",
+          "line_range": [
+            66,
+            93
+          ],
+          "parameters": [
+            "self",
+            "task_text",
+            "context"
+          ]
+        },
+        {
+          "name": "_load_all_documents",
+          "docstring": "Загружает все доступные документы",
+          "line_range": [
+            95,
+            116
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "_build_enhanced_prompt",
+          "docstring": "Строит улучшенный промпт с контекстом",
+          "line_range": [
+            118,
+            169
+          ],
+          "parameters": [
+            "self",
+            "original_task",
+            "relevant_results",
+            "context"
+          ]
+        },
+        {
+          "name": "get_stats",
+          "docstring": "Статистика RAG системы",
+          "line_range": [
+            171,
+            189
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "refresh_index",
+          "docstring": "Обновляет индекс документов",
+          "line_range": [
+            191,
+            195
+          ],
+          "parameters": [
+            "self"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "ContextRetriever",
+      "SimpleEmbedder",
+      "RAGConfig"
+    ],
+    "initialize": [
+      "self._load_all_documents",
+      "time.time",
+      "len",
+      "print"
+    ],
+    "enhance": [
+      "self._build_enhanced_prompt",
+      "print",
+      "self.initialize"
+    ],
+    "_load_all_documents": [
+      "RulesLoader",
+      "documents.extend",
+      "len",
+      "print",
+      "StructLoader",
+      "struct_loader.load_document",
+      "documents.append",
+      "rules_loader.load_documents"
+    ],
+    "_build_enhanced_prompt": [
+      "prompt_parts.append",
+      "rules_context.append",
+      "prompt_parts.extend",
+      "len",
+      "struct_context.append",
+      "context.items"
+    ],
+    "get_stats": [
+      "stats.update"
+    ],
+    "refresh_index": [
+      "print",
+      "self.initialize"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "ContextRetriever",
+    "Dict",
+    "Document",
+    "List",
+    "Optional",
+    "Path",
+    "RAGConfig",
+    "RetrievalResult",
+    "RulesLoader",
+    "SimpleEmbedder",
+    "StructLoader",
+    "config",
+    "embedder",
+    "loader",
+    "pathlib",
+    "retriever",
+    "time",
+    "typing"
+  ],
+  "hash": "8d2cfa893f488404c7818ec2ac83342e72863d59d3aed1de2b460c729d015f12",
+  "artifact_id": "0dc98c86-4ad6-4879-a8f5-35315c40cc5f"
+}

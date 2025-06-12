@@ -1,0 +1,501 @@
+{
+  "module_id": "core.rag_context.cursor_intelligence",
+  "path": "core/rag_context/cursor_intelligence.py",
+  "category": "core",
+  "module_doc": "Cursor Intelligence System for Workflow Enhancement\n\nPhase 4A.4: Intelligent synthesis of Cursor history patterns for enhanced development workflow.\nIntegrates with Phase 4A.2 Knowledge Preservation System for comprehensive intelligence.",
+  "functions": [
+    {
+      "name": "create_cursor_intelligence",
+      "docstring": "Create and initialize Cursor Intelligence System",
+      "line_range": [
+        278,
+        280
+      ],
+      "parameters": [],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        41,
+        47
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "suggest_module_placement",
+      "docstring": "Suggest optimal module placement based on architectural patterns",
+      "line_range": [
+        49,
+        68
+      ],
+      "parameters": [
+        "self",
+        "functionality_description"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_calculate_pattern_relevance",
+      "docstring": "Calculate how relevant patterns are to description",
+      "line_range": [
+        70,
+        74
+      ],
+      "parameters": [
+        "self",
+        "description",
+        "patterns"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "__init__",
+      "docstring": "",
+      "line_range": [
+        84,
+        88
+      ],
+      "parameters": [
+        "self"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "analyze_workflow_context",
+      "docstring": "Comprehensive workflow analysis combining all intelligence sources",
+      "line_range": [
+        90,
+        148
+      ],
+      "parameters": [
+        "self",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "get_proactive_suggestions",
+      "docstring": "Get proactive suggestions based on current session state",
+      "line_range": [
+        150,
+        170
+      ],
+      "parameters": [
+        "self",
+        "session_state"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_assess_complexity",
+      "docstring": "Assess task complexity",
+      "line_range": [
+        172,
+        187
+      ],
+      "parameters": [
+        "self",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_assess_quality_risk",
+      "docstring": "Assess quality risk (0.0 to 1.0)",
+      "line_range": [
+        189,
+        197
+      ],
+      "parameters": [
+        "self",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_estimate_time",
+      "docstring": "Estimate implementation time",
+      "line_range": [
+        199,
+        206
+      ],
+      "parameters": [
+        "self",
+        "complexity"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_get_recommended_approach",
+      "docstring": "Get recommended implementation approach",
+      "line_range": [
+        208,
+        227
+      ],
+      "parameters": [
+        "self",
+        "complexity",
+        "risk"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_get_risk_factors",
+      "docstring": "Get risk factors based on risk level",
+      "line_range": [
+        229,
+        236
+      ],
+      "parameters": [
+        "self",
+        "risk"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_get_success_factors",
+      "docstring": "Get success factors",
+      "line_range": [
+        238,
+        247
+      ],
+      "parameters": [
+        "self",
+        "context"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_insight_to_dict",
+      "docstring": "Convert insight to dictionary format",
+      "line_range": [
+        249,
+        259
+      ],
+      "parameters": [
+        "self",
+        "insight"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "_generate_summary",
+      "docstring": "Generate human-readable summary",
+      "line_range": [
+        261,
+        276
+      ],
+      "parameters": [
+        "self",
+        "insights",
+        "prediction"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [
+    {
+      "name": "IntelligenceInsight",
+      "docstring": "Single intelligence insight from pattern analysis",
+      "line_range": [
+        18,
+        26
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "WorkflowPrediction",
+      "docstring": "Prediction about workflow complexity and quality",
+      "line_range": [
+        29,
+        36
+      ],
+      "methods": [],
+      "bases": []
+    },
+    {
+      "name": "ArchitecturalIntelligence",
+      "docstring": "Intelligence patterns from architectural analysis",
+      "line_range": [
+        38,
+        74
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            41,
+            47
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "suggest_module_placement",
+          "docstring": "Suggest optimal module placement based on architectural patterns",
+          "line_range": [
+            49,
+            68
+          ],
+          "parameters": [
+            "self",
+            "functionality_description"
+          ]
+        },
+        {
+          "name": "_calculate_pattern_relevance",
+          "docstring": "Calculate how relevant patterns are to description",
+          "line_range": [
+            70,
+            74
+          ],
+          "parameters": [
+            "self",
+            "description",
+            "patterns"
+          ]
+        }
+      ],
+      "bases": []
+    },
+    {
+      "name": "CursorIntelligenceOrchestrator",
+      "docstring": "Main orchestrator for Cursor Intelligence System\n\nSynthesizes all intelligence patterns for comprehensive workflow enhancement.\nIntegrates with Phase 4A.2 Knowledge Preservation System.",
+      "line_range": [
+        76,
+        276
+      ],
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "",
+          "line_range": [
+            84,
+            88
+          ],
+          "parameters": [
+            "self"
+          ]
+        },
+        {
+          "name": "analyze_workflow_context",
+          "docstring": "Comprehensive workflow analysis combining all intelligence sources",
+          "line_range": [
+            90,
+            148
+          ],
+          "parameters": [
+            "self",
+            "context"
+          ]
+        },
+        {
+          "name": "get_proactive_suggestions",
+          "docstring": "Get proactive suggestions based on current session state",
+          "line_range": [
+            150,
+            170
+          ],
+          "parameters": [
+            "self",
+            "session_state"
+          ]
+        },
+        {
+          "name": "_assess_complexity",
+          "docstring": "Assess task complexity",
+          "line_range": [
+            172,
+            187
+          ],
+          "parameters": [
+            "self",
+            "context"
+          ]
+        },
+        {
+          "name": "_assess_quality_risk",
+          "docstring": "Assess quality risk (0.0 to 1.0)",
+          "line_range": [
+            189,
+            197
+          ],
+          "parameters": [
+            "self",
+            "context"
+          ]
+        },
+        {
+          "name": "_estimate_time",
+          "docstring": "Estimate implementation time",
+          "line_range": [
+            199,
+            206
+          ],
+          "parameters": [
+            "self",
+            "complexity"
+          ]
+        },
+        {
+          "name": "_get_recommended_approach",
+          "docstring": "Get recommended implementation approach",
+          "line_range": [
+            208,
+            227
+          ],
+          "parameters": [
+            "self",
+            "complexity",
+            "risk"
+          ]
+        },
+        {
+          "name": "_get_risk_factors",
+          "docstring": "Get risk factors based on risk level",
+          "line_range": [
+            229,
+            236
+          ],
+          "parameters": [
+            "self",
+            "risk"
+          ]
+        },
+        {
+          "name": "_get_success_factors",
+          "docstring": "Get success factors",
+          "line_range": [
+            238,
+            247
+          ],
+          "parameters": [
+            "self",
+            "context"
+          ]
+        },
+        {
+          "name": "_insight_to_dict",
+          "docstring": "Convert insight to dictionary format",
+          "line_range": [
+            249,
+            259
+          ],
+          "parameters": [
+            "self",
+            "insight"
+          ]
+        },
+        {
+          "name": "_generate_summary",
+          "docstring": "Generate human-readable summary",
+          "line_range": [
+            261,
+            276
+          ],
+          "parameters": [
+            "self",
+            "insights",
+            "prediction"
+          ]
+        }
+      ],
+      "bases": []
+    }
+  ],
+  "callgraph": {
+    "__init__": [
+      "ArchitecturalIntelligence",
+      "logger.info"
+    ],
+    "suggest_module_placement": [
+      "IntelligenceInsight",
+      "insights.append",
+      "category.lower",
+      "self._calculate_pattern_relevance"
+    ],
+    "_calculate_pattern_relevance": [
+      "pattern.lower",
+      "sum",
+      "len",
+      "description.lower",
+      "min"
+    ],
+    "analyze_workflow_context": [
+      "self._get_success_factors",
+      "self._generate_summary",
+      "bool",
+      "logger.info",
+      "logger.error",
+      "context.get",
+      "str",
+      "self._assess_quality_risk",
+      "self._get_recommended_approach",
+      "datetime.now",
+      "self._estimate_time",
+      "self._assess_complexity",
+      "len",
+      "self._get_risk_factors",
+      "WorkflowPrediction",
+      "self._insight_to_dict"
+    ],
+    "get_proactive_suggestions": [
+      "str",
+      "any",
+      "suggestions.append"
+    ],
+    "_assess_complexity": [
+      "str",
+      "sum",
+      "len"
+    ],
+    "_assess_quality_risk": [
+      "str",
+      "len",
+      "sum",
+      "min"
+    ],
+    "_estimate_time": [
+      "time_mapping.get"
+    ],
+    "_get_recommended_approach": [
+      "approach.extend"
+    ],
+    "_get_risk_factors": [],
+    "_get_success_factors": [
+      "str",
+      "factors.append"
+    ],
+    "_insight_to_dict": [],
+    "_generate_summary": [
+      "len"
+    ],
+    "create_cursor_intelligence": [
+      "CursorIntelligenceOrchestrator"
+    ]
+  },
+  "dependencies": [
+    "Any",
+    "Dict",
+    "List",
+    "Optional",
+    "Path",
+    "dataclass",
+    "dataclasses",
+    "datetime",
+    "json",
+    "logging",
+    "pathlib",
+    "typing"
+  ],
+  "hash": "df53087815726c54c0bb11a7c2de0495692fc727dbec2f09f94575ddb7ff5c3f",
+  "artifact_id": "abfa87aa-5fc0-4d4d-88d8-5cce9240d2a6"
+}

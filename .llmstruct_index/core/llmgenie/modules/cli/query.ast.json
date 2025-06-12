@@ -1,0 +1,12 @@
+{
+  "module": "core/llmgenie/modules/cli/query.py",
+  "functions": [
+    {
+      "name": "query",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

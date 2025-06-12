@@ -51,12 +51,76 @@ from core.llmgenie.modules.cli.copilot import copilot
 from core.llmgenie.modules.cli.audit import audit
 from core.llmgenie.modules.cli.analyze_duplicates import analyze_duplicates
 from core.llmgenie.modules.cli import epic
+from core.llmgenie.config_loader import load_config as load_llmgenie_config, ConfigurationError
+
+
+def show_config(args):
+    """Show current configuration."""
+    config = args.llmgenie_config
+    
+    # Filter to specific section if requested
+    if args.section:
+        sections = args.section.split('.')
+        current = config
+        try:
+            for section in sections:
+                current = current[section]
+            config = {args.section: current}
+        except KeyError:
+            print(f"Configuration section '{args.section}' not found")
+            return
+    
+    # Format output
+    if args.format == "json":
+        print(json.dumps(config, indent=2, ensure_ascii=False))
+    elif args.format == "yaml":
+        try:
+            import yaml
+            print(yaml.dump(config, default_flow_style=False, allow_unicode=True))
+        except ImportError:
+            print("PyYAML not installed, falling back to JSON format")
+            print(json.dumps(config, indent=2, ensure_ascii=False))
+    elif args.format == "table":
+        _print_config_table(config)
+
+
+def _print_config_table(config, prefix="", level=0):
+    """Print configuration in table format."""
+    indent = "  " * level
+    
+    for key, value in config.items():
+        full_key = f"{prefix}.{key}" if prefix else key
+        
+        if isinstance(value, dict):
+            print(f"{indent}{key}:")
+            _print_config_table(value, full_key, level + 1)
+        elif isinstance(value, list):
+            print(f"{indent}{key}: [{', '.join(map(str, value))}]")
+        else:
+            print(f"{indent}{key}: {value}")
+
 
 def main():
     """Command-line interface for LLMstruct."""
     parser = argparse.ArgumentParser(
         description="Generate structured JSON for codebases and query LLMs"
     )
+    
+    # Global configuration arguments
+    parser.add_argument(
+        "--profile", 
+        default="dev", 
+        help="Configuration profile (dev, tool, prod)"
+    )
+    parser.add_argument(
+        "--project", 
+        help="Project name for project-specific configuration"
+    )
+    parser.add_argument(
+        "--config", 
+        help="Manual configuration file path"
+    )
+    
     subparsers = parser.add_subparsers(
         dest="command", required=True, help="Available commands"
     )
@@ -274,6 +338,21 @@ def main():
 
     # Epic management
     epic.add_epic_cli_subparser(subparsers)
+    
+    # Configuration management
+    config_parser = subparsers.add_parser(
+        "show-config", help="Show current configuration"
+    )
+    config_parser.add_argument(
+        "--format", 
+        choices=["json", "yaml", "table"], 
+        default="json", 
+        help="Output format"
+    )
+    config_parser.add_argument(
+        "--section", 
+        help="Show specific configuration section"
+    )
 
     args = parser.parse_args()
 
@@ -300,6 +379,31 @@ def main():
     if hasattr(args, "exclude_dir"):
         args.exclude_dir = normalize_patterns(args.exclude_dir)
 
+    # Load configuration
+    try:
+        cli_overrides = {
+            "llmgenie": {
+                "cli_args": vars(args)
+            }
+        }
+        
+        config = load_llmgenie_config(
+            profile=args.profile,
+            project=args.project,
+            config_path=args.config,
+            cli_overrides=cli_overrides
+        )
+        
+        # Add config to args for use in commands
+        args.llmgenie_config = config
+        
+    except ConfigurationError as e:
+        logging.error(f"Configuration error: {e}")
+        sys.exit(1)
+    except Exception as e:
+        logging.error(f"Unexpected error loading configuration: {e}")
+        sys.exit(1)
+
     if args.command == "parse":
         parse(args)
     elif args.command == "query":
@@ -316,6 +420,8 @@ def main():
         audit(args)
     elif args.command == "analyze-duplicates":
         analyze_duplicates(args)
+    elif args.command == "show-config":
+        show_config(args)
 
 if __name__ == "__main__":
     main()

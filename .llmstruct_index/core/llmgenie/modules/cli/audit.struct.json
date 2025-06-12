@@ -1,0 +1,39 @@
+{
+  "module_id": "core.llmgenie.modules.cli.audit",
+  "path": "core/llmgenie/modules/cli/audit.py",
+  "category": "cli",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "audit",
+      "docstring": "Audit project structure and generate reports.",
+      "line_range": [
+        4,
+        17
+      ],
+      "parameters": [
+        "args"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "audit": [
+      "hasattr",
+      "print",
+      "file_path.exists",
+      "Path",
+      "analyze_duplicates"
+    ]
+  },
+  "dependencies": [
+    "Path",
+    "analyze_duplicates",
+    "core.llmgenie.cli",
+    "os",
+    "pathlib"
+  ],
+  "hash": "debd01c866c298dd83797c012c8b2443affc5becd6dca75e702282c7b54058e7",
+  "artifact_id": "54707fbb-9bcc-40cf-a5ac-40fd0465506f"
+}

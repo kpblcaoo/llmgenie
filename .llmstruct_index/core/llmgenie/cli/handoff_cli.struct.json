@@ -1,0 +1,124 @@
+{
+  "module_id": "core.llmgenie.cli.handoff_cli",
+  "path": "core/llmgenie/cli/handoff_cli.py",
+  "category": "cli",
+  "module_doc": "CLI tool for handoff validation\nCan be used in CI/CD pipelines and workflows",
+  "functions": [
+    {
+      "name": "load_handoff_config",
+      "docstring": "Load handoff configuration from JSON file",
+      "line_range": [
+        18,
+        28
+      ],
+      "parameters": [
+        "config_path"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "create_handoff_package_from_config",
+      "docstring": "Create HandoffPackage from configuration",
+      "line_range": [
+        30,
+        49
+      ],
+      "parameters": [
+        "config"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "print_validation_result",
+      "docstring": "Print validation result to console",
+      "line_range": [
+        51,
+        99
+      ],
+      "parameters": [
+        "result",
+        "verbose"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "generate_template",
+      "docstring": "Generate handoff template configuration",
+      "line_range": [
+        101,
+        140
+      ],
+      "parameters": [
+        "output_path"
+      ],
+      "decorators": []
+    },
+    {
+      "name": "main",
+      "docstring": "Main CLI entry point",
+      "line_range": [
+        142,
+        207
+      ],
+      "parameters": [],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "load_handoff_config": [
+      "sys.exit",
+      "json.load",
+      "print",
+      "open"
+    ],
+    "create_handoff_package_from_config": [
+      "HandoffPackage",
+      "config.get",
+      "HandoffFile"
+    ],
+    "print_validation_result": [
+      "len",
+      "print"
+    ],
+    "generate_template": [
+      "json.dump",
+      "print",
+      "open"
+    ],
+    "main": [
+      "template_parser.add_argument",
+      "create_handoff_package_from_config",
+      "sys.exit",
+      "generate_template",
+      "argparse.ArgumentParser",
+      "print_validation_result",
+      "HandoffValidator",
+      "validator.validate_package",
+      "load_handoff_config",
+      "print",
+      "check_parser.add_argument",
+      "parser.parse_args",
+      "parser.add_subparsers",
+      "parser.print_help",
+      "subparsers.add_parser",
+      "validate_parser.add_argument"
+    ]
+  },
+  "dependencies": [
+    "Dict",
+    "HandoffFile",
+    "HandoffPackage",
+    "HandoffValidator",
+    "List",
+    "Path",
+    "api.handoff_validator",
+    "argparse",
+    "json",
+    "pathlib",
+    "sys",
+    "typing"
+  ],
+  "hash": "d45d8b28e2936eac9dfcaf32ffbda0bc1dd893350c36d5b1cd213066e2615c62",
+  "artifact_id": "399a3821-4bbf-4119-96c8-0868e96c228e"
+}

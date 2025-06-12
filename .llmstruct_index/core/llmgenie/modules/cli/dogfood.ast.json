@@ -1,0 +1,12 @@
+{
+  "module": "core/llmgenie/modules/cli/dogfood.py",
+  "functions": [
+    {
+      "name": "dogfood",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}

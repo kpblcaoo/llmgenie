@@ -1,0 +1,63 @@
+{
+  "module_id": "core.llmgenie.modules.commands.queue",
+  "path": "core/llmgenie/modules/commands/queue.py",
+  "category": "core",
+  "module_doc": "",
+  "functions": [
+    {
+      "name": "process_cli_queue_enhanced",
+      "docstring": "Enhanced queue processing with workflow support, performance tracking, and safety validation.",
+      "line_range": [
+        9,
+        208
+      ],
+      "parameters": [
+        "root_dir",
+        "context_path",
+        "args",
+        "cache",
+        "client"
+      ],
+      "decorators": []
+    }
+  ],
+  "classes": [],
+  "callgraph": {
+    "process_cli_queue_enhanced": [
+      "logging.error",
+      "load_gitignore",
+      "isinstance",
+      "write_to_file",
+      "open",
+      "workflow.get",
+      "enumerate",
+      "options.get",
+      "attach_to_llm_request",
+      "logging.info",
+      "json.load",
+      "client.query",
+      "item.get",
+      "print",
+      "len",
+      "get_folder_structure",
+      "time.time",
+      "read_file_content"
+    ]
+  },
+  "dependencies": [
+    "attach_to_llm_request",
+    "core.llmgenie.generators.json_generator",
+    "core.llmgenie.modules.cli.utils",
+    "core.llmgenie.self_run",
+    "get_folder_structure",
+    "json",
+    "load_gitignore",
+    "logging",
+    "os",
+    "read_file_content",
+    "time",
+    "write_to_file"
+  ],
+  "hash": "3a70eff4f7e5843b751690556afc4895f66aec81012715a060d1e2ed24daf722",
+  "artifact_id": "2b1dcbcf-f590-40e0-84cf-0d33811f4783"
+}

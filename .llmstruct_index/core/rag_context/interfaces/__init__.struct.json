@@ -1,0 +1,21 @@
+{
+  "module_id": "core.rag_context.interfaces.__init__",
+  "path": "core/rag_context/interfaces/__init__.py",
+  "category": "cli",
+  "module_doc": "RAG Context Interfaces - универсальные интерфейсы для доступа к RAG системе\n\nПоддерживаемые интерфейсы:\n- MCP: для Cursor, VSCode, Claude Desktop\n- HTTP API: для веб-приложений, сервисов\n- CLI: для командной строки и скриптов\n- WebSocket: для real-time приложений\n- Python Library: для прямого использования",
+  "functions": [],
+  "classes": [],
+  "callgraph": {},
+  "dependencies": [
+    "CLITool",
+    "HTTPAPIServer",
+    "MCPServer",
+    "WebSocketServer",
+    "cli_tool",
+    "http_api",
+    "mcp_server",
+    "websocket_server"
+  ],
+  "hash": "9d6e8c8c43139ceda139fa99039ac95d086caaa368f5be4ec90746da19e7cfeb",
+  "artifact_id": "b8dbdcc7-3d98-4ea3-be7b-f298f6748b7f"
+}

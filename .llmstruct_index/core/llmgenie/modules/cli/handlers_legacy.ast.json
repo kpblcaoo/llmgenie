@@ -1,0 +1,12 @@
+{
+  "module": "core/llmgenie/modules/cli/handlers_legacy.py",
+  "functions": [
+    {
+      "name": "interactive_legacy",
+      "ast_hash": null,
+      "source": null,
+      "start_line": null,
+      "end_line": null
+    }
+  ]
+}
